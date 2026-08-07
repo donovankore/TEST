@@ -15178,6 +15178,104 @@ body.kova-artist-detail-open{
   }
 }
 
+@media (max-width:700px){
+  /* On phones the top navigation becomes two independent glass capsules,
+     leaving the content visible through the centre of the screen. */
+  .nav,
+  .nav.is-scrolled{
+    top:max(9px,env(safe-area-inset-top))!important;
+    left:12px!important;
+    right:12px!important;
+    width:auto!important;
+    height:48px!important;
+    min-height:48px!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    box-shadow:none!important;
+    pointer-events:none!important;
+  }
+
+  .nav::after{display:none!important}
+
+  .nav .brand{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:auto!important;
+    min-width:82px!important;
+    height:46px!important;
+    padding:0 17px!important;
+    border:1px solid rgba(255,255,255,.66)!important;
+    border-radius:999px!important;
+    background:
+      radial-gradient(circle at 24% 8%,rgba(255,255,255,.92),transparent 36%),
+      linear-gradient(120deg,rgba(255,255,255,.67),rgba(231,227,240,.43))!important;
+    -webkit-backdrop-filter:blur(26px) saturate(185%)!important;
+    backdrop-filter:blur(26px) saturate(185%)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 12px 34px rgba(8,6,14,.16)!important;
+    color:#111116!important;
+    font-size:18px!important;
+    pointer-events:auto!important;
+  }
+
+  #kovaMenuOpen{
+    flex:0 0 46px!important;
+    width:46px!important;
+    height:46px!important;
+    min-width:46px!important;
+    min-height:46px!important;
+    margin:0!important;
+    pointer-events:auto!important;
+  }
+
+  /* Keep 44px+ targets while reducing the visual footprint of the dock. */
+  .mobile-dock{
+    width:calc(100vw - 32px)!important;
+    max-width:398px!important;
+    min-height:64px!important;
+    height:64px!important;
+    padding:5px!important;
+    bottom:max(8px,env(safe-area-inset-bottom))!important;
+    border-radius:22px!important;
+  }
+
+  .mobile-dock::before{
+    top:5px!important;
+    bottom:5px!important;
+    left:5px!important;
+    width:calc((100% - 10px)/5)!important;
+    border-radius:17px!important;
+  }
+
+  .mobile-dock.is-morphing::before{
+    border-radius:23px 13px 23px 13px!important;
+  }
+
+  .mobile-dock .dock-item{
+    min-height:52px!important;
+    height:52px!important;
+    padding:4px 2px!important;
+    gap:2px!important;
+  }
+
+  .mobile-dock .dock-item strong{
+    font-size:17px!important;
+    line-height:1!important;
+  }
+
+  .mobile-dock .dock-item span,
+  .mobile-dock .dock-item small{
+    font-size:8px!important;
+    line-height:1!important;
+  }
+}
+
 @supports not ((-webkit-backdrop-filter:blur(2px)) or (backdrop-filter:blur(2px))){
   .nav{background:rgba(244,243,247,.94)!important}
   .mobile-dock{background:rgba(19,19,24,.96)!important}
@@ -22717,15 +22815,18 @@ body.kova-event-detail-open{
     nav.style.setProperty('right','auto','important');
     nav.style.setProperty('margin','0','important');
     nav.style.setProperty('width',
-      window.innerWidth <= 600 ? 'calc(100vw - 20px)' : 'min(calc(100vw - 24px),680px)',
+      window.innerWidth <= 700 ? 'min(calc(100vw - 32px),398px)' : 'min(calc(100vw - 24px),680px)',
       'important'
     );
     nav.style.setProperty('max-width',
-      window.innerWidth <= 600 ? 'calc(100vw - 20px)' : 'calc(100vw - 24px)',
+      window.innerWidth <= 700 ? 'min(calc(100vw - 32px),398px)' : 'calc(100vw - 24px)',
       'important'
     );
     nav.style.setProperty('transform','translateX(-50%) translateZ(0)','important');
-    nav.style.setProperty('bottom','max(10px,env(safe-area-inset-bottom))','important');
+    nav.style.setProperty('bottom',
+      window.innerWidth <= 700 ? 'max(8px,env(safe-area-inset-bottom))' : 'max(10px,env(safe-area-inset-bottom))',
+      'important'
+    );
     nav.style.setProperty('box-sizing','border-box','important');
   }
 
