@@ -13664,55 +13664,48 @@ body.v67-artist-open .kova-player{
   }
 }
 
-@media (max-width:430px){
-  .kova-player-main{
-    gap:9px;
+@media (max-width:600px){
+  .kova-player{
+    left:auto;
+    right:10px;
+    bottom:calc(82px + env(safe-area-inset-bottom));
+    width:62px;
+    min-height:62px;
+    padding:6px;
+    border-color:rgba(255,255,255,.34);
+    border-radius:21px;
+    background:radial-gradient(circle at 28% 8%,rgba(255,255,255,.3),transparent 36%),rgba(20,20,25,.58);
+    -webkit-backdrop-filter:blur(28px) saturate(190%);
+    backdrop-filter:blur(28px) saturate(190%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 16px 40px rgba(0,0,0,.34);
+    transform:translateY(16px) scale(.9);
   }
-
-  .kova-player-copy small{
-    font-size:8px;
-  }
-
-  .kova-player-copy strong{
-    font-size:14px;
-  }
-
-  .kova-player-chevron{
-    display:none;
-  }
-
-  .kova-player-ticket{
-    min-height:44px;
-    padding:0 10px;
-  }
-
-  .kova-player-history-button{
-    width:28px;
-    height:38px;
-    border-radius:10px;
-  }
-
-  .kova-player-art{
-    flex-basis:54px;
-    width:54px;
-    height:54px;
-  }
+  .kova-player.is-visible{transform:none}
+  body.v66-event-open .kova-player,body.v67-artist-open .kova-player{transform:translateY(12px) scale(.9)}
+  .kova-player-main{display:block;min-width:50px;width:50px;height:50px}
+  .kova-player-art{display:block;width:50px;height:50px;min-width:50px;border-radius:16px;box-shadow:none}
+  .kova-player.is-artist .kova-player-art{border-radius:50%}
+  .kova-player-copy,.kova-player-chevron,.kova-player-history-controls,.kova-player-ticket{display:none!important}
+  .kova-player-close{position:absolute;top:-7px;right:-7px;width:23px;height:23px;border:1px solid rgba(255,255,255,.36);background:rgba(22,22,27,.88);color:#fff;font-size:12px;box-shadow:0 5px 14px rgba(0,0,0,.3)}
 }
 
 @media (max-width:370px){
-  .kova-player-copy small{
-    max-width:92px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    white-space:nowrap;
-  }
-
-  .kova-player-history-button{
-    width:26px;
-  }
+  .kova-player{right:8px}
 }
 
 /* KOVA V83 — Guide KOVA: places curated by the editorial team */
+.kova-experience-hub{position:relative;overflow:hidden;background:#0d0d0f;color:#fff}
+.kova-experience-intro{width:min(100% - 48px,1420px);margin:auto;padding:clamp(80px,9vw,132px) 0 18px}
+.kova-experience-intro h2{max-width:980px;margin:0;font-size:clamp(54px,8.2vw,118px);line-height:.84;letter-spacing:-.078em}
+.kova-experience-intro>p{max-width:620px;margin:24px 0 34px;color:rgba(255,255,255,.62);font-size:clamp(16px,1.45vw,20px);line-height:1.55}
+.kova-experience-switch{display:inline-grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:6px;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:rgba(255,255,255,.07);-webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%)}
+.kova-experience-switch button{min-width:150px;min-height:54px;padding:0 20px;border:0;border-radius:18px;background:transparent;color:rgba(255,255,255,.64);font-weight:900;cursor:pointer;touch-action:manipulation}
+.kova-experience-switch button span{margin-right:8px;font-size:9px;letter-spacing:.12em;opacity:.58}
+.kova-experience-switch button.active{background:#fff;color:#111;box-shadow:0 12px 32px rgba(0,0,0,.24)}
+.kova-experience-panel{display:none}
+.kova-experience-panel.active{display:block;animation:kovaExperienceIn .58s cubic-bezier(.16,1,.3,1) both}
+@keyframes kovaExperienceIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
 .kova-city-guide{
   position:relative;
   overflow:hidden;
@@ -13844,9 +13837,21 @@ body.kova-place-open .kova-player{opacity:0!important;visibility:hidden!importan
 .kova-food-guide.food-ready .kova-food-card:nth-child(5){animation-delay:.24s}
 .kova-food-card .kova-food-level{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#ffb26f;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
 .kova-food-card .kova-food-level::before{content:"";width:22px;height:1px;background:currentColor}
+.kova-sport-guide{background:radial-gradient(circle at 80% 14%,rgba(74,220,174,.2),transparent 31%),radial-gradient(circle at 12% 82%,rgba(87,110,255,.22),transparent 34%),#0b0d0f}
+.kova-sport-guide .kova-guide-kicker{color:#7be0bc}
+.kova-sport-guide .kova-guide-kicker::before{background:#42d69e;box-shadow:0 0 22px #42d69e}
+.kova-sport-guide .kova-place-card::after{background:linear-gradient(to top,rgba(4,13,11,.96),rgba(4,13,11,.02) 68%)}
+.kova-sport-level{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#7be0bc;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.kova-sport-level::before{content:"";width:22px;height:1px;background:currentColor}
 @keyframes kovaFoodRise{to{opacity:1;transform:none}}
 
 @media (max-width:820px){
+  .kova-experience-intro{width:100%;padding:76px 18px 8px}
+  .kova-experience-intro h2{font-size:clamp(50px,16vw,72px)}
+  .kova-experience-intro>p{margin:19px 0 25px;font-size:14px}
+  .kova-experience-switch{display:grid;width:100%;grid-template-columns:repeat(3,1fr);border-radius:20px}
+  .kova-experience-switch button{min-width:0;min-height:48px;padding:0 8px;border-radius:15px;font-size:12px}
+  .kova-experience-switch button span{display:block;margin:0 0 2px;font-size:7px}
   .kova-city-guide{padding:76px 0 90px}
   .kova-guide-shell{width:100%}
   .kova-guide-head{display:block;padding:0 18px;margin-bottom:34px}
@@ -14787,17 +14792,12 @@ body.kova-artist-detail-open{
 }
 
 .v68-apple-link::after{
-  content:"↗";
-  font-size:14px;
-  transition:transform .22s ease;
+  content:none;
+  display:none;
 }
 
 .v67-track:hover .v68-apple-link{
   background:linear-gradient(115deg,#ff2f8a,#764dff)!important;
-}
-
-.v67-track:hover .v68-apple-link::after{
-  transform:translate(2px,-2px);
 }
 
 .v68-apple-link.is-loading{
@@ -14856,10 +14856,8 @@ body.kova-artist-detail-open{
   }
 
   .v68-apple-link::after{
-    position:absolute;
-    right:7px;
-    top:4px;
-    font-size:10px;
+    display:none!important;
+    content:none!important;
   }
 }
 </style><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/><style>
@@ -15728,6 +15726,21 @@ body.kova-event-detail-open{
 
 .rising-card>.kova-favorite-button{z-index:320!important}
 
+@media (max-width:600px){
+  .rising-card{
+    grid-template-columns:min(34vw,126px) minmax(0,1fr)!important;
+    min-height:126px!important;
+    border-radius:24px!important;
+  }
+  .rising-card::after{display:none!important;content:none!important}
+  .rising-card .rising-content{min-width:0!important;padding:20px 58px 18px 18px!important}
+  .rising-card .rising-label-below{font-size:9px!important;letter-spacing:.14em!important}
+  .rising-card .rising-content h4{margin:10px 0 6px!important;font-size:clamp(25px,7.5vw,34px)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .rising-card .rising-content p{font-size:12px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .rising-card>.kova-favorite-button{top:12px!important;right:12px!important;width:42px!important;height:42px!important;font-size:21px!important;background:rgba(22,22,27,.48)!important;border-color:rgba(255,255,255,.64)!important}
+  .rising-card>.kova-favorite-button.is-favorite{background:#ff348d!important;border-color:#ff348d!important}
+}
+
 .kova-favorites-rail:empty{display:none}
 
 .kova-smart-empty{
@@ -15916,7 +15929,7 @@ body.kova-event-detail-open{
 <body>
 <nav class="nav">
 <a class="brand" href="#">KOVA</a>
-<div class="links"><a href="#discover">Découvrir</a><a href="#artists">Artistes</a><a href="#guide">Guide</a><a href="#restaurants">Restaurants</a><a data-kova-wallet-open="true" href="#wallet">Mes billets</a><a href="#organizers">Pour les créateurs</a><a href="#story">Notre histoire</a><a href="#help">Aide</a></div>
+<div class="links"><a href="#discover">Découvrir</a><a href="#artists">Artistes</a><a href="#kovaExperiences">Guide KOVA</a><a data-kova-wallet-open="true" href="#wallet">Mes billets</a><a href="#organizers">Pour les créateurs</a><a href="#story">Notre histoire</a><a href="#help">Aide</a></div>
 <button class="nav-cta" id="earlyAccessBtn">Accès en avant-première</button>
 <button aria-expanded="false" aria-label="Ouvrir le menu" class="kova-menu-open" id="kovaMenuOpen" type="button"><span aria-hidden="true" class="v82-menu-icon"><i></i><i></i><i></i></span></button></nav>
 <main>
@@ -16108,7 +16121,18 @@ body.kova-event-detail-open{
 <div class="feature reveal"><div class="kicker">03 · Vas-y</div><h3>Tu es dedans.</h3><p>Tu réserves, tu récupères ton accès et tu n’as plus qu’à te pointer.</p></div>
 </div></div></div>
 </section>
-<section aria-labelledby="kovaGuideTitle" class="kova-city-guide" id="guide">
+<section aria-labelledby="kovaExperienceTitle" class="kova-experience-hub" id="kovaExperiences">
+<div class="kova-experience-intro">
+<span class="kova-guide-kicker">LES CHOIX KOVA</span>
+<h2 id="kovaExperienceTitle">Visiter. Manger. Bouger.</h2>
+<p>Une seule collection premium pour découvrir Abidjan selon ton humeur, sans transformer KOVA en annuaire.</p>
+<div aria-label="Choisir une collection KOVA" class="kova-experience-switch" role="tablist">
+<button aria-controls="guide" aria-selected="true" class="active" data-experience-tab="guide" role="tab" type="button"><span>01</span>Visiter</button>
+<button aria-controls="restaurants" aria-selected="false" data-experience-tab="restaurants" role="tab" type="button"><span>02</span>Manger</button>
+<button aria-controls="sports" aria-selected="false" data-experience-tab="sports" role="tab" type="button"><span>03</span>Bouger</button>
+</div>
+</div>
+<section aria-labelledby="kovaGuideTitle" class="kova-city-guide kova-experience-panel active" data-experience-panel="guide" id="guide">
 <div class="kova-guide-shell">
 <header class="kova-guide-head reveal">
 <div>
@@ -16175,7 +16199,7 @@ body.kova-event-detail-open{
 <footer class="kova-guide-foot"><span>Fais glisser pour explorer · Appuie pour ouvrir le guide</span><span aria-live="polite" class="kova-guide-count" id="kovaGuideCount">10 LIEUX</span></footer>
 </div>
 </section>
-<section aria-labelledby="kovaFoodTitle" class="kova-city-guide kova-food-guide" id="restaurants">
+<section aria-hidden="true" aria-labelledby="kovaFoodTitle" class="kova-city-guide kova-food-guide kova-experience-panel" data-experience-panel="restaurants" id="restaurants">
 <div class="kova-guide-shell">
 <header class="kova-guide-head reveal">
 <div>
@@ -16241,6 +16265,33 @@ body.kova-event-detail-open{
 </div>
 <footer class="kova-guide-foot"><span>Budgets estimés pour un plat et une boisson · hors alcool</span><span aria-live="polite" class="kova-guide-count" id="kovaFoodCount">10 TABLES</span></footer>
 </div>
+</section>
+<section aria-hidden="true" aria-labelledby="kovaSportTitle" class="kova-city-guide kova-sport-guide kova-experience-panel" data-experience-panel="sports" id="sports">
+<div class="kova-guide-shell">
+<header class="kova-guide-head"><div><span class="kova-guide-kicker">BOUGER AVEC KOVA</span><h2 id="kovaSportTitle">Ton prochain terrain.</h2></div><p>Foot, padel, fitness, basket ou natation : des spots choisis pour passer à l’action, avec un budget individuel lisible.</p></header>
+<div class="kova-guide-toolbar">
+<div aria-label="Filtrer les activités sportives" class="kova-guide-tabs" role="tablist">
+<button aria-selected="true" class="kova-guide-tab active" data-sport-filter="all" role="tab" type="button">Tous</button>
+<button aria-selected="false" class="kova-guide-tab" data-sport-filter="foot" role="tab" type="button">Football</button>
+<button aria-selected="false" class="kova-guide-tab" data-sport-filter="padel" role="tab" type="button">Padel</button>
+<button aria-selected="false" class="kova-guide-tab" data-sport-filter="fitness" role="tab" type="button">Fitness</button>
+<button aria-selected="false" class="kova-guide-tab" data-sport-filter="aquatique" role="tab" type="button">Natation</button>
+</div>
+<div class="kova-guide-controls"><button aria-label="Activités précédentes" class="kova-guide-arrow" id="kovaSportPrev" type="button">←</button><button aria-label="Activités suivantes" class="kova-guide-arrow" id="kovaSportNext" type="button">→</button></div>
+</div>
+<div aria-label="Les activités sportives choisies par KOVA" class="kova-guide-track" id="kovaSportTrack">
+<button aria-label="Découvrir Le Temple du Foot Vallon" class="kova-place-card kova-sport-card" data-budget="≈ 5 000 F · personne" data-sport="temple-vallon" data-sport-tags="foot" type="button"><img alt="Terrain de football synthétique" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Football · 2 Plateaux</span><span>01</span></span><h3>Temple du Foot</h3><p>Le classique pour réserver un terrain et monter un match sans compliquer l’organisation.</p><span class="kova-sport-level">Équipe · 1 heure</span></span></button>
+<button aria-label="Découvrir Le Temple du Foot Campus" class="kova-place-card kova-sport-card" data-budget="≈ 5 000 F · personne" data-sport="temple-campus" data-sport-tags="foot" type="button"><img alt="Match de football entre amis" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Football · Cocody</span><span>02</span></span><h3>Campus Cocody</h3><p>La version centrale du Temple du Foot pour jouer près de l’université.</p><span class="kova-sport-level">Équipe · réservation</span></span></button>
+<button aria-label="Découvrir Padelta" class="kova-place-card kova-sport-card" data-budget="2 500 à 7 500 F · personne" data-sport="padelta" data-sport-tags="padel fitness" type="button"><img alt="Terrains couverts de Padelta à Cocody" decoding="async" loading="lazy" src="https://padeltaabidjan.com/img/padel-couvert-abidjan-padelta.jpg"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Padel · Cocody Danga</span><span>03</span></span><h3>Padelta</h3><p>Cinq terrains couverts, des créneaux clairs et une vraie expérience club.</p><span class="kova-sport-level">4 joueurs · 1 h 30</span></span></button>
+<button aria-label="Découvrir Padel Magic" class="kova-place-card kova-sport-card" data-budget="≈ 3 000 F · personne" data-sport="padel-magic" data-sport-tags="padel" type="button"><img alt="Joueur de padel sur un terrain bleu" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Padel · Hôtel Ivoire</span><span>04</span></span><h3>Padel Magic</h3><p>Une option premium et centrale pour découvrir le padel à Cocody.</p><span class="kova-sport-level">Tarif dès 12 000 F / terrain</span></span></button>
+<button aria-label="Découvrir Z Fit Spa" class="kova-place-card kova-sport-card" data-budget="10 000 F · séance" data-sport="zfit" data-sport-tags="fitness" type="button"><img alt="Salle de sport moderne" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Fitness · 2 Plateaux</span><span>05</span></span><h3>Z Fit</h3><p>Cardio, musculation et cours collectifs dans un format premium.</p><span class="kova-sport-level">Accès journalier</span></span></button>
+<button aria-label="Découvrir Top Gym" class="kova-place-card kova-sport-card" data-budget="Essai offert · tarif à confirmer" data-sport="top-gym" data-sport-tags="fitness" type="button"><img alt="Entraînement collectif en salle" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Fitness · Plusieurs zones</span><span>06</span></span><h3>Top Gym</h3><p>Une option accessible à Dokui, Adjamé et Abobo avec séance d’essai.</p><span class="kova-sport-level">Débutant bienvenu</span></span></button>
+<button aria-label="Découvrir la piscine Azalaï" class="kova-place-card kova-sport-card" data-budget="15 000 F · journée" data-sport="azalai-pool" data-sport-tags="aquatique" type="button"><img alt="Piscine extérieure pour la nage" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Natation · Marcory</span><span>07</span></span><h3>Piscine Azalaï</h3><p>Nage libre à la journée, avec maître-nageur et accès encadré.</p><span class="kova-sport-level">Adulte · accès journalier</span></span></button>
+<button aria-label="Découvrir l’Olympic Basket Center" class="kova-place-card kova-sport-card" data-budget="Tarif à confirmer" data-sport="obc" data-sport-tags="basket" type="button"><img alt="Terrain de basketball extérieur" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Basket · Cocody</span><span>08</span></span><h3>OBC Cocody</h3><p>Un point de repère du basket abidjanais pour se renseigner sur les séances et entraînements.</p><span class="kova-sport-level">Contact avant déplacement</span></span></button>
+</div>
+<footer class="kova-guide-foot"><span>Budgets indicatifs vérifiés le 7 août 2026 · réservation et tarifs à reconfirmer</span><span aria-live="polite" class="kova-guide-count" id="kovaSportCount">8 ACTIVITÉS</span></footer>
+</div>
+</section>
 </section>
 <section id="organizers">
 <div class="wrap">
@@ -16823,8 +16874,7 @@ body.kova-event-detail-open{
 <a href="#home"><small>01</small><span>Accueil</span></a>
 <a href="#discover"><small>02</small><span>Découvrir</span></a>
 <a href="#artists"><small>03</small><span>Artistes</span></a>
-<a href="#guide"><small>04</small><span>Le Guide KOVA</span></a>
-<a href="#restaurants"><small>05</small><span>Où manger</span></a>
+<a href="#kovaExperiences"><small>04</small><span>Visiter · Manger · Bouger</span></a>
 <a href="#organizers"><small>06</small><span>Pour les créateurs</span></a>
 <a href="#kovaAppCTA"><small>07</small><span>Application</span></a>
 <a data-kova-wallet-open="true" href="#wallet"><small>08</small><span>Mes billets</span></a>
@@ -16918,7 +16968,7 @@ body.kova-event-detail-open{
   const scrollStops=[
     {element:document.querySelector('#discover'),index:1},
     {element:document.querySelector('#artists'),index:2},
-    {element:document.querySelector('#guide'),index:1},
+    {element:document.querySelector('#kovaExperiences'),index:1},
     {element:document.querySelector('#organizers'),index:4}
   ].filter(stop=>stop.element);
 
@@ -17153,31 +17203,109 @@ body.kova-event-detail-open{
     }
   };
 
+  const sports={
+    'temple-vallon':{
+      title:'Le Temple du Foot Vallon',eyebrow:'FOOTBALL · 2 PLATEAUX',lede:'Le terrain simple à réserver quand le groupe est prêt et qu’il ne manque plus qu’un créneau.',
+      description:'Le Temple du Foot est l’un des réseaux les plus identifiables du football loisir à Abidjan. Le site du Vallon fonctionne pour les matchs entre amis, avec réservation préalable et paiement du terrain partagé par l’équipe.',
+      facts:[['Budget confort','≈ 5 000 F / personne'],['Format','Terrain synthétique'],['Durée','1 heure'],['Niveau','Tous niveaux']],
+      things:[['01','Réunis ton équipe','Le budget individuel baisse lorsque le terrain est bien rempli.'],['02','Réserve le créneau','Choisis le site et l’heure dans l’application Temple du Foot 2.0.'],['03','Arrive en avance','Prévois le temps de te changer et de constituer les équipes.']],
+      rules:[['01','Prix partagé','Estimation basée sur un terrain à 35 000 F réparti entre les joueurs.'],['02','Équipement','Confirme le type de chaussures autorisé avant le match.'],['03','Créneau confirmé','Ne te déplace pas sans confirmation de réservation.']],
+      practical:[['Zone','2 Plateaux Vallon'],['Budget','≈ 5 000 F / personne'],['Horaires indicatifs','6 h à minuit'],['Réservation','Application Temple du Foot 2.0']],map:'Le Temple du Foot Vallon Abidjan',
+      images:['https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations sport · Unsplash'
+    },
+    'temple-campus':{
+      title:'Le Temple du Foot Campus Cocody',eyebrow:'FOOTBALL · COCODY',lede:'Une option centrale pour organiser un match près de l’université sans traverser toute la ville.',
+      description:'Le site Campus Cocody fait partie des terrains annoncés dans le réseau Temple du Foot. Il reprend le même principe : réserver un créneau, partager le prix du terrain et venir avec son groupe.',
+      facts:[['Budget confort','≈ 5 000 F / personne'],['Format','Match entre amis'],['Durée','1 heure'],['Réservation','Obligatoire']],
+      things:[['01','Choisis Campus','Vérifie que le bon site est sélectionné avant de payer.'],['02','Partage les frais','Fixe le nombre de joueurs avant la réservation.'],['03','Hydrate-toi','Prévois eau et récupération, surtout en journée.']],
+      rules:[['01','Tarif indicatif','Le montant exact doit être reconfirmé dans l’application.'],['02','Ponctualité','Le créneau suivant peut commencer immédiatement après le tien.'],['03','Sécurité','Échauffe-toi et adapte l’intensité au niveau du groupe.']],
+      practical:[['Zone','Université de Cocody'],['Budget','≈ 5 000 F / personne'],['Format','Terrain partagé'],['Réservation','Application Temple du Foot 2.0']],map:'Temple du Foot Campus Cocody Abidjan',
+      images:['https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations sport · Unsplash'
+    },
+    padelta:{
+      title:'Padelta',eyebrow:'PADEL · COCODY DANGA',lede:'Cinq terrains couverts et des tarifs publics : le padel devient beaucoup plus simple à essayer.',
+      description:'Padelta est un club couvert de Cocody Danga avec cinq terrains homologués FIP, coaching, salle de sport et espace café. Le prix du terrain se partage entre quatre joueurs et varie selon l’heure.',
+      facts:[['Budget','2 500 à 7 500 F / personne'],['Format','4 joueurs'],['Durée','1 h 30'],['Ouverture','6 h à 22 h']],
+      things:[['01','Choisis ton heure','Les heures creuses sont nettement moins chères.'],['02','Viens à quatre','Le tarif annoncé concerne un terrain complet.'],['03','Demande une initiation','Le coaching aide si personne dans le groupe ne connaît les règles.']],
+      rules:[['01','Heures creuses','10 000 F le terrain de 7 h à 16 h.'],['02','Prime time','30 000 F le terrain de 16 h à 20 h 30.'],['03','Réservation','Confirme le créneau sur WhatsApp ou via l’application.']],
+      practical:[['Zone','Rue des Jasmins, Cocody Danga'],['Budget','2 500 à 7 500 F / personne'],['Contact','07 87 87 44 44'],['Horaires','Tous les jours · 6 h à 22 h']],map:'Padelta Cocody Danga Abidjan',
+      images:['https://padeltaabidjan.com/img/padel-couvert-abidjan-padelta.jpg','https://padeltaabidjan.com/img/joueur-padelta-cocody.jpg','https://padeltaabidjan.com/img/salle-gym-kawah-padelta.jpg'],credit:'Padelta · visuels officiels'
+    },
+    'padel-magic':{
+      title:'Padel Magic',eyebrow:'PADEL · SOFITEL HÔTEL IVOIRE',lede:'Un cadre central et premium pour une première partie ou un match après le travail.',
+      description:'Padel Magic est installé au Sofitel Hôtel Ivoire à Cocody. Les guides locaux recensent des terrains couverts et extérieurs, avec un tarif annoncé à partir de 12 000 F par terrain.',
+      facts:[['Budget indicatif','≈ 3 000 F / personne'],['Format','4 joueurs'],['Cadre','Hôtel Ivoire'],['Tarif','À confirmer']],
+      things:[['01','Réserve à quatre','Répartis le tarif du terrain entre les joueurs.'],['02','Demande le matériel','Confirme si raquettes et balles sont incluses.'],['03','Choisis le créneau','Le tarif peut varier selon l’horaire.']],
+      rules:[['01','Prix de départ','L’estimation repose sur 12 000 F par terrain.'],['02','Confirmation','Tarifs et disponibilités doivent être vérifiés avant départ.'],['03','Tenue sportive','Prévois chaussures adaptées et eau.']],
+      practical:[['Zone','Sofitel Hôtel Ivoire, Cocody'],['Budget','Dès ≈ 3 000 F / personne'],['Format','Terrain partagé'],['Réservation','Recommandée']],map:'Padel Magic Sofitel Hôtel Ivoire Abidjan',
+      images:['https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations padel & tennis · Unsplash'
+    },
+    zfit:{
+      title:'Z Fit Spa',eyebrow:'FITNESS · 2 PLATEAUX VALLON',lede:'Une séance premium avec cardio, musculation et cours collectifs dans un même centre.',
+      description:'Z Fit est un centre de fitness et de bien-être au Vallon. L’accès ponctuel permet de tester le plateau et les cours avant d’envisager un abonnement plus long.',
+      facts:[['Accès fitness','10 000 F'],['Semaine','30 000 F'],['Mois','90 000 F'],['Ouverture','Dès 6 h en semaine']],
+      things:[['01','Teste une séance','Commence par l’accès fitness avant un abonnement.'],['02','Regarde le planning','Les cours collectifs changent selon le jour.'],['03','Prévois ta récupération','Le centre comprend aussi des options bien-être séparées.']],
+      rules:[['01','Options distinctes','Spa, coaching et espace sensoriel peuvent coûter plus cher.'],['02','Tenue adaptée','Serviette, chaussures propres et hydratation.'],['03','Tarifs publiés','Vérifie qu’ils n’ont pas changé avant de venir.']],
+      practical:[['Zone','2 Plateaux Vallon'],['Budget','10 000 F / séance'],['Horaires semaine','6 h à 22 h'],['Réservation','Selon le cours']],map:'Z Fit Spa 2 Plateaux Vallon Abidjan',
+      images:['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations fitness · Unsplash'
+    },
+    'top-gym':{
+      title:'Top Gym',eyebrow:'FITNESS · DOKUI, ADJAMÉ, ABOBO',lede:'Plusieurs implantations et une séance d’essai annoncée pour commencer sans engagement.',
+      description:'Top Gym propose musculation et cours dans plusieurs communes d’Abidjan. KOVA le retient comme option pratique pour les personnes qui cherchent d’abord la proximité.',
+      facts:[['Essai','Annoncé offert'],['Format','Salle & cours'],['Zones','3 implantations'],['Tarif régulier','À confirmer']],
+      things:[['01','Choisis la salle','Prends l’implantation la plus simple dans ton quotidien.'],['02','Réserve l’essai','Confirme les conditions avant de te déplacer.'],['03','Pose tes objectifs','Demande quel programme correspond réellement à ton niveau.']],
+      rules:[['01','Essai sous conditions','L’offre peut demander une réservation préalable.'],['02','Tarifs variables','Demande le prix à la séance et au mois.'],['03','Cours planifiés','Vérifie l’heure exacte du cours collectif choisi.']],
+      practical:[['Zones','Dokui · Adjamé · Abobo'],['Budget','Essai offert · à confirmer'],['Niveau','Débutant à confirmé'],['Réservation','Conseillée']],map:'Top Gym Dokui Abidjan',
+      images:['https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations fitness · Unsplash'
+    },
+    'azalai-pool':{
+      title:'La piscine de l’Azalaï Hôtel',eyebrow:'NATATION · MARCORY',lede:'Un accès journalier clair pour nager, récupérer ou simplement passer quelques heures au bord de l’eau.',
+      description:'La piscine de l’Azalaï Hôtel Abidjan est accessible aux visiteurs non hébergés. Le tarif public comprend un accès à la journée et la présence d’un maître-nageur.',
+      facts:[['Adulte','15 000 F / jour'],['Enfant -12 ans','10 000 F / jour'],['Cours adulte','90 000 F / mois'],['Cadre','Piscine surveillée']],
+      things:[['01','Choisis ton format','Nage libre à la journée ou cours mensuels.'],['02','Achète le ticket','Le ticket doit être présenté au maître-nageur.'],['03','Prévois tes affaires','Maillot, serviette, protection solaire et eau.']],
+      rules:[['01','Enfants accompagnés','Les moins de 12 ans doivent venir avec un parent.'],['02','Consignes du bassin','Respecte les zones et les indications du maître-nageur.'],['03','Tarif à confirmer','Contacte l’hôtel si tu viens spécialement pour la piscine.']],
+      practical:[['Zone','Marcory'],['Budget adulte','15 000 F / journée'],['Téléphone','27 21 22 25 55'],['Accès','Ticket à la réception']],map:'Azalaï Hôtel Abidjan piscine',
+      images:['https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1560089000-7433a4ebbd64?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations natation · Unsplash'
+    },
+    obc:{
+      title:'Olympic Basket Center',eyebrow:'BASKETBALL · COCODY',lede:'Un repère historique du basket à Cocody pour trouver un encadrement et rejoindre une pratique régulière.',
+      description:'L’Olympic Basket Center est à l’origine de l’Olympic Basket Club de Cocody. Les conditions d’accès loisir et les tarifs ne sont pas publiés de manière suffisamment claire : KOVA recommande donc de contacter la structure avant tout déplacement.',
+      facts:[['Discipline','Basketball'],['Format','Club & entraînement'],['Zone','Cocody'],['Budget','À confirmer']],
+      things:[['01','Demande ton niveau','Renseigne-toi sur les groupes débutants ou confirmés.'],['02','Vérifie la séance','Les horaires peuvent dépendre de l’âge et de l’équipe.'],['03','Teste avant de t’engager','Demande si une séance d’observation est possible.']],
+      rules:[['01','Pas de tarif inventé','KOVA affiche “à confirmer” faute de prix public fiable.'],['02','Contact préalable','Confirme le lieu, le jour et les conditions d’accès.'],['03','Équipement','Chaussures indoor ou outdoor selon le terrain indiqué.']],
+      practical:[['Zone','Cocody, Abidjan'],['Budget','À confirmer'],['Format','Entraînement encadré'],['Conseil','Contacter avant']],map:'Olympic Basket Center Cocody Abidjan',
+      images:['https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations basketball · Unsplash'
+    }
+  };
+
   const $=selector=>document.querySelector(selector);
   const make=(tag,className,text)=>{const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node};
   let previousFocus=null;
   let shareHash='#guide';
   const foodTrack=$('#kovaFoodTrack');
+  const sportTrack=$('#kovaSportTrack');
 
   function cards(){return [...track.querySelectorAll('.kova-place-card:not([hidden])')]}
   function foodCards(){return foodTrack?[...foodTrack.querySelectorAll('.kova-food-card:not([hidden])')]:[]}
+  function sportCards(){return sportTrack?[...sportTrack.querySelectorAll('.kova-sport-card:not([hidden])')]:[]}
   function openEntry(place,type){
     if(!place) return;
     previousFocus=document.activeElement;
     const restaurant=type==='restaurant';
-    shareHash=restaurant?'#restaurants':'#guide';
+    const sport=type==='sport';
+    shareHash=restaurant?'#restaurants':sport?'#sports':'#guide';
     $('#kovaPlaceEyebrow').textContent=place.eyebrow;
     $('#kovaPlaceTitle').textContent=place.title;
     $('#kovaPlaceLede').textContent=place.lede;
     $('#kovaPlaceDescription').textContent=place.description;
-    $('#kovaPlacePracticalTitle').textContent=restaurant?'Prépare ton repas.':'Prépare ta visite.';
-    $('#kovaPlaceWhyKicker').textContent=restaurant?'LE CHOIX KOVA':'POURQUOI Y ALLER';
-    $('#kovaPlaceWhyTitle').textContent=restaurant?'Pourquoi cette table.':'Ce qu’il faut savoir.';
-    $('#kovaPlaceThingsKicker').textContent=restaurant?'À COMMANDER':'SUR PLACE';
-    $('#kovaPlaceThingsTitle').textContent=restaurant?'Commence par ça.':'Ton programme.';
-    $('#kovaPlaceRulesKicker').textContent=restaurant?'BON À SAVOIR':'AVANT DE PARTIR';
-    $('#kovaPlaceRulesTitle').textContent=restaurant?'Avant de réserver.':'Les bons réflexes.';
-    $('#kovaPlaceDisclaimer').textContent=restaurant?'Budget KOVA estimé par personne pour un repas confortable, hors alcool. Carte, prix et horaires peuvent changer : confirme avant de réserver.':'Budget KOVA estimé par personne pour vivre la sortie confortablement. Tarifs, horaires et conditions peuvent changer : confirme avant de partir.';
+    $('#kovaPlacePracticalTitle').textContent=restaurant?'Prépare ton repas.':sport?'Prépare ta session.':'Prépare ta visite.';
+    $('#kovaPlaceWhyKicker').textContent=restaurant?'LE CHOIX KOVA':sport?'LE SPOT KOVA':'POURQUOI Y ALLER';
+    $('#kovaPlaceWhyTitle').textContent=restaurant?'Pourquoi cette table.':sport?'Pourquoi bouger ici.':'Ce qu’il faut savoir.';
+    $('#kovaPlaceThingsKicker').textContent=restaurant?'À COMMANDER':sport?'AVANT DE JOUER':'SUR PLACE';
+    $('#kovaPlaceThingsTitle').textContent=restaurant?'Commence par ça.':sport?'Ton plan de jeu.':'Ton programme.';
+    $('#kovaPlaceRulesKicker').textContent=restaurant?'BON À SAVOIR':sport?'PRATIQUE & SÉCURITÉ':'AVANT DE PARTIR';
+    $('#kovaPlaceRulesTitle').textContent=restaurant?'Avant de réserver.':sport?'Les bons réflexes.':'Les bons réflexes.';
+    $('#kovaPlaceDisclaimer').textContent=restaurant?'Budget KOVA estimé par personne pour un repas confortable, hors alcool. Carte, prix et horaires peuvent changer : confirme avant de réserver.':sport?'Budget KOVA par personne calculé à partir des tarifs publics disponibles. Les prix, horaires et conditions peuvent changer : confirme toujours avant de réserver.':'Budget KOVA estimé par personne pour vivre la sortie confortablement. Tarifs, horaires et conditions peuvent changer : confirme avant de partir.';
     const gallery=$('#kovaPlaceGallery');gallery.replaceChildren();
     place.images.forEach((name,index)=>{
       const figure=make('figure');
@@ -17198,6 +17326,7 @@ body.kova-event-detail-open{
   }
   function openPlace(id){openEntry(places[id],'place')}
   function openRestaurant(id){openEntry(restaurants[id],'restaurant')}
+  function openSport(id){openEntry(sports[id],'sport')}
 
   function closePlace(){
     page.classList.remove('open');page.setAttribute('aria-hidden','true');document.body.classList.remove('kova-place-open');
@@ -17206,6 +17335,7 @@ body.kova-event-detail-open{
 
   track.querySelectorAll('.kova-place-card').forEach(card=>card.addEventListener('click',()=>openPlace(card.dataset.place)));
   foodTrack?.querySelectorAll('.kova-food-card').forEach(card=>card.addEventListener('click',()=>openRestaurant(card.dataset.restaurant)));
+  sportTrack?.querySelectorAll('.kova-sport-card').forEach(card=>card.addEventListener('click',()=>openSport(card.dataset.sport)));
   $('#kovaPlaceBack').addEventListener('click',closePlace);$('#kovaPlaceClose').addEventListener('click',closePlace);
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&page.classList.contains('open'))closePlace()});
   $('#kovaPlaceShare').addEventListener('click',async()=>{
@@ -17229,12 +17359,41 @@ body.kova-event-detail-open{
     foodTrack.querySelectorAll('.kova-food-card').forEach(card=>card.hidden=filter!=='all'&&!card.dataset.foodTags.split(' ').includes(filter));
     foodTrack.scrollTo({left:0,behavior:'smooth'});const count=foodCards().length;$('#kovaFoodCount').textContent=`${count} TABLE${count>1?'S':''}`;
   }));
+  $('#kovaSportPrev')?.addEventListener('click',()=>sportTrack.scrollBy({left:-Math.min(sportTrack.clientWidth*.82,460),behavior:'smooth'}));
+  $('#kovaSportNext')?.addEventListener('click',()=>sportTrack.scrollBy({left:Math.min(sportTrack.clientWidth*.82,460),behavior:'smooth'}));
+  document.querySelectorAll('[data-sport-filter]').forEach(tab=>tab.addEventListener('click',()=>{
+    const filter=tab.dataset.sportFilter;
+    document.querySelectorAll('[data-sport-filter]').forEach(button=>{const active=button===tab;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active))});
+    sportTrack.querySelectorAll('.kova-sport-card').forEach(card=>card.hidden=filter!=='all'&&!card.dataset.sportTags.split(' ').includes(filter));
+    sportTrack.scrollTo({left:0,behavior:'smooth'});const count=sportCards().length;$('#kovaSportCount').textContent=`${count} ACTIVITÉ${count>1?'S':''}`;
+  }));
+
+  const experienceTabs=[...document.querySelectorAll('[data-experience-tab]')];
+  const experiencePanels=[...document.querySelectorAll('[data-experience-panel]')];
+  function selectExperience(id,{focus=false}={}){
+    experienceTabs.forEach(tab=>{const active=tab.dataset.experienceTab===id;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;if(active&&focus)tab.focus()});
+    experiencePanels.forEach(panel=>{const active=panel.dataset.experiencePanel===id;panel.classList.toggle('active',active);panel.setAttribute('aria-hidden',String(!active))});
+    requestAnimationFrame(()=>{const activeTrack=document.querySelector(`[data-experience-panel="${id}"] .kova-guide-track`);activeTrack?.scrollTo({left:0})});
+  }
+  experienceTabs.forEach((tab,index)=>{
+    tab.addEventListener('click',()=>selectExperience(tab.dataset.experienceTab));
+    tab.addEventListener('keydown',event=>{
+      if(!['ArrowLeft','ArrowRight'].includes(event.key))return;
+      event.preventDefault();
+      const direction=event.key==='ArrowRight'?1:-1;
+      const next=(index+direction+experienceTabs.length)%experienceTabs.length;
+      selectExperience(experienceTabs[next].dataset.experienceTab,{focus:true});
+    });
+  });
+  const initialExperience=['guide','restaurants','sports'].includes(location.hash.slice(1))?location.hash.slice(1):'guide';
+  selectExperience(initialExperience);
+  window.addEventListener('hashchange',()=>{const id=location.hash.slice(1);if(['guide','restaurants','sports'].includes(id))selectExperience(id)});
   const foodSection=$('#restaurants');
   if(foodSection && 'IntersectionObserver' in window){
     const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){foodSection.classList.add('food-ready');observer.disconnect()}},{threshold:.12});
     observer.observe(foodSection);
   }else foodSection?.classList.add('food-ready');
-  window.KOVA_GUIDE={open:openPlace,openRestaurant,close:closePlace,places,restaurants};
+  window.KOVA_GUIDE={open:openPlace,openRestaurant,openSport,selectExperience,close:closePlace,places,restaurants,sports};
 })();
 </script>
 <div class="kova-creator-guide-backdrop" id="kovaCreatorGuideBackdrop"></div>
@@ -22597,16 +22756,16 @@ body.kova-event-detail-open{
   const appleTrackCache=new Map();
   const verifiedAppleTracks={
     'HIMRA::BITCH & MONEY':'https://music.apple.com/us/song/6771425454',
-    'DOPELYM::SUV':'https://music.apple.com/ci/album/suv-single/1895839012',
+    'DOPELYM::SUV':'https://music.apple.com/us/album/suv/1895839012?i=6764582911',
     'TRK::DEUTSCHE QUALITAT':'https://music.apple.com/us/song/deutsche-qualitat/6785634452',
     'TRK::COMMENT':'https://music.apple.com/fr/song/1878371867',
     'LE SKY::NAS (LES MAUDITS)':'https://music.apple.com/fr/album/nas-les-maudits/1847058501?i=1847058502',
-    'LE SKY::SORS LA PHASE':'https://music.apple.com/fr/album/sors-la-phase-feat-lesky-single/6767651233',
+    'LE SKY::SORS LA PHASE':'https://music.apple.com/us/album/sors-la-phase-feat-lesky/6767651233?i=6767651234',
     "DIDI B::JE M'APPELLE":'https://music.apple.com/fr/song/1887323178',
-    'SINDIKA::NOUCHI IN PARIS':'https://music.apple.com/us/album/nouchi-in-paris-feat-trk-ameka-zrai-single/6782981185',
+    'SINDIKA::NOUCHI IN PARIS':'https://music.apple.com/us/album/nouchi-in-paris-feat-trk-ameka-zrai/6782981185?i=6782981188',
     'SINDIKA::PRESSION':'https://music.apple.com/us/song/1887367770',
     'TEAM PAIYA::COUP DU MARTEAU':'https://music.apple.com/fr/song/1720608724',
-    'TEAM PAIYA::FIMBU':'https://music.apple.com/us/album/fimbu-feat-didi-b-ste-milano-tam-sir-3xdavs-single/1734486541',
+    'TEAM PAIYA::FIMBU':'https://music.apple.com/us/album/fimbu-feat-didi-b-ste-milano-tam-sir-3xdavs/1734486541?i=1734486556',
     'TEAM PAIYA::LA VIE':'https://music.apple.com/fr/album/la-vie-single/1895976774',
     'TAZEBOY::MATATA':'https://music.apple.com/us/song/matata/6778177282',
     'TAZEBOY::TOUCHÉ COULÉ':'https://music.apple.com/us/album/touch%C3%A9-coul%C3%A9-feat-louzio-tazeboy-team-paiya/1874602655?i=1874602658',
@@ -22619,8 +22778,8 @@ body.kova-event-detail-open{
     'ASAP JO::BIRDMAN & WEEZY (FEAT. HIMRA)':'https://music.apple.com/us/album/birdman-weezy-feat-himra/6791696756?i=6791696966',
     'ASAP JO::NOUCHI TRAP':'https://music.apple.com/fr/song/nouchi-trap/6791696764',
     'ASAP JO::QUARESMA':'https://music.apple.com/us/album/quaresma/6791696756?i=6791696772',
-    'WANTCHE::FLB':'https://music.apple.com/us/album/flb-single/6771407630',
-    'WANTCHE::GO':'https://music.apple.com/us/album/go-single/6795928209',
+    'WANTCHE::FLB':'https://music.apple.com/us/album/flb/6771407630?i=6771407668',
+    'WANTCHE::GO':'https://music.apple.com/us/album/go/6795928209?i=6795928393',
     'GOH DEDI::GANJAMAN':'https://music.apple.com/us/album/ganjaman-feat-goh-dedi/6796694048?i=6796694051',
     'GOH DEDI::RICK & MORTY':'https://music.apple.com/us/album/rick-morty/6787327901?i=6787328441',
     'GOH DEDI::GVNGSTAMAN':'https://music.apple.com/us/album/gvngstaman/6778662423?i=6778662651'
