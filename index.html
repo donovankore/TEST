@@ -13617,12 +13617,33 @@ body.v67-artist-open .kova-player{
 }
 
 .kova-player-close{
+  position:relative;
   width:32px;
   height:32px;
+  min-width:32px;
+  min-height:32px;
+  padding:0;
   border-radius:50%;
   background:rgba(255,255,255,.08);
   color:#aaaab3;
-  font-size:16px;
+  font-size:0;
+}
+
+.kova-player-close::before,
+.kova-player-close::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:11px;
+  height:1.5px;
+  border-radius:999px;
+  background:currentColor;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+
+.kova-player-close::after{
+  transform:translate(-50%,-50%) rotate(-45deg);
 }
 
 .kova-player button:active,
@@ -13686,7 +13707,8 @@ body.v67-artist-open .kova-player{
   .kova-player-art{display:block;width:50px;height:50px;min-width:50px;border-radius:16px;box-shadow:none}
   .kova-player.is-artist .kova-player-art{border-radius:50%}
   .kova-player-copy,.kova-player-chevron,.kova-player-history-controls,.kova-player-ticket{display:none!important}
-  .kova-player-close{position:absolute;top:-7px;right:-7px;width:23px;height:23px;border:1px solid rgba(255,255,255,.36);background:rgba(22,22,27,.88);color:#fff;font-size:12px;box-shadow:0 5px 14px rgba(0,0,0,.3)}
+  .kova-player-close{position:absolute;top:-5px;right:-5px;width:22px;height:22px;min-width:22px;min-height:22px;padding:0;border:1px solid rgba(255,255,255,.38);background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(21,21,27,.72));color:rgba(255,255,255,.92);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(0,0,0,.28);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
+  .kova-player-close::before,.kova-player-close::after{width:8px;height:1.25px}
 }
 
 @media (max-width:370px){
@@ -14772,23 +14794,33 @@ body.kova-artist-detail-open{
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
-  gap:8px!important;
+  gap:9px!important;
   min-height:46px!important;
-  padding:0 15px!important;
-  border:0!important;
+  padding:0 16px 0 10px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
   border-radius:999px!important;
-  background:#111!important;
+  background:linear-gradient(145deg,#24242b,#09090c)!important;
   color:#fff!important;
   font-size:12px!important;
   font-weight:900!important;
   text-decoration:none!important;
   white-space:nowrap!important;
-  transition:transform .22s ease,background .22s ease!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 9px 24px rgba(0,0,0,.14)!important;
+  transition:transform .22s cubic-bezier(.16,1,.3,1),background .22s ease,box-shadow .22s ease!important;
 }
 
 .v68-apple-link::before{
   content:"";
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:linear-gradient(145deg,#ff3b9d,#7558ff);
+  color:#fff;
   font-size:15px;
+  line-height:1;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 5px 14px rgba(137,73,255,.26);
 }
 
 .v68-apple-link::after{
@@ -14798,6 +14830,7 @@ body.kova-artist-detail-open{
 
 .v67-track:hover .v68-apple-link{
   background:linear-gradient(115deg,#ff2f8a,#764dff)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 12px 28px rgba(125,67,255,.24)!important;
 }
 
 .v68-apple-link.is-loading{
@@ -14843,15 +14876,18 @@ body.kova-artist-detail-open{
   }
 
   .v68-apple-link{
-    width:44px!important;
-    min-width:44px!important;
-    height:44px!important;
-    min-height:44px!important;
+    width:46px!important;
+    min-width:46px!important;
+    height:46px!important;
+    min-height:46px!important;
     padding:0!important;
     font-size:0!important;
+    border-color:rgba(255,255,255,.2)!important;
   }
 
   .v68-apple-link::before{
+    width:34px!important;
+    height:34px!important;
     font-size:17px!important;
   }
 
@@ -16139,7 +16175,7 @@ body.kova-event-detail-open{
 <span class="kova-guide-kicker">Le Guide KOVA</span>
 <h2 id="kovaGuideTitle">Abidjan,<br/>et un peu plus loin.</h2>
 </div>
-<p>Cette fois, c’est KOVA qui choisit. Dix lieux pour regarder la ville autrement, prendre l’air et découvrir la Côte d’Ivoire au-delà de l’agenda.</p>
+<p>Cette fois, c’est KOVA qui choisit. Douze lieux pour regarder la ville autrement, prendre l’air et découvrir la Côte d’Ivoire au-delà de l’agenda.</p>
 </header>
 <div class="kova-guide-toolbar reveal">
 <div aria-label="Filtrer les lieux" class="kova-guide-tabs" role="tablist">
@@ -16195,8 +16231,16 @@ body.kova-event-detail-open{
 <img alt="Basilique Notre-Dame de la Paix de Yamoussoukro" decoding="async" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Basilique%20notre%20Dame%20de%20la%20Paix%20de%20Yamoussoukro.jpg?width=1200"/>
 <span class="kova-place-card-open" aria-hidden="true">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Architecture · Yamoussoukro</span><span>10</span></span><h3>La Basilique</h3><p>Une échelle monumentale qui se comprend vraiment une fois sur place.</p></span>
 </button>
+<button aria-label="Découvrir le Domaine Bini" class="kova-place-card" data-budget="18 000 F · personne" data-guide-tags="nature escapade" data-place="domaine-bini" type="button">
+<img alt="Illustration d’une escapade en forêt au Domaine Bini" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<span class="kova-place-card-open" aria-hidden="true">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Écotourisme · KM 51</span><span>11</span></span><h3>Domaine Bini</h3><p>Marche, buffet, bain d’argile et activités au cœur d’une vraie journée nature.</p></span>
+</button>
+<button aria-label="Découvrir la Galerie Cécile Fakhoury" class="kova-place-card" data-budget="≈ 5 000 F · personne" data-guide-tags="abidjan culture" data-place="fakhoury" type="button">
+<img alt="Illustration d’une galerie d’art contemporain" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<span class="kova-place-card-open" aria-hidden="true">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Art contemporain · Cocody</span><span>12</span></span><h3>Galerie Cécile Fakhoury</h3><p>Une porte d’entrée élégante sur la création africaine contemporaine et sa diaspora.</p></span>
+</button>
 </div>
-<footer class="kova-guide-foot"><span>Fais glisser pour explorer · Appuie pour ouvrir le guide</span><span aria-live="polite" class="kova-guide-count" id="kovaGuideCount">10 LIEUX</span></footer>
+<footer class="kova-guide-foot"><span>Fais glisser pour explorer · Appuie pour ouvrir le guide</span><span aria-live="polite" class="kova-guide-count" id="kovaGuideCount">12 LIEUX</span></footer>
 </div>
 </section>
 <section aria-hidden="true" aria-labelledby="kovaFoodTitle" class="kova-city-guide kova-food-guide kova-experience-panel" data-experience-panel="restaurants" id="restaurants">
@@ -16206,7 +16250,7 @@ body.kova-event-detail-open{
 <span class="kova-guide-kicker">À table avec KOVA</span>
 <h2 id="kovaFoodTitle">On mange<br/>où ?</h2>
 </div>
-<p>Dix tables, dix ambiances et un budget clair avant même de réserver. Du maquis accessible au dîner qui marque une occasion.</p>
+<p>Douze tables, douze ambiances et un budget clair avant même de réserver. Du maquis accessible au dîner qui marque une occasion.</p>
 </header>
 <div class="kova-guide-toolbar reveal">
 <div aria-label="Filtrer les restaurants" class="kova-guide-tabs" role="tablist">
@@ -16262,8 +16306,16 @@ body.kova-event-detail-open{
 <img alt="Salle du restaurant Parenthèse en Zone 4" decoding="async" loading="lazy" src="https://www.annuaire-restaurants.ci/wp-content/uploads/2025/11/Parenthese-10-min.jpg"/>
 <span aria-hidden="true" class="kova-place-card-open">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Dining · Zone 4</span><span>10</span></span><h3>Parenthèse</h3><p>Une table élégante pour les soirs où le dîner doit être le programme principal.</p><span class="kova-food-level">Grande occasion · €€€</span></span>
 </button>
+<button aria-label="Découvrir Dabali Xpress" class="kova-place-card kova-food-card" data-budget="≈ 6 000 F · personne" data-food-tags="petit ivoirien groupe" data-restaurant="dabali" type="button">
+<img alt="Illustration d’un plat ivoirien généreux" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<span aria-hidden="true" class="kova-place-card-open">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Ivoirien rapide · Abidjan</span><span>11</span></span><h3>Dabali Xpress</h3><p>Les classiques ivoiriens dans un format rapide, généreux et facile à partager.</p><span class="kova-food-level">Petit budget · €</span></span>
+</button>
+<button aria-label="Découvrir Kaiten Sushi &amp; More" class="kova-place-card kova-food-card" data-budget="≈ 22 000 F · personne" data-food-tags="date groupe" data-restaurant="kaiten" type="button">
+<img alt="Illustration d’un assortiment de sushis" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/>
+<span aria-hidden="true" class="kova-place-card-open">↗</span><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Japonais · Abidjan</span><span>12</span></span><h3>Kaiten Sushi &amp; More</h3><p>Sushis, rolls et formules déjeuner pour une pause japonaise précise et soignée.</p><span class="kova-food-level">Premium · €€€</span></span>
+</button>
 </div>
-<footer class="kova-guide-foot"><span>Budgets estimés pour un plat et une boisson · hors alcool</span><span aria-live="polite" class="kova-guide-count" id="kovaFoodCount">10 TABLES</span></footer>
+<footer class="kova-guide-foot"><span>Budgets estimés pour un plat et une boisson · hors alcool</span><span aria-live="polite" class="kova-guide-count" id="kovaFoodCount">12 TABLES</span></footer>
 </div>
 </section>
 <section aria-hidden="true" aria-labelledby="kovaSportTitle" class="kova-city-guide kova-sport-guide kova-experience-panel" data-experience-panel="sports" id="sports">
@@ -16276,6 +16328,7 @@ body.kova-event-detail-open{
 <button aria-selected="false" class="kova-guide-tab" data-sport-filter="padel" role="tab" type="button">Padel</button>
 <button aria-selected="false" class="kova-guide-tab" data-sport-filter="fitness" role="tab" type="button">Fitness</button>
 <button aria-selected="false" class="kova-guide-tab" data-sport-filter="aquatique" role="tab" type="button">Natation</button>
+<button aria-selected="false" class="kova-guide-tab" data-sport-filter="karting" role="tab" type="button">Karting</button>
 </div>
 <div class="kova-guide-controls"><button aria-label="Activités précédentes" class="kova-guide-arrow" id="kovaSportPrev" type="button">←</button><button aria-label="Activités suivantes" class="kova-guide-arrow" id="kovaSportNext" type="button">→</button></div>
 </div>
@@ -16288,8 +16341,10 @@ body.kova-event-detail-open{
 <button aria-label="Découvrir Top Gym" class="kova-place-card kova-sport-card" data-budget="Essai offert · tarif à confirmer" data-sport="top-gym" data-sport-tags="fitness" type="button"><img alt="Entraînement collectif en salle" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Fitness · Plusieurs zones</span><span>06</span></span><h3>Top Gym</h3><p>Une option accessible à Dokui, Adjamé et Abobo avec séance d’essai.</p><span class="kova-sport-level">Débutant bienvenu</span></span></button>
 <button aria-label="Découvrir la piscine Azalaï" class="kova-place-card kova-sport-card" data-budget="15 000 F · journée" data-sport="azalai-pool" data-sport-tags="aquatique" type="button"><img alt="Piscine extérieure pour la nage" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Natation · Marcory</span><span>07</span></span><h3>Piscine Azalaï</h3><p>Nage libre à la journée, avec maître-nageur et accès encadré.</p><span class="kova-sport-level">Adulte · accès journalier</span></span></button>
 <button aria-label="Découvrir l’Olympic Basket Center" class="kova-place-card kova-sport-card" data-budget="Tarif à confirmer" data-sport="obc" data-sport-tags="basket" type="button"><img alt="Terrain de basketball extérieur" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Basket · Cocody</span><span>08</span></span><h3>OBC Cocody</h3><p>Un point de repère du basket abidjanais pour se renseigner sur les séances et entraînements.</p><span class="kova-sport-level">Contact avant déplacement</span></span></button>
+<button aria-label="Découvrir Equinox Fitness &amp; Spa" class="kova-place-card kova-sport-card" data-budget="≈ 6 000 F · séance" data-sport="equinox" data-sport-tags="fitness aquatique basket" type="button"><img alt="Illustration d’une salle de fitness moderne" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Multisport · Riviera 3</span><span>09</span></span><h3>Equinox</h3><p>Fitness, piscine, boxe et basket réunis dans un centre pensé pour varier les séances.</p><span class="kova-sport-level">Tarif indicatif à confirmer</span></span></button>
+<button aria-label="Découvrir Abidjan Karting" class="kova-place-card kova-sport-card" data-budget="5 000 F · session" data-sport="karting" data-sport-tags="karting" type="button"><img alt="Illustration d’une expérience de karting" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&amp;fit=crop&amp;w=1200&amp;q=82"/><span class="kova-place-card-copy"><span class="kova-place-card-meta"><span>Karting · Zone 3</span><span>10</span></span><h3>Abidjan Karting</h3><p>Dix minutes de pilotage pour changer de rythme et défier son groupe sur la piste.</p><span class="kova-sport-level">Équipement inclus</span></span></button>
 </div>
-<footer class="kova-guide-foot"><span>Budgets indicatifs vérifiés le 7 août 2026 · réservation et tarifs à reconfirmer</span><span aria-live="polite" class="kova-guide-count" id="kovaSportCount">8 ACTIVITÉS</span></footer>
+<footer class="kova-guide-foot"><span>Budgets indicatifs vérifiés le 7 août 2026 · réservation et tarifs à reconfirmer</span><span aria-live="polite" class="kova-guide-count" id="kovaSportCount">10 ACTIVITÉS</span></footer>
 </div>
 </section>
 </section>
@@ -17107,6 +17162,24 @@ body.kova-event-detail-open{
       rules:[['01','Tenue adaptée','Prévois une tenue correcte et couvrante.'],['02','Respect des offices','Silence et déplacements limités pendant les célébrations.'],['03','Visite à confirmer','Tarifs, accès à la coupole et horaires peuvent évoluer.']],
       practical:[['Zone','Yamoussoukro'],['Durée','1 h 30 à 2 h'],['Budget','≈ 35 000 F · trajet + visite'],['Conseil','Excursion organisée']],map:'Basilique Notre-Dame de la Paix Yamoussoukro',
       images:['Basilique notre Dame de la Paix de Yamoussoukro.jpg','Basilique notre Dame de la Paix de Yamoussoukro 9.jpg','Basilique notre Dame de la Paix de Yamoussoukro 16.jpg'],credit:'Didierwiki · Wikimedia Commons'
+    },
+    'domaine-bini':{
+      title:'Domaine Bini',eyebrow:'ÉCOTOURISME · KM 51',lede:'Une journée complète pour marcher, manger, se salir un peu et respirer loin du rythme d’Abidjan.',
+      description:'Le Domaine Bini propose une formule découverte centrée sur la nature : marche éducative, buffet, bain d’argile et activités comme la tyrolienne selon les conditions du jour. Le format est pensé comme une escapade à la journée, sur réservation.',
+      facts:[['Formule découverte','18 000 F / personne'],['Horaires indicatifs','9 h à 17 h'],['Format','Journée'],['Distance','Environ 1 h d’Abidjan']],
+      things:[['01','Marcher dans le domaine','La balade permet de découvrir l’environnement avant les activités.'],['02','Partager le buffet','Le repas fait partie de la formule découverte annoncée.'],['03','Tester le bain d’argile','Prévois une tenue de rechange et suis les consignes de l’équipe.']],
+      rules:[['01','Réservation nécessaire','Confirme la formule, le nombre de participants et l’heure d’arrivée.'],['02','Tenue adaptée','Chaussures fermées, protection solaire et vêtements de rechange.'],['03','Activités variables','La météo et l’organisation peuvent modifier le programme.']],
+      practical:[['Zone','Autoroute du Nord · KM 51'],['Budget','18 000 F + transport'],['Durée','Une journée'],['Réservation','Obligatoire']],map:'Domaine Bini Côte d’Ivoire',
+      images:['https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations nature · Unsplash'
+    },
+    fakhoury:{
+      title:'Galerie Cécile Fakhoury',eyebrow:'ART CONTEMPORAIN · COCODY',lede:'Une visite courte mais dense pour voir comment la création africaine contemporaine raconte le présent.',
+      description:'Installée à Cocody, la Galerie Cécile Fakhoury défend des artistes d’Afrique et de la diaspora à travers des expositions contemporaines. KOVA la recommande comme une pause culturelle facile à intégrer à une journée en ville.',
+      facts:[['Budget confort','≈ 5 000 F / personne'],['Format','Visite libre'],['Ambiance','Art contemporain'],['Entrée','À confirmer']],
+      things:[['01','Voir l’exposition en cours','La programmation change : vérifie-la avant de partir.'],['02','Lire les cartels','Quelques minutes de contexte rendent les œuvres plus accessibles.'],['03','Prendre son temps','Une galerie se découvre sans chercher à tout comprendre immédiatement.']],
+      rules:[['01','Respecter les œuvres','Ne touche pas et garde une distance raisonnable.'],['02','Photos à confirmer','Demande l’autorisation avant de photographier.'],['03','Horaires variables','Confirme l’ouverture et l’accès le jour de la visite.']],
+      practical:[['Zone','Boulevard Latrille · Cocody'],['Budget','≈ 5 000 F · trajet + boisson'],['Durée','45 min à 1 h 30'],['Conseil','Vérifier l’exposition']],map:'Galerie Cécile Fakhoury Abidjan',
+      images:['https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations galerie · Unsplash'
     }
   };
 
@@ -17200,6 +17273,24 @@ body.kova-event-detail-open{
       rules:[['01','Budget estimé','Entrée, plat et soft ; alcool non compris.'],['02','Ambiance lounge','Vérifie la programmation et le dress code éventuel.'],['03','Réservation','À faire avant de se déplacer.']],
       practical:[['Quartier','Zone 4'],['Budget','≈ 35 000 F / personne'],['Idéal pour','Dîner habillé'],['Réservation','Nécessaire']],map:'Restaurant Parenthèse Zone 4 Abidjan',
       images:['https://www.annuaire-restaurants.ci/wp-content/uploads/2025/11/Parenthese-10-min.jpg','https://www.annuaire-restaurants.ci/wp-content/uploads/2025/11/Parenthese-min.jpg','https://www.annuaire-restaurants.ci/wp-content/uploads/2025/11/Parenthese-1-min.jpg'],credit:'Annuaire des Restaurants CI'
+    },
+    dabali:{
+      title:'Dabali Xpress',eyebrow:'IVOIRIEN RAPIDE · ABIDJAN',lede:'Le bon réflexe quand on veut un plat ivoirien généreux, rapide et lisible côté budget.',
+      description:'Dabali Xpress adapte des recettes ivoiriennes à un format de restauration rapide, avec plusieurs points de vente et des menus de tailles différentes. L’adresse fonctionne bien pour un déjeuner simple ou une commande de groupe.',
+      facts:[['Budget confort','≈ 6 000 F / personne'],['Menus','Dès 3 000 F'],['Cuisine','Ivoirienne'],['Format','Sur place ou livraison']],
+      things:[['01','Un menu Boss','La gamme accessible démarre autour de 3 000 F selon la carte.'],['02','Une spécialité locale','Choisis la base et l’accompagnement selon l’offre du jour.'],['03','Une formule à partager','Les formats XXL sont utiles lorsqu’on commande à plusieurs.']],
+      rules:[['01','Carte variable','Produits, portions et prix peuvent changer selon le point de vente.'],['02','Budget KOVA','Prévoit un menu complet et une boisson, hors livraison.'],['03','Commande de groupe','Vérifie les délais avant une heure de pointe.']],
+      practical:[['Zone','Plusieurs quartiers d’Abidjan'],['Budget','≈ 6 000 F / personne'],['Idéal pour','Déjeuner rapide'],['Conseil','Choisir le point de vente']],map:'Dabali Xpress Abidjan',
+      images:['https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations cuisine · Unsplash'
+    },
+    kaiten:{
+      title:'Kaiten Sushi & More',eyebrow:'JAPONAIS · ABIDJAN',lede:'Une table précise pour déjeuner japonais, partager des rolls ou transformer le repas en date night.',
+      description:'Kaiten Sushi & More propose une carte japonaise structurée autour des sushis, rolls, plateaux et formules déjeuner. Les prix publics permettent de prévoir un budget avant de réserver, tout en gardant une marge pour la boisson.',
+      facts:[['Budget confort','≈ 22 000 F / personne'],['Business lunch','20 000 à 22 000 F'],['Cuisine','Japonaise'],['Moment','Déjeuner ou dîner']],
+      things:[['01','Une formule déjeuner','Le moyen le plus simple de garder un budget précis.'],['02','Un assortiment de rolls','À partager si le groupe veut goûter plusieurs créations.'],['03','Un dessert léger','Garde une marge selon la boisson choisie.']],
+      rules:[['01','Prix à reconfirmer','La carte et les formules peuvent évoluer.'],['02','Allergies','Signale poissons crus, crustacés, soja ou sésame avant commande.'],['03','Réservation','Conseillée pour un dîner ou un groupe.']],
+      practical:[['Zone','Abidjan'],['Budget','≈ 22 000 F / personne'],['Idéal pour','Déjeuner ou date'],['Réservation','Conseillée']],map:'Kaiten Sushi and More Abidjan',
+      images:['https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations sushi · Unsplash'
     }
   };
 
@@ -17275,6 +17366,24 @@ body.kova-event-detail-open{
       rules:[['01','Pas de tarif inventé','KOVA affiche “à confirmer” faute de prix public fiable.'],['02','Contact préalable','Confirme le lieu, le jour et les conditions d’accès.'],['03','Équipement','Chaussures indoor ou outdoor selon le terrain indiqué.']],
       practical:[['Zone','Cocody, Abidjan'],['Budget','À confirmer'],['Format','Entraînement encadré'],['Conseil','Contacter avant']],map:'Olympic Basket Center Cocody Abidjan',
       images:['https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations basketball · Unsplash'
+    },
+    equinox:{
+      title:'Equinox Fitness & Spa',eyebrow:'MULTISPORT · RIVIERA 3',lede:'Un même centre pour alterner musculation, piscine, boxe, arts martiaux et sports collectifs.',
+      description:'Equinox Fitness & Spa, à Riviera 3, présente une offre multisport qui comprend notamment salle de sport, natation, running, arts martiaux, boxe et basketball. C’est une option utile lorsqu’on veut tester plusieurs disciplines avant de choisir une routine.',
+      facts:[['Séance indicative','≈ 6 000 F'],['Mois indicatif','≈ 50 000 F'],['Format','Multisport'],['Tarifs','À confirmer']],
+      things:[['01','Choisis une discipline','Demande le planning exact avant de venir.'],['02','Teste une séance','Une entrée ponctuelle permet d’évaluer le cadre et l’encadrement.'],['03','Compare l’abonnement','Vérifie les activités réellement incluses dans chaque formule.']],
+      rules:[['01','Tarifs indicatifs','Les montants doivent être reconfirmés directement avec le centre.'],['02','Accès piscine','Demande les horaires, la tenue et les éventuelles restrictions.'],['03','Santé','Adapte l’intensité et signale toute contrainte à l’encadrement.']],
+      practical:[['Zone','Riviera 3'],['Budget','≈ 6 000 F / séance'],['Disciplines','Fitness, piscine, boxe, basket'],['Conseil','Appeler avant']],map:'Equinox Fitness Spa Riviera 3 Abidjan',
+      images:['https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations fitness · Unsplash'
+    },
+    karting:{
+      title:'Abidjan Karting',eyebrow:'KARTING · ZONE 3',lede:'Dix minutes suffisent pour faire monter l’adrénaline et transformer une sortie de groupe en vrai défi.',
+      description:'Abidjan Karting propose des sessions chronométrées en Zone 3 / Marcory. Le tarif public recensé inclut le kart, l’équipement et l’assurance, ce qui rend le budget de départ facile à comprendre.',
+      facts:[['Session','10 min · 5 000 F'],['Groupe','30 min · 20 000 F'],['Équipement','Inclus'],['Format','Loisir & challenge']],
+      things:[['01','Arrive en avance','Prévois le briefing, l’équipement et l’ordre de passage.'],['02','Lance un challenge','Compare les chronos plutôt que de prendre des risques inutiles.'],['03','Réserve en groupe','Confirme le nombre de pilotes et le format avant le déplacement.']],
+      rules:[['01','Consignes obligatoires','Écoute le briefing et respecte les drapeaux de piste.'],['02','Tenue pratique','Chaussures fermées et vêtements confortables recommandés.'],['03','Conditions à confirmer','Âge, taille minimale, disponibilité et tarifs peuvent évoluer.']],
+      practical:[['Zone','Zone 3 · Marcory'],['Budget','5 000 F / session'],['Durée','10 minutes de piste'],['Conseil','Réserver en groupe']],map:'Abidjan Karting Zone 3 Marcory',
+      images:['https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=84','https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=84'],credit:'Illustrations sport automobile · Unsplash'
     }
   };
 
@@ -22424,7 +22533,7 @@ body.kova-event-detail-open{
     });
   }
 
-  const artistData={"HIMRA":{"genre":"RAP IVOIRE","intro":"Une énergie brute, une identité visuelle forte et une présence qui dépasse désormais les frontières de la Côte d’Ivoire.","bio":"HIMRA s’impose comme l’une des voix les plus puissantes de la nouvelle génération ivoirienne. Son univers mélange intensité, ambition, imagerie spectaculaire et une manière très personnelle de raconter la rue, la réussite et les contradictions de son époque.","tracks":["NUMBER ONE","BITCH & MONEY","BARA BARA"],"tags":["Rap Ivoire","Trap","Performance"],"events":[["HIMRA — Stade Ébimpé","26 décembre 2026 · Ébimpé"],["KOVA Live","Abidjan · bientôt"]]},"DOPELYM":{"genre":"RAP ALTERNATIF","intro":"Un univers sombre, précis et magnétique, construit autour d’une présence scénique immédiatement reconnaissable.","bio":"DOPELYM développe une proposition moderne où l’écriture, l’attitude et l’image avancent ensemble. Son identité se distingue par une tension permanente entre élégance, intensité et culture urbaine.","tracks":["BON MOOD","VERSTAPPEN","SUV"],"tags":["Rap alternatif","Urban","Visuel"],"events":[["DOPELYM — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TRK":{"genre":"NOUCHI TRAP","intro":"Une présence incisive et un sens du rythme pensé autant pour les écouteurs que pour la scène.","bio":"TRK construit une signature entre performance, énergie live et rap contemporain. Chaque apparition s’appuie sur une direction claire, un univers cohérent et une vraie proximité avec son public.","tracks":["Numero Uno","Deutsche Qualitat","Comment"],"tags":["Nouchi Trap","Live","Performance"],"events":[["TRK — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"LE SKY":{"genre":"RAP IVOIRE","intro":"Une voix urbaine connectée aux codes d’Abidjan et à une génération en mouvement.","bio":"LE SKY construit un univers personnel entre ambition, quotidien et culture rap ivoirienne. Ses morceaux misent sur une identité directe et une présence visuelle cohérente.","tracks":["EN HAUT","Getting Money","Béni"],"tags":["Rap Ivoire","Abidjan","Nouvelle scène"],"events":[["LE SKY — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"DIDI B":{"genre":"RAP IVOIRE","intro":"Une figure majeure du rap ivoire, entre morceaux fédérateurs, présence scénique et direction artistique affirmée.","bio":"DIDI B occupe une place centrale dans la scène urbaine ivoirienne. Son catalogue mélange énergie, mélodie et refrains immédiatement reconnaissables, avec une capacité à passer du rap pur aux morceaux plus accessibles.","tracks":["Good Vibes","ALL NIGHT LONG","Je m'appelle"],"tags":["Rap Ivoire","Hitmaker","Live"],"events":[["DIDI B — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"SINDIKA":{"genre":"NOUCHI TRAP","intro":"Une proposition frontale, énergique et profondément ancrée dans la nouvelle scène ivoirienne.","bio":"SINDIKA développe une esthétique entre trap, références locales et collaborations fortes. Son catalogue récent montre une volonté claire d’élargir son univers sans perdre son identité.","tracks":["Nouchi in Paris","Pression","Mufasa"],"tags":["Nouchi Trap","Rap","Énergie"],"events":[["SINDIKA — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TEAM PAIYA":{"genre":"AFRO URBAIN","intro":"Un collectif qui transforme chaque morceau en rendez-vous festif.","bio":"TEAM PAIYA s’est imposé avec une formule directe : énergie collective, refrains populaires et productions conçues pour faire bouger le public. Leur univers relie coupé-décalé, afro urbain et culture événementielle.","tracks":["Coup du marteau","Fimbu","La vie"],"tags":["Afro urbain","Collectif","Ambiance"],"events":[["TEAM PAIYA — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TAZEBOY":{"genre":"AFRO RAP","intro":"Une énergie spontanée, populaire et pensée pour le mouvement.","bio":"TAZEBOY se distingue par des morceaux rythmés, des collaborations marquantes et une capacité à naviguer entre rap, afro et ambiance festive.","tracks":["MATATA","Touché coulé","Vedette"],"tags":["Afro Rap","Dance","Nouvelle vague"],"events":[["TAZEBOY — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"AMEKA ZRAI":{"genre":"HIP-HOP / RAP","intro":"Une personnalité vive et une manière singulière de faire dialoguer mélodie et rap.","bio":"AMEKA ZRAI s’inscrit dans la nouvelle génération ivoirienne avec des morceaux identifiables, une forte présence visuelle et une capacité à se renouveler rapidement.","tracks":["Adriano","Changé Numéro","Nouchi in Paris"],"tags":["Hip-Hop","Nouvelle génération","Abidjan"],"events":[["AMEKA ZRAI — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"WIDGUNZ":{"genre":"RAP IVOIRE","intro":"Une signature musicale installée, entre rap de rue et élégance mélodique.","bio":"WIDGUNZ fait partie des profils les plus identifiables du rap ivoire moderne. Son catalogue mélange morceaux introspectifs, collaborations fortes et titres à l’esthétique urbaine assumée.","tracks":["VODY TROPICAL","Giga de Cali","Hokage"],"tags":["Rap Ivoire","Urban","Mélodique"],"events":[["WIDGUNZ — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"SUSPECT 95":{"genre":"RAP IVOIRE","intro":"Une écriture incisive, une identité forte et une présence durable dans le rap francophone.","bio":"SUSPECT 95 construit sa carrière autour d’un ton reconnaissable, d’un sens de la formule et d’une capacité à raconter les réalités du quotidien avec humour, précision et impact.","tracks":["HÉ TCHAI","Monalisa","Promesses"],"tags":["Rap Ivoire","Lyriciste","Classique"],"events":[["SUSPECT 95 — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"ASAP JO":{"genre":"NOUCHI TRAP","intro":"Une voix montante du rap ivoire, portée par une énergie brute, un langage direct et une identité immédiatement reconnaissable.","bio":"ASAP JO fait partie des nouvelles figures à suivre du nouchi trap. Son univers relie références locales, énergie trap et collaborations marquantes. Sa progression repose sur une présence très directe, une esthétique claire et des morceaux conçus pour connecter rapidement avec une nouvelle génération d’auditeurs.","tracks":["BIRDMAN & WEEZY (feat. Himra)","NOUCHI TRAP","QUARESMA"],"tags":["Nouchi Trap","Rap Ivoire","Pépite KOVA"],"events":[["ASAP JO — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]},"WANTCHE":{"genre":"RAP IVOIRE","intro":"Une proposition fraîche et précise, connectée à la nouvelle génération et à une esthétique très actuelle.","bio":"WANTCHÉ développe un rap ivoire moderne, porté par une image soignée et des morceaux courts, directs et mémorables. Son profil se distingue par une vraie cohérence entre musique, attitude et identité visuelle, ce qui en fait l’une des pépites les plus intéressantes à suivre.","tracks":["BAHI","FLB","GO"],"tags":["Rap Ivoire","Nouvelle vague","Pépite KOVA"],"events":[["WANTCHÉ — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]},"GOH DEDI":{"genre":"ALTERNATIVE RAP","intro":"Une esthétique alternative, un rap personnel et une liberté créative qui le distinguent immédiatement.","bio":"GOH DEDI mélange rap alternatif, références underground et direction visuelle forte. Son identité repose sur un contraste entre sensibilité, attitude et expérimentation. Il développe une proposition singulière, capable de dépasser les codes classiques de la scène rap ivoirienne.","tracks":["GANJAMAN","rick & morty","GvngstaMan"],"tags":["Alternative Rap","Underground","Pépite KOVA"],"events":[["GOH DEDI — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]}};
+  const artistData={"HIMRA":{"genre":"RAP IVOIRE","intro":"Une énergie brute, une identité visuelle forte et une présence qui dépasse désormais les frontières de la Côte d’Ivoire.","bio":"HIMRA s’impose comme l’une des voix les plus puissantes de la nouvelle génération ivoirienne. Son univers mélange intensité, ambition, imagerie spectaculaire et une manière très personnelle de raconter la rue, la réussite et les contradictions de son époque.","tracks":["NUMBER ONE","BITCH & MONEY","NOUVEAU BOSS"],"tags":["Rap Ivoire","Trap","Performance"],"events":[["HIMRA — Stade Ébimpé","26 décembre 2026 · Ébimpé"],["KOVA Live","Abidjan · bientôt"]]},"DOPELYM":{"genre":"RAP ALTERNATIF","intro":"Un univers sombre, précis et magnétique, construit autour d’une présence scénique immédiatement reconnaissable.","bio":"DOPELYM développe une proposition moderne où l’écriture, l’attitude et l’image avancent ensemble. Son identité se distingue par une tension permanente entre élégance, intensité et culture urbaine.","tracks":["BON MOOD","VERSTAPPEN","SUV"],"tags":["Rap alternatif","Urban","Visuel"],"events":[["DOPELYM — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TRK":{"genre":"NOUCHI TRAP","intro":"Une présence incisive et un sens du rythme pensé autant pour les écouteurs que pour la scène.","bio":"TRK construit une signature entre performance, énergie live et rap contemporain. Chaque apparition s’appuie sur une direction claire, un univers cohérent et une vraie proximité avec son public.","tracks":["BOTTEGA VENETA","Deutsche Qualitat","Comment"],"tags":["Nouchi Trap","Live","Performance"],"events":[["TRK — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"LE SKY":{"genre":"RAP IVOIRE","intro":"Une voix urbaine connectée aux codes d’Abidjan et à une génération en mouvement.","bio":"LE SKY construit un univers personnel entre ambition, quotidien et culture rap ivoirienne. Ses morceaux misent sur une identité directe et une présence visuelle cohérente.","tracks":["EN HAUT","Getting Money","Béni"],"tags":["Rap Ivoire","Abidjan","Nouvelle scène"],"events":[["LE SKY — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"DIDI B":{"genre":"RAP IVOIRE","intro":"Une figure majeure du rap ivoire, entre morceaux fédérateurs, présence scénique et direction artistique affirmée.","bio":"DIDI B occupe une place centrale dans la scène urbaine ivoirienne. Son catalogue mélange énergie, mélodie et refrains immédiatement reconnaissables, avec une capacité à passer du rap pur aux morceaux plus accessibles.","tracks":["Good Vibes","Assinie","Je m'appelle"],"tags":["Rap Ivoire","Hitmaker","Live"],"events":[["DIDI B — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"SINDIKA":{"genre":"NOUCHI TRAP","intro":"Une proposition frontale, énergique et profondément ancrée dans la nouvelle scène ivoirienne.","bio":"SINDIKA développe une esthétique entre trap, références locales et collaborations fortes. Son catalogue récent montre une volonté claire d’élargir son univers sans perdre son identité.","tracks":["Nouchi in Paris","Pression","Mufasa"],"tags":["Nouchi Trap","Rap","Énergie"],"events":[["SINDIKA — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TEAM PAIYA":{"genre":"AFRO URBAIN","intro":"Un collectif qui transforme chaque morceau en rendez-vous festif.","bio":"TEAM PAIYA s’est imposé avec une formule directe : énergie collective, refrains populaires et productions conçues pour faire bouger le public. Leur univers relie coupé-décalé, afro urbain et culture événementielle.","tracks":["Coup du marteau","Fimbu","La vie"],"tags":["Afro urbain","Collectif","Ambiance"],"events":[["TEAM PAIYA — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"TAZEBOY":{"genre":"AFRO RAP","intro":"Une énergie spontanée, populaire et pensée pour le mouvement.","bio":"TAZEBOY se distingue par des morceaux rythmés, des collaborations marquantes et une capacité à naviguer entre rap, afro et ambiance festive.","tracks":["MATATA","Touché coulé","Vedette"],"tags":["Afro Rap","Dance","Nouvelle vague"],"events":[["TAZEBOY — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"AMEKA ZRAI":{"genre":"HIP-HOP / RAP","intro":"Une personnalité vive et une manière singulière de faire dialoguer mélodie et rap.","bio":"AMEKA ZRAI s’inscrit dans la nouvelle génération ivoirienne avec des morceaux identifiables, une forte présence visuelle et une capacité à se renouveler rapidement.","tracks":["Adriano","Changé Numéro","Nouchi in Paris"],"tags":["Hip-Hop","Nouvelle génération","Abidjan"],"events":[["AMEKA ZRAI — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"WIDGUNZ":{"genre":"RAP IVOIRE","intro":"Une signature musicale installée, entre rap de rue et élégance mélodique.","bio":"WIDGUNZ fait partie des profils les plus identifiables du rap ivoire moderne. Son catalogue mélange morceaux introspectifs, collaborations fortes et titres à l’esthétique urbaine assumée.","tracks":["VODY TROPICAL","Giga de Cali","Hokage"],"tags":["Rap Ivoire","Urban","Mélodique"],"events":[["WIDGUNZ — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"SUSPECT 95":{"genre":"RAP IVOIRE","intro":"Une écriture incisive, une identité forte et une présence durable dans le rap francophone.","bio":"SUSPECT 95 construit sa carrière autour d’un ton reconnaissable, d’un sens de la formule et d’une capacité à raconter les réalités du quotidien avec humour, précision et impact.","tracks":["HÉ TCHAI","Monalisa","Promesses"],"tags":["Rap Ivoire","Lyriciste","Classique"],"events":[["SUSPECT 95 — KOVA Live","Abidjan · bientôt"],["KOVA Select","Prochainement"]]},"ASAP JO":{"genre":"NOUCHI TRAP","intro":"Une voix montante du rap ivoire, portée par une énergie brute, un langage direct et une identité immédiatement reconnaissable.","bio":"ASAP JO fait partie des nouvelles figures à suivre du nouchi trap. Son univers relie références locales, énergie trap et collaborations marquantes. Sa progression repose sur une présence très directe, une esthétique claire et des morceaux conçus pour connecter rapidement avec une nouvelle génération d’auditeurs.","tracks":["BIRDMAN & WEEZY (feat. Himra)","NOUCHI TRAP","QUARESMA"],"tags":["Nouchi Trap","Rap Ivoire","Pépite KOVA"],"events":[["ASAP JO — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]},"WANTCHE":{"genre":"RAP IVOIRE","intro":"Une proposition fraîche et précise, connectée à la nouvelle génération et à une esthétique très actuelle.","bio":"WANTCHÉ développe un rap ivoire moderne, porté par une image soignée et des morceaux courts, directs et mémorables. Son profil se distingue par une vraie cohérence entre musique, attitude et identité visuelle, ce qui en fait l’une des pépites les plus intéressantes à suivre.","tracks":["BAHI","FLB","GO"],"tags":["Rap Ivoire","Nouvelle vague","Pépite KOVA"],"events":[["WANTCHÉ — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]},"GOH DEDI":{"genre":"ALTERNATIVE RAP","intro":"Une esthétique alternative, un rap personnel et une liberté créative qui le distinguent immédiatement.","bio":"GOH DEDI mélange rap alternatif, références underground et direction visuelle forte. Son identité repose sur un contraste entre sensibilité, attitude et expérimentation. Il développe une proposition singulière, capable de dépasser les codes classiques de la scène rap ivoirienne.","tracks":["GANJAMAN","rick & morty","GvngstaMan"],"tags":["Alternative Rap","Underground","Pépite KOVA"],"events":[["GOH DEDI — KOVA Discovery","Abidjan · bientôt"],["Pépites Live","Cocody · prochainement"]]}};
 
   function getImage(card){
     const img=card.querySelector('img');
@@ -22755,26 +22864,39 @@ body.kova-event-detail-open{
 
   const appleTrackCache=new Map();
   const verifiedAppleTracks={
+    'HIMRA::NUMBER ONE':'https://music.apple.com/fr/album/number-one-feat-minz/1804128938?i=1804128941',
     'HIMRA::BITCH & MONEY':'https://music.apple.com/us/song/6771425454',
+    'HIMRA::NOUVEAU BOSS':'https://music.apple.com/fr/album/nouveau-boss/1804128938?i=1804129132',
+    'DOPELYM::BON MOOD':'https://music.apple.com/fr/album/bon-mood/6789080936?i=6789080947',
+    'DOPELYM::VERSTAPPEN':'https://music.apple.com/fr/album/verstappen/6772357079?i=6772357225',
     'DOPELYM::SUV':'https://music.apple.com/us/album/suv/1895839012?i=6764582911',
+    'TRK::BOTTEGA VENETA':'https://music.apple.com/fr/album/bottega-veneta/1687267920?i=1687267921',
     'TRK::DEUTSCHE QUALITAT':'https://music.apple.com/us/song/deutsche-qualitat/6785634452',
     'TRK::COMMENT':'https://music.apple.com/fr/song/1878371867',
     'LE SKY::NAS (LES MAUDITS)':'https://music.apple.com/fr/album/nas-les-maudits/1847058501?i=1847058502',
     'LE SKY::SORS LA PHASE':'https://music.apple.com/us/album/sors-la-phase-feat-lesky/6767651233?i=6767651234',
+    'LE SKY::BENI':'https://music.apple.com/fr/album/b%C3%A9ni/1815277238?i=1815277239',
+    'DIDI B::GOOD VIBES':'https://music.apple.com/fr/album/good-vibes/1802242025?i=1802242031',
+    'DIDI B::ASSINIE':'https://music.apple.com/fr/album/assinie/1487991301?i=1487991746',
     "DIDI B::JE M'APPELLE":'https://music.apple.com/fr/song/1887323178',
     'SINDIKA::NOUCHI IN PARIS':'https://music.apple.com/us/album/nouchi-in-paris-feat-trk-ameka-zrai/6782981185?i=6782981188',
     'SINDIKA::PRESSION':'https://music.apple.com/us/song/1887367770',
+    'SINDIKA::MUFASA':'https://music.apple.com/fr/album/mufasa/1887367515?i=1887367768',
     'TEAM PAIYA::COUP DU MARTEAU':'https://music.apple.com/fr/song/1720608724',
     'TEAM PAIYA::FIMBU':'https://music.apple.com/us/album/fimbu-feat-didi-b-ste-milano-tam-sir-3xdavs/1734486541?i=1734486556',
-    'TEAM PAIYA::LA VIE':'https://music.apple.com/fr/album/la-vie-single/1895976774',
+    'TEAM PAIYA::LA VIE':'https://music.apple.com/fr/album/la-vie/1895976774?i=6765517889',
     'TAZEBOY::MATATA':'https://music.apple.com/us/song/matata/6778177282',
-    'TAZEBOY::TOUCHÉ COULÉ':'https://music.apple.com/us/album/touch%C3%A9-coul%C3%A9-feat-louzio-tazeboy-team-paiya/1874602655?i=1874602658',
+    'TAZEBOY::TOUCHE COULE':'https://music.apple.com/us/album/touch%C3%A9-coul%C3%A9-feat-louzio-tazeboy-team-paiya/1874602655?i=1874602658',
     'TAZEBOY::VEDETTE':'https://music.apple.com/us/album/vedette/1852554725?i=1852554932',
     'AMEKA ZRAI::ADRIANO':'https://music.apple.com/us/album/adriano/1888474670?i=1888474864',
+    'AMEKA ZRAI::CHANGE NUMERO':'https://music.apple.com/fr/album/chang%C3%A9-num%C3%A9ro/1887846400?i=1887846401',
+    'AMEKA ZRAI::NOUCHI IN PARIS':'https://music.apple.com/fr/album/nouchi-in-paris-feat-trk-ameka-zrai/6782981185?i=6782981188',
     'WIDGUNZ::VODY TROPICAL':'https://music.apple.com/us/album/vody-tropical-feat-widgunz/6791696756?i=6791696957',
     'WIDGUNZ::GIGA DE CALI':'https://music.apple.com/us/album/giga-de-cali-feat-widgunz/1730242967?i=1730242988',
     'WIDGUNZ::MAFIA':'https://music.apple.com/us/album/mafia/1637100456?i=1637100465',
-    'SUSPECT 95::HÉ TCHAI':'https://music.apple.com/us/album/h%C3%A9-tchai-feat-jojo-le-barbu-suspect-95/1852485404?i=1852485472',
+    'SUSPECT 95::HE TCHAI':'https://music.apple.com/us/album/h%C3%A9-tchai-feat-jojo-le-barbu-suspect-95/1852485404?i=1852485472',
+    'SUSPECT 95::MONALISA':'https://music.apple.com/fr/album/monalisa-feat-himra/1798236299?i=1798236303',
+    'SUSPECT 95::PROMESSES':'https://music.apple.com/fr/album/promesses/1292606622?i=1292606626',
     'ASAP JO::BIRDMAN & WEEZY (FEAT. HIMRA)':'https://music.apple.com/us/album/birdman-weezy-feat-himra/6791696756?i=6791696966',
     'ASAP JO::NOUCHI TRAP':'https://music.apple.com/fr/song/nouchi-trap/6791696764',
     'ASAP JO::QUARESMA':'https://music.apple.com/us/album/quaresma/6791696756?i=6791696772',
@@ -22877,7 +22999,8 @@ body.kova-event-detail-open{
         row.appendChild(link);
       }
 
-      const suppliedUrl=explicitTrack?.url||'';
+      const verifiedUrl=verifiedAppleTracks[normalize(`${displayName}::${title}`)]||'';
+      const suppliedUrl=verifiedUrl||explicitTrack?.url||'';
       const isDirect=suppliedUrl && !suppliedUrl.includes('/search?');
       link.href=isDirect?suppliedUrl:genericAppleMusicUrl(displayName,title);
       link.dataset.appleArtist=displayName;
@@ -22935,27 +23058,6 @@ body.kova-event-detail-open{
       setTimeout(enhanceTrackList,40);
       setTimeout(enhanceTrackList,560);
     }
-  },true);
-
-  document.addEventListener('click',async event=>{
-    const link=event.target.closest?.('.v68-apple-link');
-    if(!link) return;
-    event.stopPropagation();
-    if(link.dataset.appleDirect==='true') return;
-
-    event.preventDefault();
-    link.classList.add('is-loading');
-    const pendingWindow=window.open('about:blank','_blank');
-    const directUrl=await resolveAppleTrackUrl(link.dataset.appleArtist,link.dataset.appleTrack);
-    link.classList.remove('is-loading');
-    if(!directUrl){
-      pendingWindow?.close();
-      return;
-    }
-    link.href=directUrl;
-    link.dataset.appleDirect='true';
-    if(pendingWindow) pendingWindow.location.href=directUrl;
-    else window.location.href=directUrl;
   },true);
 
   enhanceTrackList();
