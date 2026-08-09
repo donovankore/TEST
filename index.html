@@ -16273,6 +16273,28 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
 #organizers:not(.studio-visible) #creatorStudio{display:none!important}
 #organizers.studio-visible #creatorStudio{display:block!important;margin-top:18px!important}
 
+.v64-gradient{background:linear-gradient(105deg,#8f002c 2%,#e00046 48%,#ff376f 92%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+.v64-home-copy.v84-cover-changing{animation:v84CoverReveal .72s cubic-bezier(.2,.72,.2,1)}
+@keyframes v84CoverReveal{0%{opacity:.78;filter:saturate(.78) brightness(.82);transform:scale(.988)}100%{opacity:1;filter:none;transform:none}}
+
+/* The closing reviews are an editorial finale instead of a generic widget. */
+#kovaOrganizerTestimonials{padding:76px clamp(18px,4vw,70px)!important;border-radius:0!important;background:#f2f2f5!important;color:#fff!important}
+#kovaOrganizerTestimonials .kova-testimonial-shell{position:relative;isolation:isolate;width:min(100%,1380px);min-height:680px!important;margin:0 auto;padding:clamp(32px,4.5vw,68px)!important;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:48px;background:radial-gradient(circle at 84% 12%,rgba(255,53,137,.25),transparent 32%),radial-gradient(circle at 12% 88%,rgba(107,70,255,.2),transparent 34%),linear-gradient(145deg,#17151d 0%,#09090d 72%);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 34px 90px rgba(22,18,34,.19)}
+#kovaOrganizerTestimonials .kova-testimonial-shell::before{content:"“";position:absolute;z-index:-1;right:clamp(22px,6vw,90px);top:-56px;color:rgba(255,255,255,.045);font-size:clamp(230px,28vw,430px);font-weight:950;line-height:1;pointer-events:none}
+.kova-testimonial-heading span{display:block;color:#ff67a4!important;font-size:10px!important;font-weight:950!important;letter-spacing:.2em!important}
+.kova-testimonial-heading h2{max-width:700px;margin:14px 0 0;font-size:clamp(40px,5.2vw,76px);line-height:.9;letter-spacing:-.065em}
+#kovaOrganizerTestimonials .kova-testimonial-controls button{width:48px;height:48px;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+#kovaOrganizerTestimonials .kova-testimonial-stage{min-height:330px;margin-top:42px}
+#kovaOrganizerTestimonials .kova-testimonial-slide blockquote{max-width:1050px;margin:24px 0 34px;font-size:clamp(36px,4vw,62px);line-height:1.02;font-weight:550}
+#kovaOrganizerTestimonials .kova-testimonial-avatar{width:54px;height:54px;border:1px solid rgba(255,255,255,.28);box-shadow:0 12px 30px rgba(0,0,0,.22)}
+#kovaOrganizerTestimonials .kova-testimonial-stats{gap:12px;margin-top:28px;padding-top:0;border:0}
+#kovaOrganizerTestimonials .kova-testimonial-stats div{padding:18px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:rgba(255,255,255,.055);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+
+.kova-glass-fluid{--glass-x:50%;--glass-y:20%;--glass-dx:0px;--glass-dy:0px;position:relative!important;overflow:hidden!important;touch-action:pan-y;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease!important;transform:translate3d(var(--glass-dx),var(--glass-dy),0)!important;will-change:transform}
+.kova-glass-fluid::after{content:""!important;position:absolute!important;z-index:4!important;inset:-25%!important;height:auto!important;border-radius:inherit!important;background:radial-gradient(circle at var(--glass-x) var(--glass-y),rgba(255,255,255,.64) 0,rgba(255,255,255,.2) 18%,transparent 46%)!important;opacity:.42!important;transform:none!important;pointer-events:none!important;transition:opacity .3s ease!important}
+.kova-glass-fluid.kova-glass-dragging{transition:box-shadow .12s ease!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 12px 34px rgba(20,16,34,.2)!important}
+.kova-glass-fluid.kova-glass-dragging::after{opacity:.88!important}
+
 @media (min-width:701px){
   #kovaExperiences .kova-guide-track{grid-auto-columns:clamp(370px,38vw,560px)!important;gap:22px!important}
   #kovaExperiences .kova-place-card{min-height:clamp(540px,51vw,680px)!important;border-radius:38px!important}
@@ -16311,15 +16333,18 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   .v64-kicker{align-self:flex-start!important;padding:8px 11px!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:999px!important;background:rgba(12,12,16,.26)!important;color:rgba(255,255,255,.88)!important;font-size:8px!important;letter-spacing:.2em!important;-webkit-backdrop-filter:blur(16px) saturate(150%)!important;backdrop-filter:blur(16px) saturate(150%)!important}
   .v64-home h1{max-width:330px!important;margin:16px 0 15px!important;font-size:clamp(43px,12vw,56px)!important;line-height:.86!important;letter-spacing:-.07em!important;text-shadow:0 3px 28px rgba(0,0,0,.3)!important}
   .v64-home-copy>p{max-width:305px;font-size:14px!important;line-height:1.42!important;color:rgba(245,245,250,.75)!important}
-  .v64-actions{display:grid!important;grid-template-columns:1.08fr .92fr!important;gap:8px!important;margin-top:22px!important}
+  .v64-actions{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;margin-top:16px!important}
   .v64-actions .v64-secondary{display:block!important}
-  .v64-actions button{width:100%!important;min-height:48px!important;padding:0 11px!important;border-radius:999px!important;font-size:12px!important;white-space:nowrap!important}
+  .v64-actions button{width:100%!important;min-height:43px!important;padding:0 12px!important;border-radius:999px!important;font-size:11px!important;white-space:nowrap!important}
   .v64-primary{box-shadow:0 12px 30px rgba(0,0,0,.24)!important}
   .v64-secondary{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.2)!important;-webkit-backdrop-filter:blur(18px) saturate(170%)!important;backdrop-filter:blur(18px) saturate(170%)!important}
   .v64-context{margin-top:15px!important}
   .v64-context strong::after{display:none!important}
   .v64-context>span:last-child{display:none!important}
   .v64-stage,.v64-controls,.v64-scroll-cue{display:none!important}
+
+  .nav .brand{border-color:rgba(255,255,255,.42)!important;background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(255,255,255,.08))!important;-webkit-backdrop-filter:blur(18px) saturate(190%)!important;backdrop-filter:blur(18px) saturate(190%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.52),0 10px 28px rgba(8,6,14,.12)!important}
+  #kovaMenuOpen{border:1px solid rgba(255,255,255,.3)!important;background:linear-gradient(145deg,rgba(22,21,28,.3),rgba(13,13,18,.14))!important;-webkit-backdrop-filter:blur(18px) saturate(190%)!important;backdrop-filter:blur(18px) saturate(190%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 10px 28px rgba(8,6,14,.16)!important}
 
   #discover{margin-top:0!important;padding-top:24px!important;padding-bottom:26px!important;border-radius:0!important}
   #discover .section-title{font-size:clamp(47px,13vw,62px)!important;line-height:.89!important}
@@ -16400,6 +16425,18 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   .kova-smart-block+.kova-smart-block{margin-top:42px!important}
   #story{padding-top:42px!important;padding-bottom:46px!important}
   #kovaOrganizerTestimonials{margin-top:0!important;padding-top:48px!important;padding-bottom:56px!important}
+  #kovaOrganizerTestimonials{padding-left:14px!important;padding-right:14px!important;background:#f2f2f5!important}
+  #kovaOrganizerTestimonials .kova-testimonial-shell{min-height:610px!important;padding:26px 20px 22px!important;border-radius:32px!important}
+  #kovaOrganizerTestimonials .kova-testimonial-top{align-items:flex-start!important}
+  .kova-testimonial-heading h2{max-width:245px;margin-top:10px;font-size:40px;line-height:.92}
+  #kovaOrganizerTestimonials .kova-testimonial-controls{gap:6px}
+  #kovaOrganizerTestimonials .kova-testimonial-controls button{width:40px;height:40px}
+  #kovaOrganizerTestimonials .kova-testimonial-stage{min-height:330px!important;margin-top:28px!important}
+  #kovaOrganizerTestimonials .kova-testimonial-slide blockquote{margin:19px 0 24px;font-size:clamp(29px,8.5vw,38px)!important;line-height:1.04!important}
+  #kovaOrganizerTestimonials .kova-testimonial-stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;margin-top:20px!important}
+  #kovaOrganizerTestimonials .kova-testimonial-stats div{display:block!important;padding:12px 9px!important;border-radius:15px!important}
+  #kovaOrganizerTestimonials .kova-testimonial-stats strong{font-size:18px!important}
+  #kovaOrganizerTestimonials .kova-testimonial-stats span{font-size:8px!important;line-height:1.25!important}
   #kovaAppCTA{padding-top:52px!important;padding-bottom:64px!important}
 
   .v66-event-nav,.v67-nav{
@@ -16501,8 +16538,8 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
 <h1><span>ON FAIT QUOI</span><span class="v64-gradient">AUJOURD’HUI ?</span></h1>
 <p>Des sorties choisies chaque jour pour vivre Abidjan autrement.</p>
 <div class="v64-actions">
-<button class="v64-primary" id="kovaHeroRadar" type="button">Voir les sorties</button>
-<button aria-label="Découvrir l’espace pour publier un événement" class="v64-secondary" data-v64-scroll="#organizers" type="button">Publier</button>
+<button class="v64-primary" id="kovaHeroRadar" type="button">Voir les événements</button>
+<button aria-label="Découvrir l’espace pour publier un événement" class="v64-secondary" data-v64-scroll="#organizers" type="button">Publier un événement</button>
 </div>
 <div aria-label="Sélection locale mise à jour aujourd’hui" class="v64-context">
 <span aria-hidden="true" class="v64-live-dot"></span>
@@ -17168,7 +17205,7 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
 <section class="kova-testimonial-card cta" id="kovaOrganizerTestimonials">
 <div class="kova-testimonial-shell">
 <div class="kova-testimonial-top">
-<span>ILS EN PARLENT.</span>
+<div class="kova-testimonial-heading"><span>AVIS KOVA</span><h2>Ils ont créé leur moment.</h2></div>
 <div class="kova-testimonial-controls">
 <button aria-label="Témoignage précédent" id="kovaTestimonialPrev" type="button">←</button>
 <button aria-label="Témoignage suivant" id="kovaTestimonialNext" type="button">→</button>
@@ -18367,6 +18404,61 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   q('#earlyAccessBtn')?.addEventListener('click',()=>scrollTo('#kovaAppCTA'));
   q('#kovaMenuEarlyAccess')?.addEventListener('click',()=>scrollTo('#kovaAppCTA'));
   q('#openCreatorBtn')?.addEventListener('click',openCreatorStudio);
+
+  /* Tactile Liquid Glass: horizontal pressure changes the refraction without
+     turning a deliberate slide into an accidental navigation click. */
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    document.querySelectorAll('.nav .brand,#kovaMenuOpen,.mobile-dock,.v66-icon-btn,.v67-icon,.kova-place-nav button,.kova-testimonial-controls button').forEach(glass=>{
+      glass.classList.add('kova-glass-fluid');
+      let gesture=null;
+
+      const resetGlass=()=>{
+        glass.classList.remove('kova-glass-dragging');
+        glass.style.setProperty('--glass-dx','0px');
+        glass.style.setProperty('--glass-dy','0px');
+        glass.style.setProperty('--glass-x','50%');
+        glass.style.setProperty('--glass-y','20%');
+        gesture=null;
+      };
+
+      glass.addEventListener('pointerdown',event=>{
+        if(event.button !== undefined && event.button !== 0)return;
+        gesture={id:event.pointerId,x:event.clientX,y:event.clientY,moved:false};
+        glass.classList.add('kova-glass-dragging');
+      });
+
+      glass.addEventListener('pointermove',event=>{
+        if(!gesture || gesture.id!==event.pointerId)return;
+        const dx=event.clientX-gesture.x;
+        const dy=event.clientY-gesture.y;
+        if(Math.abs(dy)>Math.abs(dx) && Math.abs(dy)>9){resetGlass();return;}
+        gesture.moved=gesture.moved||Math.abs(dx)>10;
+        const shift=Math.max(-7,Math.min(7,dx*.12));
+        const rect=glass.getBoundingClientRect();
+        const x=Math.max(8,Math.min(92,((event.clientX-rect.left)/Math.max(1,rect.width))*100));
+        const y=Math.max(8,Math.min(92,((event.clientY-rect.top)/Math.max(1,rect.height))*100));
+        glass.style.setProperty('--glass-dx',`${shift}px`);
+        glass.style.setProperty('--glass-dy',`${Math.max(-2,Math.min(2,dy*.06))}px`);
+        glass.style.setProperty('--glass-x',`${x}%`);
+        glass.style.setProperty('--glass-y',`${y}%`);
+        if(Math.abs(dx)>5)event.preventDefault();
+      },{passive:false});
+
+      const finishGlass=()=>{
+        if(gesture?.moved)glass.dataset.kovaSuppressClick='true';
+        resetGlass();
+      };
+      glass.addEventListener('pointerup',finishGlass);
+      glass.addEventListener('pointercancel',resetGlass);
+      glass.addEventListener('pointerleave',event=>{if(gesture && event.pointerType==='mouse')finishGlass();});
+      glass.addEventListener('click',event=>{
+        if(glass.dataset.kovaSuppressClick!=='true')return;
+        delete glass.dataset.kovaSuppressClick;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      },true);
+    });
+  }
 
   document.addEventListener('click',event=>{
     const trigger=event.target.closest('[href="#creatorStudio"],[data-v64-scroll="#creatorStudio"],[data-scroll-target="#creatorStudio"]');
@@ -21559,6 +21651,9 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   const mobileQuery = matchMedia('(max-width:700px)');
   let mobile = mobileQuery.matches;
   let scrollTimer = 0;
+  let coverTimer = 0;
+  let rotationTimer = 0;
+  let lastActiveImage = '';
   let lastStageWidth = 0;
 
   dotsRoot.innerHTML = '';
@@ -21576,8 +21671,17 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
     dots.forEach((dot,index) => dot.classList.toggle('active', index === active));
     cards.forEach((card,index) => card.classList.toggle('v64-active', index === active));
     const activeImage = cards[active]?.querySelector('img')?.src;
-    if(home && activeImage){
+    if(home && activeImage && activeImage !== lastActiveImage){
+      lastActiveImage = activeImage;
       home.style.setProperty('--v64-active-image', `url("${activeImage}")`);
+      const copy = home.querySelector('.v64-home-copy');
+      if(copy){
+        copy.classList.remove('v84-cover-changing');
+        void copy.offsetWidth;
+        copy.classList.add('v84-cover-changing');
+        clearTimeout(coverTimer);
+        coverTimer = setTimeout(() => copy.classList.remove('v84-cover-changing'), 760);
+      }
     }
   }
 
@@ -21673,14 +21777,22 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
     render('smooth');
   }
 
+  function startRotation(){
+    clearInterval(rotationTimer);
+    if(document.hidden || matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    rotationTimer = setInterval(() => goTo(active + 1), 5600);
+  }
+
   prev.addEventListener('click', event => {
     event.preventDefault();
     goTo(active - 1);
+    startRotation();
   });
 
   next.addEventListener('click', event => {
     event.preventDefault();
     goTo(active + 1);
+    startRotation();
   });
 
   stage.addEventListener('scroll', () => {
@@ -21698,6 +21810,7 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
         event.preventDefault();
         event.stopPropagation();
         goTo(index);
+        startRotation();
         return;
       }
 
@@ -21705,6 +21818,7 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
         event.preventDefault();
         active = index;
         desktopRender();
+        startRotation();
         return;
       }
 
@@ -21745,9 +21859,13 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   window.addEventListener('resize', () => onViewportWidthChange(false), {passive:true});
   window.addEventListener('orientationchange', () => setTimeout(() => onViewportWidthChange(true), 120), {passive:true});
   mobileQuery.addEventListener?.('change', () => onViewportWidthChange(true));
+  document.addEventListener('visibilitychange', startRotation);
+  home?.addEventListener('mouseenter', () => { if(!mobile) clearInterval(rotationTimer); });
+  home?.addEventListener('mouseleave', startRotation);
 
   requestAnimationFrame(() => onViewportWidthChange(true));
   window.addEventListener('load', () => onViewportWidthChange(true), {once:true});
+  startRotation();
   window.KOVA_V76_CAROUSEL_READY = true;
 })();
 </script>
