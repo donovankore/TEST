@@ -12102,9 +12102,21 @@ body.v66-event-open #v63Experience{
   backdrop-filter:blur(24px) saturate(1.2);
 }
 
-.v66-event-nav>strong{
+.v66-event-nav>strong,
+.v66-nav-top{
   font-size:18px;
   letter-spacing:-.04em;
+}
+
+.v66-nav-top,
+.v67-nav-top,
+.kova-place-nav-top{
+  border:0;
+  background:transparent;
+  color:inherit;
+  font:inherit;
+  font-weight:900;
+  cursor:pointer;
 }
 
 .v66-nav-actions{
@@ -13894,9 +13906,40 @@ body.kova-place-open .kova-player{opacity:0!important;visibility:hidden!importan
   .kova-food-guide .kova-place-card{border-radius:34px 34px 22px 22px}
   .kova-guide-foot{padding:0 18px;display:block}
   .kova-guide-count{display:block;margin-top:8px}
-  .kova-place-nav{min-height:66px;padding:8px 12px}
-  .kova-place-nav strong{font-size:11px}
-  .kova-place-nav button{min-width:46px;min-height:46px}
+  .kova-place-nav{
+    position:fixed;
+    inset:0 0 auto;
+    z-index:12;
+    min-height:66px;
+    padding:10px 12px;
+    border:0;
+    background:transparent;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+    pointer-events:none;
+  }
+  .kova-place-nav strong,.kova-place-nav-top{font-size:11px}
+  .kova-place-nav button{min-width:46px;min-height:46px;pointer-events:auto}
+  .kova-place-nav-top{
+    min-width:128px!important;
+    padding:0 18px;
+    border:1px solid rgba(255,255,255,.48)!important;
+    border-radius:999px!important;
+    background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,.14))!important;
+    -webkit-backdrop-filter:blur(22px) saturate(190%);
+    backdrop-filter:blur(22px) saturate(190%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 10px 28px rgba(18,18,24,.14)!important;
+    letter-spacing:.12em;
+  }
+  .kova-place-nav-actions{pointer-events:auto}
+  .kova-place-nav-actions #kovaPlaceClose{display:none}
+  .kova-place-nav #kovaPlaceBack,.kova-place-nav #kovaPlaceShare{
+    border:1px solid rgba(255,255,255,.48)!important;
+    background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,.14))!important;
+    -webkit-backdrop-filter:blur(22px) saturate(190%);
+    backdrop-filter:blur(22px) saturate(190%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 10px 28px rgba(18,18,24,.14)!important;
+  }
   .kova-place-hero{width:100%;margin:0}
   .kova-place-gallery{display:flex;gap:8px;overflow-x:auto;border-radius:0;scroll-snap-type:x mandatory;scrollbar-width:none}
   .kova-place-gallery::-webkit-scrollbar{display:none}
@@ -14162,7 +14205,8 @@ body.kova-artist-detail-open{
   backdrop-filter:blur(24px) saturate(1.2);
 }
 
-.v67-nav>strong{
+.v67-nav>strong,
+.v67-nav-top{
   font-size:18px;
   letter-spacing:-.04em;
 }
@@ -16036,10 +16080,10 @@ main>#kovaOrganizerTestimonials{order:90}
   position:relative;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.72)!important;
-  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,255,255,.38))!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,.14))!important;
   -webkit-backdrop-filter:blur(22px) saturate(190%);
   backdrop-filter:blur(22px) saturate(190%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.24),0 10px 28px rgba(18,18,24,.14)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.76),inset 0 -1px 0 rgba(255,255,255,.14),0 10px 28px rgba(18,18,24,.14)!important;
 }
 .v66-icon-btn::after,.v67-icon::after{
   content:"";
@@ -16074,15 +16118,18 @@ main>#kovaOrganizerTestimonials{order:90}
   #kovaExperiences{padding-top:0!important;padding-bottom:0!important}
   #kovaExperiences .kova-experience-intro{padding-top:34px!important;padding-bottom:18px!important}
   #kovaExperiences .kova-experience-intro h2{max-width:330px;font-size:clamp(42px,12vw,54px)!important;line-height:.94!important;letter-spacing:-.06em!important}
+  #kovaExperiences .kova-experience-switch{margin-top:24px!important}
   #kovaExperiences .kova-experience-intro>p,#kovaExperiences .kova-guide-head>p{display:none!important}
-  #kovaExperiences .kova-city-guide{padding-top:0!important;padding-bottom:36px!important}
+  #kovaExperiences .kova-city-guide{padding-top:0!important;padding-bottom:12px!important}
   #kovaExperiences .kova-guide-head{display:none!important}
   #kovaExperiences .kova-guide-toolbar{display:block!important;margin-bottom:14px!important;padding-top:18px!important}
   #kovaExperiences .kova-guide-toolbar::before{content:"AFFINER";display:block;margin:0 0 10px;color:rgba(255,255,255,.46);font-size:9px;font-weight:900;letter-spacing:.18em}
   #kovaExperiences .kova-guide-tab{min-height:40px!important;padding:0 15px!important;font-size:12px!important}
+  #kovaExperiences .kova-guide-track{padding-bottom:8px!important}
+  #kovaExperiences .kova-guide-foot{margin-top:0!important}
   #kovaExperiences .kova-guide-foot span:first-child{display:none!important}
   #kovaExperiences .kova-place-card-copy>p{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important}
-  #artists{padding-top:42px!important;padding-bottom:42px!important}
+  #artists{padding-top:24px!important;padding-bottom:42px!important}
   #artists .section-title{margin-bottom:28px!important}
   .phone-section{display:none!important}
 
@@ -16116,7 +16163,7 @@ main>#kovaOrganizerTestimonials{order:90}
     backdrop-filter:none!important;
     pointer-events:none!important;
   }
-  .v66-event-nav>strong,.v67-nav>strong{
+  .v66-event-nav>strong,.v67-nav>strong,.v66-nav-top,.v67-nav-top{
     min-width:74px;
     height:44px;
     display:grid;
@@ -16124,10 +16171,11 @@ main>#kovaOrganizerTestimonials{order:90}
     padding:0 16px;
     border:1px solid rgba(255,255,255,.72);
     border-radius:999px;
-    background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,255,255,.38));
+    border:1px solid rgba(255,255,255,.48);
+    background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,.14));
     -webkit-backdrop-filter:blur(22px) saturate(190%);
     backdrop-filter:blur(22px) saturate(190%);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.24),0 10px 28px rgba(18,18,24,.14);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.76),inset 0 -1px 0 rgba(255,255,255,.14),0 10px 28px rgba(18,18,24,.14);
     pointer-events:auto;
   }
   .v66-event-nav button,.v67-nav button,.v66-nav-actions,.v67-nav-actions{pointer-events:auto}
@@ -16136,11 +16184,11 @@ main>#kovaOrganizerTestimonials{order:90}
   .v66-icon-btn,.v67-icon{width:44px!important;height:44px!important}
 
   /* Mobile sheets always open image-first and at their real beginning. */
-  .v66-event-scroll,.v67-scroll{scroll-behavior:auto!important}
+  .v66-event-scroll,.v67-scroll{padding-top:0!important;scroll-behavior:auto!important}
   .v66-event-hero,.v67-hero{
-    min-height:calc(100svh - 74px)!important;
+    min-height:100svh!important;
     gap:24px!important;
-    padding:18px 14px 36px!important;
+    padding:calc(88px + env(safe-area-inset-top)) 14px 36px!important;
   }
   .v66-poster-wrap{width:min(82vw,340px)!important;border-radius:26px!important;transform:none!important}
   .v67-portrait-shell{width:min(82vw,350px)!important;border-radius:26px!important;transform:none!important}
@@ -17109,7 +17157,7 @@ main>#kovaOrganizerTestimonials{order:90}
 <article aria-hidden="true" aria-labelledby="kovaPlaceTitle" class="kova-place-page" id="kovaPlacePage">
 <nav aria-label="Navigation du guide" class="kova-place-nav">
 <button aria-label="Revenir au guide" id="kovaPlaceBack" type="button">←</button>
-<strong>LE GUIDE KOVA</strong>
+<button aria-label="Revenir en haut de la fiche" class="kova-place-nav-top" id="kovaPlaceTop" type="button">LE GUIDE KOVA</button>
 <div class="kova-place-nav-actions">
 <button aria-label="Partager ce lieu" id="kovaPlaceShare" type="button">↗</button>
 <button aria-label="Fermer la fiche" id="kovaPlaceClose" type="button">×</button>
@@ -17680,6 +17728,7 @@ main>#kovaOrganizerTestimonials{order:90}
   foodTrack?.querySelectorAll('.kova-food-card').forEach(card=>card.addEventListener('click',()=>openRestaurant(card.dataset.restaurant)));
   sportTrack?.querySelectorAll('.kova-sport-card').forEach(card=>card.addEventListener('click',()=>openSport(card.dataset.sport)));
   $('#kovaPlaceBack').addEventListener('click',closePlace);$('#kovaPlaceClose').addEventListener('click',closePlace);
+  $('#kovaPlaceTop').addEventListener('click',()=>page.scrollTo({top:0,behavior:'smooth'}));
   document.addEventListener('keydown',event=>{if(event.key==='Escape'&&page.classList.contains('open'))closePlace()});
   $('#kovaPlaceShare').addEventListener('click',async()=>{
     const title=$('#kovaPlaceTitle').textContent;const payload={title:`${title} · KOVA`,text:`À découvrir dans le Guide KOVA : ${title}`,url:location.href.split('#')[0]+shareHash};
@@ -21320,7 +21369,7 @@ main>#kovaOrganizerTestimonials{order:90}
 <div class="v66-event-backdrop" id="v66Backdrop"></div>
 <header class="v66-event-nav">
 <button aria-label="Fermer" class="v66-icon-btn" id="v66Close" type="button">←</button>
-<strong>KOVA</strong>
+<button aria-label="Revenir en haut de la fiche" class="v66-nav-top" id="v66NavTop" type="button">KOVA</button>
 <div class="v66-nav-actions">
 <button aria-label="Ajouter aux favoris" class="v66-icon-btn" id="v66Save" type="button">♡</button>
 <button aria-label="Partager" class="v66-icon-btn" id="v66Share" type="button">↗</button>
@@ -22469,6 +22518,7 @@ main>#kovaOrganizerTestimonials{order:90}
   },true);
 
   q('#v66Close').addEventListener('click',close);
+  q('#v66NavTop').addEventListener('click',()=>q('.v66-event-scroll').scrollTo({top:0,behavior:'smooth'}));
   document.addEventListener('keydown',event=>{
     if(event.key!=='Escape') return;
     if(success?.classList.contains('open')) closeSuccess();
@@ -22687,7 +22737,7 @@ main>#kovaOrganizerTestimonials{order:90}
 <div class="v67-artist-backdrop" id="v67Backdrop"></div>
 <header class="v67-nav">
 <button aria-label="Fermer" class="v67-icon" id="v67Close" type="button">←</button>
-<strong>KOVA</strong>
+<button aria-label="Revenir en haut de la fiche" class="v67-nav-top" id="v67NavTop" type="button">KOVA</button>
 <div class="v67-nav-actions">
 <button aria-label="Ajouter aux favoris" class="v67-icon" id="v67Favorite" type="button">♡</button>
 <button aria-label="Suivre" class="v67-icon" id="v67FollowTop" type="button">＋</button>
@@ -23074,6 +23124,7 @@ main>#kovaOrganizerTestimonials{order:90}
   });
 
   q('#v67Close').addEventListener('click',close);
+  q('#v67NavTop').addEventListener('click',()=>q('.v67-scroll').scrollTo({top:0,behavior:'smooth'}));
   document.addEventListener('keydown',event=>{
     if(event.key==='Escape' && overlay.classList.contains('open')) close();
   });
