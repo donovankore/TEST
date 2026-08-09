@@ -13703,11 +13703,11 @@ body.v67-artist-open .kova-player{
     left:auto;
     right:10px;
     bottom:calc(82px + env(safe-area-inset-bottom));
-    width:62px;
-    min-height:62px;
-    padding:6px;
+    width:54px;
+    min-height:54px;
+    padding:5px;
     border-color:rgba(255,255,255,.34);
-    border-radius:21px;
+    border-radius:18px;
     background:radial-gradient(circle at 28% 8%,rgba(255,255,255,.3),transparent 36%),rgba(20,20,25,.58);
     -webkit-backdrop-filter:blur(28px) saturate(190%);
     backdrop-filter:blur(28px) saturate(190%);
@@ -13716,11 +13716,11 @@ body.v67-artist-open .kova-player{
   }
   .kova-player.is-visible{transform:none}
   body.v66-event-open .kova-player,body.v67-artist-open .kova-player{transform:translateY(12px) scale(.9)}
-  .kova-player-main{display:block;min-width:50px;width:50px;height:50px}
-  .kova-player-art{display:block;width:50px;height:50px;min-width:50px;border-radius:16px;box-shadow:none}
+  .kova-player-main{display:block;min-width:44px;width:44px;height:44px}
+  .kova-player-art{display:block;width:44px;height:44px;min-width:44px;border-radius:14px;box-shadow:none}
   .kova-player.is-artist .kova-player-art{border-radius:50%}
   .kova-player-copy,.kova-player-chevron,.kova-player-history-controls,.kova-player-ticket{display:none!important}
-  .kova-player-close{position:absolute;top:-5px;right:-5px;width:22px;height:22px;min-width:22px;min-height:22px;padding:0;border:1px solid rgba(255,255,255,.38);background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(21,21,27,.72));color:rgba(255,255,255,.92);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(0,0,0,.28);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
+  .kova-player-close{position:absolute;top:-5px;right:-5px;width:20px;height:20px;min-width:20px;min-height:20px;padding:0;border:1px solid rgba(255,255,255,.38);background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(21,21,27,.72));color:rgba(255,255,255,.92);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(0,0,0,.28);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
   .kova-player-close::before,.kova-player-close::after{width:8px;height:1.25px}
 }
 
@@ -13779,10 +13779,10 @@ body.v67-artist-open .kova-player{
 .kova-guide-arrow:disabled{opacity:.35}
 .kova-guide-track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(280px,31vw,455px);gap:18px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:2px 2px 20px;scrollbar-width:none}
 .kova-guide-track::-webkit-scrollbar{display:none}
-.kova-place-card{position:relative;min-height:clamp(430px,48vw,610px);overflow:hidden;border:0;border-radius:34px;color:#fff;background:#242429;text-align:left;scroll-snap-align:start;isolation:isolate;cursor:pointer}
+.kova-place-card{position:relative;min-height:clamp(430px,48vw,610px);overflow:hidden;padding:0;border:0;border-radius:34px;color:#fff;background:#111114;text-align:left;scroll-snap-align:start;isolation:isolate;cursor:pointer}
 .kova-place-card[hidden]{display:none}
 .kova-place-card::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(5,5,7,.94),rgba(5,5,7,.04) 66%)}
-.kova-place-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.75,.25,1),filter .4s ease}
+.kova-place-card img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.75,.25,1),filter .4s ease}
 .kova-place-card:hover img,.kova-place-card:focus-visible img{transform:scale(1.045)}
 .kova-place-card-copy{position:absolute;z-index:2;inset:auto 0 0;padding:28px}
 .kova-place-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:rgba(255,255,255,.72);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
@@ -16019,6 +16019,9 @@ body.kova-event-detail-open{
    KOVA V84 — Editorial flow and Apple Music-inspired polish
    One hierarchy, fewer interruptions, image-first surfaces.
    ========================================================= */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-kerning:normal}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
 main{
   display:flex;
   flex-direction:column;
@@ -16252,11 +16255,11 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   pointer-events:none;
 }
 .v66-icon-btn:active,.v67-icon:active{transform:scale(.93)!important}
-.kova-place-nav button:focus-visible,.v66-icon-btn:focus-visible,.v67-icon:focus-visible,.brand:focus-visible,.menu-toggle:focus-visible{outline:2px solid rgba(255,92,160,.82)!important;outline-offset:2px}
+.kova-place-nav button:focus-visible,.v66-icon-btn:focus-visible,.v67-icon:focus-visible,.brand:focus-visible,.menu-toggle:focus-visible,.kova-experience-switch button:focus-visible,.kova-guide-tab:focus-visible{outline:2px solid rgba(255,92,160,.82)!important;outline-offset:2px}
 
 @media (max-width:700px){
   .v64-home{
-    padding:96px 0 38px!important;
+    padding:96px 0 20px!important;
   }
   .v64-home-copy>p{font-size:15px!important;line-height:1.45!important}
   .v64-home-copy>p{max-width:350px}
@@ -16267,42 +16270,61 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   .v64-context>span:last-child{display:none!important}
   .v64-stage,.v64-controls,.v64-scroll-cue{display:none!important}
 
-  #discover{margin-top:0!important;padding-top:38px!important;padding-bottom:30px!important;border-radius:0!important}
+  #discover{margin-top:0!important;padding-top:24px!important;padding-bottom:26px!important;border-radius:0!important}
   #discover .section-title{font-size:clamp(47px,13vw,62px)!important;line-height:.89!important}
-  .kova-intent-rail{margin:21px -16px 24px;padding:0 16px;scroll-padding-left:16px}
+  .kova-intent-rail{display:none!important}
   .kova-intent-chip{min-height:40px;padding:0 15px}
-  .kova-radar-launch{min-height:42px;margin-top:18px;padding:0 14px;font-size:12px}
+  .kova-radar-launch{min-height:40px;margin-top:16px;padding:0 14px;gap:8px;font-size:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 22px rgba(0,0,0,.16)}
   .kova-radar-launch small{display:none}
-  .kova-radar{place-items:end center;padding:0}
-  .kova-radar-panel{width:100%;max-height:92dvh;padding:18px 14px calc(20px + env(safe-area-inset-bottom));border-width:1px 0 0;border-radius:28px 28px 0 0}
-  .kova-radar-head h2{font-size:42px}
-  .kova-radar-search{margin:17px 0 14px}
-  .kova-radar-search input{min-height:50px}
-  .kova-radar-collections{margin-bottom:14px}
-  .kova-radar-filters{display:block}
-  .kova-radar-filter{padding:10px 0;border:0;border-top:1px solid rgba(255,255,255,.08);border-radius:0;background:transparent}
-  .kova-radar-filter>span{margin:0 0 8px 2px}
-  .kova-radar-options{margin-right:-14px;padding-right:14px}
-  .kova-radar-results-head{margin-top:18px}
+  .kova-radar{place-items:end center;padding:0 6px 6px}
+  .kova-radar-panel{width:100%;max-height:calc(100dvh - 72px);padding:17px 13px calc(17px + env(safe-area-inset-bottom));border-width:1px;border-radius:26px;background:linear-gradient(150deg,rgba(31,29,36,.96),rgba(13,13,17,.94))}
+  .kova-radar-head{gap:12px}
+  .kova-radar-kicker{margin-bottom:6px;font-size:8px}
+  .kova-radar-head h2{font-size:34px;line-height:.94;letter-spacing:-.055em}
+  .kova-radar-close{flex-basis:38px;width:38px;height:38px;min-width:38px;min-height:38px}
+  .kova-radar-search{margin:14px 0 12px}
+  .kova-radar-search input{min-height:46px;padding-left:41px;border-radius:15px;font-size:13px}
+  .kova-radar-collections{gap:10px;margin-bottom:14px;padding-right:8px}
+  .kova-radar-collection{min-height:36px;padding:0 13px}
+  .kova-radar-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .kova-radar-filter{min-width:0;padding:10px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.035)}
+  .kova-radar-filter>span{margin:0 0 8px 1px;font-size:8px}
+  .kova-radar-options{gap:8px;margin:0 -10px;padding:0 10px}
+  .kova-radar-option{min-height:34px;padding:0 11px;font-size:10px}
+  .kova-radar-results-head{margin-top:15px}
+  .kova-radar-results-head h3{font-size:20px}
   .kova-radar-results{display:block}
-  .kova-radar-result{width:100%;grid-template-columns:58px minmax(0,1fr) auto;margin-bottom:7px;padding:7px;border-radius:17px}
-  .kova-radar-result img{width:58px;height:64px;border-radius:11px}
+  .kova-radar-result{width:100%;grid-template-columns:52px minmax(0,1fr) auto;margin-bottom:7px;padding:7px;gap:10px;border-radius:16px}
+  .kova-radar-result img{width:52px;height:56px;border-radius:10px}
+  .kova-radar-result-copy strong{font-size:14px}
+  .kova-radar-result-arrow{width:30px;height:30px}
   .kova-radar-footer{align-items:flex-start;flex-direction:column}
-  #discover .kova-night-quote{padding-top:34px!important;padding-bottom:0!important}
+  #discover .kova-night-quote{padding-top:26px!important;padding-bottom:0!important}
+  #discover .kova-night-quote blockquote{font-size:clamp(19px,5.8vw,24px)!important;line-height:1.2!important;letter-spacing:.04em!important}
 
   #kovaExperiences{padding-top:0!important;padding-bottom:0!important}
-  #kovaExperiences .kova-experience-intro{padding-top:34px!important;padding-bottom:18px!important}
-  #kovaExperiences .kova-experience-intro h2{max-width:330px;font-size:clamp(42px,12vw,54px)!important;line-height:.94!important;letter-spacing:-.06em!important}
-  #kovaExperiences .kova-experience-switch{margin-top:24px!important}
+  #kovaExperiences{background:#0d0d0f!important}
+  #kovaExperiences .kova-experience-intro{padding:30px 18px 14px!important}
+  #kovaExperiences .kova-experience-intro h2{max-width:310px;font-size:clamp(38px,10.5vw,46px)!important;line-height:.95!important;letter-spacing:-.055em!important}
+  #kovaExperiences .kova-guide-kicker{margin-bottom:13px!important;font-size:9px!important}
+  #kovaExperiences .kova-experience-switch{min-height:46px;margin-top:20px!important;padding:4px!important;gap:4px!important;border-radius:18px!important;background:rgba(255,255,255,.055)!important;-webkit-backdrop-filter:blur(14px) saturate(145%)!important;backdrop-filter:blur(14px) saturate(145%)!important}
+  #kovaExperiences .kova-experience-switch button{min-height:38px!important;border-radius:14px!important;font-size:11px!important}
   #kovaExperiences .kova-experience-intro>p,#kovaExperiences .kova-guide-head>p{display:none!important}
-  #kovaExperiences .kova-city-guide{padding-top:0!important;padding-bottom:12px!important}
+  #kovaExperiences .kova-city-guide,#kovaExperiences .kova-food-guide,#kovaExperiences .kova-sport-guide{padding-top:0!important;padding-bottom:8px!important;background:#0d0d0f!important}
+  #kovaExperiences .kova-city-guide::before{display:none!important}
   #kovaExperiences .kova-guide-head{display:none!important}
-  #kovaExperiences .kova-guide-toolbar{display:block!important;margin-bottom:14px!important;padding-top:18px!important}
-  #kovaExperiences .kova-guide-toolbar::before{content:"AFFINER";display:block;margin:0 0 10px;color:rgba(255,255,255,.46);font-size:9px;font-weight:900;letter-spacing:.18em}
-  #kovaExperiences .kova-guide-tab{min-height:40px!important;padding:0 15px!important;font-size:12px!important}
-  #kovaExperiences .kova-guide-track{padding-bottom:8px!important}
-  #kovaExperiences .kova-guide-foot{margin-top:0!important}
-  #kovaExperiences .kova-guide-foot span:first-child{display:none!important}
+  #kovaExperiences .kova-guide-toolbar{display:block!important;margin-bottom:12px!important;padding:8px 18px 0!important}
+  #kovaExperiences .kova-guide-toolbar::before{display:none!important;content:none!important}
+  #kovaExperiences .kova-guide-tabs{gap:8px!important}
+  #kovaExperiences .kova-guide-tab{min-height:36px!important;padding:0 14px!important;font-size:11px!important}
+  #kovaExperiences .kova-guide-track{grid-auto-columns:calc(100vw - 36px)!important;gap:12px!important;padding:2px 18px 10px!important;scroll-padding-inline:18px!important;-webkit-overflow-scrolling:touch}
+  #kovaExperiences .kova-place-card{min-height:430px!important;border-radius:28px!important;background:#111114!important}
+  #kovaExperiences .kova-place-card img{inset:0!important;width:100%!important;height:100%!important}
+  #kovaExperiences .kova-place-card-copy{padding:21px!important}
+  #kovaExperiences .kova-place-card-copy h3{font-size:34px!important;line-height:.94!important}
+  #kovaExperiences .kova-place-card-open{top:15px!important;right:15px!important;width:42px!important;height:42px!important}
+  #kovaExperiences .kova-place-card[data-budget]::before{top:15px!important;left:15px!important;padding:8px 10px!important}
+  #kovaExperiences .kova-guide-foot{display:none!important}
   #kovaExperiences .kova-place-card-copy>p{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important}
   #artists{padding-top:24px!important;padding-bottom:42px!important}
   #artists .section-title{margin-bottom:28px!important}
@@ -16604,9 +16626,17 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
       return value;
     };
     const typeLabel=item=>item.type==='artist'?'Artiste':item.type==='place'?'Guide KOVA':stateLabels[item.status]||timeLabels[item.time]||'Événement';
+    const searchScore=(item,tokens)=>{
+      const title=normal(item.title),meta=normal(item.meta),haystack=`${title} ${meta}`;
+      if(!tokens.every(token=>haystack.includes(token))) return -1;
+      let value=item.type==='event'?12:item.type==='artist'?6:3;
+      tokens.forEach(token=>{if(title===token)value+=12;else if(title.startsWith(token))value+=8;else if(title.includes(token))value+=5;else value+=1});
+      return value;
+    };
     const render=()=>{
       const query=normal(search.value);
-      let items=query?universalProfiles().filter(item=>normal(`${item.title} ${item.meta}`).includes(query)):eventProfiles().sort((a,b)=>score(b)-score(a));
+      const tokens=query.split(/\s+/).filter(Boolean);
+      let items=query?universalProfiles().map(item=>({item,value:searchScore(item,tokens)})).filter(entry=>entry.value>=0).sort((a,b)=>b.value-a.value).map(entry=>entry.item):eventProfiles().sort((a,b)=>score(b)-score(a));
       items=items.slice(0,4);
       results.replaceChildren();
       items.forEach(item=>{
@@ -16624,7 +16654,11 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
       if(!items.length){const empty=document.createElement('p');empty.className='kova-radar-empty';empty.textContent='Aucun résultat exact. Essaie un autre mot ou élargis tes choix.';results.append(empty)}
       count.textContent=`${items.length} proposition${items.length>1?'s':''}`;
     };
-    const syncOptions=()=>document.querySelectorAll('[data-radar-group]').forEach(group=>group.querySelectorAll('.kova-radar-option').forEach(button=>{const active=button.dataset.value===state[group.dataset.radarGroup];button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))}));
+    const syncOptions=()=>document.querySelectorAll('[data-radar-group]').forEach(group=>{
+      let selected=null;
+      group.querySelectorAll('.kova-radar-option').forEach(button=>{const active=button.dataset.value===state[group.dataset.radarGroup];button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));if(active)selected=button});
+      if(selected) group.scrollTo({left:Math.max(0,selected.offsetLeft-10),behavior:'auto'});
+    });
     const setChoice=(group,value)=>{state[group]=value;syncOptions();render()};
     const openRadar=()=>{eventProfiles();radar.classList.add('open');radar.setAttribute('aria-hidden','false');document.body.classList.add('kova-radar-open');panel.scrollTop=0;render();setTimeout(()=>search.focus({preventScroll:true}),120)};
     const closeRadar=()=>{radar.classList.remove('open');radar.setAttribute('aria-hidden','true');document.body.classList.remove('kova-radar-open')};
