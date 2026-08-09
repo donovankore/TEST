@@ -16050,24 +16050,30 @@ main>#kovaOrganizerTestimonials{order:90}
 
 @media (max-width:700px){
   .v64-home{
-    padding:104px 0 48px!important;
+    padding:96px 0 38px!important;
   }
+  .v64-home-copy>p{font-size:15px!important;line-height:1.45!important}
   .v64-home-copy>p{max-width:350px}
   .v64-actions{margin-top:22px!important}
   .v64-actions .v64-secondary{display:none!important}
   .v64-actions button{min-height:54px!important}
-  .v64-context{margin-top:19px!important}
-  .v64-stage,.v64-scroll-cue{display:none!important}
+  .v64-context{margin-top:17px!important}
+  .v64-context>span:last-child{display:none!important}
+  .v64-stage,.v64-controls,.v64-scroll-cue{display:none!important}
 
-  #discover{margin-top:0!important;padding-top:42px!important;padding-bottom:34px!important}
+  #discover{margin-top:0!important;padding-top:38px!important;padding-bottom:30px!important;border-radius:0!important}
   #discover .section-title{font-size:clamp(47px,13vw,62px)!important;line-height:.89!important}
   .kova-intent-rail{margin:21px -18px 24px;padding:0 18px;scroll-padding-left:18px}
   .kova-intent-chip{min-height:40px;padding:0 15px}
   #discover .kova-night-quote{padding-top:34px!important;padding-bottom:0!important}
 
   #kovaExperiences{padding-top:0!important;padding-bottom:0!important}
-  #kovaExperiences .kova-experience-intro{padding-top:38px!important;padding-bottom:22px!important}
-  #kovaExperiences .kova-city-guide{padding-top:0!important;padding-bottom:42px!important}
+  #kovaExperiences .kova-experience-intro{padding-top:34px!important;padding-bottom:18px!important}
+  #kovaExperiences .kova-experience-intro>p,#kovaExperiences .kova-guide-head>p{display:none!important}
+  #kovaExperiences .kova-city-guide{padding-top:0!important;padding-bottom:36px!important}
+  #kovaExperiences .kova-guide-head{margin-bottom:20px!important}
+  #kovaExperiences .kova-guide-foot span:first-child{display:none!important}
+  #kovaExperiences .kova-place-card-copy>p{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important}
   #artists{padding-top:42px!important;padding-bottom:42px!important}
   #artists .section-title{margin-bottom:28px!important}
   .phone-section{display:none!important}
@@ -16083,13 +16089,7 @@ main>#kovaOrganizerTestimonials{order:90}
   #organizers .creator-hero-actions{display:block!important;margin-top:20px!important}
   #organizers .creator-primary{width:100%!important;min-height:54px!important}
   #organizers .creator-secondary,#organizers .creator-proof{display:none!important}
-  #organizers .creator-lab-canvas{min-height:330px!important}
-  #organizers .canvas-toolbar{padding:15px 16px!important}
-  #organizers .canvas-main-card{width:78%!important;padding:20px!important;border-radius:25px!important}
-  #organizers .canvas-main-card h3{margin:11px 0 8px!important;font-size:clamp(38px,12vw,48px)!important}
-  #organizers .canvas-main-card p{margin-bottom:16px!important;font-size:13px!important}
-  #organizers .canvas-note,#organizers .canvas-footer{display:none!important}
-  #organizers .canvas-poster{opacity:.68!important;transform:rotate(var(--rotate)) scale(.7)!important}
+  #organizers .creator-lab-canvas{display:none!important}
   #organizers:not(.studio-visible) #creatorStudio{display:none!important}
   #organizers.studio-visible #creatorStudio{display:block!important;margin-top:18px!important}
 
@@ -16106,6 +16106,43 @@ main>#kovaOrganizerTestimonials{order:90}
     backdrop-filter:blur(28px) saturate(175%)!important;
   }
   .v66-icon-btn,.v67-icon{width:44px!important;height:44px!important}
+
+  /* Mobile sheets always open image-first and at their real beginning. */
+  .v66-event-scroll,.v67-scroll{scroll-behavior:auto!important}
+  .v66-event-hero,.v67-hero{
+    min-height:calc(100svh - 74px)!important;
+    gap:24px!important;
+    padding:18px 14px 36px!important;
+  }
+  .v66-poster-wrap{width:min(82vw,340px)!important;border-radius:26px!important;transform:none!important}
+  .v67-portrait-shell{width:min(82vw,350px)!important;border-radius:26px!important;transform:none!important}
+  .v66-hero-copy h1{font-size:clamp(46px,13vw,66px)!important}
+  .v67-hero-copy h1{font-size:clamp(48px,14vw,70px)!important}
+  .v66-hero-copy>p,.v67-hero-copy>p{margin-top:16px!important;font-size:15px!important;line-height:1.42!important}
+  .v66-hero-actions,.v67-hero-actions{margin-top:22px!important}
+  .v66-event-content,.v67-content{padding-top:30px!important}
+  .v66-story-card,.v67-bio-card{padding-bottom:38px!important}
+  .v66-story-card h2,.v66-section-head h2,.v67-bio-card h2,.v67-section-head h2{font-size:clamp(34px,10.5vw,42px)!important}
+  .v66-story-card p,.v67-bio-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+  .v66-story-card.expanded p,.v67-bio-card.expanded p{display:block}
+
+  /* Keep the Apple action optically centred in its own grid column. */
+  .v67-track{align-items:center!important}
+  .v68-apple-link{
+    display:grid!important;
+    place-items:center!important;
+    justify-self:center!important;
+    align-self:center!important;
+    margin:0!important;
+    padding:0!important;
+    line-height:1!important;
+  }
+  .v68-apple-link::before{margin:0!important}
+
+  /* Expensive full-screen blurs are replaced by lighter mobile layers. */
+  .v66-transition.active,.v67-transition.active{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .v66-event-ambient,.v67-ambient{filter:none!important;opacity:.16!important;transform:none!important}
+  .v66-transition-card,.v67-transition-card{transition-duration:.42s!important}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -16125,7 +16162,7 @@ main>#kovaOrganizerTestimonials{order:90}
 <div class="v64-home-copy">
 <span class="v64-kicker">ABIDJAN · SORTIR AUTREMENT</span>
 <h1><span>ON FAIT QUOI</span><span class="v64-gradient">AUJOURD’HUI ?</span></h1>
-<p>Les sorties qui comptent, sélectionnées chaque jour pour vivre Abidjan autrement.</p>
+<p>Des sorties choisies chaque jour pour vivre Abidjan autrement.</p>
 <div class="v64-actions">
 <button class="v64-primary" data-v64-scroll="#discover" type="button">Explorer les événements</button>
 <button class="v64-secondary" data-v64-scroll="#creatorStudio" type="button">Publier un événement</button>
@@ -16512,7 +16549,7 @@ main>#kovaOrganizerTestimonials{order:90}
 <div class="creator-lab-copy">
 <span class="creator-eyebrow">POUR LES CRÉATEURS</span>
 <h2>À toi<br/>de jouer.</h2>
-<p>Ton idée mérite du monde. Monte ta page, ajoute tes billets et mets tout en ligne.</p>
+<p>Crée ta page, ajoute tes billets et publie.</p>
 <div class="creator-hero-actions">
 <button class="creator-primary" id="openCreatorBtn" type="button">Je crée mon événement</button>
 <button class="creator-secondary" id="creatorDemoBtn" type="button">Voir comment ça marche</button>
@@ -22296,12 +22333,23 @@ main>#kovaOrganizerTestimonials{order:90}
     }
   }
 
+  function resetEventSheetScroll(){
+    const scroller=q('.v66-event-scroll');
+    if(!scroller) return;
+    const inlineBehavior=scroller.style.scrollBehavior;
+    scroller.style.scrollBehavior='auto';
+    scroller.scrollTop=0;
+    scroller.scrollLeft=0;
+    requestAnimationFrame(()=>{scroller.style.scrollBehavior=inlineBehavior});
+  }
+
   function animateOpen(card,originNode=card){
     currentCard=card;
     currentImage=getImage(card);
     syncPlayer(card);
     setPlayerVisible(false);
     buildEvent(card);
+    resetEventSheetScroll();
     const selection=createEventSelection(card);
     setSaved(window.KOVA_FAVORITES.has('event',selection.key));
 
@@ -22317,8 +22365,9 @@ main>#kovaOrganizerTestimonials{order:90}
     transition.setAttribute('aria-hidden','false');
 
     requestAnimationFrame(()=>{
-      const targetW=Math.min(window.innerWidth*.42,520);
-      const targetH=Math.min(window.innerHeight*.68,690);
+      const compact=window.innerWidth<=600;
+      const targetW=Math.min(window.innerWidth*(compact ? .78 : .42),compact ? 340 : 520);
+      const targetH=Math.min(window.innerHeight*(compact ? .64 : .68),compact ? 560 : 690);
       transitionCard.style.left=((window.innerWidth-targetW)/2)+'px';
       transitionCard.style.top=((window.innerHeight-targetH)/2)+'px';
       transitionCard.style.width=targetW+'px';
@@ -22334,7 +22383,7 @@ main>#kovaOrganizerTestimonials{order:90}
       overlay.setAttribute('aria-hidden','false');
       transition.classList.remove('active');
       transition.setAttribute('aria-hidden','true');
-      q('.v66-event-scroll').scrollTop=0;
+      resetEventSheetScroll();
     },reduced?0:470);
   }
 
@@ -22856,10 +22905,21 @@ main>#kovaOrganizerTestimonials{order:90}
   });
   window.KOVA_FAVORITES?.refresh();
 
+  function resetArtistSheetScroll(){
+    const scroller=q('.v67-scroll');
+    if(!scroller) return;
+    const inlineBehavior=scroller.style.scrollBehavior;
+    scroller.style.scrollBehavior='auto';
+    scroller.scrollTop=0;
+    scroller.scrollLeft=0;
+    requestAnimationFrame(()=>{scroller.style.scrollBehavior=inlineBehavior});
+  }
+
   function animateOpen(card,originNode){
     currentCard=card;
     currentImage=getImage(card);
     buildArtist(card);
+    resetArtistSheetScroll();
 
     const rising=card.classList.contains('rising-card');
     const artistName=getName(card);
@@ -22891,10 +22951,10 @@ main>#kovaOrganizerTestimonials{order:90}
       const compact=window.innerWidth<=600;
       const targetW=rising
         ? Math.min(window.innerWidth*(compact ? .76 : .46),compact ? 330 : 520)
-        : Math.min(window.innerWidth*.42,500);
+        : Math.min(window.innerWidth*(compact ? .78 : .42),compact ? 340 : 500);
       const targetH=rising
         ? Math.min(window.innerHeight*(compact ? .66 : .76),compact ? 570 : 740)
-        : Math.min(window.innerHeight*.72,720);
+        : Math.min(window.innerHeight*(compact ? .68 : .72),compact ? 590 : 720);
       const risingIndex=Math.max(0,qa('.rising-card').indexOf(card));
       const tilt=[-1.8,1.4,-.8][risingIndex%3];
       transitionCard.style.left=((window.innerWidth-targetW)/2)+'px';
@@ -22916,7 +22976,7 @@ main>#kovaOrganizerTestimonials{order:90}
       transition.classList.remove('rising-active','rising-launched');
       transition.setAttribute('aria-hidden','true');
       card.classList.remove('is-opening');
-      q('.v67-scroll').scrollTop=0;
+      resetArtistSheetScroll();
       if(rising&&!reduced) setTimeout(()=>overlay.classList.remove('v79-entering'),920);
     },reduced?0:(rising?650:490));
   }
