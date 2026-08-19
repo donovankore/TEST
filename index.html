@@ -13754,7 +13754,8 @@ body.v67-artist-open .kova-player{
   .kova-player-art{display:block;width:44px;height:44px;min-width:44px;border-radius:14px;box-shadow:none}
   .kova-player.is-artist .kova-player-art{border-radius:50%}
   .kova-player-copy,.kova-player-chevron,.kova-player-history-controls,.kova-player-ticket{display:none!important}
-  .kova-player-close{position:absolute;top:-5px;right:-5px;width:20px;height:20px;min-width:20px;min-height:20px;padding:0;border:1px solid rgba(255,255,255,.38);background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(21,21,27,.72));color:rgba(255,255,255,.92);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 6px 18px rgba(0,0,0,.28);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%)}
+  /* Keep the 20px glass dot visually, but expose a reliable 40px tap target. */
+  .kova-player-close{position:absolute;top:-15px;right:-15px;width:40px;height:40px;min-width:40px;min-height:40px;padding:0;border:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.34) 0 8px,rgba(21,21,27,.76) 9px,rgba(21,21,27,.76) 10px,transparent 11px);color:rgba(255,255,255,.92);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;touch-action:manipulation}
   .kova-player-close::before,.kova-player-close::after{width:8px;height:1.25px}
 }
 
@@ -15155,7 +15156,25 @@ body.kova-artist-detail-open{
   isolation:isolate!important;
   -webkit-backdrop-filter:blur(30px) saturate(190%) brightness(1.04)!important;
   backdrop-filter:blur(30px) saturate(190%) brightness(1.04)!important;
-  will-change:backdrop-filter;
+  will-change:auto;
+}
+
+/* Shared finishing layer: clearer type rhythm and predictable section landings
+   without replacing KOVA's established art direction. */
+main>section{scroll-margin-top:88px}
+.section-title,.v64-home h1,.kova-artist-library-copy h2,.kova-experience-intro h2,.kova-testimonial-heading h2{text-wrap:balance}
+button,a{-webkit-tap-highlight-color:transparent}
+
+/* The full-screen editorial sheets own their vertical scroll on iOS.
+   Explicit pan handling prevents a fixed page shell from swallowing swipes. */
+.kova-artist-page,
+.kova-place-page,
+.kova-events-overview,
+.kova-artist-overview,
+.kova-experience-overview{
+  overscroll-behavior-y:contain;
+  touch-action:pan-y;
+  -webkit-overflow-scrolling:touch;
 }
 
 .nav{
@@ -15241,27 +15260,29 @@ body.kova-artist-detail-open{
     bottom:max(12px,env(safe-area-inset-bottom))!important;
     width:min(calc(100vw - 24px),680px)!important;
     max-width:calc(100vw - 24px)!important;
-    min-height:72px!important;
-    padding:6px!important;
+    min-height:64px!important;
+    padding:5px!important;
     margin:0!important;
-    transform:translateX(-50%) translateZ(0)!important;
+    transform:translateX(-50%) translateY(var(--dock-lift,0px)) translateZ(0)!important;
     box-sizing:border-box!important;
     z-index:99990!important;
     overflow:hidden!important;
     pointer-events:none!important;
-    border:1px solid rgba(255,255,255,.2)!important;
-    border-top-color:rgba(255,255,255,.42)!important;
-    border-radius:25px!important;
+    border:1px solid rgba(255,255,255,.17)!important;
+    border-top-color:rgba(255,255,255,.38)!important;
+    border-radius:22px!important;
     background:
-      radial-gradient(circle at var(--glass-x) var(--glass-y),rgba(255,255,255,.22),transparent 34%),
-      linear-gradient(118deg,rgba(19,19,25,.66),rgba(31,28,39,.48) 50%,rgba(13,13,18,.7))!important;
-    -webkit-backdrop-filter:blur(32px) saturate(190%) brightness(.94)!important;
-    backdrop-filter:blur(32px) saturate(190%) brightness(.94)!important;
+      radial-gradient(circle at var(--glass-x) var(--glass-y),rgba(255,255,255,.2),transparent 35%),
+      linear-gradient(118deg,rgba(19,19,25,.56),rgba(31,28,39,.39) 50%,rgba(13,13,18,.59))!important;
+    -webkit-backdrop-filter:blur(28px) saturate(184%) brightness(.96)!important;
+    backdrop-filter:blur(28px) saturate(184%) brightness(.96)!important;
     box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.26),
+      inset 0 1px 0 rgba(255,255,255,.24),
       inset 0 -1px 0 rgba(255,255,255,.07),
-      0 22px 58px rgba(0,0,0,.38),
-      0 6px 18px rgba(15,9,27,.2)!important;
+      0 16px 44px rgba(0,0,0,.3),
+      0 4px 14px rgba(15,9,27,.16)!important;
+    opacity:.94!important;
+    transition:width .36s cubic-bezier(.16,1,.3,1),height .3s ease,opacity .26s ease,transform .36s cubic-bezier(.16,1,.3,1),background .3s ease!important;
   }
 
   .mobile-dock::before{
@@ -15269,21 +15290,21 @@ body.kova-artist-detail-open{
     display:block!important;
     position:absolute!important;
     z-index:1!important;
-    top:6px!important;
-    bottom:6px!important;
-    left:6px!important;
-    width:calc((100% - 12px)/5)!important;
+    top:5px!important;
+    bottom:5px!important;
+    left:5px!important;
+    width:calc((100% - 10px)/5)!important;
     border:1px solid rgba(255,255,255,.66)!important;
     border-radius:19px!important;
     background:
-      radial-gradient(circle at 72% 12%,rgba(255,255,255,.98),rgba(255,255,255,.48) 34%,transparent 62%),
-      linear-gradient(145deg,rgba(255,255,255,.82),rgba(238,233,248,.62))!important;
+      radial-gradient(circle at 72% 12%,rgba(255,255,255,.92),rgba(255,255,255,.39) 34%,transparent 62%),
+      linear-gradient(145deg,rgba(255,255,255,.72),rgba(238,233,248,.5))!important;
     -webkit-backdrop-filter:blur(18px) saturate(170%)!important;
     backdrop-filter:blur(18px) saturate(170%)!important;
     box-shadow:
       inset 0 1px 0 #fff,
       inset 0 -1px 0 rgba(255,255,255,.3),
-      0 7px 22px rgba(0,0,0,.18)!important;
+      0 6px 18px rgba(0,0,0,.15)!important;
     transform:translateX(calc(var(--dock-index,0) * 100%))!important;
     transition:transform .52s cubic-bezier(.16,1,.3,1),border-radius .32s ease,filter .32s ease!important;
     pointer-events:none!important;
@@ -15298,8 +15319,8 @@ body.kova-artist-detail-open{
     position:relative!important;
     z-index:3!important;
     min-width:0!important;
-    min-height:60px!important;
-    padding:5px 2px!important;
+    min-height:54px!important;
+    padding:4px 2px!important;
     color:rgba(238,236,245,.62)!important;
     background:transparent!important;
     pointer-events:auto!important;
@@ -15338,9 +15359,9 @@ body.kova-artist-detail-open{
 
 @media (max-width:600px){
   .mobile-dock{
-    width:calc(100vw - 20px)!important;
-    max-width:calc(100vw - 20px)!important;
-    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    width:calc(100vw - 56px)!important;
+    max-width:350px!important;
+    bottom:max(7px,env(safe-area-inset-bottom))!important;
   }
 }
 
@@ -15406,13 +15427,16 @@ body.kova-artist-detail-open{
 
   /* Keep 44px+ targets while reducing the visual footprint of the dock. */
   .mobile-dock{
-    width:calc(100vw - 40px)!important;
-    max-width:390px!important;
-    min-height:58px!important;
-    height:58px!important;
+    --dock-lift:0px;
+    --dock-side-space:56px;
+    --dock-max:350px;
+    width:min(calc(100vw - var(--dock-side-space)),var(--dock-max))!important;
+    max-width:var(--dock-max)!important;
+    min-height:52px!important;
+    height:52px!important;
     padding:4px!important;
-    bottom:max(8px,env(safe-area-inset-bottom))!important;
-    border-radius:20px!important;
+    bottom:max(7px,env(safe-area-inset-bottom))!important;
+    border-radius:18px!important;
   }
 
   .mobile-dock::before{
@@ -15420,7 +15444,7 @@ body.kova-artist-detail-open{
     bottom:4px!important;
     left:4px!important;
     width:calc((100% - 8px)/5)!important;
-    border-radius:15px!important;
+    border-radius:14px!important;
   }
 
   .mobile-dock.is-morphing::before{
@@ -15428,22 +15452,40 @@ body.kova-artist-detail-open{
   }
 
   .mobile-dock .dock-item{
-    min-height:48px!important;
-    height:48px!important;
-    padding:3px 2px!important;
-    gap:2px!important;
+    min-height:44px!important;
+    height:44px!important;
+    padding:2px 1px!important;
+    gap:1px!important;
   }
 
   .mobile-dock .dock-item strong{
-    font-size:16px!important;
+    font-size:15px!important;
     line-height:1!important;
   }
 
   .mobile-dock .dock-item span,
   .mobile-dock .dock-item small{
-    font-size:8px!important;
+    font-size:7.5px!important;
     line-height:1!important;
+    transition:opacity .22s ease,transform .22s ease!important;
   }
+
+  /* While the user reads by scrolling down, the dock recedes without
+     disappearing. Scrolling up restores all labels immediately. */
+  .mobile-dock.is-scroll-compact{
+    --dock-lift:7px;
+    --dock-side-space:82px;
+    --dock-max:324px;
+    opacity:.68!important;
+  }
+  .mobile-dock.is-scroll-compact .dock-item span,
+  .mobile-dock.is-scroll-compact .dock-item small{
+    opacity:0!important;
+    transform:translateY(3px)!important;
+  }
+  .mobile-dock.is-scroll-compact .dock-item strong{transform:translateY(4px)}
+
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))!important}
 }
 
 @supports not ((-webkit-backdrop-filter:blur(2px)) or (backdrop-filter:blur(2px))){
@@ -17274,6 +17316,174 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .kova-popular-card img{transition:none}
 }
+
+/* =========================================================
+   KOVA V88 — Mobile vertical discovery
+   A single, compact entry point for Events, Artists and Guide.
+   Desktop keeps the validated editorial layout and carousels.
+   ========================================================= */
+.kova-mobile-feed{display:none}
+
+@media (max-width:700px){
+  .mobile-dock{
+    --dock-side-space:78px!important;
+    --dock-max:324px!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    height:50px!important;
+    min-height:50px!important;
+    border-radius:17px!important;
+    opacity:.9!important;
+  }
+  .mobile-dock::before{width:calc((100% - 8px)/4)!important}
+  .mobile-dock .dock-item{height:42px!important;min-height:42px!important}
+  .mobile-dock .dock-item strong{font-size:14px!important}
+  .mobile-dock .dock-item span{font-size:7px!important}
+  .mobile-dock.is-scroll-compact{
+    --dock-side-space:112px!important;
+    --dock-max:286px!important;
+    opacity:.58!important;
+  }
+
+  body.kova-mobile-feed-open{overflow:hidden!important}
+  body.kova-mobile-feed-open>.nav{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  body.kova-mobile-feed-open #kovaPlayer{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+
+  .kova-mobile-feed{
+    position:fixed;
+    inset:0;
+    z-index:90000;
+    display:block;
+    overflow:hidden;
+    background:#050506;
+    color:#fff;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(18px);
+    transition:opacity .28s ease,transform .36s cubic-bezier(.16,1,.3,1),visibility .28s;
+  }
+  .kova-mobile-feed.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
+  }
+  .kova-mobile-feed-scroll{
+    height:100%;
+    overflow-y:auto;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+    padding:0 0 calc(76px + env(safe-area-inset-bottom));
+    scrollbar-width:none;
+    touch-action:pan-y;
+  }
+  .kova-mobile-feed-scroll::-webkit-scrollbar{display:none}
+  .kova-mobile-feed-head{
+    position:sticky;
+    top:0;
+    z-index:20;
+    padding:max(10px,env(safe-area-inset-top)) 14px 12px;
+    background:linear-gradient(180deg,rgba(5,5,6,.97) 72%,rgba(5,5,6,.86));
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    backdrop-filter:blur(24px) saturate(160%);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .kova-mobile-feed-bar{
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr) auto;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .kova-mobile-feed-close,
+  .kova-mobile-feed-top{
+    min-width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    background:rgba(255,255,255,.09);
+    color:#fff;
+    -webkit-backdrop-filter:blur(18px) saturate(175%);
+    backdrop-filter:blur(18px) saturate(175%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.24);
+    font:700 20px/1 inherit;
+  }
+  .kova-mobile-feed-top{width:auto;border-radius:999px;padding:0 13px;font-size:9px;letter-spacing:.13em;text-transform:uppercase}
+  .kova-mobile-feed-title{min-width:0}
+  .kova-mobile-feed-title small{display:block;color:#ff4a96;font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+  .kova-mobile-feed-title strong{display:block;margin-top:2px;overflow:hidden;font-size:20px;letter-spacing:-.04em;text-overflow:ellipsis;white-space:nowrap}
+  .kova-mobile-feed-tabs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px;
+    padding:4px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+  }
+  .kova-mobile-feed-tab{
+    min-height:38px;
+    border:0;
+    border-radius:12px;
+    background:transparent;
+    color:rgba(255,255,255,.56);
+    font:800 10px/1 inherit;
+  }
+  .kova-mobile-feed-tab.active{background:#f7f7f9;color:#111;box-shadow:0 8px 20px rgba(0,0,0,.22)}
+  .kova-mobile-feed-intro{padding:22px 16px 10px}
+  .kova-mobile-feed-intro h2{margin:0;font-size:clamp(36px,11vw,50px);line-height:.93;letter-spacing:-.075em;text-wrap:balance}
+  .kova-mobile-feed-intro p{margin:10px 0 0;color:rgba(255,255,255,.56);font-size:12px;line-height:1.45}
+  .kova-mobile-feed-filters{display:flex;gap:7px;overflow-x:auto;padding:12px 16px 15px;scrollbar-width:none;scroll-padding-inline:16px}
+  .kova-mobile-feed-filters::-webkit-scrollbar{display:none}
+  .kova-mobile-feed-filter{
+    flex:0 0 auto;
+    min-height:38px;
+    padding:0 15px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;
+    background:#151518;
+    color:rgba(255,255,255,.7);
+    font:800 10px/1 inherit;
+    white-space:nowrap;
+  }
+  .kova-mobile-feed-filter.active{border-color:#fff;background:#fff;color:#111}
+  .kova-mobile-feed-list{display:grid;gap:13px;padding:0 12px 24px}
+  .kova-mobile-feed-card{
+    position:relative;
+    width:100%;
+    min-height:min(133vw,570px);
+    overflow:hidden;
+    padding:0;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:26px;
+    background:#111 center/cover no-repeat;
+    color:#fff;
+    text-align:left;
+    isolation:isolate;
+    box-shadow:0 20px 48px rgba(0,0,0,.28);
+    scroll-snap-align:start;
+    touch-action:pan-y;
+  }
+  .kova-mobile-feed-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.02) 36%,rgba(0,0,0,.2) 58%,rgba(0,0,0,.96) 100%)}
+  .kova-mobile-feed-card::after{content:"";position:absolute;inset:0;z-index:-2;background:inherit;background-position:center;background-size:cover;transform:scale(1.01)}
+  .kova-mobile-feed-card:active{transform:scale(.992)}
+  .kova-mobile-feed-card-copy{position:absolute;left:19px;right:19px;bottom:19px}
+  .kova-mobile-feed-card-top{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:10px}
+  .kova-mobile-feed-badge{display:inline-flex;align-items:center;min-height:29px;padding:0 11px;border:1px solid rgba(255,255,255,.27);border-radius:999px;background:rgba(8,8,10,.46);color:#fff;font-size:8px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .kova-mobile-feed-arrow{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.94);color:#111;font-size:18px;font-weight:900}
+  .kova-mobile-feed-card h3{margin:0;max-width:90%;font-size:clamp(31px,10vw,45px);line-height:.94;letter-spacing:-.065em;text-wrap:balance}
+  .kova-mobile-feed-card p{margin:9px 0 0;overflow:hidden;color:rgba(255,255,255,.68);font-size:12px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+  .kova-mobile-feed-card[data-feed-kind="artist"]{min-height:min(122vw,520px)}
+  .kova-mobile-feed-card[data-feed-kind="guide"]{min-height:min(112vw,490px)}
+  .kova-mobile-feed-empty{display:none;margin:8px 16px;padding:38px 22px;border:1px dashed rgba(255,255,255,.18);border-radius:24px;color:rgba(255,255,255,.58);text-align:center}
+  .kova-mobile-feed-empty.show{display:block}
+}
+
+@media (max-width:370px){
+  .kova-mobile-feed-head{padding-inline:10px}
+  .kova-mobile-feed-list{padding-inline:9px}
+  .kova-mobile-feed-card{min-height:136vw;border-radius:23px}
+}
 </style><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/></head>
 <body>
 <nav class="nav">
@@ -17434,6 +17644,10 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   }
 
   function openOverview(){
+    if(matchMedia('(max-width:700px)').matches&&window.KOVA_MOBILE_FEED){
+      window.KOVA_MOBILE_FEED.open('events');
+      return;
+    }
     previousFocus=document.activeElement;
     render();
     panel.scrollTop=0;
@@ -18343,11 +18557,31 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
 </section><footer id="help"><div class="footer-inner"><div>© 2026 KOVA</div><div>ABIDJAN EST DOUX. · KOVA</div></div></footer>
 <nav aria-label="Mobile navigation" class="mobile-dock">
 <a class="dock-item active" href="#"><strong>⌂</strong><span>Accueil</span></a>
-<a class="dock-item" href="#discover"><strong>⌕</strong><span>Découvrir</span></a>
-<a class="dock-item" href="#artists"><strong>♫</strong><span>Artistes</span></a>
+<a class="dock-item" data-kova-feed-open="events" href="#discover"><strong>◎</strong><span>Explorer</span></a>
 <a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong>▣</strong><span>Billets</span></a>
 <a class="dock-item" href="#organizers"><strong>＋</strong><span>Créer</span></a>
 </nav>
+<section aria-hidden="true" aria-labelledby="kovaMobileFeedHeading" aria-modal="true" class="kova-mobile-feed" id="kovaMobileFeed" role="dialog">
+<div class="kova-mobile-feed-scroll" id="kovaMobileFeedScroll">
+<header class="kova-mobile-feed-head">
+<div class="kova-mobile-feed-bar">
+<button aria-label="Fermer Explorer" class="kova-mobile-feed-close" id="kovaMobileFeedClose" type="button">←</button>
+<div class="kova-mobile-feed-title"><small>Abidjan · maintenant</small><strong>Explorer KOVA</strong></div>
+<button class="kova-mobile-feed-top" id="kovaMobileFeedTop" type="button">En haut</button>
+</div>
+<div aria-label="Type de découverte" class="kova-mobile-feed-tabs" role="tablist">
+<button aria-selected="true" class="kova-mobile-feed-tab active" data-feed-tab="events" role="tab" type="button">Événements</button>
+<button aria-selected="false" class="kova-mobile-feed-tab" data-feed-tab="artists" role="tab" type="button">Artistes</button>
+<button aria-selected="false" class="kova-mobile-feed-tab" data-feed-tab="guide" role="tab" type="button">Guide</button>
+</div>
+</header>
+<div class="kova-mobile-feed-intro"><h2 id="kovaMobileFeedHeading">Tout ce qui se passe.</h2><p id="kovaMobileFeedSubtitle">Fais défiler. Appuie. Vis l’expérience.</p></div>
+<div aria-label="Filtres" class="kova-mobile-feed-filters" id="kovaMobileFeedFilters"></div>
+<div aria-live="polite" class="kova-mobile-feed-list" id="kovaMobileFeedList"></div>
+<div class="kova-mobile-feed-empty" id="kovaMobileFeedEmpty">Aucun résultat avec ces filtres.</div>
+</div>
+</section>
+<script defer="" src="./kova-mobile-feed.js?v=91"></script>
 <div class="sheet-backdrop" id="sheetBackdrop"></div>
 <aside aria-hidden="true" class="event-sheet" id="eventSheet">
 <div class="sheet-grab"></div>
@@ -18802,8 +19036,8 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   const scrollStops=[
     {element:document.querySelector('#discover'),index:1},
     {element:document.querySelector('#kovaExperiences'),index:1},
-    {element:document.querySelector('#artists'),index:2},
-    {element:document.querySelector('#organizers'),index:4}
+    {element:document.querySelector('#artists'),index:1},
+    {element:document.querySelector('#organizers'),index:3}
   ].filter(stop=>stop.element);
 
   const activateDockIndex=index=>{
@@ -18819,10 +19053,27 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   };
 
   let ticking=false;
+  let lastDockScrollY=Math.max(0,window.scrollY);
   const syncScrollState=()=>{
     ticking=false;
     nav?.classList.toggle('is-scrolled',window.scrollY>18);
     if(!dock || window.innerWidth>1000 || document.body.classList.contains('kova-wallet-open')) return;
+    if(document.body.classList.contains('kova-mobile-feed-open')){
+      dock.classList.remove('is-scroll-compact');
+      activateDockIndex(1);
+      return;
+    }
+
+    const currentY=Math.max(0,window.scrollY);
+    const scrollingDown=currentY>lastDockScrollY+3;
+    const scrollingUp=currentY<lastDockScrollY-3;
+    if(window.innerWidth<=700){
+      if(currentY<110 || scrollingUp) dock.classList.remove('is-scroll-compact');
+      else if(scrollingDown && currentY>170) dock.classList.add('is-scroll-compact');
+    }else{
+      dock.classList.remove('is-scroll-compact');
+    }
+    lastDockScrollY=currentY;
 
     const probe=Math.min(window.innerHeight*.34,280);
     let activeIndex=0;
@@ -24443,6 +24694,12 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
     setActiveDockItem(item);
     window.KOVA_MOBILE_MENU?.close?.();
 
+    if(item.hasAttribute('data-kova-feed-open')){
+      if(wallet?.classList.contains('open')) closeWallet();
+      window.KOVA_MOBILE_FEED?.open?.(item.dataset.kovaFeedOpen||'events');
+      return;
+    }
+
     if(item.hasAttribute('data-kova-wallet-open')){
       openWallet();
       return;
@@ -25217,16 +25474,16 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
     nav.style.setProperty('right','auto','important');
     nav.style.setProperty('margin','0','important');
     nav.style.setProperty('width',
-      window.innerWidth <= 700 ? 'min(calc(100vw - 32px),398px)' : 'min(calc(100vw - 24px),680px)',
+      window.innerWidth <= 700 ? 'min(calc(100vw - var(--dock-side-space,56px)),var(--dock-max,350px))' : 'min(calc(100vw - 24px),680px)',
       'important'
     );
     nav.style.setProperty('max-width',
-      window.innerWidth <= 700 ? 'min(calc(100vw - 32px),398px)' : 'calc(100vw - 24px)',
+      window.innerWidth <= 700 ? 'var(--dock-max,350px)' : 'calc(100vw - 24px)',
       'important'
     );
-    nav.style.setProperty('transform','translateX(-50%) translateZ(0)','important');
+    nav.style.setProperty('transform','translateX(-50%) translateY(var(--dock-lift,0px)) translateZ(0)','important');
     nav.style.setProperty('bottom',
-      window.innerWidth <= 700 ? 'max(8px,env(safe-area-inset-bottom))' : 'max(10px,env(safe-area-inset-bottom))',
+      window.innerWidth <= 700 ? 'max(7px,env(safe-area-inset-bottom))' : 'max(10px,env(safe-area-inset-bottom))',
       'important'
     );
     nav.style.setProperty('box-sizing','border-box','important');
