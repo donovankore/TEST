@@ -18008,7 +18008,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-event-theme-ready .v66-organizer,
   body.kova-event-theme-ready .v66-tickets{border-radius:24px!important}
 }
-</style><link rel="stylesheet" href="assets/kova-mobile-v2.css"/><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/></head>
+</style><link rel="stylesheet" href="assets/kova-mobile-v2.css"/><link rel="stylesheet" href="assets/kova-interface-v3.css?v=20260821-3"/><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/></head>
 <body>
 <nav class="nav">
 <a class="brand" href="#">KOVA</a>
@@ -18997,13 +18997,31 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </section>
 <section class="kova-journal" id="kovaJournal">
 <div class="kova-journal-shell">
-<div class="kova-journal-feature" style="background-image:url('assets/kova-story-texture.webp')">
+<div aria-label="Histoires KOVA" class="kova-story-rail">
+<article class="kova-journal-feature" style="background-image:url('assets/kova-story-texture.webp')">
 <div class="kova-journal-copy">
 <small>NOTRE HISTOIRE · 2 MIN</small>
 <h2>Pourquoi KOVA est né.</h2>
 <p>Une idée simple : ne plus apprendre trop tard ce qui fait vibrer Abidjan, et donner aux créateurs un endroit digne de leurs moments.</p>
 <button class="kova-story-open" data-story="origin" type="button">Voir plus ↗</button>
 </div>
+</article>
+<article class="kova-journal-feature" style="background-image:url('assets/kova-story-sortir-abidjan.jpg')">
+<div class="kova-journal-copy">
+<small>VIVRE ABIDJAN · 3 MIN</small>
+<h2>Pourquoi sortir compte.</h2>
+<p>Sortir, ce n’est pas seulement occuper sa soirée : c’est rencontrer la ville, ses scènes, ses idées et les personnes qui la font avancer.</p>
+<button class="kova-story-open" data-story="out" type="button">Voir plus ↗</button>
+</div>
+</article>
+<article class="kova-journal-feature" style="background-image:url('assets/kova-story-histoire-civ.jpg')">
+<div class="kova-journal-copy">
+<small>CULTURE · 4 MIN</small>
+<h2>Connais-tu notre histoire ?</h2>
+<p>Des architectures du Plateau aux gestes du quotidien, la Côte d’Ivoire raconte son histoire partout — à condition de savoir regarder.</p>
+<button class="kova-story-open" data-story="history" type="button">Voir plus ↗</button>
+</div>
+</article>
 </div>
 </div>
 </section>
@@ -19020,7 +19038,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     testimonials.parentNode.insertBefore(journal,testimonials);
   }
   const stories={
-    origin:['NOTRE HISTOIRE · 2 MIN','Pourquoi KOVA est né.','KOVA est parti d’un constat très abidjanais : les meilleurs événements circulent souvent entre stories, groupes privés et recommandations de dernière minute. Il manquait un lieu unique, beau et fiable pour découvrir une expérience, comprendre son ambiance et prendre son billet sans casser l’émotion. KOVA rassemble cette énergie — événements, artistes, lieux et créateurs — dans une même destination pensée d’abord pour Abidjan.']
+    origin:['NOTRE HISTOIRE · 2 MIN','Pourquoi KOVA est né.','KOVA est parti d’un constat très abidjanais : les meilleurs événements circulent souvent entre stories, groupes privés et recommandations de dernière minute. Il manquait un lieu unique, beau et fiable pour découvrir une expérience, comprendre son ambiance et prendre son billet sans casser l’émotion. KOVA rassemble cette énergie — événements, artistes, lieux et créateurs — dans une même destination pensée d’abord pour Abidjan.'],
+    out:['VIVRE ABIDJAN · 3 MIN','Pourquoi c’est important de sortir à Abidjan.','Sortir permet de voir Abidjan autrement. Une soirée, une exposition, un concert ou une table partagée font circuler les idées, soutiennent les créateurs et transforment une grande ville en souvenirs personnels. KOVA veut rendre ces moments visibles plus tôt, plus clairement et avec assez de contexte pour choisir sans perdre son temps.'],
+    history:['CULTURE · 4 MIN','Est-ce que tu connais l’histoire de la Côte d’Ivoire ?','L’histoire ivoirienne ne vit pas uniquement dans les livres. Elle se lit dans l’architecture du Plateau, les quartiers d’Abidjan, les scènes musicales, les marchés et les lieux de mémoire. Le Journal KOVA ouvre une porte vers ces récits afin que chaque sortie puisse aussi devenir une manière de comprendre le pays et ceux qui le façonnent.']
   };
   const close=()=>{dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');document.body.classList.remove('kova-modal-open')};
   document.getElementById('kovaJournal')?.addEventListener('click',event=>{const card=event.target.closest('[data-story]');if(!card)return;const story=stories[card.dataset.story];if(!story)return;document.getElementById('kovaStoryKicker').textContent=story[0];document.getElementById('kovaStoryTitle').textContent=story[1];document.getElementById('kovaStoryBody').textContent=story[2];dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');document.body.classList.add('kova-modal-open');dialog.querySelector('.kova-story-close').focus({preventScroll:true})});
@@ -26354,5 +26374,5 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   window.KOVA_V74_BOTTOM_NAV_CENTERED = true;
 })();
-</script><script defer src="assets/kova-mobile-v2.js"></script></body>
+</script><script defer src="assets/kova-mobile-v2.js"></script><script defer src="assets/kova-interface-v3.js?v=20260821-3"></script></body>
 </html>
