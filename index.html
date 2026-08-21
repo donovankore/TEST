@@ -12074,8 +12074,8 @@ body.v66-event-open #v63Experience{
 
 .v66-transition.active{
   opacity:1;
-  background:rgba(5,5,8,.72);
-  backdrop-filter:blur(12px);
+  background:rgba(5,5,8,.96);
+  backdrop-filter:blur(18px) saturate(1.12);
 }
 
 .v66-transition-card{
@@ -14039,6 +14039,31 @@ body.kova-place-open .kova-player{opacity:0!important;visibility:hidden!importan
   .kova-place-list{display:block}
   .kova-place-list article+article{margin-top:9px}
   .kova-place-practical{position:relative;top:auto;order:-1;padding:24px;border-radius:26px}
+
+  /* The Guide uses the same continuous dark canvas as Explorer and the
+     artist/event sheets on phones. This removes the abrupt white page break
+     while preserving the lighter desktop editorial layout. */
+  .kova-place-page{color:#f7f7f8;background:#070708}
+  .kova-place-gallery figure{background:#111116}
+  .kova-place-intro-lede,
+  .kova-place-block>p{color:rgba(247,247,248,.62)}
+  .kova-place-fact{
+    border-color:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.065);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .kova-place-fact small{color:rgba(247,247,248,.48)}
+  .kova-place-block{border-color:rgba(255,255,255,.12)}
+  .kova-place-list article{
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.055);
+  }
+  .kova-place-list span{color:rgba(247,247,248,.56)}
+  .kova-place-practical{
+    border:1px solid rgba(255,255,255,.11);
+    background:rgba(23,23,28,.86);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 24px 70px rgba(0,0,0,.32);
+  }
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -16179,6 +16204,7 @@ main>#artists{order:40}
 main>#organizers{order:50}
 main>#kovaSmartHome{order:60}
 main>.phone-section{order:80}
+main>#kovaJournal{order:85}
 main>#kovaOrganizerTestimonials{order:90}
 
 .kova-intent-rail{
@@ -17485,15 +17511,322 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   .kova-mobile-feed-card{min-height:136vw;border-radius:23px}
 }
 
-/* KOVA V93 — POSH-inspired vertical flow, kept distinctly KOVA. */
+/* KOVA V94 — standalone POSH-inspired vertical flow, kept distinctly KOVA. */
 :root{
   --kova-event-accent:#ff348d;
   --kova-event-accent-rgb:255,52,141;
   --kova-event-poster:none;
 }
 
+/* Explorer is now KOVA's single discovery surface on every screen. */
+body.kova-mobile-feed-open{overflow:hidden!important}
+body.kova-mobile-feed-open>.nav,
+body.kova-mobile-feed-open .mobile-dock,
+body.kova-mobile-feed-open #kovaPlayer{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.kova-mobile-feed{
+  --feed-active-poster:none;
+  --feed-active-accent-rgb:255,52,141;
+  position:fixed;
+  inset:0;
+  z-index:90000;
+  display:block;
+  overflow:hidden;
+  isolation:isolate;
+  background:#030304;
+  color:#fff;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(14px);
+  transition:opacity .26s ease,transform .36s cubic-bezier(.16,1,.3,1),visibility .26s;
+}
+.kova-mobile-feed.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.kova-mobile-feed::before{
+  content:"";
+  position:fixed;
+  inset:-18%;
+  z-index:-2;
+  background:var(--feed-active-poster) center/cover no-repeat;
+  filter:blur(110px) saturate(1.45);
+  opacity:.15;
+  transform:scale(1.2);
+  pointer-events:none;
+}
+.kova-mobile-feed::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(180deg,rgba(3,3,4,.83),rgba(var(--feed-active-accent-rgb),.07) 48%,#030304 86%);
+  pointer-events:none;
+}
+.kova-mobile-feed-scroll{height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.22) transparent}
+.kova-mobile-feed-head{
+  position:sticky;
+  top:0;
+  z-index:30;
+  display:grid;
+  grid-template-columns:auto minmax(360px,620px) minmax(360px,1fr) auto;
+  align-items:center;
+  gap:20px;
+  min-height:104px;
+  padding:18px 28px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  background:rgba(7,7,8,.78);
+  -webkit-backdrop-filter:blur(34px) saturate(175%);
+  backdrop-filter:blur(34px) saturate(175%);
+}
+.kova-mobile-feed-bar{display:grid;grid-template-columns:46px auto 1px;align-items:center;gap:12px}
+.kova-mobile-feed-close,.kova-mobile-feed-top{height:46px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.kova-mobile-feed-close{width:46px;border-radius:50%;font:400 27px/1 inherit}
+.kova-mobile-feed-top{display:none}
+.kova-mobile-feed-title small{display:block;color:#ff4a96;font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.kova-mobile-feed-title strong{display:block;margin-top:3px;font-size:20px;letter-spacing:-.04em;white-space:nowrap}
+.kova-mobile-feed-context{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:5px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(74,72,77,.54);box-shadow:inset 0 1px 0 rgba(255,255,255,.14)}
+.kova-mobile-feed-context button,.kova-mobile-feed-context-static{display:flex;align-items:center;justify-content:center;height:46px;padding:0 12px;border:0;border-radius:999px;background:transparent;color:rgba(255,255,255,.68);font:850 12px/1 inherit;white-space:nowrap}
+.kova-mobile-feed-context button.active{background:rgba(255,255,255,.12);color:#fff}
+.kova-mobile-feed-context b{margin-left:5px;color:#fff}
+.kova-mobile-feed-tabs{display:flex;justify-content:flex-end;gap:5px;overflow-x:auto;scrollbar-width:none}
+.kova-mobile-feed-tabs::-webkit-scrollbar{display:none}
+.kova-mobile-feed-tab{flex:0 0 auto;min-height:42px;padding:0 15px;border:1px solid rgba(255,255,255,.11);border-radius:999px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);font:850 10px/1 inherit;white-space:nowrap}
+.kova-mobile-feed-tab.active{background:#fff;color:#08080a}
+.kova-mobile-feed-featurebar{display:flex;align-items:center;gap:4px}
+.kova-mobile-feed-featurebar button{height:42px;padding:0 13px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:850 9px/1 inherit;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.kova-mobile-feed-featurebar i{display:none}
+.kova-mobile-feed-intro{display:none}
+.kova-mobile-feed-filters{position:sticky;top:104px;z-index:25;display:flex;gap:8px;overflow-x:auto;padding:10px 28px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(4,4,5,.86);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);scrollbar-width:none}
+.kova-mobile-feed-filters[hidden]{display:none}
+.kova-mobile-feed-filter{flex:0 0 auto;min-height:38px;padding:0 16px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:#151517;color:rgba(255,255,255,.68);font:850 10px/1 inherit}
+.kova-mobile-feed-filter.active{background:#fff;color:#08080a}
+.kova-mobile-feed-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1920px;margin:auto;padding:24px 28px 80px}
+.kova-mobile-feed-card{position:relative;min-width:0;min-height:clamp(500px,36vw,760px);overflow:hidden;padding:0;border:1px solid rgba(255,255,255,.14);border-radius:27px;background:#101012;color:#fff;text-align:left;isolation:isolate;box-shadow:0 22px 58px rgba(0,0,0,.34);cursor:pointer}
+.kova-mobile-feed-card:focus-visible{outline:3px solid var(--feed-accent);outline-offset:3px}
+.kova-mobile-feed-media{position:absolute;inset:0;background:var(--feed-poster),linear-gradient(145deg,#26101c,#101016);background-position:center;background-size:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.kova-mobile-feed-card:hover .kova-mobile-feed-media{transform:scale(1.035)}
+.kova-mobile-feed-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03) 25%,transparent 48%,rgba(0,0,0,.24) 64%,rgba(0,0,0,.98) 100%),linear-gradient(145deg,rgba(var(--feed-accent-rgb),.11),transparent 45%)}
+.kova-mobile-feed-sequence{position:absolute;top:17px;left:17px;display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(5,5,7,.45);font-size:9px;font-weight:900;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.kova-mobile-feed-badge{position:absolute;left:18px;bottom:133px;display:inline-flex;align-items:center;min-height:34px;padding:0 13px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(var(--feed-accent-rgb),.86);font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.kova-mobile-feed-card-copy{position:absolute;left:18px;right:72px;bottom:22px;min-width:0}
+.kova-mobile-feed-eyebrow{display:block;margin-bottom:7px;color:rgba(255,255,255,.68);font-size:8px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.kova-mobile-feed-card-copy strong{display:block;overflow:hidden;font-size:clamp(25px,2.4vw,43px);font-weight:900;line-height:.93;letter-spacing:-.055em;text-overflow:ellipsis;white-space:nowrap}
+.kova-mobile-feed-card-copy small{display:block;margin-top:8px;overflow:hidden;color:rgba(255,255,255,.66);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+.kova-mobile-feed-action{position:absolute;right:17px;bottom:20px;display:grid;place-items:center;width:47px;height:47px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:var(--feed-accent);box-shadow:0 12px 30px rgba(var(--feed-accent-rgb),.28)}
+.kova-mobile-feed-action>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.kova-mobile-feed-action b{font-size:19px}
+.kova-mobile-feed-empty{display:none;margin:24px;padding:42px;border:1px dashed rgba(255,255,255,.18);border-radius:24px;text-align:center;color:rgba(255,255,255,.55)}
+.kova-mobile-feed-empty.show{display:block}
+
+@media (min-width:701px) and (max-width:1180px){
+  .kova-mobile-feed-head{grid-template-columns:auto minmax(320px,1fr) auto;gap:14px;padding-inline:18px}
+  .kova-mobile-feed-tabs{grid-column:1/-1;justify-content:flex-start}
+  .kova-mobile-feed-featurebar{grid-column:3;grid-row:1}
+  .kova-mobile-feed-list{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:18px}
+}
+@media (min-width:1181px) and (max-width:1580px){.kova-mobile-feed-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Creator contrast and a truly compact mobile companion. */
+#organizers .creator-lab-copy h2{color:#050506!important;font-weight:950!important;text-shadow:none!important}
+#home .v64-secondary{border-color:rgba(255,255,255,.72)!important;background:rgba(255,255,255,.9)!important;color:#08080a!important;box-shadow:inset 0 1px 0 #fff,0 12px 30px rgba(0,0,0,.18)!important}
+@media (max-width:1000px){
+  .kova-player{left:auto!important;right:10px!important;bottom:calc(72px + env(safe-area-inset-bottom))!important;width:48px!important;min-height:48px!important;padding:4px!important;border-radius:15px!important;background:rgba(20,20,25,.58)!important;-webkit-backdrop-filter:blur(26px) saturate(190%)!important;backdrop-filter:blur(26px) saturate(190%)!important;transform:translateY(12px) scale(.92)!important}
+  .kova-player.is-visible{transform:none!important}
+  .kova-player-main{display:block!important;min-width:40px!important;width:40px!important;height:40px!important}
+  .kova-player-art{display:block!important;width:40px!important;height:40px!important;min-width:40px!important;border-radius:12px!important;box-shadow:none!important}
+  .kova-player-copy,.kova-player-chevron,.kova-player-history-controls,.kova-player-ticket{display:none!important}
+  .kova-player-close{position:absolute!important;top:-9px!important;right:-9px!important;width:24px!important;height:24px!important;min-width:24px!important;min-height:24px!important;border:1px solid rgba(255,255,255,.2)!important;background:rgba(25,25,29,.84)!important;color:#fff!important;box-shadow:0 5px 14px rgba(0,0,0,.28)!important}
+}
+
+/* Event pages stay immersive after the poster instead of falling back to a generic white sheet. */
+body.kova-event-theme-ready .v66-event,
+body.kova-event-theme-ready .v66-event-content,
+body.kova-event-theme-ready .kova-event-page,
+body.kova-event-theme-ready .kova-event-layout{background:#070709!important;color:#f7f7f8!important}
+body.kova-event-theme-ready .v66-event-content{position:relative;border-radius:34px 34px 0 0}
+body.kova-event-theme-ready .v66-story-card,
+body.kova-event-theme-ready .v66-program,
+body.kova-event-theme-ready .v66-info-section,
+body.kova-event-theme-ready .v66-location,
+body.kova-event-theme-ready .v66-organizer,
+body.kova-event-theme-ready .v66-tickets,
+body.kova-event-theme-ready .kova-event-block,
+body.kova-event-theme-ready .kova-event-summary,
+body.kova-event-theme-ready .kova-ticket-card,
+body.kova-event-theme-ready .kova-event-map{
+  border:1px solid rgba(255,255,255,.1)!important;
+  background:rgba(255,255,255,.055)!important;
+  color:#f7f7f8!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 22px 60px rgba(0,0,0,.24)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
+  backdrop-filter:blur(24px) saturate(150%);
+}
+body.kova-event-theme-ready .v66-event-content p,
+body.kova-event-theme-ready .v66-event-content small,
+body.kova-event-theme-ready .kova-event-page p{color:rgba(255,255,255,.66)!important}
+body.kova-event-theme-ready .v66-program-item,
+body.kova-event-theme-ready .v66-info-card,
+body.kova-event-theme-ready .v66-ticket-row{border-color:rgba(255,255,255,.09)!important;background:rgba(255,255,255,.045)!important;color:#fff!important}
 body.kova-event-theme-ready .v66-event{
-  background:linear-gradient(180deg,rgba(var(--kova-event-accent-rgb),.3),#09090c 42%,#f5f5f2 71%);
+  background:linear-gradient(180deg,rgba(var(--kova-event-accent-rgb),.26),#09090c 39%,#070709 100%)!important;
+}
+body.kova-event-theme-ready .v66-event-nav{
+  border-color:rgba(255,255,255,.1)!important;
+  background:rgba(8,8,11,.58)!important;
+  color:#fff!important;
+  -webkit-backdrop-filter:blur(30px) saturate(175%)!important;
+  backdrop-filter:blur(30px) saturate(175%)!important;
+}
+body.kova-event-theme-ready .v66-event-nav .v66-icon-btn{
+  border-color:rgba(255,255,255,.18)!important;
+  background:rgba(255,255,255,.09)!important;
+  color:#fff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)!important;
+}
+body.kova-event-theme-ready .v66-nav-top{color:#fff!important}
+body.kova-event-theme-ready .v66-program-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+body.kova-event-theme-ready .v66-program-item{min-height:112px!important;padding:18px!important;border-radius:22px!important}
+body.kova-event-theme-ready .v66-program-item::before{width:34px!important;height:3px!important;margin:0 0 24px!important;border-radius:999px!important;background:var(--kova-event-accent)!important;opacity:1!important}
+body.kova-event-theme-ready .v66-ticket-jump,
+body.kova-event-theme-ready .v66-buy{
+  background:var(--kova-event-accent)!important;
+  color:#fff!important;
+  box-shadow:0 14px 36px rgba(var(--kova-event-accent-rgb),.3)!important;
+}
+body.kova-event-theme-ready .v66-map-pin,
+body.kova-event-theme-ready .v66-info-icon{background:var(--kova-event-accent)!important;color:#fff!important}
+body.kova-event-theme-ready .v66-map-pin{box-shadow:0 0 0 18px rgba(var(--kova-event-accent-rgb),.18)!important}
+body.kova-event-theme-ready .v66-text-btn{color:#fff!important}
+body.kova-event-theme-ready .v66-follow{background:#fff!important;color:#111!important}
+body.kova-event-theme-ready .v66-section-label{color:rgba(255,255,255,.52)!important}
+body.kova-event-theme-ready .v66-program-count{color:rgba(255,255,255,.46)!important}
+
+/* One restrained favourite language everywhere: visible, tactile, never dominant. */
+.kova-favorite-button,
+#v66Save,#v66HeroSave,
+.v67-follow,.v67-follow-main{
+  border-color:rgba(255,255,255,.22)!important;
+  background:rgba(17,17,20,.34)!important;
+  color:#fff!important;
+  -webkit-backdrop-filter:blur(20px) saturate(170%)!important;
+  backdrop-filter:blur(20px) saturate(170%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 22px rgba(0,0,0,.2)!important;
+}
+.kova-favorite-button{width:36px!important;height:36px!important;font-size:18px!important}
+.kova-favorite-button.is-favorite,
+#v66Save.is-favorite,#v66HeroSave.is-favorite,
+.v67-follow.is-following,.v67-follow-main.is-following{
+  border-color:rgba(255,82,153,.68)!important;
+  background:rgba(255,52,141,.82)!important;
+}
+.toast,.site-toast,.k52-toast,.k53-toast{
+  width:auto!important;
+  max-width:min(82vw,310px)!important;
+  min-height:34px!important;
+  padding:8px 12px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:999px!important;
+  background:rgba(18,18,22,.76)!important;
+  color:#fff!important;
+  font-size:10px!important;
+  line-height:1.2!important;
+  -webkit-backdrop-filter:blur(24px) saturate(180%)!important;
+  backdrop-filter:blur(24px) saturate(180%)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.28)!important;
+}
+
+/* Artist sheets share the poster-led dark editorial canvas used by Explorer. */
+.v67-artist{background:#070709!important;color:#f7f7f8!important}
+.v67-artist-backdrop{opacity:.28!important;filter:blur(72px) saturate(1.55)!important}
+.v67-nav{
+  border-color:rgba(255,255,255,.1)!important;
+  background:rgba(8,8,11,.58)!important;
+  color:#fff!important;
+  -webkit-backdrop-filter:blur(30px) saturate(170%)!important;
+  backdrop-filter:blur(30px) saturate(170%)!important;
+}
+.v67-icon{border-color:rgba(255,255,255,.18)!important;background:rgba(255,255,255,.09)!important;color:#fff!important}
+.v67-content{background:transparent!important}
+.v67-bio-card,.v67-tracks,.v67-events{border-color:rgba(255,255,255,.1)!important}
+.v67-label,.v67-count{color:rgba(255,255,255,.48)!important}
+.v67-bio-card p,.v67-track small,.v67-side-card>p{color:rgba(255,255,255,.62)!important}
+.v67-link-btn{color:#fff!important}
+.v67-track,
+.v67-side-card{
+  border:1px solid rgba(255,255,255,.1)!important;
+  background:rgba(255,255,255,.055)!important;
+  color:#fff!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06)!important;
+}
+.v67-track-number,.v67-tag{background:rgba(255,255,255,.09)!important;color:#fff!important}
+.v67-play{background:#fff!important;color:#0a0a0c!important}
+.v67-track.playing .v67-play{background:#ff348d!important;color:#fff!important}
+.v67-cta-card{background:linear-gradient(145deg,rgba(255,52,141,.18),rgba(112,76,255,.14))!important}
+.v67-cta-card button{background:#fff!important;color:#111!important}
+
+/* Guide sheets no longer jump back to a generic light directory on desktop. */
+.kova-place-page{background:#070708!important;color:#f7f7f8!important}
+.kova-place-nav{
+  border-color:rgba(255,255,255,.1)!important;
+  background:rgba(7,7,9,.6)!important;
+  -webkit-backdrop-filter:blur(30px) saturate(175%)!important;
+  backdrop-filter:blur(30px) saturate(175%)!important;
+}
+.kova-place-nav button{border:1px solid rgba(255,255,255,.16)!important;background:rgba(255,255,255,.09)!important;color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)!important}
+.kova-place-intro-lede,.kova-place-block>p{color:rgba(247,247,248,.62)!important}
+.kova-place-fact,.kova-place-list article{border:1px solid rgba(255,255,255,.1)!important;background:rgba(255,255,255,.055)!important;color:#fff!important}
+.kova-place-fact small,.kova-place-list span{color:rgba(247,247,248,.5)!important}
+.kova-place-block{border-color:rgba(255,255,255,.1)!important}
+.kova-place-practical{border:1px solid rgba(255,255,255,.11)!important;background:rgba(23,23,28,.86)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 24px 70px rgba(0,0,0,.32)!important}
+
+@media(max-width:700px){
+  .kova-favorite-button,
+  #discover .event-card>.kova-favorite-button,
+  .artist-slide>.kova-favorite-button,
+  .rising-card>.kova-favorite-button{
+    top:10px!important;
+    right:10px!important;
+    width:32px!important;
+    height:32px!important;
+    font-size:16px!important;
+  }
+  .v67-nav{height:64px!important;padding:8px 10px!important;border:0!important;background:transparent!important;pointer-events:none!important}
+  .v67-nav>*{pointer-events:auto!important}
+  .v67-scroll{padding-top:0!important}
+  .v67-icon{width:42px!important;height:42px!important}
+  .v67-nav>strong{padding:11px 16px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(16,16,20,.36);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+  .v67-hero{padding-top:88px!important}
+}
+
+/* KOVA Story — one calm origin story, immediately before testimonials. */
+.kova-journal{position:relative;overflow:hidden;padding:clamp(44px,5vw,76px) 0;background:#070708;color:#fff}
+.kova-journal-shell{width:min(100% - 48px,1480px);margin:auto}
+.kova-journal-feature{position:relative;min-height:clamp(420px,47vw,650px);overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:36px;background:#17171a center/cover no-repeat;color:#fff;isolation:isolate;box-shadow:0 28px 80px rgba(0,0,0,.28)}
+.kova-journal-feature::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,4,6,.96) 0%,rgba(4,4,6,.7) 46%,rgba(4,4,6,.12) 78%),linear-gradient(0deg,rgba(4,4,6,.76),transparent 56%)}
+.kova-journal-copy{position:absolute;left:clamp(26px,5vw,78px);right:clamp(26px,5vw,78px);bottom:clamp(28px,5vw,72px);max-width:650px}
+.kova-journal-copy small{display:block;color:#ff6ba7;font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+.kova-journal-copy h2{margin:15px 0 16px;font-size:clamp(48px,6vw,88px);line-height:.88;letter-spacing:-.075em;text-wrap:balance}
+.kova-journal-copy p{max-width:570px;margin:0;color:rgba(255,255,255,.68);font-size:clamp(14px,1.35vw,18px);line-height:1.5}
+.kova-story-open{margin-top:24px;min-height:46px;padding:0 20px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font:850 11px/1 inherit;-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.kova-story-dialog{position:fixed;inset:0;z-index:95000;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72);opacity:0;visibility:hidden;pointer-events:none;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);transition:opacity .25s ease,visibility .25s}
+.kova-story-dialog.open{opacity:1;visibility:visible;pointer-events:auto}
+.kova-modal-open .mobile-dock{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(120%)!important}
+.kova-story-dialog article{position:relative;width:min(720px,100%);max-height:min(760px,88svh);overflow-y:auto;padding:clamp(28px,5vw,58px);border:1px solid rgba(255,255,255,.16);border-radius:30px;background:rgba(18,18,21,.92);color:#fff;box-shadow:0 34px 100px rgba(0,0,0,.5)}
+.kova-story-dialog small{color:#ff72aa;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.kova-story-dialog h3{margin:18px 0;font-size:clamp(38px,7vw,72px);line-height:.9;letter-spacing:-.07em}
+.kova-story-dialog p{color:rgba(255,255,255,.7);font-size:17px;line-height:1.65}
+.kova-story-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border:1px solid rgba(255,255,255,.17);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:24px}
+@media(max-width:700px){
+  .kova-journal{padding:36px 0 48px}
+  .kova-journal-shell{width:calc(100% - 24px)}
+  .kova-journal-feature{min-height:480px;border-radius:26px;background-position:63% center}
+  .kova-journal-feature::before{background:linear-gradient(0deg,rgba(4,4,6,.98) 0%,rgba(4,4,6,.72) 48%,rgba(4,4,6,.1) 83%)}
+  .kova-journal-copy{left:20px;right:20px;bottom:22px}
+  .kova-journal-copy h2{margin:11px 0 13px;font-size:43px}
+  .kova-journal-copy p{font-size:13px;line-height:1.45}
+  .kova-story-open{margin-top:18px;min-height:42px;padding-inline:17px;font-size:10px}
+}
+
+body.kova-event-theme-ready .v66-event{
+  background:linear-gradient(180deg,rgba(var(--kova-event-accent-rgb),.3),#09090c 42%,#070709 71%);
 }
 body.kova-event-theme-ready .v66-event-backdrop{
   opacity:.34;
@@ -17535,9 +17868,25 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .mobile-dock .dock-item:active{transform:scale(.91)!important}
   .mobile-dock .dock-item.active{background:rgba(255,255,255,.91)!important;box-shadow:inset 0 1px 0 #fff,0 6px 18px rgba(0,0,0,.18)!important}
   .mobile-dock .dock-item strong{font-size:15px!important;line-height:1!important}
+  .mobile-dock .dock-item strong{
+    display:grid!important;
+    place-items:center!important;
+    width:18px!important;
+    height:18px!important;
+    margin:0 auto!important;
+  }
+  .mobile-dock .dock-item strong svg{
+    width:16px!important;
+    height:16px!important;
+    fill:none!important;
+    stroke:currentColor!important;
+    stroke-width:1.9!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
   .mobile-dock .dock-item span{font-size:7px!important;letter-spacing:.01em!important}
   .mobile-dock.is-scroll-compact{--dock-side-space:104px!important;--dock-max:290px!important;opacity:.5!important}
-  body.kova-mobile-feed-open .mobile-dock{opacity:.94!important;z-index:90100!important}
+  body.kova-mobile-feed-open .mobile-dock{display:none!important}
 
   .kova-mobile-feed{
     --feed-active-poster:none;
@@ -17569,39 +17918,62 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     transition:background .45s ease;
     pointer-events:none;
   }
-  .kova-mobile-feed-scroll{padding-bottom:calc(66px + env(safe-area-inset-bottom));scroll-snap-type:y mandatory;scroll-padding-top:157px}
-  .kova-mobile-feed-head{padding:max(9px,env(safe-area-inset-top)) 12px 9px;background:rgba(4,4,6,.68);border-bottom-color:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%)}
-  .kova-mobile-feed-bar{grid-template-columns:38px minmax(0,1fr) auto;gap:9px;margin-bottom:9px}
-  .kova-mobile-feed-close,.kova-mobile-feed-top{min-width:38px;height:38px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 24px rgba(0,0,0,.18)}
-  .kova-mobile-feed-top{padding-inline:11px;font-size:8px}
-  .kova-mobile-feed-title small{font-size:7px}.kova-mobile-feed-title strong{font-size:18px}
-  .kova-mobile-feed-tabs{display:flex;gap:6px;overflow-x:auto;padding:0;border:0;border-radius:0;background:transparent;scrollbar-width:none}
+  .kova-mobile-feed-scroll{height:100svh;padding-bottom:0;scroll-snap-type:y mandatory;scroll-padding-top:106px;scroll-behavior:smooth}
+  .kova-mobile-feed-head{display:block;min-height:106px;padding:max(9px,env(safe-area-inset-top)) 12px 9px;background:rgba(4,4,6,.58);border-bottom-color:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(30px) saturate(180%);backdrop-filter:blur(30px) saturate(180%)}
+  .kova-mobile-feed-bar{grid-template-columns:38px minmax(0,1fr) 38px;gap:9px;margin-bottom:8px}
+  .kova-mobile-feed-close,.kova-mobile-feed-top{display:grid;place-items:center;min-width:38px;width:38px;height:38px;padding:0;border-radius:50%;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 24px rgba(0,0,0,.18)}
+  .kova-mobile-feed-close{font-size:23px}.kova-mobile-feed-top{font-size:15px}
+  .kova-mobile-feed-title{text-align:center}.kova-mobile-feed-title small{font-size:7px}.kova-mobile-feed-title strong{font-size:17px}
+  .kova-mobile-feed-tabs{
+    display:flex!important;
+    gap:6px;
+    overflow-x:auto;
+    margin:0;
+    padding:0 0 2px;
+    border:0;
+    border-radius:0;
+    background:transparent;
+    scrollbar-width:none;
+    scroll-padding-inline:2px;
+  }
   .kova-mobile-feed-tabs::-webkit-scrollbar{display:none}
-  .kova-mobile-feed-tab{flex:0 0 auto;min-height:35px;padding:0 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.055);font-size:9px;white-space:nowrap}
-  .kova-mobile-feed-tab.active{background:#f7f7f8;color:#0a0a0c;box-shadow:0 8px 22px rgba(0,0,0,.2)}
-  .kova-mobile-feed-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding:15px 16px 7px}
+  .kova-mobile-feed-tab{flex:0 0 auto;min-height:34px;padding:0 13px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.055);font-size:9px;white-space:nowrap}
+  .kova-mobile-feed-tab.active{border-color:rgba(var(--feed-active-accent-rgb),.54);background:rgba(var(--feed-active-accent-rgb),.9);color:#fff;box-shadow:0 8px 22px rgba(var(--feed-active-accent-rgb),.2)}
+  .kova-mobile-feed-intro{display:none!important}
   .kova-mobile-feed-intro h2{font-size:31px;line-height:.92;letter-spacing:-.07em}
   .kova-mobile-feed-intro p{max-width:150px;margin:0;color:rgba(255,255,255,.53);font-size:9px;text-align:right}
-  .kova-mobile-feed-filters{position:sticky;top:101px;z-index:17;gap:7px;padding:9px 12px 12px;background:linear-gradient(180deg,rgba(4,4,6,.91),rgba(4,4,6,.7));-webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%)}
+  .kova-mobile-feed-context{display:none!important}
+  .kova-mobile-feed-featurebar{position:absolute;top:max(9px,env(safe-area-inset-top));right:58px;display:block;margin:0;border:0;background:transparent}
+  .kova-mobile-feed-featurebar button{display:none}
+  .kova-mobile-feed-featurebar #kovaMobileFeedFilterToggle{display:grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:0;-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
+  .kova-mobile-feed-featurebar i{position:relative;width:13px;height:12px}
+  .kova-mobile-feed-featurebar i::before{content:"";position:absolute;left:1px;top:0;width:11px;height:6px;background:currentColor;clip-path:polygon(0 0,100% 0,62% 100%,38% 100%)}
+  .kova-mobile-feed-featurebar i::after{content:"";position:absolute;left:5px;top:5px;width:3px;height:7px;background:currentColor;border-radius:0 0 2px 2px}
+  .kova-mobile-feed-filters{position:sticky;top:106px;z-index:17;gap:7px;padding:9px 12px 12px;background:linear-gradient(180deg,rgba(4,4,6,.96),rgba(4,4,6,.79));-webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%)}
   .kova-mobile-feed-filters[hidden]{display:none}
   .kova-mobile-feed-filter{min-height:35px;padding:0 14px;background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.14);font-size:9px;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
-  .kova-mobile-feed-list{gap:18px;padding:6px 10px 26px}
+  .kova-mobile-feed-list{display:block;padding:10px 10px calc(14px + env(safe-area-inset-bottom))}
   .kova-mobile-feed-card{
     --feed-accent:#ff348d;
     --feed-accent-rgb:255,52,141;
-    min-height:clamp(585px,78svh,735px)!important;
+    display:block;
+    width:100%;
+    height:calc(100svh - 126px - env(safe-area-inset-top));
+    min-height:560px!important;
+    max-height:810px;
+    margin:0 0 12px;
     aspect-ratio:auto!important;
     border:1px solid rgba(255,255,255,.3)!important;
-    border-radius:30px;
+    border-radius:28px;
     background:#0a0a0c;
     box-shadow:0 28px 70px rgba(0,0,0,.48),inset 0 0 0 1px rgba(255,255,255,.035);
     scroll-snap-align:start;
     scroll-snap-stop:always;
-    transform:translateZ(0) scale(.985);
-    opacity:.88;
+    transform:translateZ(0) scale(.992);
+    opacity:.8;
     transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s ease,border-color .42s ease,box-shadow .42s ease;
   }
-  .kova-mobile-feed-card.is-current{transform:translateZ(0) scale(1);opacity:1;border-color:rgba(var(--feed-accent-rgb),.62)!important;box-shadow:0 30px 80px rgba(0,0,0,.52),0 0 0 1px rgba(var(--feed-accent-rgb),.12)}
+  .kova-mobile-feed-card.is-current{transform:translateZ(0) scale(1);opacity:1;border-color:rgba(var(--feed-accent-rgb),.7)!important;box-shadow:0 30px 80px rgba(0,0,0,.52),0 0 0 1px rgba(var(--feed-accent-rgb),.18)}
   .kova-mobile-feed-card::before,.kova-mobile-feed-card::after{display:none}
   .kova-mobile-feed-media{position:absolute;inset:0;background:var(--feed-poster),linear-gradient(145deg,#26101c,#101016);background-position:center;background-size:cover;transform:scale(1.008);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
   .kova-mobile-feed-card.is-current .kova-mobile-feed-media{transform:scale(1.035)}
@@ -17615,25 +17987,32 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kova-mobile-feed-action{position:absolute;right:17px;bottom:22px;display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:var(--feed-accent);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 12px 30px rgba(var(--feed-accent-rgb),.3)}
   .kova-mobile-feed-action>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
   .kova-mobile-feed-action b{font-size:20px;line-height:1}
-  .kova-mobile-feed-card[data-feed-kind="artist"],.kova-mobile-feed-card[data-feed-kind="guide"]{min-height:clamp(540px,72svh,680px)!important}
+  .kova-mobile-feed-card[data-feed-kind="artist"],.kova-mobile-feed-card[data-feed-kind="guide"]{min-height:560px!important}
 
   body.kova-event-theme-ready .v66-event{background:#08080b!important;color:#fff}
   body.kova-event-theme-ready .v66-event::before{content:"";position:absolute;inset:-12%;z-index:0;background:var(--kova-event-poster) center top/cover no-repeat;filter:blur(78px) saturate(1.72);opacity:.48;transform:scale(1.24);pointer-events:none}
-  body.kova-event-theme-ready .v66-event::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(4,4,7,.46),rgba(var(--kova-event-accent-rgb),.3) 30%,rgba(5,5,8,.94) 55%,#f4f3f1 69%);pointer-events:none}
+  body.kova-event-theme-ready .v66-event::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(4,4,7,.44),rgba(var(--kova-event-accent-rgb),.28) 29%,rgba(5,5,8,.94) 54%,#070709 69%);pointer-events:none}
   body.kova-event-theme-ready .v66-event>*{z-index:1}
   body.kova-event-theme-ready .v66-event-nav{left:10px!important;right:10px!important;top:calc(8px + env(safe-area-inset-top))!important;height:54px!important;grid-template-columns:46px 1fr auto!important;padding:4px!important;border:0!important;background:transparent!important}
   body.kova-event-theme-ready .v66-event-nav>button,
   body.kova-event-theme-ready .v66-event-nav .v66-icon-btn{width:46px!important;height:46px!important;background:rgba(255,255,255,.13)!important;color:#fff!important;border-color:rgba(255,255,255,.28)!important;-webkit-backdrop-filter:blur(24px) saturate(180%)!important;backdrop-filter:blur(24px) saturate(180%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 8px 24px rgba(0,0,0,.2)!important}
+  body.kova-event-theme-ready #v66Save{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;align-self:center!important;font-size:17px!important}
   body.kova-event-theme-ready .v66-nav-top{justify-self:center;width:auto!important;min-width:76px!important;padding:0 16px!important;border-radius:999px!important}
   body.kova-event-theme-ready .v66-nav-actions{gap:7px}
   body.kova-event-theme-ready .v66-event-scroll{padding-top:0!important}
-  body.kova-event-theme-ready .v66-event-content{color:#111}
+  body.kova-event-theme-ready .v66-event-content{background:#070709!important;color:#fff!important}
+  body.kova-event-theme-ready .v66-story-card,
+  body.kova-event-theme-ready .v66-program,
+  body.kova-event-theme-ready .v66-info-section,
+  body.kova-event-theme-ready .v66-location,
+  body.kova-event-theme-ready .v66-organizer,
+  body.kova-event-theme-ready .v66-tickets{border-radius:24px!important}
 }
-</style><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/></head>
+</style><link rel="stylesheet" href="assets/kova-mobile-v2.css"/><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/></head>
 <body>
 <nav class="nav">
 <a class="brand" href="#">KOVA</a>
-<div class="links"><a href="#discover">Découvrir</a><a href="#artists">Artistes</a><a href="#kovaExperiences">Guide KOVA</a><a data-kova-wallet-open="true" href="#wallet">Mes billets</a><a href="#organizers">Pour les créateurs</a><a href="#help">Aide</a></div>
+<div class="links"><a href="#discover">Explorer</a><a href="#artists">Artistes</a><a href="#kovaExperiences">Guide KOVA</a><a data-kova-wallet-open="true" href="#wallet">Mes billets</a><a href="#organizers">Pour les créateurs</a><a href="#help">Aide</a></div>
 <button class="nav-cta" id="earlyAccessBtn">Accès en avant-première</button>
 <button aria-expanded="false" aria-label="Ouvrir le menu" class="kova-menu-open" id="kovaMenuOpen" type="button"><span aria-hidden="true" class="v82-menu-icon"><i></i><i></i><i></i></span></button></nav>
 <main>
@@ -17789,10 +18168,6 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   }
 
   function openOverview(){
-    if(matchMedia('(max-width:700px)').matches&&window.KOVA_MOBILE_FEED){
-      window.KOVA_MOBILE_FEED.open('events');
-      return;
-    }
     previousFocus=document.activeElement;
     render();
     panel.scrollTop=0;
@@ -17810,6 +18185,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     previousFocus?.focus?.({preventScroll:true});
   }
   window.KOVA_EVENTS_OVERVIEW_CLOSE=closeOverview;
+  window.KOVA_EVENTS_OVERVIEW_OPEN=openOverview;
 
   openButton.addEventListener('click',openOverview);
   closeButton.addEventListener('click',closeOverview);
@@ -17851,7 +18227,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <article class="event-card" data-event="8" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-08);--event-pos:50% 50%"></div><div class="event-meta"><h3>Spotvsky</h3><p>Samedi · 23H · Le Sky</p></div><a aria-label="Ouvrir Spotvsky" class="offline-card-link" href="#offline-event-8"></a></article>
 <article aria-label="Open Mykonos White &amp; Blue" class="event-card" data-event="10" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-02);--event-pos:50% 45%"></div><div class="event-meta"><h3>Mykonos White &amp; Blue</h3><p>15 juillet · 11 PM · Abidjan</p></div><a aria-label="Ouvrir Mykonos White &amp; Blue" class="offline-card-link" href="#offline-event-10"></a></article><article aria-label="Open HIMRA — Stade Ébimpé" class="event-card" data-event="11" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-01);--event-pos:50% 45%"></div><div class="event-meta"><h3>HIMRA — Stade Ébimpé</h3><p>26 décembre 2026 · Stade Ébimpé</p></div><a aria-label="Ouvrir HIMRA — Stade Ébimpé" class="offline-card-link" href="#offline-event-11"></a></article><article aria-label="Open HIMRA — Nouveau Boss" class="event-card" data-event="12" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-09);--event-pos:50% 40%"></div><div class="event-meta"><h3>HIMRA — Nouveau Boss</h3><p>28 janvier 2026 · Zénith Paris La Villette</p></div><a aria-label="Ouvrir HIMRA — Nouveau Boss" class="offline-card-link" href="#offline-event-12"></a></article><article aria-label="Open HIMRA — Milano" class="event-card" data-event="13" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-05);--event-pos:50% 42%"></div><div class="event-meta"><h3>HIMRA — Milano</h3><p>Samedi · 8 août · JustMe Milano</p></div><a aria-label="Ouvrir HIMRA — Milano" class="offline-card-link" href="#offline-event-13"></a></article><article aria-label="Open DIDI B — Montréal" class="event-card" data-event="14" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-10);--event-pos:50% 45%"></div><div class="event-meta"><h3>DIDI B — Montréal</h3><p>26 août 2026 · L’Olympia Montréal</p></div><a aria-label="Ouvrir DIDI B — Montréal" class="offline-card-link" href="#offline-event-14"></a></article><article aria-label="Open AFRO+ FEST" class="event-card" data-event="15" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-03);--event-pos:50% 40%"></div><div class="event-meta"><h3>AFRO+ FEST</h3><p>4–6 septembre 2026 · Northwest Stadium</p></div><a aria-label="Ouvrir AFRO+ FEST" class="offline-card-link" href="#offline-event-15"></a></article>
 <article aria-label="Ouvrir Le Bon Vieux Temps" class="event-card" data-event="201" data-kova-budget="unknown" data-kova-state="last" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://www.fratmat.info/uploads/images/2021/02/19/57766.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Le Bon Vieux Temps</h3><p>15 août · 20H · Riviera Golf</p></div><a aria-label="Ouvrir Le Bon Vieux Temps" class="offline-card-link" href="#offline-event-201"></a></article>
-<article aria-label="Ouvrir Yodé &amp; Siro — 30 ans" class="event-card" data-event="202" data-kova-budget="30000" data-kova-state="last" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://cdn.tikerama.com/16883/conversions/yode-siro-en-concert-30-ans-6a031ebdcbc4a-1778589411-1778589618-thumbnail.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Yodé &amp; Siro — 30 ans</h3><p>15 août · 17H · Sofitel Hôtel Ivoire</p></div><a aria-label="Ouvrir Yodé et Siro — 30 ans" class="offline-card-link" href="#offline-event-202"></a></article>
+<article aria-label="Ouvrir Yodé &amp; Siro — 30 ans" class="event-card" data-event="202" data-kova-budget="30000" data-kova-state="last" role="button" tabindex="0"><div class="event-art" style="--event-img:url('assets/yode-siro-30-ans.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Yodé &amp; Siro — 30 ans</h3><p>15 août · 17H · Sofitel Hôtel Ivoire</p></div><a aria-label="Ouvrir Yodé et Siro — 30 ans" class="offline-card-link" href="#offline-event-202"></a></article>
 <article aria-label="Ouvrir Pékuelle — La Main de Dieu" class="event-card" data-event="203" data-kova-budget="0" data-kova-state="free" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&amp;fit=crop&amp;w=1200&amp;q=84');--event-pos:50% 30%"></div><div class="event-meta"><h3>Pékuelle — La Main de Dieu</h3><p>16 août · 15H · Salle Anoumabo</p></div><a aria-label="Ouvrir Pékuelle — La Main de Dieu" class="offline-card-link" href="#offline-event-203"></a></article>
 <article aria-label="Ouvrir Sindika en concert" class="event-card" data-event="205" data-kova-budget="10000" data-kova-state="new" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://files.cdn-files-a.com/uploads/2050992/normal_68b05e9b7a5ac.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Sindika en concert</h3><p>31 août · 15H · Palais de la Culture</p></div><a aria-label="Ouvrir Sindika en concert" class="offline-card-link" href="#offline-event-205"></a></article>
 <article aria-label="Ouvrir Festival des Grillades" class="event-card" data-event="206" data-kova-budget="unknown" data-kova-state="new" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=1200&amp;q=84');--event-pos:50% 50%"></div><div class="event-meta"><h3>Festival des Grillades</h3><p>5–6 septembre · 11H · Palais de la Culture</p></div><a aria-label="Ouvrir Festival des Grillades" class="offline-card-link" href="#offline-event-206"></a></article>
@@ -18044,7 +18420,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       if(previousFocus instanceof HTMLElement) previousFocus.focus({preventScroll:true});
     };
     document.getElementById('kovaRadarOpen')?.addEventListener('click',openRadar);
-    document.getElementById('kovaHeroRadar')?.addEventListener('click',openRadar);
+    document.getElementById('kovaHeroRadar')?.addEventListener('click',()=>{
+      document.getElementById('discover')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+    });
     document.getElementById('kovaRadarClose')?.addEventListener('click',closeRadar);
     radar.addEventListener('click',event=>{if(event.target===radar) closeRadar()});
     search.addEventListener('input',render);
@@ -18617,6 +18995,40 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <div class="quote reveal"><blockquote>“The platform should feel less like software — and more like momentum.”</blockquote><div class="person">KOVA Product Principle</div></div>
 </div></div>
 </section>
+<section class="kova-journal" id="kovaJournal">
+<div class="kova-journal-shell">
+<div class="kova-journal-feature" style="background-image:url('assets/kova-story-texture.webp')">
+<div class="kova-journal-copy">
+<small>NOTRE HISTOIRE · 2 MIN</small>
+<h2>Pourquoi KOVA est né.</h2>
+<p>Une idée simple : ne plus apprendre trop tard ce qui fait vibrer Abidjan, et donner aux créateurs un endroit digne de leurs moments.</p>
+<button class="kova-story-open" data-story="origin" type="button">Voir plus ↗</button>
+</div>
+</div>
+</div>
+</section>
+<section aria-hidden="true" aria-modal="true" class="kova-story-dialog" id="kovaStoryDialog" role="dialog">
+<article><button aria-label="Fermer l’article" class="kova-story-close" type="button">×</button><small id="kovaStoryKicker">LE JOURNAL KOVA</small><h3 id="kovaStoryTitle"></h3><p id="kovaStoryBody"></p></article>
+</section>
+<script id="kovaJournalRuntime">
+(()=>{
+  const dialog=document.getElementById('kovaStoryDialog');
+  if(!dialog)return;
+  const journal=document.getElementById('kovaJournal');
+  const testimonials=document.getElementById('kovaOrganizerTestimonials');
+  if(journal&&testimonials&&journal.nextElementSibling!==testimonials){
+    testimonials.parentNode.insertBefore(journal,testimonials);
+  }
+  const stories={
+    origin:['NOTRE HISTOIRE · 2 MIN','Pourquoi KOVA est né.','KOVA est parti d’un constat très abidjanais : les meilleurs événements circulent souvent entre stories, groupes privés et recommandations de dernière minute. Il manquait un lieu unique, beau et fiable pour découvrir une expérience, comprendre son ambiance et prendre son billet sans casser l’émotion. KOVA rassemble cette énergie — événements, artistes, lieux et créateurs — dans une même destination pensée d’abord pour Abidjan.']
+  };
+  const close=()=>{dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');document.body.classList.remove('kova-modal-open')};
+  document.getElementById('kovaJournal')?.addEventListener('click',event=>{const card=event.target.closest('[data-story]');if(!card)return;const story=stories[card.dataset.story];if(!story)return;document.getElementById('kovaStoryKicker').textContent=story[0];document.getElementById('kovaStoryTitle').textContent=story[1];document.getElementById('kovaStoryBody').textContent=story[2];dialog.classList.add('open');dialog.setAttribute('aria-hidden','false');document.body.classList.add('kova-modal-open');dialog.querySelector('.kova-story-close').focus({preventScroll:true})});
+  dialog.querySelector('.kova-story-close').addEventListener('click',close);
+  dialog.addEventListener('click',event=>{if(event.target===dialog)close()});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dialog.classList.contains('open'))close()});
+})();
+</script>
 <section class="kova-testimonial-card cta" id="kovaOrganizerTestimonials">
 <div class="kova-testimonial-shell">
 <div class="kova-testimonial-top">
@@ -18696,18 +19108,23 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </div>
 </section><footer id="help"><div class="footer-inner"><div>© 2026 KOVA</div><div>ABIDJAN EST DOUX. · KOVA</div></div></footer>
 <nav aria-label="Mobile navigation" class="mobile-dock">
-<a class="dock-item active" href="#"><strong>⌂</strong><span>Accueil</span></a>
-<a class="dock-item" data-kova-feed-open="events" href="#discover"><strong>◎</strong><span>Explorer</span></a>
-<a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong>▣</strong><span>Billets</span></a>
-<a class="dock-item" href="#organizers"><strong>＋</strong><span>Créer</span></a>
+<a class="dock-item active" href="#home"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M9.5 20v-6h5v6"/></svg></strong><span>Accueil</span></a>
+<a class="dock-item" data-kova-events-overview-open="true" href="#discover"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></strong><span>Événements</span></a>
+<a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5.5h14a1 1 0 0 1 1 1v3a2.5 2.5 0 0 0 0 5v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2.5 2.5 0 0 0 0-5v-3a1 1 0 0 1 1-1Z"/><path d="M12 8v8"/></svg></strong><span>Billets</span></a>
+<a class="dock-item" href="#organizers"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></strong><span>Créer</span></a>
 </nav>
 <section aria-hidden="true" aria-labelledby="kovaMobileFeedHeading" aria-modal="true" class="kova-mobile-feed" id="kovaMobileFeed" role="dialog">
 <div class="kova-mobile-feed-scroll" id="kovaMobileFeedScroll">
 <header class="kova-mobile-feed-head">
 <div class="kova-mobile-feed-bar">
-<button aria-label="Fermer Explorer" class="kova-mobile-feed-close" id="kovaMobileFeedClose" type="button">←</button>
-<div class="kova-mobile-feed-title"><small>Abidjan · maintenant</small><strong>Explorer KOVA</strong></div>
-<button class="kova-mobile-feed-top" id="kovaMobileFeedTop" type="button">En haut</button>
+<button aria-label="Fermer Explorer" class="kova-mobile-feed-close" id="kovaMobileFeedClose" type="button">×</button>
+<div class="kova-mobile-feed-title"><small>Défile · affiche par affiche</small><strong>KOVA Explorer</strong></div>
+<button aria-label="Revenir en haut" class="kova-mobile-feed-top" id="kovaMobileFeedTop" type="button">↑</button>
+</div>
+<div aria-label="Sélection actuelle" class="kova-mobile-feed-context">
+<button id="kovaMobileFeedFeatured" type="button"><span>Populaires</span><b aria-hidden="true">⌄</b></button>
+<button class="active" id="kovaMobileFeedWeekend" type="button"><span>Ce week-end</span><b aria-hidden="true">⌄</b></button>
+<span aria-label="Ville : Abidjan" class="kova-mobile-feed-context-static"><span>Abidjan</span><b aria-hidden="true">⌄</b></span>
 </div>
 <div aria-label="Type de découverte" class="kova-mobile-feed-tabs" role="tablist">
 <button aria-selected="true" class="kova-mobile-feed-tab active" data-feed-tab="events" role="tab" type="button">Événements</button>
@@ -18716,6 +19133,10 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <button aria-selected="false" class="kova-mobile-feed-tab" data-feed-tab="eat" role="tab" type="button">Manger</button>
 <button aria-selected="false" class="kova-mobile-feed-tab" data-feed-tab="move" role="tab" type="button">Bouger</button>
 </div>
+<div class="kova-mobile-feed-featurebar">
+<button id="kovaMobileFeedFeaturedBar" type="button"><span aria-hidden="true">★</span><span>À la une</span></button>
+<button aria-expanded="false" aria-controls="kovaMobileFeedFilters" id="kovaMobileFeedFilterToggle" type="button"><i aria-hidden="true"></i><span>Filtrer</span></button>
+</div>
 </header>
 <div class="kova-mobile-feed-intro"><h2 id="kovaMobileFeedHeading">Tout ce qui se passe.</h2><p id="kovaMobileFeedSubtitle">Fais défiler. Appuie. Vis l’expérience.</p></div>
 <div aria-label="Filtres" class="kova-mobile-feed-filters" id="kovaMobileFeedFilters"></div>
@@ -18723,8 +19144,293 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <div class="kova-mobile-feed-empty" id="kovaMobileFeedEmpty">Aucun résultat avec ces filtres.</div>
 </div>
 </section>
-<script defer="" src="./kova-mobile-feed.js?v=93"></script>
-<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<script id="kovaMobileFeedRuntime">
+/* KOVA V94 — standalone POSH-inspired mobile event feed. */
+window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
+
+(() => {
+  'use strict';
+
+  const init = () => {
+    const feed = document.getElementById('kovaMobileFeed');
+    const scroller = document.getElementById('kovaMobileFeedScroll');
+    const list = document.getElementById('kovaMobileFeedList');
+    const filters = document.getElementById('kovaMobileFeedFilters');
+    const empty = document.getElementById('kovaMobileFeedEmpty');
+    const heading = document.getElementById('kovaMobileFeedHeading');
+    const subtitle = document.getElementById('kovaMobileFeedSubtitle');
+    const closeButton = document.getElementById('kovaMobileFeedClose');
+    const topButton = document.getElementById('kovaMobileFeedTop');
+    const filterToggle = document.getElementById('kovaMobileFeedFilterToggle');
+    const weekendToggle = document.getElementById('kovaMobileFeedWeekend');
+    const featuredToggle = document.getElementById('kovaMobileFeedFeatured');
+    const featuredBar = document.getElementById('kovaMobileFeedFeaturedBar');
+    const tabs = [...document.querySelectorAll('[data-feed-tab]')];
+    if (!feed || !scroller || !list || !filters || !empty || !closeButton || !topButton || !tabs.length) return;
+
+    const state = { type: 'events', when: 'weekend', price: 'all', artistGroup: 'all', filtersOpen: false };
+    const colorCache = new Map();
+    let previousFocus = null;
+    let previousScrollY = 0;
+    let cardObserver = null;
+
+    const clean = value => (value || '').replace(/\s+/g, ' ').trim();
+    const escapeUrl = value => String(value || '').replace(/["\\]/g, '\\$&');
+    const visualOf = node => node?.matches?.('.event-art,.artist-slide-image,.rising-image,.kova-place-card-visual,.kova-food-card-visual,.kova-sport-card-visual')
+      ? node
+      : node?.querySelector?.('.event-art,.artist-slide-image,.rising-image,.kova-place-card-visual,.kova-food-card-visual,.kova-sport-card-visual,img');
+
+    const imageUrl = node => {
+      const visual = visualOf(node);
+      if (!visual) return '';
+      if (visual.tagName === 'IMG') return visual.currentSrc || visual.src || '';
+      const style = getComputedStyle(visual);
+      const values = [visual.style.backgroundImage, style.backgroundImage, ...['--event-img', '--artist-img', '--rising-img', '--place-img', '--food-img', '--sport-img'].map(key => style.getPropertyValue(key))];
+      for (const value of values) {
+        const match = String(value || '').match(/url\(["']?(.*?)["']?\)/);
+        if (match?.[1]) return match[1];
+      }
+      return '';
+    };
+
+    const eventTiming = node => {
+      const text = clean(node.textContent).toLowerCase();
+      if (/demain|tomorrow/.test(text)) return 'tomorrow';
+      if (/aujourd|today|ce soir|tonight/.test(text)) return 'today';
+      if (/week-end|weekend|samedi|dimanche|\bsat\b|\bsun\b/.test(text)) return 'weekend';
+      return 'later';
+    };
+
+    const eventPrice = node => {
+      const text = clean(`${node.dataset.kovaBudget || ''} ${node.querySelector('.event-meta p,.event-copy p')?.textContent || ''}`).toLowerCase();
+      if (/gratuit|free/.test(text)) return 0;
+      const values = [...text.matchAll(/(\d[\d\s.]*)\s*(?:f|fcfa|cfa)/g)].map(match => Number(match[1].replace(/\D/g, ''))).filter(Number.isFinite);
+      return values.length ? Math.min(...values) : null;
+    };
+
+    const timeLabel = (node, timing) => {
+      const text = clean(node.querySelector('.event-meta p,.event-copy p')?.textContent || node.textContent);
+      const match = text.match(/(?:\b(?:lun|mar|mer|jeu|ven|sam|dim)[a-z.]*\b[^·|,]*)?[·|,]?\s*(\d{1,2}\s*h(?:\s*\d{2})?|\d{1,2}:\d{2})/i);
+      if (match) return match[1].replace(/\s+/g, ' ').toUpperCase();
+      if (timing === 'today') return 'AUJOURD’HUI';
+      if (timing === 'tomorrow') return 'DEMAIN';
+      if (timing === 'weekend') return 'CE WEEK-END';
+      return 'BIENTÔT';
+    };
+
+    const collectEvents = () => [...document.querySelectorAll('#discover .scroller > .event-card')]
+      .filter((node, index, all) => all.indexOf(node) === index)
+      .map(node => {
+        const timing = eventTiming(node);
+        return {
+          source: node, kind: 'event',
+          title: clean(node.querySelector('.event-meta h3,.event-copy h3')?.textContent) || 'Événement KOVA',
+          meta: clean(node.querySelector('.event-meta p,.event-copy p')?.textContent) || 'Abidjan',
+          image: imageUrl(node), timing, price: eventPrice(node), badge: timeLabel(node, timing)
+        };
+      });
+
+    const collectArtists = () => [
+      ...[...document.querySelectorAll('#artistCarousel > .artist-slide')].map(node => ({source: node, kind: 'artist', group: 'main', title: clean(node.querySelector('h4')?.textContent) || 'Artiste KOVA', meta: clean(node.querySelector('.artist-slide-content span')?.textContent) || 'Artiste du moment', image: imageUrl(node), badge: 'EN CE MOMENT'})),
+      ...[...document.querySelectorAll('#artists .rising-grid > .rising-card')].map(node => ({source: node, kind: 'artist', group: 'rising', title: clean(node.querySelector('h4')?.textContent) || 'Artiste KOVA', meta: clean(node.querySelector('p')?.textContent) || 'À suivre', image: imageUrl(node), badge: 'À SUIVRE'}))
+    ];
+
+    const guide = (selector, type, label) => [...document.querySelectorAll(selector)].map(node => ({source: node, kind: 'guide', group: type, title: clean(node.querySelector('h3')?.textContent) || label, meta: clean(node.querySelector('.kova-place-card-meta,p')?.textContent) || 'Abidjan', image: imageUrl(node), badge: label.toUpperCase()}));
+    const collectGuide = type => guide(type === 'visit' ? '#kovaGuideTrack > .kova-place-card' : type === 'eat' ? '.kova-food-card' : '.kova-sport-card', type, type === 'visit' ? 'Visiter' : type === 'eat' ? 'Manger' : 'Bouger');
+
+    const fallbackColor = title => {
+      const palette = [[255, 52, 141], [133, 72, 255], [24, 174, 142], [242, 92, 45], [69, 111, 255], [204, 56, 157]];
+      const index = [...String(title)].reduce((sum, char) => sum + char.charCodeAt(0), 0) % palette.length;
+      return palette[index];
+    };
+    const normalizeAccent = ([r, g, b]) => {
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      if (max - min < 34) return [255, 52, 141];
+      const boost = max < 155 ? 155 / max : 1;
+      return [r, g, b].map(channel => Math.max(20, Math.min(238, Math.round(channel * boost))));
+    };
+    const canReadPixels = image => {
+      if (/^(data:|blob:)/i.test(image)) return true;
+      try { return new URL(image, location.href).origin === location.origin; }
+      catch { return false; }
+    };
+    const colorFromImage = (image, title) => {
+      if (!image) return Promise.resolve(fallbackColor(title));
+      // A remote poster without CORS can still be displayed, but reading its
+      // pixels would pollute the console and taint the canvas. Keep a stable,
+      // title-derived accent for those legacy URLs.
+      if (!canReadPixels(image)) return Promise.resolve(fallbackColor(title));
+      if (colorCache.has(image)) return colorCache.get(image);
+      const request = new Promise(resolve => {
+        const picture = new Image();
+        picture.crossOrigin = 'anonymous';
+        picture.onload = () => {
+          try {
+            const canvas = document.createElement('canvas'); canvas.width = 28; canvas.height = 28;
+            const context = canvas.getContext('2d', {willReadFrequently: true});
+            context.drawImage(picture, 0, 0, 28, 28);
+            const data = context.getImageData(0, 0, 28, 28).data;
+            let r = 0, g = 0, b = 0, count = 0;
+            for (let index = 0; index < data.length; index += 16) {
+              const rr = data[index], gg = data[index + 1], bb = data[index + 2];
+              const max = Math.max(rr, gg, bb), min = Math.min(rr, gg, bb), light = (rr + gg + bb) / 3;
+              if (data[index + 3] < 180 || light < 24 || light > 228 || max - min < 24) continue;
+              const weight = 1 + (max - min) / 72;
+              r += rr * weight; g += gg * weight; b += bb * weight; count += weight;
+            }
+            resolve(count ? normalizeAccent([r / count, g / count, b / count]) : fallbackColor(title));
+          } catch { resolve(fallbackColor(title)); }
+        };
+        picture.onerror = () => resolve(fallbackColor(title));
+        picture.src = image;
+      });
+      colorCache.set(image, request);
+      return request;
+    };
+
+    const setVariables = (target, image, [r, g, b]) => {
+      target.style.setProperty('--feed-accent', `rgb(${r} ${g} ${b})`);
+      target.style.setProperty('--feed-accent-rgb', `${r},${g},${b}`);
+      if (image) target.style.setProperty('--feed-poster', `url("${escapeUrl(image)}")`);
+    };
+    const applyTheme = (image, title) => {
+      const commit = ([r, g, b]) => {
+        const root = document.documentElement.style;
+        root.setProperty('--kova-event-accent', `rgb(${r} ${g} ${b})`);
+        root.setProperty('--kova-event-accent-rgb', `${r},${g},${b}`);
+        root.setProperty('--kova-event-poster', image ? `url("${escapeUrl(image)}")` : 'none');
+        document.body.classList.add('kova-event-theme-ready');
+      };
+      commit(fallbackColor(title));
+      colorFromImage(image, title).then(commit);
+    };
+
+    const items = () => state.type === 'events' ? collectEvents() : state.type === 'artists' ? collectArtists() : collectGuide(state.type);
+    const filtered = () => items().filter(item => {
+      if (state.type === 'artists') return state.artistGroup === 'all' || item.group === state.artistGroup;
+      if (state.type !== 'events') return true;
+      const timing = state.when === 'all' || item.timing === state.when || (state.when === 'weekend' && item.timing === 'later');
+      const price = state.price === 'all' || (state.price === 'free' && item.price === 0) || (state.price === 'budget' && item.price !== null && item.price > 0 && item.price <= 10000) || (state.price === 'premium' && item.price !== null && item.price > 10000);
+      return timing && price;
+    });
+    const definitions = () => state.type === 'events'
+      ? [['when', 'all', 'Tous'], ['when', 'today', 'Aujourd’hui'], ['when', 'tomorrow', 'Demain'], ['when', 'weekend', 'Ce week-end'], ['price', 'free', 'Gratuit'], ['price', 'budget', '≤ 10 000 F'], ['price', 'premium', 'Premium']]
+      : state.type === 'artists' ? [['artistGroup', 'all', 'Tous'], ['artistGroup', 'main', 'Du moment'], ['artistGroup', 'rising', 'À suivre']] : [];
+
+    const renderFilters = () => {
+      const nodes = definitions().map(([key, value, label]) => {
+        const button = document.createElement('button');
+        button.type = 'button'; button.className = 'kova-mobile-feed-filter'; button.textContent = label;
+        button.dataset.filterKey = key; button.dataset.filterValue = value;
+        const active = state[key] === value;
+        button.classList.toggle('active', active); button.setAttribute('aria-pressed', String(active));
+        return button;
+      });
+      filters.replaceChildren(...nodes);
+      filters.hidden = !nodes.length || !state.filtersOpen;
+      filterToggle?.setAttribute('aria-expanded', String(state.filtersOpen));
+    };
+    const activateCard = card => {
+      if (!card) return;
+      list.querySelectorAll('.kova-mobile-feed-card.is-current').forEach(node => node.classList.remove('is-current'));
+      card.classList.add('is-current');
+      feed.style.setProperty('--feed-active-poster', card.style.getPropertyValue('--feed-poster'));
+      feed.style.setProperty('--feed-active-accent-rgb', card.style.getPropertyValue('--feed-accent-rgb'));
+    };
+    const observeCards = cards => {
+      cardObserver?.disconnect();
+      cardObserver = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.intersectionRatio >= .42) activateCard(visible.target);
+      }, {root: scroller, threshold: [.25, .42, .6, .8]});
+      cards.forEach(card => cardObserver.observe(card));
+      if (cards[0]) activateCard(cards[0]);
+    };
+
+    const createCard = (item, index) => {
+      const card = document.createElement('button');
+      card.type = 'button'; card.className = 'kova-mobile-feed-card'; card.dataset.feedKind = item.kind;
+      card.setAttribute('aria-label', `Ouvrir ${item.title}`);
+      setVariables(card, item.image, fallbackColor(item.title));
+      const media = document.createElement('span'); media.className = 'kova-mobile-feed-media'; media.setAttribute('aria-hidden', 'true');
+      const shade = document.createElement('span'); shade.className = 'kova-mobile-feed-shade';
+      const sequence = document.createElement('span'); sequence.className = 'kova-mobile-feed-sequence'; sequence.textContent = String(index + 1).padStart(2, '0');
+      const badge = document.createElement('span'); badge.className = 'kova-mobile-feed-badge'; badge.textContent = item.badge;
+      const copy = document.createElement('span'); copy.className = 'kova-mobile-feed-card-copy';
+      const eyebrow = document.createElement('span'); eyebrow.className = 'kova-mobile-feed-eyebrow'; eyebrow.textContent = item.kind === 'event' ? 'ÉVÉNEMENT KOVA' : item.badge;
+      const title = document.createElement('strong'); title.textContent = item.title;
+      const meta = document.createElement('small'); meta.textContent = item.meta;
+      copy.append(eyebrow, title, meta);
+      const action = document.createElement('span'); action.className = 'kova-mobile-feed-action'; action.innerHTML = '<span>Voir</span><b aria-hidden="true">↗</b>';
+      card.append(media, shade, sequence, badge, copy, action);
+      colorFromImage(item.image, item.title).then(color => { if (card.isConnected) { setVariables(card, item.image, color); if (card.classList.contains('is-current')) activateCard(card); } });
+      card.addEventListener('click', () => { if (item.kind === 'event') applyTheme(item.image, item.title); close(false); requestAnimationFrame(() => requestAnimationFrame(() => item.source?.click?.())); });
+      return card;
+    };
+
+    const render = () => {
+      const copy = state.type === 'events' ? ['À l’affiche.', 'Fais défiler les événements.'] : state.type === 'artists' ? ['Les artistes.', 'Du moment et à suivre.'] : state.type === 'visit' ? ['À visiter.', 'Les choix du Guide KOVA.'] : state.type === 'eat' ? ['Où manger.', 'Les tables choisies par KOVA.'] : ['Où bouger.', 'Sport et mouvement à Abidjan.'];
+      heading.textContent = copy[0]; subtitle.textContent = copy[1]; renderFilters();
+      const cards = filtered().filter(item => item.image).map(createCard);
+      list.replaceChildren(...cards); empty.classList.toggle('show', !cards.length); observeCards(cards);
+    };
+    const setType = type => {
+      state.type = ['events', 'artists', 'visit', 'eat', 'move'].includes(type) ? type : 'events';
+      tabs.forEach(tab => { const active = tab.dataset.feedTab === state.type; tab.classList.toggle('active', active); tab.setAttribute('aria-selected', String(active)); });
+      scroller.scrollTop = 0; render();
+    };
+    const open = (type = 'events') => {
+      previousFocus = document.activeElement; previousScrollY = window.scrollY; setType(type);
+      feed.classList.add('open'); feed.setAttribute('aria-hidden', 'false'); document.body.classList.add('kova-mobile-feed-open');
+      setTimeout(() => closeButton.focus({preventScroll: true}), 40);
+    };
+    const close = (restore = true) => {
+      feed.classList.remove('open'); feed.setAttribute('aria-hidden', 'true'); document.body.classList.remove('kova-mobile-feed-open');
+      window.scrollTo(0, previousScrollY); if (restore) previousFocus?.focus?.({preventScroll: true});
+    };
+
+    tabs.forEach(tab => tab.addEventListener('click', () => setType(tab.dataset.feedTab)));
+    filters.addEventListener('click', event => {
+      const button = event.target.closest('[data-filter-key]'); if (!button) return;
+      const key = button.dataset.filterKey, value = button.dataset.filterValue;
+      state[key] = key === 'price' && state[key] === value ? 'all' : value;
+      scroller.scrollTo({top: 0, behavior: 'auto'}); render();
+    });
+    filterToggle?.addEventListener('click', () => { state.filtersOpen = !state.filtersOpen; renderFilters(); });
+    weekendToggle?.addEventListener('click', () => {
+      state.when = state.when === 'weekend' ? 'all' : 'weekend';
+      weekendToggle.classList.toggle('active', state.when === 'weekend');
+      weekendToggle.querySelector('span').textContent = state.when === 'weekend' ? 'Ce week-end' : 'Toutes les dates';
+      scroller.scrollTo({top: 0, behavior: 'auto'}); render();
+    });
+    const showFeatured = () => {
+      state.when = 'all'; state.price = 'all';
+      weekendToggle?.classList.remove('active');
+      if (weekendToggle?.querySelector('span')) weekendToggle.querySelector('span').textContent = 'Toutes les dates';
+      scroller.scrollTo({top: 0, behavior: 'smooth'}); render();
+    };
+    featuredToggle?.addEventListener('click', showFeatured);
+    featuredBar?.addEventListener('click', showFeatured);
+    closeButton.addEventListener('click', () => close());
+    topButton.addEventListener('click', () => scroller.scrollTo({top: 0, behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth'}));
+    document.addEventListener('keydown', event => { if (feed.classList.contains('open') && event.key === 'Escape') { event.preventDefault(); close(); } });
+    document.addEventListener('pointerdown', event => { const node = event.target.closest?.('#discover .event-card'); if (node) applyTheme(imageUrl(node), clean(node.querySelector('.event-meta h3,.event-copy h3')?.textContent)); }, true);
+    document.addEventListener('click', event => {
+      const trigger = event.target.closest?.('[data-kova-feed-open]');
+      if (!trigger) return;
+      event.preventDefault();
+      event.stopPropagation();
+      open(trigger.dataset.kovaFeedOpen || 'events');
+    }, true);
+    window.KOVA_EVENT_THEME = {apply: applyTheme, fromNode: node => applyTheme(imageUrl(node), clean(node?.textContent))};
+    window.KOVA_MOBILE_FEED = {open, close, render, setType};
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});
+  else init();
+})();
+
+</script><div class="sheet-backdrop" id="sheetBackdrop"></div>
 <aside aria-hidden="true" class="event-sheet" id="eventSheet">
 <div class="sheet-grab"></div>
 <div class="sheet-visual" id="sheetVisual">
@@ -19085,9 +19791,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <a href="#discover"><small>02</small><span>Découvrir</span></a>
 <a href="#artists"><small>03</small><span>Artistes</span></a>
 <a href="#kovaExperiences"><small>04</small><span>Visiter · Manger · Bouger</span></a>
-<a href="#organizers"><small>06</small><span>Pour les créateurs</span></a>
-<a href="#kovaAppCTA"><small>07</small><span>Application</span></a>
-<a data-kova-wallet-open="true" href="#wallet"><small>08</small><span>Mes billets</span></a>
+<a href="#organizers"><small>05</small><span>Pour les créateurs</span></a>
+<a href="#kovaAppCTA"><small>06</small><span>Application</span></a>
+<a data-kova-wallet-open="true" href="#wallet"><small>07</small><span>Mes billets</span></a>
 </nav>
 <button id="kovaMenuEarlyAccess" type="button">Accès en avant-première</button>
 </aside>
@@ -24631,9 +25337,13 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       lockPageForEvent();
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden','false');
-      transition.classList.remove('active');
-      transition.setAttribute('aria-hidden','true');
       resetEventSheetScroll();
+      const finishTransition=()=>{
+        transition.classList.remove('active');
+        transition.setAttribute('aria-hidden','true');
+      };
+      if(reduced) finishTransition();
+      else setTimeout(finishTransition,360);
     },reduced?0:470);
   }
 
@@ -24836,9 +25546,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     setActiveDockItem(item);
     window.KOVA_MOBILE_MENU?.close?.();
 
-    if(item.hasAttribute('data-kova-feed-open')){
+    if(item.hasAttribute('data-kova-events-overview-open')){
       if(wallet?.classList.contains('open')) closeWallet();
-      window.KOVA_MOBILE_FEED?.open?.(item.dataset.kovaFeedOpen||'events');
+      window.KOVA_EVENTS_OVERVIEW_OPEN?.();
       return;
     }
 
@@ -25236,11 +25946,15 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       overlay.classList.toggle('v79-entering',rising&&!reduced);
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden','false');
-      transition.classList.remove('active');
-      transition.classList.remove('rising-active','rising-launched');
-      transition.setAttribute('aria-hidden','true');
-      card.classList.remove('is-opening');
       resetArtistSheetScroll();
+      const finishTransition=()=>{
+        transition.classList.remove('active');
+        transition.classList.remove('rising-active','rising-launched');
+        transition.setAttribute('aria-hidden','true');
+        card.classList.remove('is-opening');
+      };
+      if(reduced) finishTransition();
+      else setTimeout(finishTransition,360);
       if(rising&&!reduced) setTimeout(()=>overlay.classList.remove('v79-entering'),920);
     },reduced?0:(rising?650:490));
   }
@@ -25640,5 +26354,5 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 
   window.KOVA_V74_BOTTOM_NAV_CENTERED = true;
 })();
-</script></body>
+</script><script defer src="assets/kova-mobile-v2.js"></script></body>
 </html>
