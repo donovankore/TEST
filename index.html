@@ -16773,7 +16773,7 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
   }
   .v64-home-copy::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:radial-gradient(circle at 88% 18%,rgba(255,92,165,.16),transparent 29%),linear-gradient(120deg,rgba(255,255,255,.14),transparent 28%);pointer-events:none}
   .v64-kicker{align-self:flex-start!important;padding:8px 11px!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:999px!important;background:rgba(12,12,16,.26)!important;color:rgba(255,255,255,.88)!important;font-size:8px!important;letter-spacing:.2em!important;-webkit-backdrop-filter:blur(16px) saturate(150%)!important;backdrop-filter:blur(16px) saturate(150%)!important}
-  .v64-home h1{max-width:calc(100vw - 28px)!important;margin:14px 0 12px!important;font-size:clamp(39px,10.6vw,48px)!important;line-height:.87!important;letter-spacing:-.068em!important;text-shadow:0 3px 28px rgba(0,0,0,.3)!important}
+  .v64-home h1{max-width:330px!important;margin:14px 0 12px!important;font-size:clamp(42px,11.8vw,55px)!important;line-height:.87!important;letter-spacing:-.068em!important;text-shadow:0 3px 28px rgba(0,0,0,.3)!important}
   .v64-gradient{background:linear-gradient(100deg,#f0d9ff 0%,#ff70b3 38%,#ff358b 70%,#b864ff 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
   .v64-home-copy>p{max-width:285px;font-size:13px!important;line-height:1.4!important;color:rgba(248,248,252,.76)!important}
   .v64-actions{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;margin-top:14px!important}
@@ -18008,289 +18008,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-event-theme-ready .v66-organizer,
   body.kova-event-theme-ready .v66-tickets{border-radius:24px!important}
 }
-</style><style data-kova-inline-source="assets/kova-mobile-v2.css">
-/* KOVA Mobile V2 — isolated mobile art direction. Desktop remains untouched. */
-@media (max-width:700px){
-  :root{
-    --m2-bg:#08080a;
-    --m2-surface:#111115;
-    --m2-text:#f7f7fa;
-    --m2-muted:rgba(247,247,250,.58);
-    --m2-line:rgba(255,255,255,.11);
-    --m2-pink:#ff3f91;
-    --m2-violet:#8d5cff;
-    --m2-radius:26px;
-    --m2-pad:18px;
-  }
-
-  html{background:var(--m2-bg)!important;scroll-padding-top:72px}
-  body.kova-mobile-v2{
-    overflow-x:hidden!important;
-    background:
-      radial-gradient(110% 38% at 92% 5%,rgba(255,63,145,.16),transparent 61%),
-      radial-gradient(90% 34% at 3% 29%,rgba(113,82,255,.12),transparent 64%),
-      var(--m2-bg)!important;
-    color:var(--m2-text)!important;
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif!important;
-  }
-  body.kova-mobile-v2 main{display:flex!important;flex-direction:column!important;background:transparent!important}
-  body.kova-mobile-v2 main>section{position:relative;min-width:0}
-  body.kova-mobile-v2 main>#kovaStoryDialog{
-    position:fixed!important;inset:0!important;width:auto!important;height:auto!important;
-    padding:18px!important;place-items:center!important;background:rgba(4,4,7,.68)!important;
-    -webkit-backdrop-filter:blur(24px) saturate(150%)!important;backdrop-filter:blur(24px) saturate(150%)!important;
-  }
-  body.kova-mobile-v2 main>#kovaStoryDialog article{
-    width:100%!important;max-height:78svh!important;padding:28px 24px!important;border-radius:26px!important;
-    background:rgba(20,20,25,.88)!important;border:1px solid rgba(255,255,255,.16)!important;
-  }
-  body.kova-mobile-v2 main>#kovaStoryDialog[aria-hidden="true"]{display:none!important}
-  body.kova-mobile-v2 .wrap{width:auto!important;margin-inline:var(--m2-pad)!important}
-
-  /* Floating glass identity */
-  body.kova-mobile-v2>.nav{
-    position:fixed!important;z-index:9000!important;top:calc(10px + env(safe-area-inset-top))!important;
-    left:12px!important;right:12px!important;width:auto!important;height:48px!important;
-    padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;
-    display:flex!important;align-items:center!important;justify-content:space-between!important;pointer-events:none!important;
-  }
-  body.kova-mobile-v2>.nav .brand,
-  body.kova-mobile-v2>.nav .kova-menu-open{
-    pointer-events:auto!important;display:grid!important;place-items:center!important;height:46px!important;
-    border:1px solid rgba(255,255,255,.24)!important;background:rgba(24,24,28,.42)!important;color:#fff!important;
-    -webkit-backdrop-filter:blur(24px) saturate(180%)!important;backdrop-filter:blur(24px) saturate(180%)!important;
-    box-shadow:inset 0 1px rgba(255,255,255,.22),0 10px 32px rgba(0,0,0,.2)!important;
-  }
-  body.kova-mobile-v2>.nav .brand{width:74px!important;border-radius:17px!important;font-size:17px!important;font-weight:950!important;letter-spacing:-.04em!important}
-  body.kova-mobile-v2>.nav .kova-menu-open{position:static!important;width:46px!important;border-radius:50%!important}
-  body.kova-mobile-v2>.nav .links,body.kova-mobile-v2>.nav .nav-cta{display:none!important}
-  body.kova-mobile-v2 .v82-menu-icon{transform:scale(.82)}
-  body.kova-mobile-v2>.nav .kova-mobile-context{
-    pointer-events:auto;position:absolute;left:50%;top:4px;transform:translateX(-50%);height:40px;max-width:160px;padding:0 15px;
-    border:1px solid rgba(255,255,255,.17);border-radius:15px;background:rgba(18,18,22,.34);color:rgba(255,255,255,.82);
-    -webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);
-    font:800 9px/1 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;letter-spacing:.14em;text-transform:uppercase;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:inset 0 1px rgba(255,255,255,.14);
-  }
-
-  /* New cinematic mobile hero */
-  body.kova-mobile-v2 .v64-home{
-    order:1!important;min-height:100svh!important;padding:0!important;overflow:hidden!important;
-    background:#09090b!important;color:#fff!important;
-  }
-  body.kova-mobile-v2 .v64-home-bg{display:none!important}
-  body.kova-mobile-v2 .v64-home::before{
-    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(180deg,rgba(5,5,7,.12),rgba(5,5,7,.17) 32%,rgba(5,5,7,.84) 72%,#08080a 100%),
-      radial-gradient(90% 50% at 80% 45%,rgba(255,60,145,.16),transparent 72%);
-  }
-  body.kova-mobile-v2 .v64-layout{position:relative!important;z-index:2!important;display:block!important;min-height:100svh!important;padding:0!important}
-  body.kova-mobile-v2 .v64-home-copy{position:relative!important;z-index:3!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;min-height:100svh!important;max-width:none!important;padding:96px 18px calc(96px + env(safe-area-inset-bottom))!important;text-align:left!important;pointer-events:none!important}
-  body.kova-mobile-v2 .v64-home-copy>*{pointer-events:auto}
-  body.kova-mobile-v2 .v64-kicker{order:0;align-self:flex-start;padding:8px 11px!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:999px!important;background:rgba(13,13,17,.24)!important;color:rgba(255,255,255,.72)!important;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);font-size:8px!important;letter-spacing:.17em!important}
-  body.kova-mobile-v2 .v64-home-copy h1{order:1;margin:14px 0 0!important;max-width:350px;font-size:clamp(52px,15vw,68px)!important;line-height:.84!important;letter-spacing:-.075em!important;text-wrap:balance!important}
-  body.kova-mobile-v2 .v64-home-copy h1 span{display:block!important}
-  body.kova-mobile-v2 .v64-gradient{color:#fff!important;background:linear-gradient(100deg,#fff 0%,#f6b6d1 42%,#ff3f91 100%)!important;background-clip:text!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important}
-  body.kova-mobile-v2 .v64-home-copy>p{order:2;margin:14px 0 0!important;max-width:286px;color:rgba(255,255,255,.69)!important;font-size:13px!important;line-height:1.4!important}
-  body.kova-mobile-v2 .v64-stage{display:block!important;position:absolute!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;margin:0!important;min-height:0!important;overflow:hidden!important}
-  body.kova-mobile-v2 .v64-orbit{display:none!important}
-  body.kova-mobile-v2 .v64-card{
-    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;border-radius:0!important;
-    border:0!important;box-shadow:none!important;
-    transform:none!important;opacity:0!important;pointer-events:none!important;overflow:hidden!important;
-  }
-  body.kova-mobile-v2 .v64-card.is-active,body.kova-mobile-v2 .v64-card.active{opacity:1!important;pointer-events:auto!important}
-  body.kova-mobile-v2 .v64-card img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}
-  body.kova-mobile-v2 .v64-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,4,7,.18),rgba(4,4,7,.1) 34%,rgba(4,4,7,.9) 78%,#08080a 100%);pointer-events:none}
-  body.kova-mobile-v2 .v64-actions{order:4!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important;margin:16px 0 0!important}
-  body.kova-mobile-v2 .v64-actions button{min-height:50px!important;border-radius:17px!important;font-size:12px!important;font-weight:850!important}
-  body.kova-mobile-v2 .v64-primary{background:#fff!important;color:#09090b!important;border:0!important}
-  body.kova-mobile-v2 .v64-secondary{width:auto!important;padding:0 10px!important;font-size:9.5px!important;line-height:1.05!important;white-space:normal!important;border:1px solid rgba(255,255,255,.2)!important;background:rgba(255,255,255,.11)!important;color:#fff!important;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
-  body.kova-mobile-v2 .v64-actions .v64-secondary{font-size:9.5px!important;letter-spacing:-.01em!important}
-  body.kova-mobile-v2 .v64-secondary::before{content:none!important}
-  body.kova-mobile-v2 .v64-context{order:5!important;margin:14px 2px 0!important;color:rgba(255,255,255,.5)!important;font-size:9px!important}
-
-  /* Shared section rhythm */
-  body.kova-mobile-v2 #discover{order:10!important;padding:42px 0 20px!important;background:transparent!important;color:#fff!important;border-radius:0!important}
-  body.kova-mobile-v2 #kovaPopular{order:11!important;background:transparent!important;margin:0!important;padding:18px var(--m2-pad) 32px!important}
-  body.kova-mobile-v2 #kovaExperiences{order:20!important;margin:0!important;padding:48px 0 34px!important;background:linear-gradient(180deg,#0c0c10,#09090b)!important}
-  body.kova-mobile-v2 #artists{order:30!important;padding:48px 0 32px!important;background:linear-gradient(180deg,#17161a,#0c0c0f)!important;color:#fff!important;border-radius:34px 34px 0 0!important}
-  body.kova-mobile-v2 #kovaSmartHome{order:40!important;background:#0c0c0f!important;color:#fff!important;padding:18px 0 42px!important}
-  body.kova-mobile-v2 .phone-section{order:50!important;background:#09090b!important;padding:42px 0!important}
-  body.kova-mobile-v2 #organizers{order:60!important;padding:42px 0!important;background:linear-gradient(180deg,#111116,#08080a)!important;color:#fff!important}
-  body.kova-mobile-v2 #kovaJournal{order:85!important}
-  body.kova-mobile-v2 #kovaOrganizerTestimonials{order:90!important}
-  body.kova-mobile-v2 #kovaAppCTA{order:95!important}
-
-  body.kova-mobile-v2 .kicker{font-size:9px!important;letter-spacing:.18em!important;color:#ff6ba7!important}
-  body.kova-mobile-v2 .section-title{margin:9px 0 20px!important;max-width:330px;font-size:44px!important;line-height:.88!important;letter-spacing:-.07em!important}
-  body.kova-mobile-v2 .kova-discover-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important;margin:0 0 18px!important}
-  body.kova-mobile-v2 .kova-discover-actions button{min-height:46px!important;padding:0 12px!important;border-radius:15px!important;border:1px solid var(--m2-line)!important;background:rgba(255,255,255,.07)!important;color:#fff!important;font-size:10px!important;line-height:1.05!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
-  body.kova-mobile-v2 .kova-discover-actions small{display:none!important}
-  body.kova-mobile-v2 #discover .scroller{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:84vw!important;gap:12px!important;overflow-x:auto!important;padding:0 0 10px!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important}
-  body.kova-mobile-v2 #discover .scroller::-webkit-scrollbar{display:none}
-  body.kova-mobile-v2 #discover .event-card{scroll-snap-align:center!important;border-radius:28px!important;border:1px solid rgba(255,255,255,.13)!important;background:#131317!important;box-shadow:none!important;overflow:hidden!important}
-  body.kova-mobile-v2 #discover .event-art{min-height:450px!important;aspect-ratio:4/5.25!important}
-  body.kova-mobile-v2 #discover .event-meta{padding:15px 15px 17px!important;background:#131317!important;color:#fff!important}
-  body.kova-mobile-v2 #discover .event-meta h3{font-size:19px!important;letter-spacing:-.03em!important}
-  body.kova-mobile-v2 #discover .event-meta p{margin-top:6px!important;color:var(--m2-muted)!important;font-size:11px!important}
-  body.kova-mobile-v2 #discover .kova-favorite-button{width:40px!important;height:40px!important;border-radius:50%!important;background:rgba(10,10,12,.4)!important;border:1px solid rgba(255,255,255,.22)!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
-
-  /* Popular: compact density after the main rail */
-  body.kova-mobile-v2 .kova-popular-head{align-items:center!important;margin:0 0 13px!important}
-  body.kova-mobile-v2 .kova-popular-head h3{font-size:22px!important;letter-spacing:-.04em!important}
-  body.kova-mobile-v2 .kova-popular-rail{grid-auto-columns:42vw!important;gap:10px!important;padding-bottom:8px!important}
-  body.kova-mobile-v2 .kova-popular-card{border-radius:20px!important;aspect-ratio:1/1.15!important}
-
-  /* Experiences becomes one concise visual collection */
-  body.kova-mobile-v2 .kova-experience-hub{overflow:hidden!important}
-  body.kova-mobile-v2 .kova-experience-intro{padding-inline:var(--m2-pad)!important}
-  body.kova-mobile-v2 .kova-experience-intro h2,body.kova-mobile-v2 .kova-experience-hub h2{font-size:46px!important;line-height:.86!important;letter-spacing:-.07em!important}
-  body.kova-mobile-v2 .kova-experience-intro p{display:none!important}
-  body.kova-mobile-v2 .kova-experience-tabs{margin:18px var(--m2-pad) 16px!important;padding:5px!important;border-radius:18px!important;background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.12)!important;gap:4px!important}
-  body.kova-mobile-v2 .kova-experience-tab{min-height:44px!important;border-radius:14px!important;font-size:11px!important}
-  body.kova-mobile-v2 .kova-experience-panel{padding-top:6px!important}
-  body.kova-mobile-v2 .kova-city-guide .wrap{margin-inline:var(--m2-pad)!important}
-  body.kova-mobile-v2 .kova-city-guide p:not(.kova-place-card p){display:none!important}
-  body.kova-mobile-v2 .kova-guide-rail,body.kova-mobile-v2 .kova-food-rail,body.kova-mobile-v2 .kova-sport-rail{grid-auto-columns:84vw!important;gap:12px!important}
-  body.kova-mobile-v2 .kova-place-card{border-radius:27px!important;overflow:hidden!important;min-height:470px!important}
-
-  /* Artists: editorial, visual, less copy */
-  body.kova-mobile-v2 .kova-artist-library-head{align-items:center!important;gap:12px!important;margin-bottom:18px!important}
-  body.kova-mobile-v2 .kova-artist-library-copy span{color:#8b8790!important;font-size:8px!important}
-  body.kova-mobile-v2 .kova-artist-library-copy h2{font-size:39px!important;line-height:.9!important;letter-spacing:-.065em!important}
-  body.kova-mobile-v2 .kova-artist-overview-open{width:47px!important;height:47px!important;min-width:47px!important;padding:0!important;border-radius:50%!important;background:#111115!important;color:#fff!important}
-  body.kova-mobile-v2 .kova-artist-overview-open strong,body.kova-mobile-v2 .kova-artist-overview-open small{display:none!important}
-  body.kova-mobile-v2 .artist-carousel-shell{margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
-  body.kova-mobile-v2 .artist-carousel-toolbar{display:none!important}
-  body.kova-mobile-v2 .artist-carousel{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:84vw!important;gap:12px!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding:0 0 12px!important;scrollbar-width:none!important}
-  body.kova-mobile-v2 .artist-carousel::-webkit-scrollbar{display:none}
-  body.kova-mobile-v2 .artist-slide{scroll-snap-align:center!important;min-height:480px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:28px!important;background:#19191d!important;overflow:hidden!important}
-  body.kova-mobile-v2 .artist-slide-image{height:100%!important;min-height:480px!important}
-  body.kova-mobile-v2 .artist-slide-content{position:absolute!important;z-index:2;left:0;right:0;bottom:0;padding:70px 17px 18px!important;background:linear-gradient(transparent,rgba(5,5,7,.88))!important;color:#fff!important}
-  body.kova-mobile-v2 .artist-slide-content h4{font-size:28px!important;letter-spacing:-.05em!important}
-  body.kova-mobile-v2 .rising-wrap{margin-top:18px!important;padding-top:22px!important;border-top:1px solid rgba(255,255,255,.1)!important}
-  body.kova-mobile-v2 .rising-heading{margin-bottom:13px!important}
-  body.kova-mobile-v2 .rising-heading p,body.kova-mobile-v2 .rising-kicker{display:none!important}
-  body.kova-mobile-v2 .rising-heading h3{font-size:24px!important;letter-spacing:-.045em!important}
-  body.kova-mobile-v2 .rising-grid{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:43vw!important;gap:10px!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;padding-bottom:10px!important;scrollbar-width:none!important}
-  body.kova-mobile-v2 .rising-grid::-webkit-scrollbar{display:none}
-  body.kova-mobile-v2 .rising-card{display:block!important;scroll-snap-align:start!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:20px!important;overflow:hidden!important;background:#151519!important;color:#fff!important;min-height:245px!important}
-  body.kova-mobile-v2 .rising-image{height:188px!important;width:100%!important}
-  body.kova-mobile-v2 .rising-content{padding:11px!important;min-height:auto!important}
-  body.kova-mobile-v2 .rising-label-below,body.kova-mobile-v2 .rising-arrow,body.kova-mobile-v2 .rising-content p{display:none!important}
-  body.kova-mobile-v2 .rising-content h4{font-size:14px!important}
-
-  /* Personal areas and creator cards */
-  body.kova-mobile-v2 .kova-smart-heading{align-items:flex-end!important;margin-bottom:13px!important}
-  body.kova-mobile-v2 .kova-smart-heading>p{display:none!important}
-  body.kova-mobile-v2 .kova-smart-heading h2{font-size:30px!important;letter-spacing:-.055em!important}
-  body.kova-mobile-v2 .kova-smart-block+ .kova-smart-block{margin-top:24px!important}
-  body.kova-mobile-v2 #artists h2,body.kova-mobile-v2 #artists h3,
-  body.kova-mobile-v2 #kovaSmartHome h2,body.kova-mobile-v2 #kovaSmartHome h3,
-  body.kova-mobile-v2 #organizers .headline,body.kova-mobile-v2 #organizers h2{color:#fff!important}
-  body.kova-mobile-v2 #artists p,body.kova-mobile-v2 #kovaSmartHome p,body.kova-mobile-v2 #organizers p{color:rgba(255,255,255,.58)!important}
-  body.kova-mobile-v2 #kovaSmartHome .kova-smart-empty{background:#151519!important;color:#fff!important;border-color:rgba(255,255,255,.1)!important}
-  body.kova-mobile-v2 #organizers .creator-lab-copy{background:#151519!important;color:#fff!important;border-color:rgba(255,255,255,.1)!important}
-  body.kova-mobile-v2 #organizers .creator-primary{background:#fff!important;color:#09090b!important}
-  body.kova-mobile-v2 #organizers .creator-secondary{background:rgba(255,255,255,.09)!important;color:#fff!important;border:1px solid rgba(255,255,255,.12)!important}
-
-  /* Story and testimonials are the calm ending */
-  body.kova-mobile-v2 .kova-journal{padding:34px 0!important;background:#09090b!important}
-  body.kova-mobile-v2 .kova-journal-shell{width:calc(100% - 24px)!important}
-  body.kova-mobile-v2 .kova-journal-feature{min-height:500px!important;border-radius:29px!important;background-position:center!important}
-  body.kova-mobile-v2 .kova-journal-copy h2{font-size:45px!important}
-  body.kova-mobile-v2 .kova-story-open{min-height:46px!important;padding:0 18px!important;border-radius:15px!important}
-  body.kova-mobile-v2 .kova-testimonial-card{padding-top:36px!important}
-
-  /* Compact adaptive liquid dock */
-  body.kova-mobile-v2 .mobile-dock{
-    z-index:9500!important;left:50%!important;right:auto!important;bottom:max(8px,env(safe-area-inset-bottom))!important;
-    width:min(calc(100vw - 24px),390px)!important;max-width:none!important;height:62px!important;padding:5px!important;
-    border:1px solid rgba(255,255,255,.2)!important;border-radius:22px!important;background:rgba(20,20,24,.58)!important;
-    -webkit-backdrop-filter:blur(28px) saturate(180%)!important;backdrop-filter:blur(28px) saturate(180%)!important;
-    box-shadow:inset 0 1px rgba(255,255,255,.19),0 16px 40px rgba(0,0,0,.28)!important;
-    transform:translateX(-50%) translateY(var(--m2-dock-y,0))!important;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s!important;
-  }
-  body.kova-mobile-v2.kova-dock-sleep .mobile-dock{--m2-dock-y:48px;opacity:.28}
-  body.kova-mobile-v2 .dock-item{min-width:0!important;border-radius:17px!important;gap:1px!important;color:rgba(255,255,255,.48)!important}
-  body.kova-mobile-v2 .dock-item strong{width:22px!important;height:22px!important}
-  body.kova-mobile-v2 .dock-item span{font-size:8px!important;font-weight:700!important}
-  body.kova-mobile-v2 .dock-item.active{background:rgba(255,255,255,.94)!important;color:#0c0c0e!important;box-shadow:0 5px 18px rgba(0,0,0,.16)!important}
-  body.kova-mobile-v2 .dock-item:active{transform:scale(.94)!important}
-
-  /* Overview surfaces: fast, dense, premium */
-  body.kova-mobile-v2 .kova-events-overview,
-  body.kova-mobile-v2 .kova-artist-overview,
-  body.kova-mobile-v2 .kova-experience-overview{background:#09090b!important;color:#fff!important}
-  body.kova-mobile-v2 .kova-events-overview-nav,
-  body.kova-mobile-v2 .kova-artist-overview-bar{top:calc(8px + env(safe-area-inset-top))!important;left:10px!important;right:10px!important;height:50px!important;padding:0!important;background:transparent!important;border:0!important}
-  body.kova-mobile-v2 .kova-events-overview-nav button,
-  body.kova-mobile-v2 .kova-artist-overview-bar button{height:46px!important;min-width:46px!important;border-radius:50%!important;background:rgba(255,255,255,.12)!important;color:#fff!important;border:1px solid rgba(255,255,255,.2)!important;-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px)}
-  body.kova-mobile-v2 .kova-events-overview-head,
-  body.kova-mobile-v2 .kova-artist-overview-head{padding:88px 16px 18px!important}
-  body.kova-mobile-v2 .kova-events-overview-head h2,
-  body.kova-mobile-v2 .kova-artist-overview-head h2{font-size:43px!important;line-height:.9!important;letter-spacing:-.065em!important}
-  body.kova-mobile-v2 .kova-events-overview-head p{display:none!important}
-  body.kova-mobile-v2 .kova-events-overview-grid,
-  body.kova-mobile-v2 .kova-artist-overview-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important;padding:0 12px 110px!important}
-  body.kova-mobile-v2 .kova-events-overview-grid .event-card{border-radius:18px!important;background:#151519!important;overflow:hidden!important}
-
-  /* Event and artist details: immersive dark canvas */
-  body.kova-mobile-v2 .v66-event,body.kova-mobile-v2 .v67-artist{background:#08080a!important;color:#fff!important}
-  body.kova-mobile-v2 .v66-event-nav,body.kova-mobile-v2 .v67-nav{left:10px!important;right:10px!important;top:calc(8px + env(safe-area-inset-top))!important;height:48px!important;padding:0!important;background:transparent!important;border:0!important;grid-template-columns:46px 1fr auto!important}
-  body.kova-mobile-v2 .v66-event-nav button,body.kova-mobile-v2 .v67-nav button{width:46px!important;height:46px!important;border-radius:50%!important;background:rgba(18,18,22,.38)!important;color:#fff!important;border:1px solid rgba(255,255,255,.23)!important;-webkit-backdrop-filter:blur(24px) saturate(180%)!important;backdrop-filter:blur(24px) saturate(180%)!important;box-shadow:inset 0 1px rgba(255,255,255,.2)!important}
-  body.kova-mobile-v2 .v66-nav-top,body.kova-mobile-v2 .v67-nav-top{width:auto!important;min-width:66px!important;padding:0 14px!important;border-radius:16px!important;font-size:13px!important}
-  body.kova-mobile-v2 .v66-event-scroll,body.kova-mobile-v2 .v67-scroll{background:transparent!important;padding-top:0!important}
-  body.kova-mobile-v2 .v66-event-hero,body.kova-mobile-v2 .v67-hero{min-height:100svh!important;padding:86px 14px 28px!important;background:transparent!important}
-  body.kova-mobile-v2 .v66-poster-wrap,body.kova-mobile-v2 .v67-portrait-shell{width:100%!important;max-width:none!important;border-radius:28px!important;overflow:hidden!important;box-shadow:0 30px 80px rgba(0,0,0,.42)!important}
-  body.kova-mobile-v2 .v66-poster-wrap img,body.kova-mobile-v2 .v67-portrait-shell img{width:100%!important;max-height:60svh!important;object-fit:cover!important}
-  body.kova-mobile-v2 .v66-hero-copy,body.kova-mobile-v2 .v67-hero-copy{padding:20px 4px 0!important;color:#fff!important;text-align:left!important}
-  body.kova-mobile-v2 .v66-hero-copy h1,body.kova-mobile-v2 .v67-hero-copy h1{font-size:48px!important;line-height:.88!important;letter-spacing:-.07em!important}
-  body.kova-mobile-v2 .v66-event-content,body.kova-mobile-v2 .v67-content{display:block!important;padding:12px 14px 125px!important;background:#08080a!important;color:#fff!important;border-radius:30px 30px 0 0!important}
-  body.kova-mobile-v2 .v66-story-card,body.kova-mobile-v2 .v67-bio-card,
-  body.kova-mobile-v2 .v66-info-section,body.kova-mobile-v2 .v67-tracks,
-  body.kova-mobile-v2 .v66-location,body.kova-mobile-v2 .v66-organizer,
-  body.kova-mobile-v2 .v67-events,body.kova-mobile-v2 .v67-side-card{
-    margin:0 0 11px!important;padding:20px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:23px!important;background:#121216!important;color:#fff!important;box-shadow:none!important;
-  }
-  body.kova-mobile-v2 .v66-story-card h2,body.kova-mobile-v2 .v67-bio-card h2,
-  body.kova-mobile-v2 .v66-section-head h2,body.kova-mobile-v2 .v67-section-head h2{font-size:29px!important;line-height:.96!important;letter-spacing:-.055em!important}
-  body.kova-mobile-v2 .v66-story-card p,body.kova-mobile-v2 .v67-bio-card p{color:rgba(255,255,255,.6)!important;font-size:14px!important;line-height:1.5!important}
-  body.kova-mobile-v2 .v66-program{margin:11px 0!important;padding:20px!important;border-radius:23px!important;background:#121216!important}
-  body.kova-mobile-v2 .v66-program-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
-  body.kova-mobile-v2 .v66-program-grid>*{min-height:118px!important;border-radius:16px!important}
-  body.kova-mobile-v2 .v66-ticket-card{position:relative!important;inset:auto!important;margin:11px 0 0!important;padding:20px!important;border-radius:23px!important;background:linear-gradient(145deg,#1b1720,#111115)!important;border:1px solid rgba(255,255,255,.12)!important;color:#fff!important}
-  body.kova-mobile-v2 .v66-buy,body.kova-mobile-v2 .v66-ticket-jump{min-height:52px!important;border-radius:17px!important;background:var(--kova-event-accent,var(--m2-pink))!important;color:#fff!important;border:0!important;box-shadow:0 12px 30px rgba(var(--kova-event-accent-rgb,255,63,145),.24)!important}
-  body.kova-mobile-v2 .v67-listen{min-height:52px!important;border-radius:17px!important;background:linear-gradient(120deg,var(--m2-pink),var(--m2-violet))!important;color:#fff!important;border:0!important}
-  body.kova-mobile-v2 .v67-side{display:grid!important;gap:0!important;margin-top:11px!important}
-  body.kova-mobile-v2 .v67-platforms a{border-radius:15px!important;background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid rgba(255,255,255,.14)!important}
-  body.kova-mobile-v2 .v67-track-list>*{border-radius:16px!important;background:rgba(255,255,255,.055)!important;border:1px solid rgba(255,255,255,.08)!important}
-
-  body.kova-mobile-v2 button,body.kova-mobile-v2 a{-webkit-tap-highlight-color:transparent}
-  body.kova-mobile-v2 button:focus-visible,body.kova-mobile-v2 a:focus-visible{outline:2px solid #ff6ba7!important;outline-offset:3px!important}
-  body.kova-mobile-v2 .kova-mobile-feed{display:none!important}
-}
-
-/* The compact dock belongs to phone layouts only. Tablet and desktop keep the
-   wider navigation and must not lose content behind a second navigation bar. */
-@media (min-width:701px){
-  .mobile-dock{display:none!important}
-}
-
-@media (max-width:370px){
-  body.kova-mobile-v2 .v64-home-copy h1{font-size:52px!important}
-  body.kova-mobile-v2 #discover .scroller,body.kova-mobile-v2 .artist-carousel{grid-auto-columns:86vw!important}
-  body.kova-mobile-v2 .mobile-dock{width:calc(100vw - 16px)!important}
-  body.kova-mobile-v2 .dock-item span{font-size:7px!important}
-}
-
-@media (prefers-reduced-motion:reduce){
-  body.kova-mobile-v2 *,body.kova-mobile-v2 *::before,body.kova-mobile-v2 *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-
-</style>
-<style data-kova-inline-source="assets/kova-interface-v3.css">
+</style><style data-kova-inline-source="assets/kova-interface-v3.css">
 /* KOVA Interface V3
    A single component layer for detail sheets, actions and editorial stories. */
 
@@ -18303,9 +18021,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   --k3-ease:cubic-bezier(.16,1,.3,1);
 }
 
-/* One favourite geometry everywhere. */
-.kova-favorite-button,
-#v66Save,#v66HeroSave,#v67Favorite{
+/* The legacy cards keep their validated favourite control. Only the event
+   sheet uses the compact glass action introduced with this layer. */
+#v66Save,#v66HeroSave{
   box-sizing:border-box!important;
   width:40px!important;
   min-width:40px!important;
@@ -18325,8 +18043,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   backdrop-filter:blur(22px) saturate(170%)!important;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 10px 28px rgba(0,0,0,.22)!important;
 }
-.kova-favorite-button.is-favorite,
-#v66Save.is-favorite,#v66HeroSave.is-favorite,#v67Favorite.is-favorite{
+#v66Save.is-favorite,#v66HeroSave.is-favorite{
   border-color:rgba(255,255,255,.35)!important;
   background:rgba(12,12,15,.48)!important;
   color:#ff348d!important;
@@ -18435,56 +18152,6 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 .v66-ticket-row small{color:var(--k3-muted)!important}
 .v66-counter button{display:grid!important;place-items:center!important;width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;padding:0!important}
 
-/* Guide sheet: same visual language as the event sheet. */
-.kova-place-page{background:var(--k3-bg)!important;color:#f8f8fa!important}
-.kova-place-nav{
-  position:fixed!important;
-  inset:16px 20px auto!important;
-  z-index:20!important;
-  min-height:50px!important;
-  padding:0!important;
-  border:0!important;
-  background:transparent!important;
-  -webkit-backdrop-filter:none!important;
-  backdrop-filter:none!important;
-  pointer-events:none!important;
-}
-.kova-place-nav>*{pointer-events:auto!important}
-.kova-place-nav button{
-  min-width:48px!important;
-  min-height:48px!important;
-  padding:0!important;
-  border:1px solid rgba(255,255,255,.24)!important;
-  border-radius:50%!important;
-  background:rgba(14,14,18,.34)!important;
-  color:#fff!important;
-  -webkit-backdrop-filter:blur(24px) saturate(180%)!important;
-  backdrop-filter:blur(24px) saturate(180%)!important;
-}
-.kova-place-nav-top{min-width:130px!important;border-radius:999px!important;font-size:9px!important;letter-spacing:.13em!important}
-.kova-place-nav-actions{gap:8px!important}
-.kova-place-hero{width:min(100% - 32px,1480px)!important;margin:16px auto 0!important}
-.kova-place-gallery{border:1px solid var(--k3-line)!important;border-radius:32px!important;background:#111!important}
-.kova-place-intro{margin:42px auto!important}
-.kova-place-intro h1{font-size:clamp(54px,7vw,96px)!important}
-.kova-place-intro-lede,.kova-place-block>p{color:var(--k3-muted)!important}
-.kova-place-facts{gap:9px!important}
-.kova-place-fact,.kova-place-list article,.kova-place-practical{
-  border:1px solid var(--k3-line)!important;
-  background:var(--k3-surface)!important;
-  color:#fff!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045)!important;
-}
-.kova-place-fact{min-height:104px!important;border-radius:20px!important}
-.kova-place-content{gap:24px!important}
-.kova-place-main{display:grid!important;gap:16px!important}
-.kova-place-block{padding:34px!important;border:1px solid var(--k3-line)!important;border-radius:28px!important;background:var(--k3-surface)!important}
-.kova-place-block:first-child{padding-top:34px!important}
-.kova-place-list{gap:9px!important}
-.kova-place-list article{border-radius:20px!important}
-.kova-place-list span{color:var(--k3-muted)!important}
-.kova-place-practical{top:82px!important;border-radius:28px!important}
-
 /* Artist music actions: optical centring, including compact mobile icon. */
 .v67-track{align-items:center!important}
 .v68-apple-link{
@@ -18505,7 +18172,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 .kova-story-rail{
   display:grid;
   grid-auto-flow:column;
-  grid-auto-columns:min(82vw,1080px);
+  grid-auto-columns:100%;
   gap:14px;
   overflow-x:auto;
   padding:2px 2px 18px;
@@ -18515,8 +18182,8 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   -webkit-overflow-scrolling:touch;
 }
 .kova-story-rail::-webkit-scrollbar{display:none}
-.kova-journal-feature{position:relative!important;min-height:580px!important;scroll-snap-align:start;border-radius:32px!important;background-position:center!important}
-.kova-story-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center}
+.kova-journal-feature{position:relative!important;min-height:580px!important;overflow:hidden!important;scroll-snap-align:start;border-radius:32px!important;background-position:center!important}
+.kova-story-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center;transform:none!important}
 .kova-journal-copy{z-index:2}
 .kova-story-open{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:48px!important;margin-top:22px!important;padding:0 19px!important;border:1px solid rgba(255,255,255,.24)!important;border-radius:999px!important;background:rgba(255,255,255,.12)!important;color:#fff!important;font-weight:850!important;-webkit-backdrop-filter:blur(18px)!important;backdrop-filter:blur(18px)!important}
 
@@ -18539,31 +18206,32 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-mobile-v2 .kova-place-nav::before,
   body.kova-mobile-v2 .kova-place-nav::after{display:none!important}
 
-  body.kova-mobile-v2 .kova-favorite-button,body.kova-mobile-v2 #v66Save,body.kova-mobile-v2 #v66HeroSave,body.kova-mobile-v2 #v67Favorite{
+  #v66Save,#v66HeroSave{
     width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important;
-    overflow:hidden!important;font-size:0!important;border-radius:999px!important
+    position:relative!important;overflow:hidden!important;font-size:0!important;line-height:0!important;
+    text-indent:-9999px!important;color:transparent!important;border-radius:999px!important
   }
-  body.kova-mobile-v2 .kova-favorite-button::before,body.kova-mobile-v2 #v66Save::before,body.kova-mobile-v2 #v66HeroSave::before,body.kova-mobile-v2 #v67Favorite::before{
-    content:"♡"!important;display:grid!important;place-items:center!important;
-    width:100%!important;height:100%!important;font:500 20px/1 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif!important;
+  #v66Save::before,#v66HeroSave::before{
+    content:"♡"!important;position:absolute!important;inset:0!important;display:grid!important;place-items:center!important;
+    width:100%!important;height:100%!important;text-indent:0!important;font:500 20px/1 -apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif!important;
     color:#fff!important;transform:translateY(-1px)
   }
-  body.kova-mobile-v2 .kova-favorite-button::after,body.kova-mobile-v2 #v66Save::after,body.kova-mobile-v2 #v66HeroSave::after,body.kova-mobile-v2 #v67Favorite::after{display:none!important}
-  body.kova-mobile-v2 .kova-favorite-button.is-favorite::before,body.kova-mobile-v2 #v66Save.is-favorite::before,body.kova-mobile-v2 #v66HeroSave.is-favorite::before,body.kova-mobile-v2 #v67Favorite.is-favorite::before{
+  #v66Save::after,#v66HeroSave::after{display:none!important}
+  #v66Save.is-favorite::before,#v66HeroSave.is-favorite::before{
     content:"♥"!important;color:#ff348d!important;font-size:18px!important
   }
 
   .v66-event-nav,.kova-place-nav{inset:calc(8px + env(safe-area-inset-top)) 10px auto!important}
   .v66-event-nav{grid-template-columns:44px 1fr auto!important;height:44px!important}
-  .v66-event-nav .v66-icon-btn,.kova-place-nav button{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important}
-  .v66-event-nav .v66-nav-top{height:44px!important;min-width:72px!important;padding:0 13px!important;font-size:10px!important}
+  .v66-event-nav .v66-icon-btn,.kova-place-nav button{width:44px!important;min-width:44px!important;height:44px!important;min-height:44px!important;background:rgba(245,245,250,.14)!important;border-color:rgba(255,255,255,.34)!important;-webkit-backdrop-filter:blur(26px) saturate(190%)!important;backdrop-filter:blur(26px) saturate(190%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 9px 28px rgba(0,0,0,.2)!important}
+  .v66-event-nav .v66-nav-top{height:44px!important;min-width:76px!important;padding:0 14px!important;font-size:10px!important;background:rgba(245,245,250,.14)!important;border-color:rgba(255,255,255,.34)!important}
   .v66-nav-actions,.kova-place-nav-actions{gap:6px!important}
   #v66Save{width:36px!important;min-width:36px!important;height:36px!important;min-height:36px!important}
 
   .v66-event-ambient{inset:-24%!important;opacity:.2!important;filter:blur(92px) saturate(1.32)!important;transform:scale(1.3)!important}
-  .v66-event-hero{display:flex!important;flex-direction:column!important;align-items:stretch!important;min-height:auto!important;gap:20px!important;padding:calc(74px + env(safe-area-inset-top)) 12px 30px!important}
+  .v66-event-hero{display:flex!important;flex:0 0 auto!important;flex-direction:column!important;align-items:stretch!important;min-height:auto!important;gap:20px!important;padding:calc(74px + env(safe-area-inset-top)) 12px 30px!important}
   .v66-event-hero::after{background:linear-gradient(180deg,rgba(4,4,7,.16),rgba(4,4,7,.42) 48%,#070709 100%)!important}
-  .v66-poster-wrap{width:min(100%,330px)!important;max-width:330px!important;align-self:center!important;aspect-ratio:4/5!important;border-radius:26px!important;box-shadow:0 24px 64px rgba(0,0,0,.42)!important}
+  .v66-poster-wrap{width:min(100%,380px)!important;max-width:380px!important;height:auto!important;flex:0 0 auto!important;align-self:center!important;aspect-ratio:4/5!important;border-radius:28px!important;box-shadow:0 28px 76px rgba(0,0,0,.46)!important}
   .v66-hero-copy{width:100%!important;padding:2px 5px 0!important}
   .v66-kicker{margin-bottom:12px!important;font-size:8px!important}
   .v66-hero-copy h1{font-size:clamp(44px,13vw,62px)!important;line-height:.88!important}
@@ -18571,30 +18239,29 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .v66-hero-actions{display:grid!important;grid-template-columns:1fr 48px!important;gap:9px!important;margin-top:20px!important}
   .v66-ticket-jump{min-height:48px!important}
   .v66-round-action{width:48px!important;height:48px!important}
-  body.kova-mobile-v2 .v66-event-content{display:flex!important;flex-direction:column!important;width:auto!important;margin:0 18px!important;padding:0 0 calc(34px + env(safe-area-inset-bottom))!important;gap:0!important;background:transparent!important;border-radius:0!important}
-  body.kova-mobile-v2 .v66-main-column{gap:0!important}
-  body.kova-mobile-v2 .v66-story-card,body.kova-mobile-v2 .v66-program,body.kova-mobile-v2 .v66-info-section,body.kova-mobile-v2 .v66-location,body.kova-mobile-v2 .v66-organizer{
+  .v66-event-content{display:flex!important;flex-direction:column!important;width:auto!important;margin:0 18px!important;padding:0 0 calc(34px + env(safe-area-inset-bottom))!important;gap:0!important;background:transparent!important;border-radius:0!important}
+  .v66-main-column{gap:0!important}
+  .v66-story-card,.v66-program,.v66-info-section,.v66-location,.v66-organizer{
     padding:28px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.12)!important;
     border-radius:0!important;background:transparent!important;box-shadow:none!important
   }
-  body.kova-mobile-v2 .v66-story-card{border-top:0!important;padding-top:14px!important;margin:0!important}
-  body.kova-mobile-v2 .v66-program,body.kova-mobile-v2 .v66-info-section,body.kova-mobile-v2 .v66-location,body.kova-mobile-v2 .v66-organizer{margin:0!important}
+  .v66-story-card{border-top:0!important;padding-top:14px!important;margin:0!important}
+  .v66-program,.v66-info-section,.v66-location,.v66-organizer{margin:0!important}
   .v66-story-card h2,.v66-section-head h2{margin:12px 0!important;font-size:clamp(32px,9.7vw,42px)!important}
   .v66-story-card p{font-size:14px!important;line-height:1.5!important}
   .v66-section-head{align-items:flex-start!important}
   .v66-program-count{padding-top:7px!important;font-size:9px!important;white-space:nowrap!important}
-  body.kova-mobile-v2 .v66-program-grid{
-    display:grid!important;grid-auto-flow:column!important;grid-auto-columns:76%!important;
-    grid-template-columns:none!important;gap:10px!important;overflow-x:auto!important;
-    margin-right:-18px!important;padding-right:18px!important;scroll-snap-type:x mandatory!important;
-    -webkit-overflow-scrolling:touch!important;scrollbar-width:none!important
+  .v66-program-grid{
+    display:grid!important;grid-auto-flow:row!important;grid-auto-columns:auto!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;overflow:visible!important;
+    margin-right:0!important;padding-right:0!important;scroll-snap-type:none!important
   }
-  body.kova-mobile-v2 .v66-program-grid::-webkit-scrollbar{display:none!important}
-  body.kova-mobile-v2 .v66-program-item{min-height:118px!important;padding:16px!important;scroll-snap-align:start!important;border-radius:20px!important;background:rgba(255,255,255,.055)!important}
+  .v66-program-grid::-webkit-scrollbar{display:none!important}
+  .v66-program-item{min-height:118px!important;padding:16px!important;scroll-snap-align:start!important;border-radius:20px!important;background:rgba(255,255,255,.055)!important}
   .v66-program-item::before{width:28px!important;height:3px!important;margin:0 0 18px!important}
-  body.kova-mobile-v2 .v66-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .v66-info-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
   .v66-info-card{min-height:86px!important;padding:16px!important;border-radius:19px!important}
-  body.kova-mobile-v2 .v66-location{display:flex!important;flex-direction:column!important;overflow:visible!important}
+  .v66-location{display:flex!important;flex-direction:column!important;overflow:visible!important}
   .v66-location-visual{min-height:210px!important;border-radius:22px!important;overflow:hidden!important}
   .v66-location-copy{padding:20px 0 0!important}
   .v66-organizer{grid-template-columns:auto 1fr!important;gap:12px!important}
@@ -18624,29 +18291,29 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kova-place-list article{min-height:104px!important;padding:17px!important;border-radius:18px!important}
   .kova-place-practical{order:0!important;padding:21px 18px!important;border-radius:24px!important}
 
-  body.kova-mobile-v2 .v67-track{grid-template-columns:44px minmax(0,1fr) 32px!important}
-  body.kova-mobile-v2 .v68-apple-link{
+  .v67-track{grid-template-columns:44px minmax(0,1fr) 32px!important}
+  .v68-apple-link{
     width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important;
     padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;
     box-shadow:none!important;font-size:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important
   }
-  body.kova-mobile-v2 .v68-apple-link::before{
+  .v68-apple-link::before{
     content:""!important;width:auto!important;height:auto!important;border-radius:0!important;
     background:transparent!important;box-shadow:none!important;font-size:23px!important;color:#fff!important
   }
-  body.kova-mobile-v2 .v68-apple-link::after{display:none!important}
-  body.kova-mobile-v2 .v67-track:hover .v68-apple-link,
-  body.kova-mobile-v2 .v67-track:focus-within .v68-apple-link,
-  body.kova-mobile-v2 .v68-apple-link:hover,
-  body.kova-mobile-v2 .v68-apple-link:focus,
-  body.kova-mobile-v2 .v68-apple-link:active{
+  .v68-apple-link::after{display:none!important}
+  .v67-track:hover .v68-apple-link,
+  .v67-track:focus-within .v68-apple-link,
+  .v68-apple-link:hover,
+  .v68-apple-link:focus,
+  .v68-apple-link:active{
     border:0!important;background:transparent!important;box-shadow:none!important;transform:none!important
   }
 
   .kova-journal{padding:38px 0 54px!important}
   .kova-journal-shell{width:100%!important}
   .kova-story-rail{
-    grid-auto-columns:80vw;gap:12px;padding:2px 16px 16px;scroll-padding-inline:16px;
+    grid-auto-columns:100%;gap:12px;padding:2px 0 16px;scroll-padding-inline:0;
     overscroll-behavior-inline:contain;touch-action:pan-x pan-y
   }
   .kova-journal-feature{min-height:520px!important;border-radius:27px!important}
@@ -18654,8 +18321,8 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kova-journal-copy h2{font-size:40px!important}
   .kova-journal-copy p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
   .kova-story-dots{display:flex;justify-content:center;gap:7px;margin:1px 0 0}
-  .kova-story-dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.25)}
-  .kova-story-dot[aria-current="true"]{width:22px;border-radius:99px;background:#fff}
+  .kova-story-dot{width:7px!important;min-width:7px!important;height:7px!important;min-height:7px!important;padding:0!important;border:0!important;border-radius:50%!important;background:rgba(255,255,255,.25)!important}
+  .kova-story-dot[aria-current="true"]{width:22px!important;min-width:22px!important;border-radius:99px!important;background:#fff!important}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -27032,162 +26699,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   window.KOVA_V74_BOTTOM_NAV_CENTERED = true;
 })();
-</script><script data-kova-inline-source="assets/kova-mobile-v2.js">
-/* KOVA Mobile V2 — one guarded enhancement controller. */
-(() => {
-  'use strict';
-  if (window.KOVA_MOBILE_V2) return;
-  window.KOVA_MOBILE_V2 = { version: '2.0.0' };
-
-  const mobile = matchMedia('(max-width:700px)');
-  const q = (selector, root = document) => root.querySelector(selector);
-  const qa = (selector, root = document) => [...root.querySelectorAll(selector)];
-  let controller = null;
-
-  function enhanceDock() {
-    const dock = q('.mobile-dock');
-    if (!dock) return;
-    dock.dataset.mobileV2 = 'true';
-    const items = qa('.dock-item', dock);
-    items.forEach(item => item.classList.remove('active'));
-    items[0]?.classList.add('active');
-
-    const sections = [
-      ['home', items[0]],
-      ['discover', items[1]],
-      ['kovaPopular', items[1]],
-      ['kovaExperiences', items[1]],
-      ['artists', items[1]],
-      ['kovaSmartHome', items[1]],
-      ['organizers', items[3]]
-    ].map(([id, item]) => ({ section: document.getElementById(id), item })).filter(entry => entry.section && entry.item);
-
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const anchor = Math.min(innerHeight * .28, 180);
-      let match = sections[0];
-      sections.forEach(entry => {
-        if (entry.section.getBoundingClientRect().top <= anchor) match = entry;
-      });
-      if (!match) return;
-      items.forEach(item => item.classList.remove('active'));
-      match.item.classList.add('active');
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    addEventListener('scroll', schedule, { passive: true, signal: controller.signal });
-    addEventListener('resize', schedule, { passive: true, signal: controller.signal });
-    update();
-  }
-
-  function enhanceHero() {
-    const hero = q('.v64-home');
-    const cards = qa('.v64-card', hero);
-    if (!hero || !cards.length) return;
-    let active = cards.findIndex(card => card.classList.contains('is-active') || card.classList.contains('active'));
-    if (active < 0) active = 0;
-    const show = index => cards.forEach((card, cardIndex) => {
-      card.classList.toggle('is-active', cardIndex === index);
-      card.setAttribute('aria-hidden', cardIndex === index ? 'false' : 'true');
-    });
-    show(active);
-    if (!matchMedia('(prefers-reduced-motion:reduce)').matches && cards.length > 1) {
-      const timer = setInterval(() => { active = (active + 1) % cards.length; show(active); }, 5200);
-      controller?.signal.addEventListener('abort', () => clearInterval(timer), { once: true });
-    }
-  }
-
-  function enhanceContext() {
-    const nav = q('body > .nav');
-    if (!nav || q('.kova-mobile-context', nav)) return;
-    const context = document.createElement('button');
-    context.type = 'button';
-    context.className = 'kova-mobile-context';
-    context.textContent = 'Aujourd’hui';
-    context.setAttribute('aria-label', 'Revenir au début de la section actuelle');
-    nav.append(context);
-
-    const entries = [
-      ['home', 'Aujourd’hui'],
-      ['discover', 'Événements'],
-      ['kovaPopular', 'Populaires'],
-      ['kovaExperiences', 'Guide KOVA'],
-      ['artists', 'Artistes'],
-      ['kovaSmartHome', 'Pour toi'],
-      ['organizers', 'Créer'],
-      ['kovaJournal', 'Notre histoire'],
-      ['kovaOrganizerTestimonials', 'Avis KOVA']
-    ].map(([id, label]) => ({ section: document.getElementById(id), label })).filter(item => item.section);
-    let current = entries[0]?.section || null;
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const anchor = Math.min(innerHeight * .28, 180);
-      let match = entries[0];
-      entries.forEach(item => {
-        if (item.section.getBoundingClientRect().top <= anchor) match = item;
-      });
-      if (!match) return;
-      current = match.section;
-      context.textContent = match.label;
-    };
-    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    addEventListener('scroll', schedule, { passive: true, signal: controller.signal });
-    addEventListener('resize', schedule, { passive: true, signal: controller.signal });
-    update();
-    context.addEventListener('click', () => current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), { signal: controller.signal });
-    controller.signal.addEventListener('abort', () => {
-      context.remove();
-    }, { once: true });
-  }
-
-  function enhanceScrollSleep() {
-    let lastY = scrollY;
-    let ticking = false;
-    addEventListener('scroll', () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const delta = scrollY - lastY;
-        document.body.classList.toggle('kova-dock-sleep', delta > 7 && scrollY > 220);
-        if (delta < -5 || scrollY < 100) document.body.classList.remove('kova-dock-sleep');
-        lastY = scrollY;
-        ticking = false;
-      });
-    }, { passive: true, signal: controller.signal });
-  }
-
-  function compactLabels() {
-    const create = q('.v64-secondary');
-    if (create) create.title = 'Publier un événement';
-    q('.kova-artist-overview-open')?.setAttribute('aria-label', 'Voir tous les artistes');
-  }
-
-  function start() {
-    if (!mobile.matches || document.body.classList.contains('kova-mobile-v2')) return;
-    controller = new AbortController();
-    document.body.classList.add('kova-mobile-v2');
-    enhanceHero();
-    enhanceContext();
-    enhanceDock();
-    enhanceScrollSleep();
-    compactLabels();
-  }
-
-  function stop() {
-    if (!document.body.classList.contains('kova-mobile-v2')) return;
-    controller?.abort();
-    controller = null;
-    document.body.classList.remove('kova-mobile-v2', 'kova-dock-sleep');
-    qa('.v64-card').forEach(card => card.classList.remove('is-active'));
-  }
-
-  function sync() { mobile.matches ? start() : stop(); }
-  mobile.addEventListener?.('change', sync);
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync, { once: true });
-  else sync();
-})();
-
 </script><script data-kova-inline-source="assets/kova-interface-v3.js">
 (() => {
   const ready = () => {
