@@ -2451,7 +2451,7 @@ html:not(.js-enabled) .rising-card::after{
     position:sticky!important;
     top:78px!important;
     z-index:80!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
   }
 
   .k35-tabs label{
@@ -11030,7 +11030,7 @@ button,a,input,select,textarea{
     position:sticky!important;
     top:78px!important;
     z-index:90!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
   }
 
   .k35-tabs label{
@@ -17354,13 +17354,13 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
   .mobile-dock{
     --dock-side-space:78px!important;
     --dock-max:324px!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
     height:50px!important;
     min-height:50px!important;
     border-radius:17px!important;
     opacity:.9!important;
   }
-  .mobile-dock::before{width:calc((100% - 8px)/4)!important}
+  .mobile-dock::before{width:calc((100% - 8px)/5)!important}
   .mobile-dock .dock-item{height:42px!important;min-height:42px!important}
   .mobile-dock .dock-item strong{font-size:14px!important}
   .mobile-dock .dock-item span{font-size:7px!important}
@@ -17799,7 +17799,11 @@ body.kova-event-theme-ready .v66-program-count{color:rgba(255,255,255,.46)!impor
 /* KOVA Story — one calm origin story, immediately before testimonials. */
 .kova-journal{position:relative;overflow:hidden;padding:clamp(44px,5vw,76px) 0;background:#070708;color:#fff}
 .kova-journal-shell{width:min(100% - 48px,1480px);margin:auto}
+.kova-story-rail{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:14px;overflow-x:auto;padding:2px 2px 18px;scroll-snap-type:x mandatory;scroll-padding-inline:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+.kova-story-rail::-webkit-scrollbar{display:none}
 .kova-journal-feature{position:relative;min-height:clamp(420px,47vw,650px);overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:36px;background:#17171a center/cover no-repeat;color:#fff;isolation:isolate;box-shadow:0 28px 80px rgba(0,0,0,.28)}
+.kova-story-rail .kova-journal-feature{scroll-snap-align:start}
+.kova-story-image{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:center}
 .kova-journal-feature::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,4,6,.96) 0%,rgba(4,4,6,.7) 46%,rgba(4,4,6,.12) 78%),linear-gradient(0deg,rgba(4,4,6,.76),transparent 56%)}
 .kova-journal-copy{position:absolute;left:clamp(26px,5vw,78px);right:clamp(26px,5vw,78px);bottom:clamp(28px,5vw,72px);max-width:650px}
 .kova-journal-copy small{display:block;color:#ff6ba7;font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
@@ -17816,8 +17820,9 @@ body.kova-event-theme-ready .v66-program-count{color:rgba(255,255,255,.46)!impor
 .kova-story-close{position:absolute;top:14px;right:14px;width:42px;height:42px;border:1px solid rgba(255,255,255,.17);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:24px}
 @media(max-width:700px){
   .kova-journal{padding:36px 0 48px}
-  .kova-journal-shell{width:calc(100% - 24px)}
-  .kova-journal-feature{min-height:480px;border-radius:26px;background-position:63% center}
+  .kova-journal-shell{width:100%}
+  .kova-story-rail{grid-auto-columns:calc(100% - 28px);gap:12px;padding:2px 14px 16px;scroll-padding-inline:14px;touch-action:pan-x pan-y}
+  .kova-journal-feature{min-height:500px;border-radius:26px;background-position:center}
   .kova-journal-feature::before{background:linear-gradient(0deg,rgba(4,4,6,.98) 0%,rgba(4,4,6,.72) 48%,rgba(4,4,6,.1) 83%)}
   .kova-journal-copy{left:20px;right:20px;bottom:22px}
   .kova-journal-copy h2{margin:11px 0 13px;font-size:43px}
@@ -18000,6 +18005,8 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-event-theme-ready .v66-nav-top{justify-self:center;width:auto!important;min-width:76px!important;padding:0 16px!important;border-radius:999px!important}
   body.kova-event-theme-ready .v66-nav-actions{gap:7px}
   body.kova-event-theme-ready .v66-event-scroll{padding-top:0!important}
+  body.kova-event-theme-ready .v66-event-hero{padding-inline:10px!important}
+  body.kova-event-theme-ready .v66-poster-wrap{width:min(calc(100vw - 20px),370px)!important;max-width:370px!important;border-radius:28px!important}
   body.kova-event-theme-ready .v66-event-content{background:#070709!important;color:#fff!important}
   body.kova-event-theme-ready .v66-story-card,
   body.kova-event-theme-ready .v66-program,
@@ -18008,7 +18015,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-event-theme-ready .v66-organizer,
   body.kova-event-theme-ready .v66-tickets{border-radius:24px!important}
 }
-</style><style data-kova-inline-source="assets/kova-interface-v3.css">
+</style><style data-kova-inline-source="assets/kova-interface-v3.css" media="not all">
 /* KOVA Interface V3
    A single component layer for detail sheets, actions and editorial stories. */
 
@@ -19454,7 +19461,8 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </section><footer id="help"><div class="footer-inner"><div>© 2026 KOVA</div><div>ABIDJAN EST DOUX. · KOVA</div></div></footer>
 <nav aria-label="Mobile navigation" class="mobile-dock">
 <a class="dock-item active" href="#home"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M9.5 20v-6h5v6"/></svg></strong><span>Accueil</span></a>
-<a class="dock-item" data-kova-events-overview-open="true" href="#discover"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></strong><span>Événements</span></a>
+<a class="dock-item" href="#discover"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="5.5"/><path d="m15 15 4 4"/></svg></strong><span>Découvrir</span></a>
+<a class="dock-item" href="#artists"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></strong><span>Artistes</span></a>
 <a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5.5h14a1 1 0 0 1 1 1v3a2.5 2.5 0 0 0 0 5v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2.5 2.5 0 0 0 0-5v-3a1 1 0 0 1 1-1Z"/><path d="M12 8v8"/></svg></strong><span>Billets</span></a>
 <a class="dock-item" href="#organizers"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></strong><span>Créer</span></a>
 </nav>
@@ -26699,7 +26707,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   window.KOVA_V74_BOTTOM_NAV_CENTERED = true;
 })();
-</script><script data-kova-inline-source="assets/kova-interface-v3.js">
+</script><script type="application/json" data-kova-inline-source="assets/kova-interface-v3.js">
 (() => {
   const ready = () => {
     document.body.classList.add('kova-interface-v3');
