@@ -19090,6 +19090,14 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </section>
 <section id="organizers">
 <div class="wrap">
+<section aria-label="Créer un événement" class="kova-create-entry" id="kovaCreateEntry">
+<div class="kova-create-progress" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="kova-create-intro"><small>STUDIO KOVA</small><h2>Crée ton prochain événement.</h2><p>Choisis simplement comment tu veux accueillir ton public.</p></div>
+<div class="kova-create-choices">
+<button data-kova-create-type="paid" type="button"><span class="kova-create-choice-icon">₣</span><strong>Vendre des billets</strong><small>Tarifs, catégories et quantités.</small><b>Continuer →</b></button>
+<button data-kova-create-type="free" type="button"><span class="kova-create-choice-icon">✦</span><strong>Événement gratuit</strong><small>Inscription simple, sans paiement.</small><b>Continuer →</b></button>
+</div>
+</section>
 <div class="creator-shell">
 <div class="creator-hero reveal">
 <div class="creator-lab">
@@ -19130,6 +19138,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </div>
 </div>
 <div aria-hidden="true" class="k35-studio" id="creatorStudio">
+<button aria-label="Revenir au choix du type d’événement" class="kova-create-back" id="kovaCreateBack" type="button">← Choisir un autre format</button>
 <div class="k35-head">
 <span>KOVA STUDIO</span>
 <h2>Crée ton<br/>événement.</h2>
@@ -19220,6 +19229,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </div>
 </div>
 </div>
+<section aria-hidden="true" class="kova-create-success" id="kovaCreateSuccess">
+<div><span aria-hidden="true">✓</span><small>PUBLICATION RÉUSSIE</small><h3>Ton événement est en ligne.</h3><p>Il est déjà disponible dans Découvrir et dans ton profil.</p><button data-kova-success="view" type="button">Voir mon événement</button><button data-kova-success="new" type="button">Créer un autre événement</button><button data-kova-success="home" type="button">Retour à l’accueil</button></div>
+</section>
 <div class="organizer-grid">
 <div class="quote reveal"><blockquote>“The platform should feel less like software — and more like momentum.”</blockquote><div class="person">KOVA Product Principle</div></div>
 </div></div>
@@ -19380,6 +19392,56 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5.5h14a1 1 0 0 1 1 1v3a2.5 2.5 0 0 0 0 5v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2.5 2.5 0 0 0 0-5v-3a1 1 0 0 1 1-1Z"/><path d="M12 8v8"/></svg></strong><span>Tickets</span></a>
 <a class="dock-item" data-kmh-profile="true" href="#home"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.5-4 3-6 7-6s6.5 2 7 6"/></svg></strong><span>Profil</span></a>
 </nav>
+<style id="kova-mobile-destinations-styles">
+.kova-create-entry,.kova-create-back,.kova-create-success,.kova-mobile-profile{display:none}
+@media(max-width:700px){
+  body.kova-mobile-create-mode>.nav,body.kova-wallet-open>.nav,body.kova-profile-open>.nav{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  body.kova-mobile-create-mode{background:#050506!important;color:#fff}
+  body.kova-mobile-create-mode #organizers{display:block!important;min-height:100dvh;margin:0!important;padding:0 12px calc(62px + env(safe-area-inset-bottom))!important;background:#050506!important;color:#fff!important}
+  body.kova-mobile-create-mode #organizers>.wrap{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+  body.kova-mobile-create-mode #organizers .creator-shell,body.kova-mobile-create-mode #organizers .organizer-grid{display:none!important}
+  body.kova-mobile-create-mode .kova-create-entry{display:flex;min-height:calc(var(--kova-visual-height,100dvh) - 50px - env(safe-area-inset-bottom));flex-direction:column;justify-content:center;padding:max(18px,env(safe-area-inset-top)) 4px 24px}
+  .kova-create-progress{position:absolute;top:max(14px,env(safe-area-inset-top));left:18px;right:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.kova-create-progress span{height:3px;border-radius:3px;background:rgba(255,255,255,.18)}.kova-create-progress span:first-child{background:#fff}
+  .kova-create-intro{text-align:center}.kova-create-intro small{display:block;color:rgba(255,255,255,.48);font-size:8px;font-weight:850;letter-spacing:.16em}.kova-create-intro h2{max-width:330px;margin:12px auto 8px;font-size:clamp(32px,9vw,43px);line-height:.95;letter-spacing:-.06em}.kova-create-intro p{max-width:300px;margin:0 auto;color:rgba(255,255,255,.5);font-size:12px;line-height:1.4}
+  .kova-create-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}.kova-create-choices button{display:flex;min-height:220px;flex-direction:column;align-items:flex-start;padding:18px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:#131316;color:#fff;text-align:left;box-shadow:inset 0 1px rgba(255,255,255,.05)}.kova-create-choices button:active{transform:scale(.985)}.kova-create-choice-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:auto;border-radius:16px;background:rgba(255,255,255,.09);font-size:24px}.kova-create-choices strong{display:block;font-size:19px;line-height:1.02;letter-spacing:-.04em}.kova-create-choices small{display:block;margin-top:7px;color:rgba(255,255,255,.48);font-size:10px;line-height:1.35}.kova-create-choices b{display:block;margin-top:14px;color:#fff;font-size:9px;letter-spacing:.04em}
+  body.kova-mobile-create-mode.kova-create-flow .kova-create-entry{display:none!important}
+  body.kova-mobile-create-mode.kova-create-flow #organizers .creator-shell{display:block!important}
+  body.kova-mobile-create-mode.kova-create-flow #organizers .creator-hero{display:none!important}
+  body.kova-mobile-create-mode.kova-create-flow #creatorStudio{display:block!important;width:100%!important;max-width:none!important;min-height:calc(var(--kova-visual-height,100dvh) - 50px);margin:0!important;padding:max(12px,env(safe-area-inset-top)) 0 30px!important;border:0!important;border-radius:0!important;background:#050506!important;color:#fff!important;opacity:1!important;visibility:visible!important;transform:none!important}
+  body.kova-mobile-create-mode.kova-create-flow #creatorStudio>.k35-head{padding:12px 14px 4px!important}.k35-head h2{font-size:34px!important}.k35-head p{font-size:11px!important}.kova-create-back{display:inline-flex!important;align-items:center;min-height:40px;margin:0 14px 5px;padding:0;border:0;background:transparent;color:rgba(255,255,255,.62);font:750 10px/1 inherit}
+  body.kova-mobile-create-mode.kova-create-flow .k35-app{margin-top:8px!important;border-radius:22px!important;background:#111114!important}.k35-tabs{top:0!important}.k35-panel{padding:16px!important}.k35-title h3{font-size:25px!important}.k35-title p{font-size:11px!important}.k35-field input,.k35-field select,.k35-field textarea{font-size:16px!important}.k35-nav button,.k35-publish{min-height:48px!important}.k35-preview{padding:14px!important}.k35-phone{max-width:310px!important;margin:auto!important}
+  body.kova-create-free .k35-panel-3 .k35-ticket:not(:first-child),body.kova-create-free #k35AddTicket{display:none!important}
+  body.kova-create-free .k35-panel-3 .k35-title p::after{content:" Accès gratuit configuré."}
+  .kova-create-success{position:fixed;inset:0;z-index:250000;place-items:center;padding:18px;background:rgba(3,3,4,.76);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px)}.kova-create-success.open{display:grid}.kova-create-success>div{width:min(360px,100%);padding:28px;border:1px solid rgba(255,255,255,.13);border-radius:26px;background:#151518;color:#fff;text-align:center;box-shadow:0 28px 90px rgba(0,0,0,.55)}.kova-create-success>div>span{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 15px;border-radius:50%;background:#fff;color:#09090a;font-size:27px}.kova-create-success small{color:rgba(255,255,255,.48);font-size:8px;font-weight:850;letter-spacing:.15em}.kova-create-success h3{margin:10px 0 8px;font-size:30px;line-height:.96;letter-spacing:-.05em}.kova-create-success p{margin:0 0 20px;color:rgba(255,255,255,.54);font-size:12px;line-height:1.45}.kova-create-success button{width:100%;min-height:48px;margin-top:8px;border:0;border-radius:14px;background:#fff;color:#09090a;font-weight:850}.kova-create-success button+button{background:rgba(255,255,255,.08);color:#fff}
+  body.kova-wallet-open{height:var(--kova-visual-height,100dvh);background:#050506!important;overflow:hidden!important}
+  body.kova-wallet-open>main,body.kova-wallet-open>footer,body.kova-wallet-open>#kovaAppCTA{display:none!important}
+  body.kova-wallet-open #kovaWallet{top:var(--kova-visual-top,0px)!important;right:0!important;bottom:auto!important;left:0!important;z-index:4100!important;width:100%!important;height:var(--kova-visual-height,100dvh)!important;padding:0!important;background:#050506!important;color:#fff!important;transform:none!important}
+  body.kova-wallet-open .v81-wallet-head,body.kova-wallet-open .v81-wallet-hero{display:none!important}
+  body.kova-wallet-open .v81-wallet-shell{width:100%!important;min-height:100%!important;margin:0!important;padding:max(12px,env(safe-area-inset-top)) 14px calc(62px + env(safe-area-inset-bottom))!important}
+  body.kova-wallet-open .v81-wallet-toolbar{position:sticky;top:0;z-index:5;display:block!important;margin:0 0 16px!important;padding:3px 0 10px;background:linear-gradient(180deg,#050506 76%,transparent)}
+  body.kova-wallet-open .v81-wallet-tabs{width:min(270px,78vw);margin:auto;padding:4px!important;border:1px solid rgba(255,255,255,.1);border-radius:15px!important;background:#17171a!important}
+  body.kova-wallet-open .v81-wallet-tabs button{min-height:40px!important;color:rgba(255,255,255,.46)!important;font-size:11px!important}
+  body.kova-wallet-open .v81-wallet-tabs button.active{background:rgba(255,255,255,.12)!important;color:#fff!important;box-shadow:none!important}
+  body.kova-wallet-open .v81-wallet-list{gap:10px!important}
+  body.kova-wallet-open .v81-ticket{display:grid!important;grid-template-columns:108px minmax(0,1fr)!important;min-height:150px!important;overflow:hidden!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:20px!important;background:#131316!important;color:#fff!important;box-shadow:none!important}
+  body.kova-wallet-open .v81-ticket-art{min-height:150px!important}.v81-ticket-art span{left:9px!important;bottom:9px!important;padding:5px 7px!important;font-size:6px!important}
+  body.kova-wallet-open .v81-ticket-main{display:block!important;padding:16px!important}.v81-ticket-copy h3{margin:6px 0!important;font-size:22px!important}.v81-ticket-meta{color:rgba(255,255,255,.48)!important;font-size:10px!important}.v81-ticket-details{display:block!important;margin:14px 0 0!important}.v81-ticket-details div{display:none!important}.v81-ticket-details div:first-child{display:block!important;padding:9px!important;border-radius:11px!important;background:rgba(255,255,255,.06)!important}.v81-ticket-actions,.v81-ticket-main>.v81-ticket-qr{display:none!important}
+  body.kova-wallet-open .v81-wallet-empty.show{display:flex!important;min-height:calc(var(--kova-visual-height,100dvh) - 120px - env(safe-area-inset-bottom));flex-direction:column;align-items:center;justify-content:center;padding:28px 18px!important;border:0!important;background:transparent!important;color:#fff!important}.v81-wallet-empty span{width:58px!important;height:58px!important;margin-bottom:18px!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:18px!important;background:#121215!important;color:#fff!important}.v81-wallet-empty h3{font-size:27px!important}.v81-wallet-empty p{max-width:280px!important;color:rgba(255,255,255,.48)!important;font-size:12px!important}.v81-wallet-empty button{min-height:46px!important;border-radius:14px!important;background:#fff!important;color:#09090a!important;font-size:12px!important}
+  .kova-ticket-detail{position:fixed;inset:0;z-index:240000;display:none;overflow:auto;padding:max(14px,env(safe-area-inset-top)) 14px calc(18px + env(safe-area-inset-bottom));background:#050506;color:#fff}.kova-ticket-detail.open{display:block}.kova-ticket-detail-head{display:flex;align-items:center;justify-content:space-between}.kova-ticket-detail-head button{width:44px;height:44px;border:1px solid rgba(255,255,255,.13);border-radius:50%;background:#151518;color:#fff;font-size:22px}.kova-ticket-detail-head small{color:rgba(255,255,255,.46);font-size:8px;font-weight:850;letter-spacing:.14em}.kova-ticket-pass{max-width:380px;margin:28px auto;padding:22px;border-radius:28px;background:#fff;color:#09090a;text-align:center}.kova-ticket-pass h2{margin:8px 0;font-size:31px;line-height:.96;letter-spacing:-.05em}.kova-ticket-pass>p{margin:0;color:#6b6b73;font-size:12px}.kova-ticket-pass .fake-qr{width:min(64vw,250px)!important;height:min(64vw,250px)!important;margin:28px auto 18px!important}.kova-ticket-pass dl{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:20px 0 0;text-align:left}.kova-ticket-pass dl div{padding:11px;border-radius:13px;background:#f2f2f4}.kova-ticket-pass dt{color:#85858d;font-size:7px;font-weight:850;letter-spacing:.1em}.kova-ticket-pass dd{margin:5px 0 0;font-size:10px;font-weight:800;overflow-wrap:anywhere}.kova-ticket-note{max-width:330px;margin:14px auto 0;color:rgba(255,255,255,.42);font-size:10px;line-height:1.45;text-align:center}
+  .kova-mobile-profile{display:none}
+  body.kova-profile-open{height:var(--kova-visual-height,100dvh);overflow:hidden!important;background:#050506!important;color:#fff}
+  body.kova-profile-open>main,body.kova-profile-open>footer,body.kova-profile-open>#kovaAppCTA{display:none!important}
+  .kova-mobile-profile.open{position:fixed;top:var(--kova-visual-top,0);right:0;bottom:auto;left:0;z-index:4100;display:block;width:100%;height:var(--kova-visual-height,100dvh);overflow:hidden;background:#050506;color:#fff}
+  .kova-profile-scroll{height:100%;overflow-y:auto;padding:max(22px,env(safe-area-inset-top)) 16px calc(70px + env(safe-area-inset-bottom));overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+  .kova-profile-head{position:relative;display:grid;grid-template-columns:72px minmax(0,1fr) 38px;align-items:center;gap:14px;padding:10px 0 22px}.kova-profile-avatar{display:grid;place-items:center;width:72px;height:72px;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:#19191d;color:#fff;font-size:22px;font-weight:900;letter-spacing:-.06em}.kova-profile-head small{display:block;color:rgba(255,255,255,.48);font-size:9px;font-weight:760}.kova-profile-head h1{margin:5px 0 4px;font-size:clamp(25px,7vw,31px);line-height:.94;letter-spacing:-.055em}.kova-profile-head p{margin:0;color:rgba(255,255,255,.42);font-size:10px}.kova-profile-head>button{width:38px;height:38px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:50%;background:#141417;color:#fff;font-weight:900;letter-spacing:.08em}
+  .kova-profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 0 16px}.kova-profile-stats button{min-height:64px;padding:9px 5px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#111114;color:#fff;text-align:center}.kova-profile-stats strong{display:block;font-size:20px;letter-spacing:-.04em}.kova-profile-stats span{display:block;margin-top:4px;color:rgba(255,255,255,.44);font-size:8px;font-weight:760}
+  .kova-profile-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}.kova-profile-actions button{min-height:43px;border:0;border-radius:13px;background:#fff;color:#09090a;font:820 10px/1 inherit}.kova-profile-actions button+button{background:#17171a;color:#fff}
+  .kova-profile-tabs{position:sticky;top:-1px;z-index:4;display:flex;gap:18px;margin:0 -16px;padding:10px 16px 12px;background:rgba(5,5,6,.93);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.kova-profile-tabs button{position:relative;min-height:30px;padding:0;border:0;background:transparent;color:rgba(255,255,255,.42);font:760 10px/1 inherit}.kova-profile-tabs button.active{color:#fff}.kova-profile-tabs button.active::after{content:"";position:absolute;right:0;bottom:0;left:0;height:2px;border-radius:2px;background:#fff}
+  .kova-profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 9px;padding-top:10px}.kova-profile-card{position:relative;min-width:0;overflow:hidden;border:0;background:transparent;color:#fff;text-align:left}.kova-profile-card-media{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:17px;background:linear-gradient(145deg,#24242a,#101013)}.kova-profile-card-media img{width:100%;height:100%;object-fit:cover}.kova-profile-card-media::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.36))}.kova-profile-card h3{overflow:hidden;margin:8px 0 4px;font-size:13px;line-height:1.05;letter-spacing:-.025em;text-overflow:ellipsis;white-space:nowrap}.kova-profile-card p{overflow:hidden;margin:0;color:rgba(255,255,255,.45);font-size:8px;text-overflow:ellipsis;white-space:nowrap}.kova-profile-unsave{position:absolute;top:7px;right:7px;z-index:2;display:grid;place-items:center;width:31px;height:31px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(8,8,10,.7);color:#fff;font-size:14px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+  .kova-profile-empty{display:none;min-height:260px;place-items:center;padding:36px 20px;text-align:center}.kova-profile-empty.show{display:grid}.kova-profile-empty strong{display:block;font-size:23px;letter-spacing:-.045em}.kova-profile-empty p{max-width:250px;margin:8px auto 0;color:rgba(255,255,255,.45);font-size:11px;line-height:1.45}
+  .kova-profile-dialog{position:fixed;inset:0;z-index:250000;display:none;place-items:end center;padding:16px;background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.kova-profile-dialog.open{display:grid}.kova-profile-dialog>form,.kova-profile-dialog>div{position:relative;width:min(420px,100%);padding:26px 20px calc(22px + env(safe-area-inset-bottom));border:1px solid rgba(255,255,255,.13);border-radius:26px;background:#17171a;color:#fff}.kova-profile-dialog [data-profile-close]{position:absolute;top:13px;right:13px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.09);color:#fff;font-size:21px}.kova-profile-dialog>form>small,.kova-profile-dialog>div>small{color:rgba(255,255,255,.43);font-size:8px;font-weight:850;letter-spacing:.14em}.kova-profile-dialog h2{margin:10px 0 22px;font-size:30px;letter-spacing:-.055em}.kova-profile-dialog label:not(.kova-profile-toggle){display:block;margin-top:13px;color:rgba(255,255,255,.55);font-size:9px;font-weight:760}.kova-profile-dialog input[type=text]{display:block;width:100%;height:48px;margin-top:7px;padding:0 13px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0e0e10;color:#fff;font:700 16px/1 inherit}.kova-profile-save{width:100%;min-height:48px;margin-top:20px;border:0;border-radius:14px;background:#fff;color:#080809;font-weight:850}.kova-profile-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:16px;background:#0f0f11}.kova-profile-toggle strong,.kova-profile-toggle small{display:block}.kova-profile-toggle small{margin-top:5px;color:rgba(255,255,255,.42);font-size:8px}.kova-profile-toggle input{width:22px;height:22px;accent-color:#fff}.kova-profile-dialog>div>p{color:rgba(255,255,255,.4);font-size:9px;line-height:1.45}
+}
+</style>
 <style id="kova-discover-feed-v2-styles">
 .kova-discover-v2{display:none}
 @media(max-width:700px){
@@ -19425,6 +19487,17 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </header>
 <div class="kd-scroll" id="kdScroll"><div aria-live="polite" id="kdList"></div><div class="kd-empty" id="kdEmpty"><div><strong id="kdEmptyTitle">Rien ici pour l’instant.</strong><p id="kdEmptyCopy">Enregistre un événement pour le retrouver ici.</p></div></div></div>
 <aside aria-hidden="true" class="kd-filters" id="kdFilters"><div class="kd-filter-head"><strong>Filtrer les sorties</strong><button aria-label="Fermer les filtres" class="kd-filter-close" id="kdFilterClose" type="button">×</button></div><div class="kd-filter-options"><button class="kd-filter active" data-kd-filter="all" type="button">Tout</button><button class="kd-filter" data-kd-filter="today" type="button">Aujourd’hui</button><button class="kd-filter" data-kd-filter="weekend" type="button">Ce week-end</button><button class="kd-filter" data-kd-filter="free" type="button">Gratuit</button><button class="kd-filter" data-kd-filter="budget" type="button">Petit budget</button></div></aside>
+</section>
+<section aria-hidden="true" aria-label="Profil KOVA" class="kova-mobile-profile" id="kovaMobileProfile">
+<div class="kova-profile-scroll">
+<header class="kova-profile-head"><div class="kova-profile-avatar" id="kovaProfileAvatar">KD</div><div><small id="kovaProfileUsername">@invite-kova</small><h1 id="kovaProfileName">Invité KOVA</h1><p>Mes sorties, mes choix, mon KOVA.</p></div><button aria-label="Ouvrir les réglages" id="kovaProfileSettingsTop" type="button">•••</button></header>
+<div class="kova-profile-stats"><button data-kova-profile-tab="created" type="button"><strong id="kovaProfileCreatedCount">0</strong><span>Événements</span></button><button data-kova-profile-tab="saved" type="button"><strong id="kovaProfileSavedCount">0</strong><span>Enregistrés</span></button><button data-kova-profile-tab="following" type="button"><strong id="kovaProfileFollowingCount">0</strong><span>Suivis</span></button></div>
+<div class="kova-profile-actions"><button id="kovaProfileEdit" type="button">Modifier le profil</button><button id="kovaProfileSettings" type="button">Réglages</button></div>
+<div aria-label="Contenu du profil" class="kova-profile-tabs" role="tablist"><button aria-selected="true" class="active" data-kova-profile-tab="created" role="tab" type="button">Mes événements</button><button aria-selected="false" data-kova-profile-tab="saved" role="tab" type="button">Enregistrés</button><button aria-selected="false" data-kova-profile-tab="following" role="tab" type="button">Suivis</button></div>
+<div aria-live="polite" class="kova-profile-grid" id="kovaProfileGrid"></div><div class="kova-profile-empty" id="kovaProfileEmpty"><strong>Rien ici pour l’instant.</strong><p>Les événements que tu crées ou enregistres apparaîtront ici.</p></div>
+</div>
+<section aria-hidden="true" class="kova-profile-dialog" id="kovaProfileEditDialog"><form><button aria-label="Fermer" data-profile-close type="button">×</button><small>PROFIL KOVA</small><h2>À ton image.</h2><label>Nom<input id="kovaProfileNameInput" maxlength="48" required type="text"/></label><label>Nom d’utilisateur<input id="kovaProfileUsernameInput" maxlength="32" required type="text"/></label><button class="kova-profile-save" type="submit">Enregistrer</button></form></section>
+<section aria-hidden="true" class="kova-profile-dialog" id="kovaProfileSettingsDialog"><div><button aria-label="Fermer" data-profile-close type="button">×</button><small>RÉGLAGES</small><h2>Simple et utile.</h2><label class="kova-profile-toggle"><span><strong>Notifications</strong><small>Rappels de sorties et billets</small></span><input id="kovaProfileNotifications" type="checkbox"/></label><p>Ces réglages restent sur cet appareil pour le prototype.</p></div></section>
 </section>
 <script id="kovaMobileFeedRuntime" type="application/x-kova-legacy">
 /* KOVA V94 — standalone POSH-inspired mobile event feed. */
@@ -19890,6 +19963,192 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   if (document.readyState === 'loading') setTimeout(init,0); else init();
 })();
 </script>
+<script id="kovaMobileCreatedStateRuntime">
+/* KOVA mobile creation bridge — existing Studio remains the only publisher. */
+(() => {
+  'use strict';
+  const init = () => {
+    const entry = document.getElementById('kovaCreateEntry');
+    const studio = document.getElementById('creatorStudio');
+    const publish = document.getElementById('k35Publish');
+    const success = document.getElementById('kovaCreateSuccess');
+    if (!entry || !studio || !publish || !success) return;
+    const EVENT_KEY = 'kova-v52-events';
+    const readEvents = () => { try { const value=JSON.parse(localStorage.getItem(EVENT_KEY)||'[]'); return Array.isArray(value)?value.filter(item=>item&&item.id):[]; } catch { return []; } };
+    const sourceFor = id => document.querySelector(`#discover .event-card[data-event-id="${CSS.escape(String(id))}"]`);
+    let lastSuccessId = null;
+    const ticketRows = () => [...document.querySelectorAll('#k35Tickets .k35-ticket')];
+    const setMode = mode => {
+      const free = mode === 'free';
+      document.body.classList.toggle('kova-create-free',free);
+      studio.dataset.createType = free ? 'free' : 'paid';
+      ticketRows().forEach((row,index) => {
+        const name=row.querySelector('.k35-ticket-name'),price=row.querySelector('.k35-ticket-price');
+        if (!name || !price) return;
+        if (!name.dataset.paidName) { name.dataset.paidName=name.value; price.dataset.paidPrice=price.value; }
+        name.value = free ? (index===0?'Accès gratuit':index===1?'Invité':'Liste') : name.dataset.paidName;
+        price.value = free ? '0' : price.dataset.paidPrice;
+        name.dispatchEvent(new Event('input',{bubbles:true})); price.dispatchEvent(new Event('input',{bubbles:true}));
+      });
+      document.body.classList.add('kova-create-flow');
+      document.getElementById('organizers')?.classList.add('studio-visible');
+      studio.setAttribute('aria-hidden','false');
+      document.getElementById('k35-step-1').checked=true;
+      const createItem=document.querySelector('.mobile-dock [data-kmh-create]');
+      document.querySelectorAll('.mobile-dock .dock-item').forEach(item=>item.classList.toggle('active',item===createItem));
+      document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','2');
+      setTimeout(()=>{document.querySelectorAll('.mobile-dock .dock-item').forEach(item=>item.classList.toggle('active',item===createItem));document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','2');},0);
+      window.scrollTo({top:0,behavior:'auto'});
+    };
+    const showEntry = () => { document.body.classList.remove('kova-create-flow','kova-create-free'); document.getElementById('organizers')?.classList.remove('studio-visible'); studio.setAttribute('aria-hidden','true'); window.scrollTo({top:0,behavior:'auto'}); };
+
+    const eventImage = source => source?.querySelector('img')?.currentSrc || source?.querySelector('img')?.src || '';
+    const eventTitle = source => source?.querySelector('.event-copy h3,.event-meta h3')?.textContent?.trim() || 'Événement KOVA';
+    const eventMeta = source => source?.querySelector('.event-copy p,.event-meta p')?.textContent?.trim() || 'Abidjan';
+    const homeCard = source => {
+      const button=document.createElement('button'); button.type='button'; button.className='kmh-card kmh-created-sync'; button.dataset.createdId=source.dataset.eventId||'';
+      button.innerHTML='<span class="kmh-card-media"></span><h3></h3><small></small>';
+      button.querySelector('.kmh-card-media').style.backgroundImage=eventImage(source)?`url("${eventImage(source)}")`:'';
+      button.querySelector('h3').textContent=eventTitle(source); button.querySelector('small').textContent=eventMeta(source);
+      button.setAttribute('aria-label',`Ouvrir ${eventTitle(source)}`); button.addEventListener('click',()=>source.click()); return button;
+    };
+    const syncHome = () => {
+      const rail=document.querySelector('[data-kmh-rail="weekend"]'); if(!rail) return;
+      rail.querySelectorAll('.kmh-created-sync').forEach(node=>node.remove());
+      [...document.querySelectorAll('#discover .event-card.k53-created')].reverse().forEach(source=>rail.prepend(homeCard(source)));
+    };
+    const refreshShared = () => {
+      syncHome();
+      window.KOVA_DISCOVER_FEED?.render?.({preserve:true});
+      window.dispatchEvent(new CustomEvent('kova:created-events-change',{detail:{events:readEvents()}}));
+    };
+    const showSuccess = event => {
+      if (!event || String(event.id)===String(lastSuccessId)) return;
+      lastSuccessId=event.id; success.classList.add('open'); success.setAttribute('aria-hidden','false');
+      refreshShared(); setTimeout(refreshShared,260); setTimeout(refreshShared,760);
+    };
+    new MutationObserver(() => {
+      if (!/publié/i.test(publish.textContent)) return;
+      const events=readEvents(); showSuccess(events[events.length-1]);
+    }).observe(publish,{childList:true,characterData:true,subtree:true});
+
+    entry.querySelectorAll('[data-kova-create-type]').forEach(button=>button.addEventListener('click',()=>setMode(button.dataset.kovaCreateType)));
+    document.getElementById('kovaCreateBack')?.addEventListener('click',showEntry);
+    success.addEventListener('click',event=>{
+      const action=event.target.closest('[data-kova-success]')?.dataset.kovaSuccess; if(!action) return;
+      success.classList.remove('open'); success.setAttribute('aria-hidden','true');
+      if(action==='new'){showEntry();return;}
+      if(action==='home'){document.querySelector('[data-kmh-home]')?.click();return;}
+      if(action==='view'){document.querySelector('[data-kmh-discover]')?.click();setTimeout(()=>{window.KOVA_DISCOVER_FEED?.render?.({preserve:false});document.querySelector('.kd-scroll')?.scrollTo({top:0,behavior:'auto'});},80);}
+    });
+    window.KOVA_CREATED_EVENTS={getAll:readEvents,findSource:sourceFor,refresh:refreshShared,showEntry};
+    setTimeout(refreshShared,650);
+    setTimeout(refreshShared,1400);
+  };
+  setTimeout(init,0);
+})();
+</script>
+<script id="kovaMobileProfileRuntime">
+/* KOVA mobile profile — one local profile, existing creations and shared saves. */
+(() => {
+  'use strict';
+  const init = () => {
+    const root=document.getElementById('kovaMobileProfile');
+    const grid=document.getElementById('kovaProfileGrid');
+    const empty=document.getElementById('kovaProfileEmpty');
+    if(!root || !grid || !empty) return;
+    const PROFILE_KEY='kova_profile_v1';
+    const EVENT_KEY='kova-v52-events';
+    const defaults={name:'Invité KOVA',username:'invite-kova',notifications:true};
+    let activeTab='created';
+    const read=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key)||'null');return value??fallback}catch{return fallback}};
+    const write=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch{}}
+    const profile=()=>({...defaults,...read(PROFILE_KEY,{})});
+    const creations=()=>{const value=read(EVENT_KEY,[]);return Array.isArray(value)?value.filter(item=>item&&item.id):[]};
+    const sourceFor=id=>window.KOVA_CREATED_EVENTS?.findSource?.(id)||document.querySelector(`#discover .k53-created[data-event-id="${CSS.escape(String(id))}"]`);
+    const imageOf=node=>{
+      const img=node?.querySelector?.('img'); if(img?.currentSrc||img?.src) return img.currentSrc||img.src;
+      const visual=node?.querySelector?.('.event-art'); if(!visual) return '';
+      const values=[visual.style.backgroundImage,getComputedStyle(visual).backgroundImage,getComputedStyle(visual).getPropertyValue('--event-img')];
+      for(const value of values){const match=String(value||'').match(/url\(["']?(.*?)["']?\)/);if(match?.[1]) return match[1]}
+      return '';
+    };
+    const updateIdentity=()=>{
+      const data=profile(); const cleanUser=String(data.username||defaults.username).replace(/^@+/,'').trim()||defaults.username;
+      document.getElementById('kovaProfileName').textContent=data.name;
+      document.getElementById('kovaProfileUsername').textContent='@'+cleanUser;
+      document.getElementById('kovaProfileAvatar').textContent=String(data.name||'KOVA').split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]).join('').toUpperCase()||'KV';
+      document.getElementById('kovaTicketDetailHolder').textContent=data.name;
+      document.getElementById('kovaProfileNotifications').checked=data.notifications!==false;
+    };
+    const card=(record,{saved=false}={})=>{
+      const article=document.createElement('article'); article.className='kova-profile-card';
+      const media=document.createElement('span'); media.className='kova-profile-card-media';
+      if(record.image){const img=document.createElement('img');img.loading='lazy';img.alt=`Affiche de ${record.title}`;img.src=record.image;media.append(img)}
+      article.append(media);
+      if(saved){const remove=document.createElement('button');remove.type='button';remove.className='kova-profile-unsave';remove.textContent='♥';remove.setAttribute('aria-label',`Retirer ${record.title} des favoris`);remove.addEventListener('click',event=>{event.stopPropagation();window.KOVA_FAVORITES?.toggle?.('event',record.key)});article.append(remove)}
+      const title=document.createElement('h3');title.textContent=record.title||'Événement KOVA';article.append(title);
+      const meta=document.createElement('p');meta.textContent=record.meta||'Abidjan';article.append(meta);
+      article.tabIndex=0; article.setAttribute('role','button'); article.setAttribute('aria-label',`Ouvrir ${title.textContent}`);
+      const open=()=>{if(record.source?.isConnected){record.source.click();return}if(record.key)window.KOVA_PLAYER?.openRecord?.('event',record.key,article)};
+      article.addEventListener('click',open);article.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();open()}});
+      return article;
+    };
+    const savedRecords=()=>{
+      if(window.KOVA_FAVORITES?.getResolved) return window.KOVA_FAVORITES.getResolved().filter(item=>item.type==='event');
+      return [];
+    };
+    const createdRecords=()=>creations().slice().reverse().map(data=>{const source=sourceFor(data.id);return{title:data.name||'Événement KOVA',meta:[data.date,data.time,data.venue].filter(Boolean).join(' · ')||'Abidjan',image:imageOf(source),source,key:source?.dataset.event||`created-${data.id}`}});
+    const render=()=>{
+      const created=createdRecords(),saved=savedRecords();
+      document.getElementById('kovaProfileCreatedCount').textContent=created.length;
+      document.getElementById('kovaProfileSavedCount').textContent=saved.length;
+      document.getElementById('kovaProfileFollowingCount').textContent='0';
+      root.querySelectorAll('[data-kova-profile-tab]').forEach(button=>{const active=button.dataset.kovaProfileTab===activeTab;button.classList.toggle('active',active);if(button.getAttribute('role')==='tab')button.setAttribute('aria-selected',String(active))});
+      grid.replaceChildren();
+      const records=activeTab==='created'?created:activeTab==='saved'?saved:[];
+      records.forEach(record=>grid.append(card(record,{saved:activeTab==='saved'})));
+      empty.classList.toggle('show',!records.length);
+      empty.querySelector('strong').textContent=activeTab==='created'?'Aucun événement créé.':activeTab==='saved'?'Aucun événement enregistré.':'Aucun suivi pour l’instant.';
+      empty.querySelector('p').textContent=activeTab==='created'?'Tes prochains événements apparaîtront ici après publication.':activeTab==='saved'?'Enregistre une sortie depuis Découvrir pour la retrouver ici.':'Les organisateurs et artistes suivis apparaîtront ici.';
+    };
+    const closeDialogs=()=>root.querySelectorAll('.kova-profile-dialog').forEach(dialog=>{dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true')});
+    const openDialog=id=>{closeDialogs();const dialog=document.getElementById(id);dialog?.classList.add('open');dialog?.setAttribute('aria-hidden','false')};
+    const open=()=>{
+      if(innerWidth>700) return;
+      document.body.classList.add('kova-profile-open');root.classList.add('open');root.setAttribute('aria-hidden','false');root.querySelector('.kova-profile-scroll').scrollTop=0;
+      updateIdentity();render();setTimeout(render,260);setTimeout(render,850);window.KOVA_MOBILE_VIEW?.commit?.('profile');
+    };
+    const close=()=>{closeDialogs();document.body.classList.remove('kova-profile-open');root.classList.remove('open');root.setAttribute('aria-hidden','true')};
+    root.querySelectorAll('[data-kova-profile-tab]').forEach(button=>button.addEventListener('click',()=>{activeTab=button.dataset.kovaProfileTab;render()}));
+    document.getElementById('kovaProfileEdit')?.addEventListener('click',()=>{const data=profile();document.getElementById('kovaProfileNameInput').value=data.name;document.getElementById('kovaProfileUsernameInput').value=data.username;openDialog('kovaProfileEditDialog')});
+    [document.getElementById('kovaProfileSettings'),document.getElementById('kovaProfileSettingsTop')].forEach(button=>button?.addEventListener('click',()=>{updateIdentity();openDialog('kovaProfileSettingsDialog')}));
+    root.querySelectorAll('[data-profile-close]').forEach(button=>button.addEventListener('click',closeDialogs));
+    document.getElementById('kovaProfileEditDialog')?.querySelector('form')?.addEventListener('submit',event=>{event.preventDefault();const current=profile();const name=document.getElementById('kovaProfileNameInput').value.trim();const username=document.getElementById('kovaProfileUsernameInput').value.replace(/^@+/,'').trim();write(PROFILE_KEY,{...current,name:name||defaults.name,username:username||defaults.username});updateIdentity();closeDialogs()});
+    document.getElementById('kovaProfileNotifications')?.addEventListener('change',event=>{write(PROFILE_KEY,{...profile(),notifications:event.target.checked})});
+    document.addEventListener('kova:created-events-change',render);
+    const attachFavorites=()=>window.KOVA_FAVORITES?.subscribe?.(render)||null; if(!attachFavorites())setTimeout(attachFavorites,180);
+    updateIdentity();
+    window.KOVA_MOBILE_PROFILE={open,close,render,getProfile:profile};
+  };
+  setTimeout(init,0);
+})();
+</script>
+<script id="kovaMobileViewStateRuntime">
+/* One owner for the five mobile destinations and their active dock state. */
+(() => {
+  const init=()=>{
+    const dock=document.querySelector('.mobile-dock');if(!dock)return;
+    const map={home:'[data-kmh-home]',discover:'[data-kmh-discover]',create:'[data-kmh-create]',wallet:'[data-kova-wallet-open]',profile:'[data-kmh-profile]'};
+    const index={home:0,discover:1,create:2,wallet:3,profile:4};let committing=false;
+    const detect=()=>document.body.classList.contains('kova-profile-open')?'profile':document.body.classList.contains('kova-wallet-open')?'wallet':document.body.classList.contains('kova-discover-open')?'discover':document.body.classList.contains('kova-mobile-create-mode')?'create':'home';
+    const commit=view=>{if(committing)return;committing=true;const selected=dock.querySelector(map[view]||map.home);dock.querySelectorAll('.dock-item').forEach(item=>{const active=item===selected;item.classList.toggle('active',active);active?item.setAttribute('aria-current','page'):item.removeAttribute('aria-current')});dock.style.setProperty('--dock-index',String(index[view]??0));committing=false};
+    new MutationObserver(()=>requestAnimationFrame(()=>commit(detect()))).observe(document.body,{attributes:true,attributeFilter:['class']});
+    new MutationObserver(()=>requestAnimationFrame(()=>commit(detect()))).observe(dock,{attributes:true,subtree:true,attributeFilter:['class','aria-current']});
+    window.KOVA_MOBILE_VIEW={commit,detect};commit(detect());
+  };setTimeout(init,0);
+})();
+</script>
 <div class="sheet-backdrop" id="sheetBackdrop"></div>
 <aside aria-hidden="true" class="event-sheet" id="eventSheet">
 <div class="sheet-grab"></div>
@@ -20110,6 +20369,11 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <span>▣</span><h3 id="kovaWalletEmptyTitle">Ton prochain billet t’attend.</h3><p id="kovaWalletEmptyText">Explore la sélection KOVA et choisis le moment qui te ressemble.</p><button id="kovaWalletDiscover" type="button">Découvrir les événements</button>
 </div>
 </main>
+</section>
+<section aria-hidden="true" aria-label="Billet KOVA" class="kova-ticket-detail" id="kovaTicketDetail">
+<header class="kova-ticket-detail-head"><button aria-label="Fermer le billet" id="kovaTicketDetailClose" type="button">←</button><small>ACCÈS KOVA · PROTOTYPE</small><span aria-hidden="true"></span></header>
+<article class="kova-ticket-pass"><small>BILLET VALIDE</small><h2 id="kovaTicketDetailTitle">Événement KOVA</h2><p id="kovaTicketDetailMeta">Abidjan</p><div aria-label="QR code prototype du billet" class="fake-qr" role="img"></div><strong id="kovaTicketDetailRef">KOVA-000000</strong><dl><div><dt>TITULAIRE</dt><dd id="kovaTicketDetailHolder">Invité KOVA</dd></div><div><dt>TYPE</dt><dd id="kovaTicketDetailType">Billet KOVA</dd></div><div><dt>STATUT</dt><dd>Valide</dd></div><div><dt>ACCÈS</dt><dd>À présenter à l’entrée</dd></div></dl></article>
+<p class="kova-ticket-note">QR de démonstration. La validation sécurisée sera reliée au futur système de billetterie.</p>
 </section>
 <div aria-hidden="true" class="kova-artist-page" id="kovaArtistPage">
 <header class="kova-artist-nav">
@@ -23603,6 +23867,12 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
   })[char]);
+  const fallbackFlyer=data=>{
+    const title=String(data?.name||'Événement KOVA').slice(0,42);
+    const place=String(data?.venue||'Abidjan').slice(0,34);
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24242b"/><stop offset="1" stop-color="#08080a"/></linearGradient></defs><rect width="900" height="1125" fill="url(#g)"/><circle cx="720" cy="240" r="270" fill="#ff2d78" opacity=".16"/><circle cx="130" cy="940" r="330" fill="#7657ff" opacity=".13"/><text x="70" y="90" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="8">KOVA · CRÉATION</text><text x="70" y="500" fill="#fff" font-family="Arial,sans-serif" font-size="68" font-weight="800">${escapeHtml(title)}</text><text x="70" y="565" fill="#aaaab2" font-family="Arial,sans-serif" font-size="28">${escapeHtml(place)}</text><text x="70" y="1040" fill="#fff" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">VISUEL À PERSONNALISER</text></svg>`;
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  };
 
   let selectedFlyerBlob=null;
   let selectedFlyerUrl='';
@@ -23806,7 +24076,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     for(let index=events.length-1;index>=0;index--){
       const data=events[index];
       const blob=await loadFlyer(data.flyerId);
-      const imageUrl=blob?URL.createObjectURL(blob):'';
+      const imageUrl=blob?URL.createObjectURL(blob):fallbackFlyer(data);
 
       const card=document.createElement('article');
       card.className='event-card k53-created';
@@ -23818,7 +24088,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       card.setAttribute('aria-label',`Ouvrir ${data.name||'Nouvel événement'}`);
       card.__kovaCreatedEvent=data;
       card.innerHTML=`
-        ${imageUrl?`<img class="k53-event-image" src="${imageUrl}" alt="${escapeHtml(data.name||'Événement')}">`:''}
+        <img class="k53-event-image" src="${imageUrl}" alt="${escapeHtml(data.name||'Événement')}">
         <div class="event-gradient"></div>
         <button class="k53-delete" type="button" aria-label="Supprimer">×</button>
         <div class="event-copy">
@@ -25682,10 +25952,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     }).join('');
     const empty=q('#kovaWalletEmpty');
     empty.classList.toggle('show',!filtered.length);
-    q('#kovaWalletEmptyTitle').textContent=activeWalletTab==='past'?'Aucun billet passé.':'Ton prochain billet t’attend.';
+    q('#kovaWalletEmptyTitle').textContent=activeWalletTab==='past'?'Aucun billet passé.':'Aucun billet pour le moment';
     q('#kovaWalletEmptyText').textContent=activeWalletTab==='past'
       ?'Tes expériences terminées apparaîtront ici.'
-      :'Explore la sélection KOVA et choisis le moment qui te ressemble.';
+      :'Tes billets apparaîtront ici après réservation.';
   }
 
   function openWallet(tab='upcoming'){
@@ -26011,37 +26281,56 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     window.KOVA_MOBILE_MENU?.close?.();
 
     if(item.hasAttribute('data-kmh-create')){
+      window.KOVA_MOBILE_PROFILE?.close?.();
       if(wallet?.classList.contains('open')) closeWallet();
       window.KOVA_DISCOVER_FEED?.close?.();
       document.body.classList.add('kova-mobile-create-mode');
+      window.KOVA_CREATED_EVENTS?.showEntry?.();
       requestAnimationFrame(()=>{
         q('#organizers')?.scrollIntoView({behavior:'smooth',block:'start'});
         history.replaceState(null,'','#organizers');
+        window.KOVA_MOBILE_VIEW?.commit?.('create');
       });
       return;
     }
 
     if(item.hasAttribute('data-kmh-home')){
+      window.KOVA_MOBILE_PROFILE?.close?.();
       if(wallet?.classList.contains('open')) closeWallet();
       window.KOVA_DISCOVER_FEED?.close?.();
-      document.body.classList.remove('kova-mobile-create-mode');
+      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
       requestAnimationFrame(()=>{
         q('#kovaMobileHome')?.scrollIntoView({behavior:'smooth',block:'start'});
         history.replaceState(null,'','#kovaMobileHome');
+        window.KOVA_MOBILE_VIEW?.commit?.('home');
       });
       return;
     }
 
     if(item.hasAttribute('data-kmh-discover')){
+      window.KOVA_MOBILE_PROFILE?.close?.();
       if(wallet?.classList.contains('open')) closeWallet();
-      document.body.classList.remove('kova-mobile-create-mode');
+      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
       window.KOVA_DISCOVER_FEED?.open?.();
+      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('discover'),0);
       return;
     }
 
     if(item.hasAttribute('data-kova-wallet-open')){
+      window.KOVA_MOBILE_PROFILE?.close?.();
       window.KOVA_DISCOVER_FEED?.close?.();
+      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
       openWallet();
+      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('wallet'),0);
+      return;
+    }
+
+    if(item.hasAttribute('data-kmh-profile')){
+      if(wallet?.classList.contains('open')) closeWallet();
+      window.KOVA_DISCOVER_FEED?.close?.();
+      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
+      window.KOVA_MOBILE_PROFILE?.open?.();
+      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('profile'),0);
       return;
     }
 
@@ -26064,13 +26353,28 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   }));
   q('#kovaWalletDiscover')?.addEventListener('click',()=>{
     closeWallet();
-    q('#discover')?.scrollIntoView({behavior:'smooth',block:'start'});
+    document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-profile-open');
+    window.KOVA_DISCOVER_FEED?.open?.();
   });
   walletList?.addEventListener('click',event=>{
     const download=event.target.closest('[data-v81-download]');
     const share=event.target.closest('[data-v81-share]');
     if(download) downloadTicket(findWalletOrder(download.dataset.v81Download));
     if(share) shareTicket(findWalletOrder(share.dataset.v81Share),share);
+    if(download || share) return;
+    const ticket=event.target.closest('.v81-ticket');
+    const detail=q('#kovaTicketDetail');
+    if(!ticket || !detail) return;
+    q('#kovaTicketDetailTitle').textContent=ticket.querySelector('h3')?.textContent||'Événement KOVA';
+    q('#kovaTicketDetailMeta').textContent=ticket.querySelector('.v81-ticket-meta')?.textContent||'Abidjan';
+    q('#kovaTicketDetailRef').textContent=ticket.querySelector('.v81-ticket-qr strong')?.textContent||ticket.dataset.v81TicketId||'KOVA';
+    q('#kovaTicketDetailType').textContent=ticket.querySelector('.v81-ticket-details strong')?.textContent||'Billet KOVA';
+    detail.classList.add('open');
+    detail.setAttribute('aria-hidden','false');
+  });
+  q('#kovaTicketDetailClose')?.addEventListener('click',()=>{
+    q('#kovaTicketDetail')?.classList.remove('open');
+    q('#kovaTicketDetail')?.setAttribute('aria-hidden','true');
   });
   qa('#kovaCheckout .kova-payment-methods button').forEach(button=>{
     button.setAttribute('aria-pressed',String(button.classList.contains('active')));
