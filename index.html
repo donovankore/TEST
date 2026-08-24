@@ -19365,7 +19365,12 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body:not(.kova-mobile-create-mode) main>#organizers{display:none!important}
   body.kova-mobile-create-mode main>#organizers{display:block!important}
   body:not(.v66-event-open):not(.v67-artist-open) #kovaPlayer{display:none!important}
-  body nav.mobile-dock{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;margin:0!important;transform:none!important}
+  body nav.mobile-dock{left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;height:calc(50px + env(safe-area-inset-bottom))!important;min-height:50px!important;margin:0!important;padding:3px 8px calc(3px + env(safe-area-inset-bottom))!important;border-radius:0!important;transform:none!important}
+  body nav.mobile-dock .dock-item{height:44px!important;min-height:44px!important;padding:3px 2px!important;border-radius:13px!important;gap:1px!important}
+  body nav.mobile-dock .dock-item strong{width:19px!important;height:19px!important;margin:auto!important}
+  body nav.mobile-dock .dock-item strong svg{width:17px!important;height:17px!important}
+  body nav.mobile-dock .dock-item span{display:none!important;font-size:7px!important;line-height:1!important;letter-spacing:0!important}
+  body nav.mobile-dock .dock-item.active span{display:block!important}
 }
 </style>
 <nav aria-label="Mobile navigation" class="mobile-dock">
@@ -19378,22 +19383,24 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <style id="kova-discover-feed-v2-styles">
 .kova-discover-v2{display:none}
 @media(max-width:700px){
-  body.kova-discover-open{overflow:hidden!important}
+  :root{--kova-visual-height:100dvh;--kova-visual-top:0px}
+  body.kova-discover-open{height:var(--kova-visual-height);overflow:hidden!important;background:#050506!important}
+  body.kova-discover-open>main,body.kova-discover-open>footer{display:none!important}
   body.kova-discover-open>.nav,body.kova-discover-open #kovaPlayer{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
   body.kova-discover-open .mobile-dock{z-index:4200!important}
-  .kova-discover-v2{--kd-dock:calc(68px + env(safe-area-inset-bottom));position:fixed;inset:0 0 var(--kd-dock);z-index:4100;display:block;overflow:hidden;margin:0;padding:0;border:0;border-radius:0;background:#050506;color:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s}
+  .kova-discover-v2{--kd-dock:calc(50px + env(safe-area-inset-bottom));position:fixed;top:var(--kova-visual-top);right:0;bottom:auto;left:0;z-index:4100;display:block;width:100%;height:var(--kova-visual-height);overflow:hidden;margin:0;padding:0;border:0;border-radius:0;background:#050506;color:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s}
   .kova-discover-v2.open{opacity:1;visibility:visible;pointer-events:auto}
-  .kd-top{position:absolute;z-index:12;top:0;left:0;right:0;padding:max(10px,env(safe-area-inset-top)) 14px 9px;background:linear-gradient(180deg,rgba(5,5,6,.94) 65%,rgba(5,5,6,.68) 86%,transparent);pointer-events:none}
-  .kd-toolbar{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;align-items:center;gap:8px;min-height:48px;padding:3px;border:1px solid rgba(255,255,255,.1);border-radius:17px;background:rgba(28,28,31,.74);box-shadow:inset 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(24px) saturate(165%);backdrop-filter:blur(24px) saturate(165%);pointer-events:auto}
-  .kd-icon{display:grid;place-items:center;width:42px;height:42px;padding:0;border:0;border-radius:14px;background:transparent;color:#fff}
-  .kd-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .kd-context{overflow:hidden;text-align:center;font-size:14px;font-weight:760;letter-spacing:-.02em;text-overflow:ellipsis;white-space:nowrap}.kd-context span{color:rgba(255,255,255,.52);font-weight:600}
-  .kd-tabs{display:flex;justify-content:center;gap:25px;margin-top:8px;pointer-events:auto}
-  .kd-tab{position:relative;min-height:36px;padding:0;border:0;background:transparent;color:rgba(255,255,255,.45);font:720 13px/1 inherit}
+  .kd-top{position:absolute;z-index:12;top:0;left:0;right:0;padding:max(7px,env(safe-area-inset-top)) 12px 5px;background:linear-gradient(180deg,rgba(5,5,6,.94) 68%,rgba(5,5,6,.66) 88%,transparent);pointer-events:none}
+  .kd-toolbar{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;align-items:center;gap:6px;min-height:42px;padding:2px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(28,28,31,.74);box-shadow:inset 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(24px) saturate(165%);backdrop-filter:blur(24px) saturate(165%);pointer-events:auto}
+  .kd-icon{display:grid;place-items:center;width:38px;height:38px;padding:0;border:0;border-radius:12px;background:transparent;color:#fff}
+  .kd-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .kd-context{overflow:hidden;text-align:center;font-size:13px;font-weight:760;letter-spacing:-.02em;text-overflow:ellipsis;white-space:nowrap}.kd-context span{color:rgba(255,255,255,.52);font-weight:600}
+  .kd-tabs{display:flex;justify-content:center;gap:22px;margin-top:3px;pointer-events:auto}
+  .kd-tab{position:relative;min-height:30px;padding:0;border:0;background:transparent;color:rgba(255,255,255,.45);font:700 11px/1 inherit}
   .kd-tab.active{color:#fff}.kd-tab.active::after{content:"";position:absolute;left:50%;bottom:2px;width:18px;height:2px;border-radius:2px;background:#fff;transform:translateX(-50%)}
   .kd-scroll{height:100%;overflow-y:auto;overscroll-behavior-y:contain;scroll-snap-type:y mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y}
   .kd-scroll::-webkit-scrollbar{display:none}
-  .kd-slide{--kd-image:none;position:relative;display:flex;flex-direction:column;justify-content:flex-end;width:100%;height:calc(100dvh - var(--kd-dock));min-height:calc(100dvh - var(--kd-dock));overflow:hidden;padding:calc(116px + env(safe-area-inset-top)) 16px 12px;scroll-snap-align:start;scroll-snap-stop:always;isolation:isolate}
+  .kd-slide{--kd-image:none;position:relative;display:flex;flex-direction:column;justify-content:flex-end;width:100%;height:calc(var(--kova-visual-height) - var(--kd-dock));min-height:calc(var(--kova-visual-height) - var(--kd-dock));overflow:hidden;padding:calc(88px + env(safe-area-inset-top)) 16px 10px;scroll-snap-align:start;scroll-snap-stop:always;isolation:isolate}
   .kd-atmosphere{position:absolute;inset:-28px;z-index:-3;background:#0b0b0d center/cover no-repeat;filter:blur(34px) saturate(1.24);opacity:.42;transform:scale(1.14);transition:opacity .3s ease}
   .kd-slide:not(.is-near) .kd-atmosphere{background-image:none!important;opacity:0}
   .kd-veil{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(4,4,5,.28),rgba(4,4,5,.46) 54%,#050506 91%),radial-gradient(circle at 50% 38%,transparent 0 32%,rgba(0,0,0,.24) 72%)}
@@ -19404,7 +19411,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kd-copy{min-width:0}.kd-title{display:block;width:max-content;max-width:100%;padding:0;border:0;background:transparent;color:#fff;text-align:left;font:860 clamp(24px,7vw,31px)/.98 inherit;letter-spacing:-.048em;overflow-wrap:anywhere}
   .kd-organizer{display:block;margin-top:8px;color:rgba(255,255,255,.78);font-size:11px;font-weight:720}.kd-meta{display:block;margin-top:5px;color:rgba(255,255,255,.52);font-size:11px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .kd-actions{display:grid;gap:6px}.kd-action{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(12,12,14,.48);color:#fff;-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px)}.kd-action svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.kd-action.is-saved{background:#fff;color:#09090b}.kd-action.is-saved svg{fill:currentColor}
-  .kd-cta{grid-column:1/-1;min-height:52px;margin-top:10px;border:0;border-radius:15px;background:#fff;color:#070708;font:860 15px/1 inherit;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+  .kd-cta{grid-column:1/-1;min-height:48px;margin-top:8px;border:0;border-radius:14px;background:#fff;color:#070708;font:850 14px/1 inherit;box-shadow:0 10px 28px rgba(0,0,0,.25)}
   .kd-empty{display:none;height:100%;padding:calc(168px + env(safe-area-inset-top)) 28px 30px;place-items:center;text-align:center}.kd-empty.show{display:grid}.kd-empty div{max-width:280px}.kd-empty strong{display:block;font-size:28px;letter-spacing:-.05em}.kd-empty p{margin:10px 0 0;color:rgba(255,255,255,.52);font-size:13px;line-height:1.45}
   .kd-filters{position:absolute;z-index:24;inset:auto 12px 12px;padding:18px;border:1px solid rgba(255,255,255,.13);border-radius:24px;background:rgba(20,20,23,.96);box-shadow:0 28px 80px rgba(0,0,0,.56);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);transform:translateY(calc(100% + 24px));transition:transform .3s cubic-bezier(.16,1,.3,1)}.kd-filters.open{transform:none}.kd-filter-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.kd-filter-head strong{font-size:20px;letter-spacing:-.04em}.kd-filter-close{width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:20px}.kd-filter-options{display:flex;flex-wrap:wrap;gap:8px}.kd-filter{min-height:39px;padding:0 14px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.72);font:760 11px/1 inherit}.kd-filter.active{background:#fff;color:#09090b}
 }
@@ -19721,6 +19728,22 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     const state = {tab:'for-you', filter:'all', index:0, rendered:[]};
     let observer = null;
     let savedUnsubscribe = null;
+    let viewportTimer = 0;
+    const syncViewport = (preserve=false) => {
+      const viewport = window.visualViewport;
+      const height = Math.max(320,Math.round(viewport?.height || window.innerHeight));
+      const top = Math.max(0,Math.round(viewport?.offsetTop || 0));
+      document.documentElement.style.setProperty('--kova-visual-height',`${height}px`);
+      document.documentElement.style.setProperty('--kova-visual-top',`${top}px`);
+      if (preserve && feed.classList.contains('open')) {
+        clearTimeout(viewportTimer);
+        viewportTimer = setTimeout(() => list.children[state.index]?.scrollIntoView({block:'start',behavior:'auto'}),40);
+      }
+    };
+    syncViewport();
+    window.addEventListener('resize',() => syncViewport(true),{passive:true});
+    window.visualViewport?.addEventListener('resize',() => syncViewport(true),{passive:true});
+    window.visualViewport?.addEventListener('scroll',() => syncViewport(false),{passive:true});
     const clean = value => String(value || '').replace(/\s+/g,' ').trim();
     const keyOf = node => String(node?.dataset.event || clean(node?.querySelector('.event-meta h3,.event-copy h3')?.textContent) || 'event');
     const cssImage = node => {
@@ -19834,8 +19857,16 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     const closeFilters = () => { filters.classList.remove('open'); filters.setAttribute('aria-hidden','true'); document.getElementById('kdFilterOpen').setAttribute('aria-expanded','false'); };
     const open = () => {
       if (innerWidth > 700) return;
+      syncViewport();
       if (!state.rendered.length && state.tab === 'for-you') render({preserve:false});
       feed.classList.add('open'); feed.setAttribute('aria-hidden','false'); document.body.classList.add('kova-discover-open'); history.replaceState(null,'','#decouvrir');
+      const discoverItem = document.querySelector('.mobile-dock [data-kmh-discover]');
+      document.querySelectorAll('.mobile-dock .dock-item').forEach(item => {
+        const active = item === discoverItem;
+        item.classList.toggle('active',active);
+        if (active) item.setAttribute('aria-current','page'); else item.removeAttribute('aria-current');
+      });
+      document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','1');
     };
     const close = () => { closeFilters(); feed.classList.remove('open'); feed.setAttribute('aria-hidden','true'); document.body.classList.remove('kova-discover-open'); };
 
