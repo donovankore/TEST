@@ -60,9 +60,6 @@
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.in{opacity:1;transform:none}
     @media(max-width:900px){.links{display:none}.poster-stage{height:360px}.poster{width:190px;height:270px}.p1{left:-16%}.p2{left:8%}.p4{right:8%}.p5{right:-16%}.phone-layout,.organizer-grid{grid-template-columns:1fr}.phone{position:relative;top:auto}.metric-grid{grid-template-columns:1fr}.quote blockquote{font-size:32px}}
     @media(max-width:560px){.hero{padding-top:120px}.poster-stage{height:300px}.poster{width:160px;height:225px;border-radius:22px}.poster h3{font-size:22px}.p1,.p5{display:none}.p2{left:-8%}.p3{left:50%}.p4{right:-8%}.event-card{min-width:82vw}.phone{width:300px;height:620px}.section-title{font-size:54px}}
-  
-    /* Mobile experience */
-    .mobile-dock{display:none}
     .tap-hint{display:none}
     .poster{cursor:pointer;-webkit-tap-highlight-color:transparent}
     .poster:focus-visible{outline:3px solid rgba(139,92,246,.45);outline-offset:5px}
@@ -86,7 +83,6 @@
       .organizer-grid{gap:16px}.dash{padding:16px;border-radius:26px;overflow:hidden}.dashbar{font-size:13px}.metric-grid{grid-template-columns:repeat(3,1fr);gap:7px}.metric{padding:12px 8px;border-radius:16px}.metric strong{font-size:23px}.metric span,.metric small{font-size:10px}.chart{height:190px}.quote{min-height:340px;border-radius:26px;padding:28px}.quote blockquote{font-size:32px}
       .cta{padding:110px 16px}.cta h2{font-size:58px}.cta p{font-size:18px}.store-row{display:grid}.store{text-align:center}
       .footer-inner{justify-content:center;text-align:center;font-size:13px}
-      .mobile-dock{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:12px;right:12px;bottom:10px;z-index:180;padding:8px;background:rgba(20,20,22,.86);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.dock-item{display:grid;place-items:center;gap:3px;color:#aaa;font-size:10px;padding:6px 2px;border-radius:14px}.dock-item strong{font-size:18px;font-weight:500}.dock-item.active{background:#fff;color:#111}
       .event-sheet{bottom:8px;border-radius:28px}.sheet-visual{height:250px}.sheet-row{align-items:flex-start}.sheet-copy h4{font-size:13px;margin:0}.sheet-actions{grid-template-columns:1fr 52px}
     }
 
@@ -1547,7 +1543,7 @@ body.kova-modal-open{overflow:hidden}
     gap:14px;
   }
 }
-@media (max-width:700px){#kovaMobileMenu{position:fixed!important;inset:0!important;z-index:5000!important;display:flex!important;flex-direction:column!important;padding:22px 18px calc(30px + env(safe-area-inset-bottom))!important;background:rgba(12,12,14,.98)!important;color:#fff!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(-14px)!important;transition:opacity .28s ease,transform .28s ease,visibility .28s!important;overflow-y:auto!important}#kovaMobileMenu.open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important}#kovaMobileMenu a,#kovaMobileMenu button{pointer-events:auto!important;min-height:52px!important}#kovaMenuOpen{pointer-events:auto!important;touch-action:manipulation!important;z-index:300!important}.mobile-dock{--dock-index:0;display:grid!important;grid-template-columns:repeat(4,1fr)!important;position:fixed!important;left:12px!important;right:12px!important;bottom:calc(10px + env(safe-area-inset-bottom))!important;z-index:4200!important;padding:7px!important;overflow:hidden!important;isolation:isolate!important;background:rgba(21,21,24,.90)!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:23px!important;backdrop-filter:blur(24px) saturate(180%)!important;box-shadow:0 18px 48px rgba(0,0,0,.34)!important}.mobile-dock::before{content:""!important;position:absolute!important;z-index:-1!important;top:7px!important;bottom:7px!important;left:7px!important;width:calc((100% - 14px)/4)!important;border-radius:16px!important;background:#fff!important;transform:translateX(calc(var(--dock-index) * 100%))!important;transition:transform .38s cubic-bezier(.16,1,.3,1)!important}.mobile-dock .dock-item{position:relative!important;z-index:2!important;display:grid!important;place-items:center!important;min-height:58px!important;padding:6px 2px!important;color:#aaa!important;background:transparent!important;text-decoration:none!important;border-radius:15px!important;pointer-events:auto!important;touch-action:manipulation!important;transition:color .3s ease!important}.mobile-dock .dock-item.active{color:#111!important}.mobile-dock .dock-item strong{font-size:19px!important}.mobile-dock .dock-item span{font-size:10px!important}#discover .event-card,.artist-slide[data-kova-artist]{pointer-events:auto!important;touch-action:pan-x!important;cursor:pointer!important;position:relative!important;z-index:2!important}#discover .event-card::before,#discover .event-card::after,.artist-slide[data-kova-artist]::before,.artist-slide[data-kova-artist]::after,#discover .event-overlay{pointer-events:none!important}#kovaEventPage,#kovaArtistPage{z-index:6000!important;pointer-events:none!important}#kovaEventPage.open,#kovaArtistPage.open{pointer-events:auto!important}#kovaEventBackdrop.open{z-index:5900!important;pointer-events:auto!important}#kovaEventPage button,#kovaEventPage a,#kovaArtistPage button,#kovaArtistPage a{pointer-events:auto!important;touch-action:manipulation!important;min-height:44px}#organizers,#creatorStudio{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}.creator-lab{display:grid!important;grid-template-columns:1fr!important;gap:14px!important;min-height:auto!important}.creator-lab-copy,.creator-lab-canvas{width:100%!important;min-height:auto!important;border-radius:26px!important}.creator-lab-copy{padding:30px 22px!important}.creator-lab-copy h2{font-size:clamp(48px,15vw,68px)!important;line-height:.88!important}.creator-lab-canvas{min-height:560px!important;overflow:hidden!important}.creator-studio{width:100%!important;padding:12px!important;border-radius:26px!important}.creator-studio-bar{display:block!important;padding:8px 4px 16px!important}.creator-steps{display:flex!important;grid-template-columns:none!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;gap:7px!important;padding:7px!important;scrollbar-width:none!important}.creator-steps::-webkit-scrollbar{display:none!important}.creator-step{flex:0 0 46%!important;min-width:46%!important;padding:13px 10px!important;text-align:left!important;font-size:13px!important;scroll-snap-align:start!important;pointer-events:auto!important}.creator-step span{font-size:9px!important;margin-bottom:4px!important}.creator-workspace{display:block!important}.creator-form-panel,.creator-preview-panel{width:100%!important;padding:16px!important;border-radius:22px!important}.creator-preview-panel{min-height:auto!important;margin-top:12px!important;position:relative!important;top:auto!important}.creator-field-grid{grid-template-columns:1fr!important}.creator-upload{min-height:260px!important}.creator-nav{position:sticky!important;bottom:calc(80px + env(safe-area-inset-bottom))!important;z-index:60!important;padding:13px 0!important;background:linear-gradient(180deg,rgba(21,21,25,0),#151519 28%)!important}.creator-nav button{pointer-events:auto!important;min-height:50px!important}body.kova-modal-open .mobile-dock{display:none!important}}
+@media (max-width:700px){#kovaMobileMenu{position:fixed!important;inset:0!important;z-index:5000!important;display:flex!important;flex-direction:column!important;padding:22px 18px calc(30px + env(safe-area-inset-bottom))!important;background:rgba(12,12,14,.98)!important;color:#fff!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(-14px)!important;transition:opacity .28s ease,transform .28s ease,visibility .28s!important;overflow-y:auto!important}#kovaMobileMenu.open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important}#kovaMobileMenu a,#kovaMobileMenu button{pointer-events:auto!important;min-height:52px!important}#kovaMenuOpen{pointer-events:auto!important;touch-action:manipulation!important;z-index:300!important}#discover .event-card,.artist-slide[data-kova-artist]{pointer-events:auto!important;touch-action:pan-x!important;cursor:pointer!important;position:relative!important;z-index:2!important}#discover .event-card::before,#discover .event-card::after,.artist-slide[data-kova-artist]::before,.artist-slide[data-kova-artist]::after,#discover .event-overlay{pointer-events:none!important}#kovaEventPage,#kovaArtistPage{z-index:6000!important;pointer-events:none!important}#kovaEventPage.open,#kovaArtistPage.open{pointer-events:auto!important}#kovaEventBackdrop.open{z-index:5900!important;pointer-events:auto!important}#kovaEventPage button,#kovaEventPage a,#kovaArtistPage button,#kovaArtistPage a{pointer-events:auto!important;touch-action:manipulation!important;min-height:44px}#organizers,#creatorStudio{width:100%!important;max-width:100%!important;padding-left:14px!important;padding-right:14px!important}.creator-lab{display:grid!important;grid-template-columns:1fr!important;gap:14px!important;min-height:auto!important}.creator-lab-copy,.creator-lab-canvas{width:100%!important;min-height:auto!important;border-radius:26px!important}.creator-lab-copy{padding:30px 22px!important}.creator-lab-copy h2{font-size:clamp(48px,15vw,68px)!important;line-height:.88!important}.creator-lab-canvas{min-height:560px!important;overflow:hidden!important}.creator-studio{width:100%!important;padding:12px!important;border-radius:26px!important}.creator-studio-bar{display:block!important;padding:8px 4px 16px!important}.creator-steps{display:flex!important;grid-template-columns:none!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;gap:7px!important;padding:7px!important;scrollbar-width:none!important}.creator-steps::-webkit-scrollbar{display:none!important}.creator-step{flex:0 0 46%!important;min-width:46%!important;padding:13px 10px!important;text-align:left!important;font-size:13px!important;scroll-snap-align:start!important;pointer-events:auto!important}.creator-step span{font-size:9px!important;margin-bottom:4px!important}.creator-workspace{display:block!important}.creator-form-panel,.creator-preview-panel{width:100%!important;padding:16px!important;border-radius:22px!important}.creator-preview-panel{min-height:auto!important;margin-top:12px!important;position:relative!important;top:auto!important}.creator-field-grid{grid-template-columns:1fr!important}.creator-upload{min-height:260px!important}.creator-nav{position:sticky!important;bottom:calc(80px + env(safe-area-inset-bottom))!important;z-index:60!important;padding:13px 0!important;background:linear-gradient(180deg,rgba(21,21,25,0),#151519 28%)!important}.creator-nav button{pointer-events:auto!important;min-height:50px!important}}
 /* KOVA V25 — zero-JavaScript mobile fallback for iPhone Files / Quick Look */
 .offline-mobile-menu,.offline-card-link,#offlineFallbackRoot{display:none}
 html:not(.js-enabled) #kovaMenuOpen{display:none!important}
@@ -1584,17 +1580,6 @@ html.js-enabled .offline-detail,html.js-enabled .offline-confirm{display:none!im
 .offline-confirm:target{display:grid;place-items:center}
 .offline-confirm>div{width:min(100%,520px);background:#fff;border-radius:28px;padding:28px;position:relative}
 .offline-confirm>div>a:first-child{position:absolute;right:18px;top:18px;color:#111;text-decoration:none;font-size:24px}.offline-confirm h2{font-size:48px;line-height:.92;letter-spacing:-.06em;margin:18px 0}.offline-confirm p{color:#666;line-height:1.55}
-html:not(.js-enabled) .mobile-dock{--offline-index:0}
-html:not(.js-enabled) body:has(#discover:target) .mobile-dock{--offline-index:1}
-html:not(.js-enabled) body:has(#artists:target) .mobile-dock{--offline-index:2}
-html:not(.js-enabled) body:has(#organizers:target) .mobile-dock,html:not(.js-enabled) body:has(#creatorStudio:target) .mobile-dock{--offline-index:3}
-html:not(.js-enabled) .mobile-dock::before{transform:translateX(calc(var(--offline-index) * 100%))!important}
-html:not(.js-enabled) .mobile-dock .dock-item{background:transparent!important;color:#aaa!important}
-html:not(.js-enabled) body:not(:has(#discover:target)):not(:has(#artists:target)):not(:has(#organizers:target)):not(:has(#creatorStudio:target)) .mobile-dock .dock-item:nth-child(1),
-html:not(.js-enabled) body:has(#discover:target) .mobile-dock .dock-item:nth-child(2),
-html:not(.js-enabled) body:has(#artists:target) .mobile-dock .dock-item:nth-child(3),
-html:not(.js-enabled) body:has(#organizers:target) .mobile-dock .dock-item:nth-child(4),
-html:not(.js-enabled) body:has(#creatorStudio:target) .mobile-dock .dock-item:nth-child(4){color:#111!important}
 html:not(.js-enabled) #creatorStudio .creator-panel{display:block!important;opacity:1!important;visibility:visible!important;margin-bottom:16px!important}
 html:not(.js-enabled) #creatorStudio .creator-steps{display:none!important}
 html:not(.js-enabled) #creatorStudio input,html:not(.js-enabled) #creatorStudio select,html:not(.js-enabled) #creatorStudio textarea,html:not(.js-enabled) #creatorStudio button,html:not(.js-enabled) #creatorStudio a{pointer-events:auto!important}
@@ -2619,10 +2604,6 @@ html:not(.js-enabled) .rising-card::after{
     min-height:60px!important;
     margin-bottom:10px!important;
   }
-
-  .mobile-dock{
-    z-index:500!important;
-  }
 }
 
 /* =========================================================
@@ -2716,8 +2697,7 @@ html:not(.js-enabled) .rising-card::after{
   visibility:visible;
   transform:translateY(0);
 }
-.kova-menu-open,.kova-mobile-menu button,.kova-mobile-menu a,
-.mobile-dock a,.artist-slide,.rising-card,.event-card,.poster,
+.kova-menu-open,.kova-mobile-menu button,.kova-mobile-menu a,.artist-slide,.rising-card,.event-card,.poster,
 .k35-tabs label,.k35-nav label,.k35-publish,.k35-add-ticket,
 .k35-ticket input,.k35-ticket button,.k35-themes button{
   pointer-events:auto!important;
@@ -2728,23 +2708,6 @@ html:not(.js-enabled) .rising-card::after{
   .k39-modal-image{height:340px}
   .k39-modal-actions{grid-template-columns:1fr}
   .k39-modal-sheet h2{font-size:48px}
-
-  .mobile-dock{
-    left:50%!important;
-    right:auto!important;
-    width:calc(100% - 24px)!important;
-    max-width:790px!important;
-    transform:translateX(-50%)!important;
-  }
-  .mobile-dock .dock-item{
-    min-width:0!important;
-    flex:1 1 0!important;
-  }
-  .mobile-dock .dock-item.active{
-    background:#fff!important;
-    color:#111!important;
-    border-radius:24px!important;
-  }
 
   #organizers,#creatorStudio,.k35-app,.k35-tabs,.k35-panels,.k35-preview{
     width:100%!important;
@@ -2808,24 +2771,6 @@ html:not(.js-enabled) .rising-card::after{
 
 /* One clean white active state: no duplicate ghost block behind the dock. */
 @media(max-width:700px){
-  .mobile-dock{
-    left:50%!important;right:auto!important;width:calc(100% - 24px)!important;
-    transform:translateX(-50%)!important;overflow:hidden!important;
-    isolation:isolate!important
-  }
-  .mobile-dock::before{
-    z-index:0!important;
-    left:7px!important;
-    width:calc((100% - 14px)/4)!important;
-    transform:translateX(calc(var(--dock-index,0) * 100%))!important
-  }
-  .mobile-dock .dock-item{
-    position:relative!important;z-index:1!important;
-    background:transparent!important;color:#aaa!important
-  }
-  .mobile-dock .dock-item.active{
-    background:transparent!important;color:#111!important
-  }
 
   #creatorStudio, #creatorStudio *{box-sizing:border-box!important}
   #creatorStudio{
@@ -3166,17 +3111,6 @@ html:not(.js-enabled) .rising-card::after{
 .k42-related small{margin-top:5px;color:#8a8a94}
 
 @media(max-width:700px){
-  /* Prevent dock background from blocking controls above it. */
-  .mobile-dock{
-    pointer-events:none!important;
-    height:auto!important;
-    min-height:88px!important;
-    overflow:hidden!important;
-  }
-  .mobile-dock .dock-item{
-    pointer-events:auto!important;
-    min-height:78px!important;
-  }
 
   #creatorStudio{
     padding-bottom:190px!important;
@@ -3407,8 +3341,7 @@ html:not(.js-enabled) .rising-card::after{
 }
 
 @media(max-width:700px){
-  /* Compact, minimal dock */
-  .mobile-dock{
+  /* Compact{
     left:50%!important;
     right:auto!important;
     bottom:10px!important;
@@ -3420,34 +3353,6 @@ html:not(.js-enabled) .rising-card::after{
     border-radius:24px!important;
     overflow:hidden!important;
     pointer-events:none!important;
-  }
-  .mobile-dock::before{display:none!important}
-  .mobile-dock .dock-item{
-    flex:1 1 0!important;
-    min-width:0!important;
-    min-height:60px!important;
-    height:60px!important;
-    padding:5px 2px!important;
-    gap:3px!important;
-    border-radius:18px!important;
-    background:transparent!important;
-    color:#a3a3ab!important;
-    pointer-events:auto!important;
-  }
-  .mobile-dock .dock-item.active{
-    background:#fff!important;
-    color:#111!important;
-  }
-  .mobile-dock .dock-item svg,
-  .mobile-dock .dock-item .dock-icon{
-    width:21px!important;
-    height:21px!important;
-    font-size:21px!important;
-  }
-  .mobile-dock .dock-item span,
-  .mobile-dock .dock-item small{
-    font-size:10px!important;
-    line-height:1!important;
   }
 
   body{padding-bottom:86px!important}
@@ -5430,10 +5335,6 @@ img, video, canvas, svg {
     padding-bottom: 0 !important;
   }
 
-  .mobile-dock {
-    display: none !important;
-  }
-
   .nav .links,
   .nav .nav-cta {
     display: flex !important;
@@ -5472,16 +5373,6 @@ img, video, canvas, svg {
 
   .nav .kova-menu-open {
     display: grid !important;
-  }
-
-  .mobile-dock {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    position: fixed !important;
-    left: 16px !important;
-    right: 16px !important;
-    bottom: 14px !important;
-    z-index: 50000 !important;
   }
 
   .k54-hero .hero-inner {
@@ -5531,34 +5422,6 @@ img, video, canvas, svg {
 
   .nav .kova-menu-open {
     display: grid !important;
-  }
-
-  .mobile-dock {
-    position: fixed !important;
-    left: 10px !important;
-    right: 10px !important;
-    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
-    z-index: 4900 !important;
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    min-height: 72px !important;
-    padding: 7px !important;
-    border-radius: 22px !important;
-    background: rgba(19,19,23,.95) !important;
-    backdrop-filter: blur(22px) !important;
-    box-shadow: 0 18px 45px rgba(0,0,0,.28) !important;
-  }
-
-  .mobile-dock .dock-item {
-    min-width: 0 !important;
-    min-height: 58px !important;
-    padding: 7px 4px !important;
-    border-radius: 16px !important;
-  }
-
-  .mobile-dock .dock-item.active {
-    background: #fff !important;
-    color: #111 !important;
   }
 
   .k54-hero {
@@ -6136,9 +5999,6 @@ img, video, canvas, svg {
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.in{opacity:1;transform:none}
     @media(max-width:900px){.links{display:none}.poster-stage{height:360px}.poster{width:190px;height:270px}.p1{left:-16%}.p2{left:8%}.p4{right:8%}.p5{right:-16%}.phone-layout,.organizer-grid{grid-template-columns:1fr}.phone{position:relative;top:auto}.metric-grid{grid-template-columns:1fr}.quote blockquote{font-size:32px}}
     @media(max-width:560px){.hero{padding-top:120px}.poster-stage{height:300px}.poster{width:160px;height:225px;border-radius:22px}.poster h3{font-size:22px}.p1,.p5{display:none}.p2{left:-8%}.p3{left:50%}.p4{right:-8%}.event-card{min-width:82vw}.phone{width:300px;height:620px}.section-title{font-size:54px}}
-  
-    /* Mobile experience */
-    .mobile-dock{display:none}
     .tap-hint{display:none}
     .poster{cursor:pointer;-webkit-tap-highlight-color:transparent}
     .poster:focus-visible{outline:3px solid rgba(139,92,246,.45);outline-offset:5px}
@@ -6162,7 +6022,6 @@ img, video, canvas, svg {
       .organizer-grid{gap:16px}.dash{padding:16px;border-radius:26px;overflow:hidden}.dashbar{font-size:13px}.metric-grid{grid-template-columns:repeat(3,1fr);gap:7px}.metric{padding:12px 8px;border-radius:16px}.metric strong{font-size:23px}.metric span,.metric small{font-size:10px}.chart{height:190px}.quote{min-height:340px;border-radius:26px;padding:28px}.quote blockquote{font-size:32px}
       .cta{padding:110px 16px}.cta h2{font-size:58px}.cta p{font-size:18px}.store-row{display:grid}.store{text-align:center}
       .footer-inner{justify-content:center;text-align:center;font-size:13px}
-      .mobile-dock{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:12px;right:12px;bottom:10px;z-index:180;padding:8px;background:rgba(20,20,22,.86);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.dock-item{display:grid;place-items:center;gap:3px;color:#aaa;font-size:10px;padding:6px 2px;border-radius:14px}.dock-item strong{font-size:18px;font-weight:500}.dock-item.active{background:#fff;color:#111}
       .event-sheet{bottom:8px;border-radius:28px}.sheet-visual{height:250px}.sheet-row{align-items:flex-start}.sheet-copy h4{font-size:13px;margin:0}.sheet-actions{grid-template-columns:1fr 52px}
     }
 
@@ -8388,9 +8247,6 @@ button,a,input,select,textarea{
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.in{opacity:1;transform:none}
     @media(max-width:900px){.links{display:none}.poster-stage{height:360px}.poster{width:190px;height:270px}.p1{left:-16%}.p2{left:8%}.p4{right:8%}.p5{right:-16%}.phone-layout,.organizer-grid{grid-template-columns:1fr}.phone{position:relative;top:auto}.metric-grid{grid-template-columns:1fr}.quote blockquote{font-size:32px}}
     @media(max-width:560px){.hero{padding-top:120px}.poster-stage{height:300px}.poster{width:160px;height:225px;border-radius:22px}.poster h3{font-size:22px}.p1,.p5{display:none}.p2{left:-8%}.p3{left:50%}.p4{right:-8%}.event-card{min-width:82vw}.phone{width:300px;height:620px}.section-title{font-size:54px}}
-  
-    /* Mobile experience */
-    .mobile-dock{display:none}
     .tap-hint{display:none}
     .poster{cursor:pointer;-webkit-tap-highlight-color:transparent}
     .poster:focus-visible{outline:3px solid rgba(139,92,246,.45);outline-offset:5px}
@@ -8414,7 +8270,6 @@ button,a,input,select,textarea{
       .organizer-grid{gap:16px}.dash{padding:16px;border-radius:26px;overflow:hidden}.dashbar{font-size:13px}.metric-grid{grid-template-columns:repeat(3,1fr);gap:7px}.metric{padding:12px 8px;border-radius:16px}.metric strong{font-size:23px}.metric span,.metric small{font-size:10px}.chart{height:190px}.quote{min-height:340px;border-radius:26px;padding:28px}.quote blockquote{font-size:32px}
       .cta{padding:110px 16px}.cta h2{font-size:58px}.cta p{font-size:18px}.store-row{display:grid}.store{text-align:center}
       .footer-inner{justify-content:center;text-align:center;font-size:13px}
-      .mobile-dock{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:12px;right:12px;bottom:10px;z-index:180;padding:8px;background:rgba(20,20,22,.86);backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.12);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.dock-item{display:grid;place-items:center;gap:3px;color:#aaa;font-size:10px;padding:6px 2px;border-radius:14px}.dock-item strong{font-size:18px;font-weight:500}.dock-item.active{background:#fff;color:#111}
       .event-sheet{bottom:8px;border-radius:28px}.sheet-visual{height:250px}.sheet-row{align-items:flex-start}.sheet-copy h4{font-size:13px;margin:0}.sheet-actions{grid-template-columns:1fr 52px}
     }
 
@@ -10886,11 +10741,6 @@ button,a,input,select,textarea{
     min-height:auto!important;
   }
 
-  /* Bottom dock should not cover content */
-  .mobile-dock{
-    padding-bottom:env(safe-area-inset-bottom)!important;
-  }
-
   main,
   footer,
   .kova-app-cta{
@@ -11181,10 +11031,6 @@ button,a,input,select,textarea{
     min-height:58px!important;
     margin-bottom:12px!important;
     touch-action:manipulation!important;
-  }
-
-  .mobile-dock{
-    z-index:500!important;
   }
 }
 </style>
@@ -13108,9 +12954,6 @@ body.kova-wallet-open{overflow:hidden}
 body.kova-wallet-open #kovaPlayer{visibility:hidden!important;pointer-events:none!important}
 
 @media (max-width:700px){
-  .mobile-dock{grid-template-columns:repeat(5,minmax(0,1fr))!important}
-  .mobile-dock .dock-item span{font-size:9px!important}
-  body.kova-wallet-open .mobile-dock{z-index:230100!important}
 
   .v81-wallet-head{min-height:74px;padding:calc(8px + env(safe-area-inset-top)) 14px 8px}
   .v81-offline-state{font-size:8px!important}
@@ -13200,10 +13043,7 @@ body.kova-wallet-open #kovaPlayer{visibility:hidden!important;pointer-events:non
     height:100dvh!important;
     padding:calc(18px + env(safe-area-inset-top)) 20px calc(24px + env(safe-area-inset-bottom))!important;
     border-radius:0!important;
-    background:
-      radial-gradient(circle at 88% 8%,rgba(255,52,141,.28),transparent 27%),
-      radial-gradient(circle at 12% 88%,rgba(116,77,255,.25),transparent 30%),
-      #0d0d10!important;
+    background:#09090b!important;
     color:#fff!important;
     opacity:0!important;
     visibility:hidden!important;
@@ -13238,36 +13078,38 @@ body.kova-wallet-open #kovaPlayer{visibility:hidden!important;pointer-events:non
 
   #kovaMobileMenu nav{
     display:grid!important;
-    gap:0!important;
-    margin:auto 0!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:0 18px!important;
+    margin:26px 0 auto!important;
+    overflow-y:auto!important;
   }
 
   #kovaMobileMenu nav a{
-    display:grid!important;
-    grid-template-columns:42px 1fr!important;
+    display:flex!important;
     align-items:center!important;
-    min-height:64px!important;
-    padding:8px 2px!important;
+    min-height:54px!important;
+    padding:7px 0!important;
     border-bottom:1px solid rgba(255,255,255,.1)!important;
     color:#fff!important;
     opacity:1!important;
     transform:none!important;
   }
 
-  #kovaMobileMenu nav a small{color:#ff5ca4;font-size:9px;font-weight:950;letter-spacing:.12em}
-  #kovaMobileMenu nav a span{font-size:clamp(25px,7.4vw,38px);font-weight:900;line-height:1;letter-spacing:-.055em}
+  #kovaMobileMenu nav a small{display:none!important}
+  #kovaMobileMenu nav a span{font-size:18px;font-weight:800;line-height:1.05;letter-spacing:-.035em}
+  #kovaMobileMenu nav a[data-kova-menu-action="home"],#kovaMobileMenu nav a[data-kova-menu-action="for-you"]{grid-column:1/-1;min-height:66px!important}
+  #kovaMobileMenu nav a[data-kova-menu-action="home"] span,#kovaMobileMenu nav a[data-kova-menu-action="for-you"] span{font-size:29px;font-weight:900}
   #kovaMenuEarlyAccess{
     width:100%!important;
     min-height:56px!important;
     border:0!important;
-    border-radius:18px!important;
+    border-radius:14px!important;
     background:#fff!important;
     color:#111!important;
     font-weight:950!important;
   }
 
-  body.kova-menu-active{overflow:hidden!important}
-  body.kova-menu-active .mobile-dock,body.kova-menu-active #kovaPlayer{visibility:hidden!important;pointer-events:none!important}
+  body.kova-menu-active{overflow:hidden!important}body.kova-menu-active #kovaPlayer{visibility:hidden!important;pointer-events:none!important}
 }
 
 @media (max-width:700px){
@@ -13779,8 +13621,7 @@ body.v67-artist-open .kova-player{
 .kova-experience-overview-open>span{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;color:#111;background:#fff;font-size:16px}
 .kova-experience-overview-open strong{font-size:12px;line-height:1.1;white-space:nowrap}
 .kova-experience-overview-open small{color:rgba(255,255,255,.5);font-size:9px;white-space:nowrap}
-body.kova-experience-overview-open{overflow:hidden;touch-action:none;transform:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-body.kova-experience-overview-open .mobile-dock,body.kova-experience-overview-open .kova-player{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+body.kova-experience-overview-open{overflow:hidden;touch-action:pan-y;transform:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}body.kova-experience-overview-open .kova-player{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .kova-experience-overview{position:fixed;z-index:13500;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:0!important;color:#f7f7f8;background:radial-gradient(circle at 80% 5%,rgba(255,59,139,.16),transparent 28%),#0b0b0e;font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .3s ease,transform .42s cubic-bezier(.16,1,.3,1),visibility .3s;-webkit-overflow-scrolling:touch}
 .kova-experience-overview.open{opacity:1;visibility:visible;transform:none}
 .kova-experience-overview-nav{position:sticky;z-index:6;top:0;display:grid;grid-template-columns:48px minmax(0,1fr) 48px;align-items:center;gap:10px;padding:12px clamp(16px,3vw,44px);pointer-events:none}
@@ -13878,7 +13719,6 @@ body.kova-experience-overview-open .mobile-dock,body.kova-experience-overview-op
 .kova-guide-count{white-space:nowrap;font-weight:900;letter-spacing:.12em}
 
 body.kova-place-open{overflow:hidden;touch-action:none}
-body.kova-place-open .mobile-dock,
 body.kova-place-open .kova-player{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .kova-place-page{position:fixed;z-index:14000;inset:0;display:block;overflow-y:auto;overscroll-behavior:contain;color:#171719;background:#f5f5f3;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .36s ease,transform .48s cubic-bezier(.2,.75,.25,1),visibility .36s;-webkit-overflow-scrolling:touch}
 .kova-place-page.open{opacity:1;visibility:visible;transform:none}
@@ -13963,17 +13803,15 @@ body.kova-place-open .kova-player{opacity:0!important;visibility:hidden!importan
   .kova-experience-overview-nav{grid-template-columns:42px minmax(0,1fr) 42px;padding:9px 11px}
   .kova-experience-overview-nav button{min-height:42px}
   .kova-experience-overview-nav button:nth-child(2){padding:0 15px;font-size:9px}
-  .kova-experience-overview-shell{width:100%;padding:22px 14px 90px}
-  .kova-experience-overview-shell header{display:block;margin-bottom:20px}
-  .kova-experience-overview-shell header .kova-guide-kicker{margin-bottom:11px}
-  .kova-experience-overview-shell h2{font-size:clamp(42px,12vw,54px)}
-  .kova-experience-overview-shell header p{max-width:31ch;margin:11px 0 0;font-size:12px}
-  .kova-experience-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-  .kova-experience-overview-card{border-radius:19px;aspect-ratio:.71}
-  .kova-experience-overview-card-copy{padding:13px}
-  .kova-experience-overview-card-copy strong{font-size:clamp(18px,5.3vw,23px)}
-  .kova-experience-overview-card-copy span{display:none}
-  .kova-experience-overview-budget{top:9px;left:9px;max-width:calc(100% - 18px);padding:6px 7px;font-size:6px}
+  .kova-experience-overview-shell{width:100%;padding:10px 14px calc(34px + env(safe-area-inset-bottom))}
+  .kova-experience-overview-shell header{display:none}
+  .kova-experience-overview-grid{grid-template-columns:1fr;gap:0}
+  .kova-experience-overview-card{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;min-height:112px;aspect-ratio:auto;border-bottom:1px solid rgba(255,255,255,.09);border-radius:0;background:transparent}
+  .kova-experience-overview-card::after{display:none}
+  .kova-experience-overview-card img{position:relative;inset:auto;width:86px;height:92px;margin:10px 0;border-radius:14px;object-fit:cover}
+  .kova-experience-overview-card-copy{position:relative;inset:auto;padding:12px 4px;color:#fff}
+  .kova-experience-overview-card-copy small{margin-bottom:5px;font-size:7px}.kova-experience-overview-card-copy strong{font-size:18px;line-height:1.02}.kova-experience-overview-card-copy span{display:block;margin-top:6px;font-size:9px}
+  .kova-experience-overview-budget{display:none}
   .kova-city-guide{padding:76px 0 90px}
   .kova-guide-shell{width:100%}
   .kova-guide-head{display:none}
@@ -15173,8 +15011,7 @@ body.kova-artist-detail-open{
    mobile/tablet dock. Navigation behavior remains independent.
    ========================================================= */
 
-.nav,
-.mobile-dock{
+.nav{
   --glass-x:72%;
   --glass-y:18%;
   --glass-light:rgba(255,255,255,.72);
@@ -15216,8 +15053,7 @@ button,a{-webkit-tap-highlight-color:transparent}
   transition:background .28s ease,border-color .28s ease,box-shadow .28s ease,transform .24s cubic-bezier(.2,.8,.2,1)!important;
 }
 
-.nav::after,
-.mobile-dock::after{
+.nav::after{
   content:"";
   position:absolute;
   z-index:1;
@@ -15266,110 +15102,15 @@ button,a{-webkit-tap-highlight-color:transparent}
   outline-offset:2px!important;
 }
 
-.nav.is-glass-pressed,
-.mobile-dock.is-glass-pressed{
+.nav.is-glass-pressed{
   --glass-light:rgba(255,255,255,.9);
 }
 
-.nav.is-glass-pressed::after,
-.mobile-dock.is-glass-pressed::after{
+.nav.is-glass-pressed::after{
   opacity:.95;
 }
 
 @media (max-width:1000px){
-  .mobile-dock{
-    position:fixed!important;
-    grid-template-columns:repeat(5,minmax(0,1fr))!important;
-    left:50%!important;
-    right:auto!important;
-    bottom:max(12px,env(safe-area-inset-bottom))!important;
-    width:min(calc(100vw - 24px),680px)!important;
-    max-width:calc(100vw - 24px)!important;
-    min-height:64px!important;
-    padding:5px!important;
-    margin:0!important;
-    transform:translateX(-50%) translateY(var(--dock-lift,0px)) translateZ(0)!important;
-    box-sizing:border-box!important;
-    z-index:99990!important;
-    overflow:hidden!important;
-    pointer-events:none!important;
-    border:1px solid rgba(255,255,255,.17)!important;
-    border-top-color:rgba(255,255,255,.38)!important;
-    border-radius:22px!important;
-    background:
-      radial-gradient(circle at var(--glass-x) var(--glass-y),rgba(255,255,255,.2),transparent 35%),
-      linear-gradient(118deg,rgba(19,19,25,.56),rgba(31,28,39,.39) 50%,rgba(13,13,18,.59))!important;
-    -webkit-backdrop-filter:blur(28px) saturate(184%) brightness(.96)!important;
-    backdrop-filter:blur(28px) saturate(184%) brightness(.96)!important;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.24),
-      inset 0 -1px 0 rgba(255,255,255,.07),
-      0 16px 44px rgba(0,0,0,.3),
-      0 4px 14px rgba(15,9,27,.16)!important;
-    opacity:.94!important;
-    transition:width .36s cubic-bezier(.16,1,.3,1),height .3s ease,opacity .26s ease,transform .36s cubic-bezier(.16,1,.3,1),background .3s ease!important;
-  }
-
-  .mobile-dock::before{
-    content:""!important;
-    display:block!important;
-    position:absolute!important;
-    z-index:1!important;
-    top:5px!important;
-    bottom:5px!important;
-    left:5px!important;
-    width:calc((100% - 10px)/5)!important;
-    border:1px solid rgba(255,255,255,.66)!important;
-    border-radius:19px!important;
-    background:
-      radial-gradient(circle at 72% 12%,rgba(255,255,255,.92),rgba(255,255,255,.39) 34%,transparent 62%),
-      linear-gradient(145deg,rgba(255,255,255,.72),rgba(238,233,248,.5))!important;
-    -webkit-backdrop-filter:blur(18px) saturate(170%)!important;
-    backdrop-filter:blur(18px) saturate(170%)!important;
-    box-shadow:
-      inset 0 1px 0 #fff,
-      inset 0 -1px 0 rgba(255,255,255,.3),
-      0 6px 18px rgba(0,0,0,.15)!important;
-    transform:translateX(calc(var(--dock-index,0) * 100%))!important;
-    transition:transform .52s cubic-bezier(.16,1,.3,1),border-radius .32s ease,filter .32s ease!important;
-    pointer-events:none!important;
-  }
-
-  .mobile-dock.is-morphing::before{
-    border-radius:27px 15px 27px 15px!important;
-    filter:brightness(1.08) saturate(1.12);
-  }
-
-  .mobile-dock .dock-item{
-    position:relative!important;
-    z-index:3!important;
-    min-width:0!important;
-    min-height:54px!important;
-    padding:4px 2px!important;
-    color:rgba(238,236,245,.62)!important;
-    background:transparent!important;
-    pointer-events:auto!important;
-    touch-action:manipulation!important;
-    transition:color .28s ease,transform .2s ease!important;
-  }
-
-  .mobile-dock .dock-item.active{
-    color:#111116!important;
-    background:transparent!important;
-  }
-
-  .mobile-dock .dock-item:active{
-    transform:scale(.94);
-  }
-
-  .mobile-dock .dock-item:focus-visible{
-    outline:2px solid rgba(255,255,255,.72)!important;
-    outline-offset:-4px!important;
-  }
-
-  .mobile-dock .dock-item.active:focus-visible{
-    outline-color:rgba(39,35,49,.36)!important;
-  }
 
   #kovaMenuOpen{
     border-color:rgba(255,255,255,.38)!important;
@@ -15383,11 +15124,6 @@ button,a{-webkit-tap-highlight-color:transparent}
 }
 
 @media (max-width:600px){
-  .mobile-dock{
-    width:calc(100vw - 56px)!important;
-    max-width:350px!important;
-    bottom:max(7px,env(safe-area-inset-bottom))!important;
-  }
 }
 
 @media (max-width:700px){
@@ -15450,84 +15186,26 @@ button,a{-webkit-tap-highlight-color:transparent}
     pointer-events:auto!important;
   }
 
-  /* Keep 44px+ targets while reducing the visual footprint of the dock. */
-  .mobile-dock{
-    --dock-lift:0px;
-    --dock-side-space:56px;
-    --dock-max:350px;
-    width:min(calc(100vw - var(--dock-side-space)),var(--dock-max))!important;
-    max-width:var(--dock-max)!important;
-    min-height:52px!important;
-    height:52px!important;
-    padding:4px!important;
-    bottom:max(7px,env(safe-area-inset-bottom))!important;
-    border-radius:18px!important;
-  }
-
-  .mobile-dock::before{
-    top:4px!important;
-    bottom:4px!important;
-    left:4px!important;
-    width:calc((100% - 8px)/5)!important;
-    border-radius:14px!important;
-  }
-
-  .mobile-dock.is-morphing::before{
-    border-radius:23px 13px 23px 13px!important;
-  }
-
-  .mobile-dock .dock-item{
-    min-height:44px!important;
-    height:44px!important;
-    padding:2px 1px!important;
-    gap:1px!important;
-  }
-
-  .mobile-dock .dock-item strong{
-    font-size:15px!important;
-    line-height:1!important;
-  }
-
-  .mobile-dock .dock-item span,
-  .mobile-dock .dock-item small{
-    font-size:7.5px!important;
-    line-height:1!important;
-    transition:opacity .22s ease,transform .22s ease!important;
-  }
-
-  /* While the user reads by scrolling down, the dock recedes without
-     disappearing. Scrolling up restores all labels immediately. */
-  .mobile-dock.is-scroll-compact{
+  /* While the user reads by scrolling down{
     --dock-lift:7px;
     --dock-side-space:82px;
     --dock-max:324px;
     opacity:.68!important;
   }
-  .mobile-dock.is-scroll-compact .dock-item span,
-  .mobile-dock.is-scroll-compact .dock-item small{
-    opacity:0!important;
-    transform:translateY(3px)!important;
-  }
-  .mobile-dock.is-scroll-compact .dock-item strong{transform:translateY(4px)}
 
   body{padding-bottom:calc(72px + env(safe-area-inset-bottom))!important}
 }
 
 @supports not ((-webkit-backdrop-filter:blur(2px)) or (backdrop-filter:blur(2px))){
   .nav{background:rgba(244,243,247,.94)!important}
-  .mobile-dock{background:rgba(19,19,24,.96)!important}
 }
 
 @media (prefers-contrast:more){
   .nav{background:rgba(248,248,250,.9)!important;border-color:#fff!important}
-  .mobile-dock{background:rgba(15,15,19,.92)!important}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .nav,
-  .mobile-dock,
-  .mobile-dock::before,
-  .mobile-dock .dock-item{transition:none!important}
+  .nav{transition:none!important}
 }
 </style><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/><style>
 /* =========================================================
@@ -16303,7 +15981,6 @@ main>#kovaOrganizerTestimonials{order:90}
 }
 .kova-events-overview.open{opacity:1;visibility:visible;pointer-events:auto}
 body.kova-events-overview-open{overflow:hidden}
-body.kova-events-overview-open .mobile-dock,
 body.kova-events-overview-open .kova-player,
 body.kova-events-overview-open>.nav,
 body.kova-events-overview-open #kovaMenuOpen{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
@@ -16425,12 +16102,15 @@ body.kova-events-overview-open #kovaMenuOpen{opacity:0!important;visibility:hidd
   .kova-events-overview-top{min-width:0;min-height:40px;overflow:hidden;padding:0;border:0;background:transparent;box-shadow:none;font-size:15px;letter-spacing:-.025em;text-overflow:ellipsis;white-space:nowrap;-webkit-backdrop-filter:none;backdrop-filter:none}
   .kova-events-overview-count{font-size:9px;letter-spacing:.04em}
   .kova-events-overview-head{display:none}
-  .kova-events-overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px;padding:14px 14px calc(32px + env(safe-area-inset-bottom))}
-  .kova-events-overview-grid>.event-card{border:0!important;border-radius:17px!important;background:transparent!important;box-shadow:none!important}
-  .kova-events-overview-grid>.event-card>.event-art{border:1px solid rgba(255,255,255,.08)!important;border-radius:17px!important;overflow:hidden!important}
-  .kova-events-overview-grid>.event-card>.event-meta{padding:9px 2px 0!important}
-  .kova-events-overview-grid>.event-card>.event-meta h3{font-size:14px!important}
-  .kova-events-overview-grid>.event-card>.event-meta p{font-size:9px!important;line-height:1.35!important}
+  .kova-events-overview-grid{grid-template-columns:1fr;gap:0;padding:8px 14px calc(34px + env(safe-area-inset-bottom))}
+  .kova-events-overview-grid>.event-card{display:grid!important;grid-template-columns:88px minmax(0,1fr)!important;align-items:center!important;width:100%!important;min-height:116px!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+  .kova-events-overview-grid>.event-card:hover{transform:none!important}
+  .kova-events-overview-grid>.event-card>.event-art{width:78px!important;height:98px!important;aspect-ratio:auto!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:13px!important;overflow:hidden!important}
+  .kova-events-overview-grid>.event-card>.event-meta{align-self:center!important;min-width:0!important;padding:10px 44px 10px 0!important}
+  .kova-events-overview-grid>.event-card>.event-meta h3{display:-webkit-box!important;margin:0 0 7px!important;overflow:hidden!important;font-size:16px!important;line-height:1.08!important;letter-spacing:-.025em!important;white-space:normal!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important}
+  .kova-events-overview-grid>.event-card>.event-meta p{font-size:10px!important;line-height:1.42!important;-webkit-line-clamp:2!important}
+  .kova-events-overview-grid .kova-overview-price{display:block;margin-top:5px;color:rgba(255,255,255,.78);font-size:9px;font-weight:800}
+  .kova-events-overview-grid>.event-card>.kova-favorite-button{top:50%!important;right:3px!important;width:38px!important;height:38px!important;transform:translateY(-50%)!important}
 }
 .kova-radar-launch span{color:#ff5b9b}
 .kova-radar-launch small{color:rgba(255,255,255,.54);font-size:10px;font-weight:700}
@@ -16453,7 +16133,6 @@ body.kova-events-overview-open #kovaMenuOpen{opacity:0!important;visibility:hidd
 }
 .kova-radar.open{opacity:1;visibility:visible;pointer-events:auto}
 body.kova-radar-open{overflow:hidden}
-body.kova-radar-open .mobile-dock{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .kova-radar-panel{
   width:min(940px,100%);
@@ -17235,8 +16914,7 @@ body.kova-radar-open .kova-player{opacity:0!important;visibility:hidden!importan
 .kova-artist-overview-image{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .55s cubic-bezier(.16,1,.3,1)}
 .kova-artist-overview-card:hover .kova-artist-overview-image{transform:scale(1.045)}
 .kova-artist-overview-copy{position:absolute;z-index:1;left:15px;right:15px;bottom:14px}.kova-artist-overview-copy strong{display:block;overflow:hidden;font-size:17px;line-height:1.05;text-overflow:ellipsis;white-space:nowrap}.kova-artist-overview-copy small{display:block;margin-top:5px;color:rgba(255,255,255,.6);font-size:9px;font-weight:750}.kova-artist-overview-card:focus-visible,.kova-artist-overview-bar button:focus-visible,.kova-artist-filter:focus-visible{outline:2px solid #ff67a4;outline-offset:3px}
-body.kova-artist-overview-open{overflow:hidden!important;touch-action:none!important;transform:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova-mobile-dock,body.kova-artist-overview-open .kova-player{visibility:hidden!important}
+body.kova-artist-overview-open{overflow:hidden!important;touch-action:pan-y!important;transform:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}body.kova-artist-overview-open .kova-player{visibility:hidden!important}
 
 /* Tighten the editorial handoff: personal picks → artists → phone. */
 .kova-smart-home{padding-bottom:clamp(40px,5vw,68px)!important}
@@ -17350,24 +17028,6 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
 .kova-mobile-feed{display:none}
 
 @media (max-width:700px){
-  .mobile-dock{
-    --dock-side-space:78px!important;
-    --dock-max:324px!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    height:50px!important;
-    min-height:50px!important;
-    border-radius:17px!important;
-    opacity:.9!important;
-  }
-  .mobile-dock::before{width:calc((100% - 8px)/4)!important}
-  .mobile-dock .dock-item{height:42px!important;min-height:42px!important}
-  .mobile-dock .dock-item strong{font-size:14px!important}
-  .mobile-dock .dock-item span{font-size:7px!important}
-  .mobile-dock.is-scroll-compact{
-    --dock-side-space:112px!important;
-    --dock-max:286px!important;
-    opacity:.58!important;
-  }
 
   body.kova-mobile-feed-open{overflow:hidden!important}
   body.kova-mobile-feed-open>.nav{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
@@ -17520,7 +17180,6 @@ body.kova-artist-overview-open .mobile-dock,body.kova-artist-overview-open .kova
 /* Explorer is now KOVA's single discovery surface on every screen. */
 body.kova-mobile-feed-open{overflow:hidden!important}
 body.kova-mobile-feed-open>.nav,
-body.kova-mobile-feed-open .mobile-dock,
 body.kova-mobile-feed-open #kovaPlayer{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .kova-mobile-feed{
   --feed-active-poster:none;
@@ -17807,7 +17466,6 @@ body.kova-event-theme-ready .v66-program-count{color:rgba(255,255,255,.46)!impor
 .kova-story-open{margin-top:24px;min-height:46px;padding:0 20px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font:850 11px/1 inherit;-webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
 .kova-story-dialog{position:fixed;inset:0;z-index:95000;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72);opacity:0;visibility:hidden;pointer-events:none;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);transition:opacity .25s ease,visibility .25s}
 .kova-story-dialog.open{opacity:1;visibility:visible;pointer-events:auto}
-.kova-modal-open .mobile-dock{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateY(120%)!important}
 .kova-story-dialog article{position:relative;width:min(720px,100%);max-height:min(760px,88svh);overflow-y:auto;padding:clamp(28px,5vw,58px);border:1px solid rgba(255,255,255,.16);border-radius:30px;background:rgba(18,18,21,.92);color:#fff;box-shadow:0 34px 100px rgba(0,0,0,.5)}
 .kova-story-dialog small{color:#ff72aa;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
 .kova-story-dialog h3{margin:18px 0;font-size:clamp(38px,7vw,72px);line-height:.9;letter-spacing:-.07em}
@@ -17848,44 +17506,6 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     background-color:#070708!important;
   }
   body:not(.kova-mobile-feed-open) #home{background-image:radial-gradient(circle at 80% 3%,rgba(255,52,141,.15),transparent 32%)!important}
-
-  .mobile-dock{
-    --dock-side-space:70px!important;
-    --dock-max:332px!important;
-    height:52px!important;
-    min-height:52px!important;
-    padding:4px!important;
-    border-radius:18px!important;
-    background:rgba(18,18,22,.56)!important;
-    border-color:rgba(255,255,255,.18)!important;
-    -webkit-backdrop-filter:blur(28px) saturate(185%)!important;
-    backdrop-filter:blur(28px) saturate(185%)!important;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 15px 40px rgba(0,0,0,.34)!important;
-    opacity:.88!important;
-  }
-  .mobile-dock .dock-item{height:44px!important;min-height:44px!important;border-radius:14px!important;transition:color .22s ease,transform .22s cubic-bezier(.16,1,.3,1),background .22s ease!important}
-  .mobile-dock .dock-item:active{transform:scale(.91)!important}
-  .mobile-dock .dock-item.active{background:rgba(255,255,255,.91)!important;box-shadow:inset 0 1px 0 #fff,0 6px 18px rgba(0,0,0,.18)!important}
-  .mobile-dock .dock-item strong{font-size:15px!important;line-height:1!important}
-  .mobile-dock .dock-item strong{
-    display:grid!important;
-    place-items:center!important;
-    width:18px!important;
-    height:18px!important;
-    margin:0 auto!important;
-  }
-  .mobile-dock .dock-item strong svg{
-    width:16px!important;
-    height:16px!important;
-    fill:none!important;
-    stroke:currentColor!important;
-    stroke-width:1.9!important;
-    stroke-linecap:round!important;
-    stroke-linejoin:round!important;
-  }
-  .mobile-dock .dock-item span{font-size:7px!important;letter-spacing:.01em!important}
-  .mobile-dock.is-scroll-compact{--dock-side-space:104px!important;--dock-max:290px!important;opacity:.5!important}
-  body.kova-mobile-feed-open .mobile-dock{display:none!important}
 
   .kova-mobile-feed{
     --feed-active-poster:none;
@@ -18010,7 +17630,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </style><link rel="stylesheet" href="assets/kova-interface-v3.css?v=20260821-6"/><meta content="no-cache, no-store,must-revalidate" http-equiv="Cache-Control"/><meta content="no-cache" http-equiv="Pragma"/><meta content="0" http-equiv="Expires"/>
 <style id="kova-mobile-home-v1">
 /* ÉTAPE 1 — Home mobile dédiée. Le desktop conserve intégralement sa composition actuelle. */
-.kova-mobile-home{display:none}
+.kova-mobile-home,.kova-header-publish{display:none}
 @media (max-width:700px){
   :root{--kmh-card-large:min(82vw,344px);--kmh-card-medium:min(52vw,218px);--kmh-card-compact:min(42vw,176px);--kmh-radius-large:24px;--kmh-radius-medium:18px;--kmh-radius-compact:14px}
   html{background:#050505;overflow-x:hidden}
@@ -18038,7 +17658,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-mobile-create-mode #organizers{display:block;padding-bottom:120px}
 
   body:not(.kova-discover-open):not(.kova-mobile-create-mode):not(.kova-wallet-open):not(.kova-profile-open)>.nav{position:absolute!important}
-  .kova-mobile-home{display:block;width:100%;padding:calc(76px + env(safe-area-inset-top)) 0 calc(112px + env(safe-area-inset-bottom));background:#050505;color:#fff;overflow:hidden}
+  .kova-mobile-home{display:block;width:100%;padding:calc(72px + env(safe-area-inset-top)) 0 calc(42px + env(safe-area-inset-bottom));background:#050505;color:#fff;overflow:hidden}
   .kmh-shell{width:100%;max-width:700px;margin:0 auto}
   .kmh-intro,.kmh-section-head,.kmh-filter-row,.kmh-more{padding-left:18px;padding-right:18px}
   .kmh-intro{padding-top:12px;padding-bottom:18px}
@@ -18049,6 +17669,17 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kmh-filter-row::-webkit-scrollbar,.kmh-rail::-webkit-scrollbar{display:none}
   .kmh-pill{flex:0 0 auto;min-height:36px;padding:0 13px;border:1px solid #29292d;border-radius:999px;background:#111114;color:#d6d6da;font:750 12px/1 inherit;white-space:nowrap}
   .kmh-pill[aria-label="Rechercher"]{display:grid;place-items:center;width:38px;padding:0;color:#fff;font-size:18px}
+  .kmh-lifestyle{position:relative;display:block;width:calc(100% - 36px);height:196px;margin:26px 18px 2px;overflow:hidden;padding:0;border:0;border-radius:var(--kmh-radius-large);background:#151518;color:#fff;text-align:left;isolation:isolate;box-shadow:0 18px 46px rgba(0,0,0,.22)}
+  .kmh-lifestyle img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+  .kmh-lifestyle-primary img{object-position:center 38%}
+  .kmh-lifestyle:active img{transform:scale(1.018)}
+  .kmh-lifestyle:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,4,5,.8),rgba(4,4,5,.16) 72%),linear-gradient(180deg,transparent 42%,rgba(4,4,5,.5))}
+  .kmh-lifestyle-copy{position:absolute;right:18px;bottom:17px;left:18px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:12px}
+  .kmh-lifestyle-copy small{display:block;margin-bottom:6px;color:rgba(255,255,255,.68);font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.kmh-lifestyle-copy strong{display:block;font-size:27px;line-height:.95;letter-spacing:-.05em}.kmh-lifestyle-copy p{margin:7px 0 0;color:rgba(255,255,255,.7);font-size:11px}.kmh-lifestyle-copy>span{font-size:22px}
+  .kmh-lifestyle-editorial{height:172px;margin-top:34px}
+  .kmh-lifestyle-editorial img{object-position:center 43%}
+  .kmh-lifestyle-editorial:after{background:linear-gradient(90deg,rgba(4,4,5,.58),rgba(4,4,5,.05) 70%)}
+  .kmh-lifestyle-editorial .kmh-lifestyle-copy{display:block}.kmh-lifestyle-editorial .kmh-lifestyle-copy strong{max-width:16ch;font-size:21px}
   .kmh-section{padding:31px 0 1px}
   .kmh-section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:14px}
   .kmh-section-head h2{margin:0;color:#f8f8fa;font-size:clamp(20px,5.6vw,23px);line-height:1.04;letter-spacing:-.045em;font-weight:850;text-wrap:balance}
@@ -18089,13 +17720,6 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   .kmh-banner:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.76),rgba(0,0,0,.18))}
   .kmh-banner strong,.kmh-banner span{position:relative;z-index:1}
   .kmh-banner strong{font-size:17px;letter-spacing:-.02em}.kmh-banner span{font-size:16px}
-  .mobile-dock{grid-template-columns:repeat(5,1fr)!important;left:0!important;right:0!important;bottom:0!important;padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;border-width:1px 0 0!important;border-radius:0!important;background:rgba(9,9,11,.92)!important;box-shadow:0 -12px 34px rgba(0,0,0,.24)!important}
-  .mobile-dock::before{display:none!important}
-  .mobile-dock .dock-item{min-height:52px!important;color:#77777f!important;border-radius:12px!important}
-  .mobile-dock .dock-item.active{color:#fff!important;background:transparent!important}
-  .mobile-dock .dock-item strong{width:22px;height:22px;font-size:0!important}
-  .mobile-dock .dock-item strong svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .mobile-dock .dock-item span{margin-top:3px;font-size:9px!important;font-weight:700}
   @media (max-width:374px){:root{--kmh-card-large:min(84vw,320px);--kmh-card-medium:min(54vw,196px);--kmh-card-compact:min(44vw,160px)}.kmh-intro,.kmh-section-head,.kmh-filter-row,.kmh-more{padding-left:16px;padding-right:16px}.kmh-rail{padding-left:16px;padding-right:16px;scroll-padding-inline:16px}.kmh-story-card{min-height:372px}}
 }
 </style></head>
@@ -18104,6 +17728,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <a class="brand" href="#">KOVA</a>
 <div class="links"><a href="#discover">Explorer</a><a href="#artists">Artistes</a><a href="#kovaExperiences">Guide KOVA</a><a data-kova-wallet-open="true" href="#wallet">Mes billets</a><a href="#organizers">Pour les créateurs</a><a href="#help">Aide</a></div>
 <button class="nav-cta" id="earlyAccessBtn">Accès en avant-première</button>
+<button class="kova-header-publish" data-kova-header-publish type="button">Publier</button>
 <button aria-expanded="false" aria-label="Ouvrir le menu" class="kova-menu-open" id="kovaMenuOpen" type="button"><span aria-hidden="true" class="v82-menu-icon"><i></i><i></i><i></i></span></button></nav>
 <main>
 <section class="v64-home" id="home">
@@ -18192,11 +17817,14 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <button aria-label="Rechercher" class="kmh-pill" data-kmh-search type="button">⌕</button>
 </div>
 
+<button aria-label="Ouvrir Pour toi" class="kmh-lifestyle kmh-lifestyle-primary" data-kmh-for-you type="button"><img alt="Une soirée dansante à Abidjan" decoding="async" loading="eager" src="assets/kova-lifestyle-pour-toi.jpg"/><span class="kmh-lifestyle-copy"><span><small>LIFESTYLE · ABIDJAN</small><strong>Pour toi</strong><p>Découvre Abidjan à ta façon.</p></span><span aria-hidden="true">→</span></span></button>
+
 <section class="kmh-section" id="kmhWeekend"><div class="kmh-section-head"><div><h2>Ça sort fort ce week-end</h2></div><button data-kmh-all="events" type="button">Tout voir →</button></div><div aria-label="Événements du week-end" class="kmh-rail" data-kmh-rail="weekend"></div></section>
 <section class="kmh-section" id="kmhParties"><div class="kmh-section-head"><div><h2>Découvre les fêtes du moment</h2><p>Les nuits qui font parler Abidjan.</p></div><button data-kmh-all="parties" type="button">Tout voir →</button></div><div aria-label="Fêtes du moment" class="kmh-rail" data-kmh-rail="parties"></div></section>
-<section class="kmh-section" id="kmhActivities"><div class="kmh-section-head"><div><h2>Les activités à faire à Abidjan</h2></div></div><div aria-label="Activités à Abidjan" class="kmh-rail" data-kmh-rail="activities"></div></section>
-<section class="kmh-section" id="kmhFood"><div class="kmh-section-head"><div><h2>Où et quoi manger à Abidjan</h2></div></div><div aria-label="Filtres restaurants" class="kmh-food-filters"><button data-food-source="petit" type="button">Petit budget</button><button data-food-source="date" type="button">Date</button><button data-food-source="groupe" type="button">Entre amis</button><button data-food-source="premium" type="button">Chic</button></div><div aria-label="Restaurants à Abidjan" class="kmh-rail" data-kmh-rail="food"></div></section>
+<section class="kmh-section" id="kmhActivities"><div class="kmh-section-head"><div><h2>Les activités à faire à Abidjan</h2></div><button data-kmh-all="activities" type="button">Tout voir →</button></div><div aria-label="Activités à Abidjan" class="kmh-rail" data-kmh-rail="activities"></div></section>
+<section class="kmh-section" id="kmhFood"><div class="kmh-section-head"><div><h2>Où et quoi manger à Abidjan</h2></div><button data-kmh-all="restaurants" type="button">Tout voir →</button></div><div aria-label="Filtres restaurants" class="kmh-food-filters"><button data-food-source="petit" type="button">Petit budget</button><button data-food-source="date" type="button">Date</button><button data-food-source="groupe" type="button">Entre amis</button><button data-food-source="premium" type="button">Chic</button></div><div aria-label="Restaurants à Abidjan" class="kmh-rail" data-kmh-rail="food"></div></section>
 <section class="kmh-section" id="kmhArtists"><div class="kmh-section-head"><div><h2>Artistes du moment</h2><p>Les voix qui donnent le ton.</p></div><button data-kmh-all="artists" type="button">Tout voir →</button></div><div aria-label="Artistes du moment" class="kmh-rail" data-kmh-rail="artists"></div></section>
+<figure aria-label="L’énergie des nuits KOVA" class="kmh-lifestyle kmh-lifestyle-editorial"><img alt="Une nuit KOVA pleine d’énergie" decoding="async" loading="lazy" src="assets/kova-lifestyle-editorial.jpg"/><figcaption class="kmh-lifestyle-copy"><strong>La ville se vit ensemble.</strong></figcaption></figure>
 <section class="kmh-section" id="kmhSelection"><div class="kmh-section-head"><div><h2>La sélection KOVA</h2><p>Nos choix du moment.</p></div></div><div aria-label="Recommandations KOVA" class="kmh-rail" data-kmh-rail="selection"></div></section>
 <section class="kmh-section" id="kmhStories"><div class="kmh-section-head"><div><h2>Histoires KOVA</h2><p>La ville derrière les sorties.</p></div></div><div aria-label="Histoires KOVA" class="kmh-rail" data-kmh-rail="stories"></div></section>
 <section class="kmh-section" id="kmhMore"><div class="kmh-section-head"><div><h2>Découvre plus</h2><p>Explore selon ton mood.</p></div></div><div class="kmh-more" data-kmh-more></div></section>
@@ -18311,9 +17939,12 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     };
     qa('[data-kmh-filter]',home).forEach(button=>button.addEventListener('click',()=>openRadar(button.dataset.kmhFilter)));
     q('[data-kmh-search]',home)?.addEventListener('click',()=>{openRadar();setTimeout(()=>q('#kovaRadarSearch')?.focus(),220)});
-    qa('[data-kmh-all="events"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_EVENTS_OVERVIEW_OPEN?.({title:'Ça sort fort ce week-end',cards:sourceEvents})));
-    qa('[data-kmh-all="parties"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_EVENTS_OVERVIEW_OPEN?.({title:'Les fêtes du moment',cards:[...sourceEvents.slice(3,8),...sourceEvents.slice(0,3)]})));
-    q('[data-kmh-all="artists"]',home)?.addEventListener('click',()=>q('#kovaArtistOverviewOpen')?.click());
+    q('[data-kmh-for-you]',home)?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('decouvrir'));
+    qa('[data-kmh-all="events"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('events')));
+    qa('[data-kmh-all="parties"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('parties')));
+    qa('[data-kmh-all="activities"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('activities')));
+    qa('[data-kmh-all="restaurants"]',home).forEach(button=>button.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('restaurants')));
+    q('[data-kmh-all="artists"]',home)?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('artists'));
     qa('[data-food-source]',home).forEach(button=>button.addEventListener('click',()=>{
       const sourceFilter=button.dataset.foodSource==='premium'?'date':button.dataset.foodSource;
       q(`#restaurants [data-food-filter="${sourceFilter}"]`)?.click();
@@ -18321,31 +17952,6 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       const rail=q('[data-kmh-rail="food"]',home);rail?.replaceChildren(...(matched.length?matched:sourceFood).slice(0,7).map(node=>placeCard(node)));
       button.parentElement.querySelectorAll('button').forEach(item=>item.style.color=item===button?'#fff':'#929299');
     }));
-    const dock=q('.mobile-dock');
-    const syncMobileDestination=()=>{
-      const creator=location.hash==='#organizers';
-      document.body.classList.toggle('kova-mobile-create-mode',creator);
-      const destination=creator?q('[data-kmh-create="true"]',dock):(!location.hash||location.hash==='#kovaMobileHome')?q('[data-kmh-home="true"]',dock):null;
-      if(destination) dock.querySelectorAll('.dock-item').forEach(node=>node.classList.toggle('active',node===destination));
-    };
-    window.addEventListener('hashchange',syncMobileDestination);
-    syncMobileDestination();
-    q('[data-kmh-create="true"]',dock)?.addEventListener('click',event=>{
-      event.preventDefault();event.stopPropagation();
-      document.body.classList.add('kova-mobile-create-mode');
-      dock.querySelectorAll('.dock-item').forEach(node=>node.classList.toggle('active',node===event.currentTarget));
-      setTimeout(()=>q('#organizers')?.scrollIntoView({block:'start'}),0);
-    },true);
-    q('[data-kmh-home="true"]',dock)?.addEventListener('click',event=>{
-      event.preventDefault();event.stopPropagation();
-      document.body.classList.remove('kova-mobile-create-mode');
-      dock.querySelectorAll('.dock-item').forEach(node=>node.classList.toggle('active',node===event.currentTarget));
-      window.scrollTo({top:0,behavior:'smooth'});
-    },true);
-    dock?.addEventListener('click',event=>{
-      const item=event.target.closest('.dock-item');if(!item)return;
-      dock.querySelectorAll('.dock-item').forEach(node=>node.classList.toggle('active',node===item));
-    });
   };
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
@@ -18411,6 +18017,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 
   let previousFocus=null;
   let previousScroll=0;
+  let previousHash='';
   let activeCards=[];
   const source=()=>document.querySelector('#discover>.wrap>.scroller')||document.querySelector('#discover .scroller');
   const sourceCards=()=>[...(source()?.querySelectorAll(':scope > .event-card')||[])];
@@ -18423,6 +18030,12 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       clone.setAttribute('aria-label',`Ouvrir ${clone.querySelector('.event-meta h3')?.textContent?.trim()||'cet événement'}`);
       clone.querySelectorAll('[id]').forEach(node=>node.removeAttribute('id'));
       clone.querySelectorAll('button[class*="delete"],.k53-delete,.k52-delete,.k43-delete,.creator-created-delete').forEach(node=>node.remove());
+      const budget=String(card.dataset.kovaBudget||'').trim();
+      if(budget&&budget!=='unknown'){
+        const price=document.createElement('small');price.className='kova-overview-price';
+        price.textContent=budget==='0'?'Gratuit':/^\d+$/.test(budget)?`${Number(budget).toLocaleString('fr-FR')} F` : budget;
+        clone.querySelector('.event-meta,.event-copy')?.appendChild(price);
+      }
       return clone;
     });
     grid.replaceChildren(...clones);
@@ -18433,35 +18046,40 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   function openOverview(options={}){
     previousFocus=document.activeElement;
     previousScroll=window.scrollY;
+    previousHash=location.hash||'#kovaMobileHome';
     activeCards=Array.isArray(options.cards)&&options.cards.length?[...new Set(options.cards)]:sourceCards();
     const title=(options.title||'Tous les événements').trim();
     topButton.textContent=title;
+    document.getElementById('kovaEventsOverviewTitle').textContent=title;
     topButton.setAttribute('aria-label',`Revenir en haut de ${title}`);
     render(activeCards);
     panel.scrollTop=0;
     overview.classList.add('open');
     overview.setAttribute('aria-hidden','false');
     document.body.classList.add('kova-events-overview-open');
+    if(!options.fromRouter) history.replaceState(null,'',`#${options.route||'events'}`);
     setTimeout(()=>closeButton.focus({preventScroll:true}),60);
   }
 
-  function closeOverview(){
+  function closeOverview({fromRouter=false}={}){
+    if(!fromRouter && innerWidth<=700 && window.KOVA_MOBILE_ROUTER?.isCategoryRoute?.()) return window.KOVA_MOBILE_ROUTER.back();
     overview.classList.remove('open');
     overview.setAttribute('aria-hidden','true');
     document.body.classList.remove('kova-events-overview-open');
     grid.replaceChildren();
     activeCards=[];
+    if(!fromRouter) history.replaceState(null,'',previousHash||'#kovaMobileHome');
     previousFocus?.focus?.({preventScroll:true});
     requestAnimationFrame(()=>window.scrollTo({top:previousScroll,left:0,behavior:'auto'}));
   }
   window.KOVA_EVENTS_OVERVIEW_CLOSE=closeOverview;
   window.KOVA_EVENTS_OVERVIEW_OPEN=openOverview;
 
-  openButton.addEventListener('click',openOverview);
-  closeButton.addEventListener('click',closeOverview);
+  openButton.addEventListener('click',()=>innerWidth<=700?window.KOVA_MOBILE_ROUTER?.navigate?.('events'):openOverview());
+  closeButton.addEventListener('click',()=>closeOverview());
   topButton.addEventListener('click',()=>panel.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'}));
   grid.addEventListener('click',event=>{
-    if(event.target.closest('.event-card[data-kova-overview-clone="true"]')) setTimeout(closeOverview,0);
+    if(event.target.closest('.event-card[data-kova-overview-clone="true"]')) setTimeout(()=>closeOverview({fromRouter:true}),0);
   });
   overview.addEventListener('click',event=>{if(event.target===overview) closeOverview()});
   window.addEventListener('keydown',event=>{
@@ -18491,10 +18109,10 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <button aria-pressed="false" class="kova-intent-chip" data-kova-intent="concert" type="button">Concerts</button>
 </div>
 <div class="scroller reveal">
-<article class="event-card" data-event="5" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-04);--event-pos:50% 50%"></div><div class="event-meta"><h3>Home Coming</h3><p>25 Jul · 22H · Diamond Center</p></div><a aria-label="Ouvrir Home Coming" class="offline-card-link" href="#offline-event-5"></a></article>
-<article class="event-card" data-event="6" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-06);--event-pos:50% 50%"></div><div class="event-meta"><h3>Kingston Escape</h3><p>08 Aug · 14H · Assinie KM 2</p></div><a aria-label="Ouvrir Kingston Escape" class="offline-card-link" href="#offline-event-6"></a></article>
-<article class="event-card" data-event="7" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-07);--event-pos:50% 50%"></div><div class="event-meta"><h3>Mykonos</h3><p>02 May · 14H · Assinie KM 2</p></div><a aria-label="Ouvrir Mykonos" class="offline-card-link" href="#offline-event-7"></a></article>
-<article class="event-card" data-event="8" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-08);--event-pos:50% 50%"></div><div class="event-meta"><h3>Spotvsky</h3><p>Samedi · 23H · Le Sky</p></div><a aria-label="Ouvrir Spotvsky" class="offline-card-link" href="#offline-event-8"></a></article>
+<article class="event-card" data-event="5" data-kova-category="party" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-04);--event-pos:50% 50%"></div><div class="event-meta"><h3>Home Coming</h3><p>25 Jul · 22H · Diamond Center</p></div><a aria-label="Ouvrir Home Coming" class="offline-card-link" href="#offline-event-5"></a></article>
+<article class="event-card" data-event="6" data-kova-category="party" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-06);--event-pos:50% 50%"></div><div class="event-meta"><h3>Kingston Escape</h3><p>08 Aug · 14H · Assinie KM 2</p></div><a aria-label="Ouvrir Kingston Escape" class="offline-card-link" href="#offline-event-6"></a></article>
+<article class="event-card" data-event="7" data-kova-category="party" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-07);--event-pos:50% 50%"></div><div class="event-meta"><h3>Mykonos</h3><p>02 May · 14H · Assinie KM 2</p></div><a aria-label="Ouvrir Mykonos" class="offline-card-link" href="#offline-event-7"></a></article>
+<article class="event-card" data-event="8" data-kova-category="nightlife" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-08);--event-pos:50% 50%"></div><div class="event-meta"><h3>Spotvsky</h3><p>Samedi · 23H · Le Sky</p></div><a aria-label="Ouvrir Spotvsky" class="offline-card-link" href="#offline-event-8"></a></article>
 <article aria-label="Open Mykonos White &amp; Blue" class="event-card" data-event="10" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-02);--event-pos:50% 45%"></div><div class="event-meta"><h3>Mykonos White &amp; Blue</h3><p>15 juillet · 11 PM · Abidjan</p></div><a aria-label="Ouvrir Mykonos White &amp; Blue" class="offline-card-link" href="#offline-event-10"></a></article><article aria-label="Open HIMRA — Stade Ébimpé" class="event-card" data-event="11" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-01);--event-pos:50% 45%"></div><div class="event-meta"><h3>HIMRA — Stade Ébimpé</h3><p>26 décembre 2026 · Stade Ébimpé</p></div><a aria-label="Ouvrir HIMRA — Stade Ébimpé" class="offline-card-link" href="#offline-event-11"></a></article><article aria-label="Open HIMRA — Nouveau Boss" class="event-card" data-event="12" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-09);--event-pos:50% 40%"></div><div class="event-meta"><h3>HIMRA — Nouveau Boss</h3><p>28 janvier 2026 · Zénith Paris La Villette</p></div><a aria-label="Ouvrir HIMRA — Nouveau Boss" class="offline-card-link" href="#offline-event-12"></a></article><article aria-label="Open HIMRA — Milano" class="event-card" data-event="13" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-05);--event-pos:50% 42%"></div><div class="event-meta"><h3>HIMRA — Milano</h3><p>Samedi · 8 août · JustMe Milano</p></div><a aria-label="Ouvrir HIMRA — Milano" class="offline-card-link" href="#offline-event-13"></a></article><article aria-label="Open DIDI B — Montréal" class="event-card" data-event="14" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-10);--event-pos:50% 45%"></div><div class="event-meta"><h3>DIDI B — Montréal</h3><p>26 août 2026 · L’Olympia Montréal</p></div><a aria-label="Ouvrir DIDI B — Montréal" class="offline-card-link" href="#offline-event-14"></a></article><article aria-label="Open AFRO+ FEST" class="event-card" data-event="15" role="button" tabindex="0"><div class="event-art" style="--event-img:var(--kova-embedded-03);--event-pos:50% 40%"></div><div class="event-meta"><h3>AFRO+ FEST</h3><p>4–6 septembre 2026 · Northwest Stadium</p></div><a aria-label="Ouvrir AFRO+ FEST" class="offline-card-link" href="#offline-event-15"></a></article>
 <article aria-label="Ouvrir Le Bon Vieux Temps" class="event-card" data-event="201" data-kova-budget="unknown" data-kova-state="last" role="button" tabindex="0"><div class="event-art" style="--event-img:url('https://www.fratmat.info/uploads/images/2021/02/19/57766.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Le Bon Vieux Temps</h3><p>15 août · 20H · Riviera Golf</p></div><a aria-label="Ouvrir Le Bon Vieux Temps" class="offline-card-link" href="#offline-event-201"></a></article>
 <article aria-label="Ouvrir Yodé &amp; Siro — 30 ans" class="event-card" data-event="202" data-kova-budget="30000" data-kova-state="last" role="button" tabindex="0"><div class="event-art" style="--event-img:url('assets/yode-siro-30-ans.jpg');--event-pos:50% 50%"></div><div class="event-meta"><h3>Yodé &amp; Siro — 30 ans</h3><p>15 août · 17H · Sofitel Hôtel Ivoire</p></div><a aria-label="Ouvrir Yodé et Siro — 30 ans" class="offline-card-link" href="#offline-event-202"></a></article>
@@ -18813,6 +18431,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
     document.body.appendChild(modal);
     let lastFocus=null;
     let lastScroll=0;
+    let lastHash='';
     const sources=[
       ...Array.from(document.querySelectorAll('#artistCarousel .artist-slide')).map(node=>({node,type:'moment',image:node.querySelector('.artist-slide-image'),name:node.querySelector('h4')?.textContent||'Artiste',genre:node.querySelector('.artist-slide-content>span')?.textContent||'Artiste KOVA'})),
       ...Array.from(document.querySelectorAll('#artists .rising-grid .rising-card')).map(node=>({node,type:'rising',image:node.querySelector('.rising-image'),name:node.querySelector('h4')?.textContent||'Artiste',genre:node.querySelector('.rising-content p')?.textContent||'À suivre'}))
@@ -18845,29 +18464,34 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
       });
       grid.querySelectorAll('.kova-artist-overview-card').forEach(card=>card.hidden=value!=='all'&&card.dataset.artistType!==value);
     };
-    const open=()=>{
+    const open=({fromRouter=false}={})=>{
       lastFocus=document.activeElement;
       lastScroll=window.scrollY;
+      lastHash=location.hash||'#kovaMobileHome';
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
       openButton.setAttribute('aria-expanded','true');
       document.body.classList.add('kova-artist-overview-open');
+      if(!fromRouter) history.replaceState(null,'','#artists');
       modal.querySelector('.kova-artist-overview-panel').scrollTop=0;
       window.setTimeout(()=>document.getElementById('kovaArtistOverviewClose')?.focus(),30);
     };
-    const close=(restore=true)=>{
+    const close=(restore=true,{fromRouter=false}={})=>{
+      if(!fromRouter && restore && innerWidth<=700 && window.KOVA_MOBILE_ROUTER?.is?.('artists')) return window.KOVA_MOBILE_ROUTER.back();
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
       openButton.setAttribute('aria-expanded','false');
       document.body.classList.remove('kova-artist-overview-open');
+      if(!fromRouter) history.replaceState(null,'',lastHash||'#kovaMobileHome');
       if(restore&&lastFocus instanceof HTMLElement) lastFocus.focus({preventScroll:true});
       if(restore) requestAnimationFrame(()=>window.scrollTo({top:lastScroll,left:0,behavior:'auto'}));
     };
-    openButton.addEventListener('click',open);
+    openButton.addEventListener('click',()=>innerWidth<=700?window.KOVA_MOBILE_ROUTER?.navigate?.('artists'):open());
     closeButtons.forEach(button=>button?.addEventListener('click',()=>close()));
     modal.querySelectorAll('.kova-artist-filter').forEach(button=>button.addEventListener('click',()=>filter(button.dataset.artistFilter)));
     modal.addEventListener('click',event=>{if(event.target===modal) close();});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open')) close();});
+    window.KOVA_ARTIST_OVERVIEW={open,close:(options={})=>close(options.restore!==false,options)};
   };
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
 })();
@@ -19135,6 +18759,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <section id="organizers">
 <div class="wrap">
 <section aria-label="Créer un événement" class="kova-create-entry" id="kovaCreateEntry">
+<button aria-label="Revenir à l’accueil" class="kova-create-exit" id="kovaCreateExit" type="button">←</button>
 <div class="kova-create-progress" aria-hidden="true"><span></span><span></span><span></span></div>
 <div class="kova-create-intro"><small>STUDIO KOVA</small><h2>Crée ton prochain événement.</h2><p>Choisis simplement comment tu veux accueillir ton public.</p></div>
 <div class="kova-create-choices">
@@ -19417,28 +19042,18 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </section><footer id="help"><div class="footer-inner"><div>© 2026 KOVA</div><div>ABIDJAN EST DOUX. · KOVA</div></div></footer>
 <style id="kova-mobile-home-component-guards">
 @media (max-width:700px){
-  body>main{padding-bottom:0!important}
+  body,body>main{padding-bottom:0!important}
   body:not(.kova-mobile-create-mode) main>#organizers{display:none!important}
   body.kova-mobile-create-mode main>#organizers{display:block!important}
   body:not(.v66-event-open):not(.v67-artist-open) #kovaPlayer{display:none!important}
-  body:not(.kova-discover-open):not(.kova-mobile-create-mode):not(.kova-wallet-open):not(.kova-profile-open)>.nav{top:calc(9px + env(safe-area-inset-top))!important;left:14px!important;right:14px!important;height:44px!important;min-height:44px!important}
-  body nav.mobile-dock{position:fixed!important;left:50%!important;right:auto!important;bottom:calc(7px + env(safe-area-inset-bottom))!important;width:min(calc(100vw - 24px),410px)!important;max-width:410px!important;height:54px!important;min-height:54px!important;margin:0!important;padding:4px 6px!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:20px!important;background:rgba(13,13,16,.9)!important;box-shadow:0 14px 38px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.08)!important;opacity:.96!important;transform:translateX(-50%)!important;pointer-events:auto!important}
-  body nav.mobile-dock::before{display:none!important}
-  body nav.mobile-dock .dock-item{height:44px!important;min-height:44px!important;padding:3px 2px!important;border-radius:13px!important;gap:1px!important}
-  body nav.mobile-dock .dock-item strong{width:19px!important;height:19px!important;margin:auto!important}
-  body nav.mobile-dock .dock-item strong svg{width:17px!important;height:17px!important}
-  body nav.mobile-dock .dock-item span{display:none!important;font-size:7px!important;line-height:1!important;letter-spacing:0!important}
-  body nav.mobile-dock .dock-item.active span{display:block!important}
-  body.kova-events-overview-open nav.mobile-dock{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  body:not(.kova-discover-open):not(.kova-mobile-create-mode):not(.kova-wallet-open):not(.kova-profile-open)>.nav{top:calc(8px + env(safe-area-inset-top))!important;left:18px!important;right:18px!important;display:flex!important;align-items:center!important;height:44px!important;min-height:44px!important}
+  body>.nav .brand{min-width:0!important;height:auto!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#fff!important;font-size:18px!important;letter-spacing:-.045em!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  body>.nav .kova-header-publish{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:42px!important;margin-left:auto!important;padding:0 12px!important;border:0!important;background:none!important;color:rgba(255,255,255,.86)!important;font:800 12px/1 inherit!important;letter-spacing:-.01em!important;pointer-events:auto!important}
+  body>.nav #kovaMenuOpen{display:grid!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;margin-left:2px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  body.kova-mobile-create-mode #organizers{padding-bottom:calc(28px + env(safe-area-inset-bottom))!important}
+  body.kova-wallet-open .v81-wallet-shell{padding-bottom:calc(28px + env(safe-area-inset-bottom))!important}
 }
 </style>
-<nav aria-label="Mobile navigation" class="mobile-dock">
-<a class="dock-item active" data-kmh-home="true" href="#kovaMobileHome"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M9.5 20v-6h5v6"/></svg></strong><span>Accueil</span></a>
-<a class="dock-item" data-kmh-discover="true" href="#decouvrir"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4M11 8v6M8 11h6"/></svg></strong><span>Découvrir</span></a>
-<a class="dock-item" data-kmh-create="true" href="#organizers"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></strong><span>Créer</span></a>
-<a class="dock-item" data-kova-wallet-open="true" href="#wallet"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5.5h14a1 1 0 0 1 1 1v3a2.5 2.5 0 0 0 0 5v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a2.5 2.5 0 0 0 0-5v-3a1 1 0 0 1 1-1Z"/><path d="M12 8v8"/></svg></strong><span>Tickets</span></a>
-<a class="dock-item" data-kmh-profile="true" href="#home"><strong><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.5-4 3-6 7-6s6.5 2 7 6"/></svg></strong><span>Profil</span></a>
-</nav>
 <style id="kova-mobile-destinations-styles">
 .kova-create-entry,.kova-create-back,.kova-create-success,.kova-mobile-profile{display:none}
 @media(max-width:700px){
@@ -19447,7 +19062,8 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-mobile-create-mode #organizers{display:block!important;min-height:100dvh;margin:0!important;padding:0 12px calc(62px + env(safe-area-inset-bottom))!important;background:#050506!important;color:#fff!important}
   body.kova-mobile-create-mode #organizers>.wrap{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
   body.kova-mobile-create-mode #organizers .creator-shell,body.kova-mobile-create-mode #organizers .organizer-grid{display:none!important}
-  body.kova-mobile-create-mode .kova-create-entry{display:flex;min-height:calc(var(--kova-visual-height,100dvh) - 50px - env(safe-area-inset-bottom));flex-direction:column;justify-content:center;padding:max(18px,env(safe-area-inset-top)) 4px 24px}
+  body.kova-mobile-create-mode .kova-create-entry{position:relative;display:flex;min-height:calc(var(--kova-visual-height,100dvh) - env(safe-area-inset-bottom));flex-direction:column;justify-content:center;padding:max(56px,calc(18px + env(safe-area-inset-top))) 4px 24px}
+  .kova-create-exit{position:absolute;z-index:2;top:max(18px,env(safe-area-inset-top));left:4px;display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:#141417;color:#fff;font-size:19px}
   .kova-create-progress{position:absolute;top:max(14px,env(safe-area-inset-top));left:18px;right:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.kova-create-progress span{height:3px;border-radius:3px;background:rgba(255,255,255,.18)}.kova-create-progress span:first-child{background:#fff}
   .kova-create-intro{text-align:center}.kova-create-intro small{display:block;color:rgba(255,255,255,.48);font-size:8px;font-weight:850;letter-spacing:.16em}.kova-create-intro h2{max-width:330px;margin:12px auto 8px;font-size:clamp(32px,9vw,43px);line-height:.95;letter-spacing:-.06em}.kova-create-intro p{max-width:300px;margin:0 auto;color:rgba(255,255,255,.5);font-size:12px;line-height:1.4}
   .kova-create-choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}.kova-create-choices button{display:flex;min-height:220px;flex-direction:column;align-items:flex-start;padding:18px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:#131316;color:#fff;text-align:left;box-shadow:inset 0 1px rgba(255,255,255,.05)}.kova-create-choices button:active{transform:scale(.985)}.kova-create-choice-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:auto;border-radius:16px;background:rgba(255,255,255,.09);font-size:24px}.kova-create-choices strong{display:block;font-size:19px;line-height:1.02;letter-spacing:-.04em}.kova-create-choices small{display:block;margin-top:7px;color:rgba(255,255,255,.48);font-size:10px;line-height:1.35}.kova-create-choices b{display:block;margin-top:14px;color:#fff;font-size:9px;letter-spacing:.04em}
@@ -19480,13 +19096,15 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-profile-open>main,body.kova-profile-open>footer,body.kova-profile-open>#kovaAppCTA{display:none!important}
   .kova-mobile-profile.open{position:fixed;top:var(--kova-visual-top,0);right:0;bottom:auto;left:0;z-index:4100;display:block;width:100%;height:var(--kova-visual-height,100dvh);overflow:hidden;background:#050506;color:#fff}
   .kova-profile-scroll{height:100%;overflow-y:auto;padding:max(22px,env(safe-area-inset-top)) 16px calc(70px + env(safe-area-inset-bottom));overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
-  .kova-profile-head{position:relative;display:grid;grid-template-columns:72px minmax(0,1fr) 38px;align-items:center;gap:14px;padding:10px 0 22px}.kova-profile-avatar{display:grid;place-items:center;width:72px;height:72px;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:#19191d;color:#fff;font-size:22px;font-weight:900;letter-spacing:-.06em}.kova-profile-head small{display:block;color:rgba(255,255,255,.48);font-size:9px;font-weight:760}.kova-profile-head h1{margin:5px 0 4px;font-size:clamp(25px,7vw,31px);line-height:.94;letter-spacing:-.055em}.kova-profile-head p{margin:0;color:rgba(255,255,255,.42);font-size:10px}.kova-profile-head>button{width:38px;height:38px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:50%;background:#141417;color:#fff;font-weight:900;letter-spacing:.08em}
+  .kova-profile-head{position:relative;display:grid;grid-template-columns:38px 64px minmax(0,1fr) 38px;align-items:center;gap:10px;padding:10px 0 22px}.kova-profile-avatar{display:grid;place-items:center;width:64px;height:64px;border:1px solid rgba(255,255,255,.15);border-radius:50%;background:#19191d;color:#fff;font-size:20px;font-weight:900;letter-spacing:-.06em}.kova-profile-head small{display:block;color:rgba(255,255,255,.48);font-size:9px;font-weight:760}.kova-profile-head h1{margin:5px 0 4px;font-size:clamp(23px,6.5vw,29px);line-height:.94;letter-spacing:-.055em}.kova-profile-head p{margin:0;color:rgba(255,255,255,.42);font-size:10px}.kova-profile-head>button{width:38px;height:38px;padding:0;border:1px solid rgba(255,255,255,.11);border-radius:50%;background:#141417;color:#fff;font-weight:900;letter-spacing:.08em}
   .kova-profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 0 16px}.kova-profile-stats button{min-height:64px;padding:9px 5px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:#111114;color:#fff;text-align:center}.kova-profile-stats strong{display:block;font-size:20px;letter-spacing:-.04em}.kova-profile-stats span{display:block;margin-top:4px;color:rgba(255,255,255,.44);font-size:8px;font-weight:760}
   .kova-profile-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}.kova-profile-actions button{min-height:43px;border:0;border-radius:13px;background:#fff;color:#09090a;font:820 10px/1 inherit}.kova-profile-actions button+button{background:#17171a;color:#fff}
   .kova-profile-tabs{position:sticky;top:-1px;z-index:4;display:flex;gap:18px;margin:0 -16px;padding:10px 16px 12px;background:rgba(5,5,6,.93);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}.kova-profile-tabs button{position:relative;min-height:30px;padding:0;border:0;background:transparent;color:rgba(255,255,255,.42);font:760 10px/1 inherit}.kova-profile-tabs button.active{color:#fff}.kova-profile-tabs button.active::after{content:"";position:absolute;right:0;bottom:0;left:0;height:2px;border-radius:2px;background:#fff}
   .kova-profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 9px;padding-top:10px}.kova-profile-card{position:relative;min-width:0;overflow:hidden;border:0;background:transparent;color:#fff;text-align:left}.kova-profile-card-media{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:17px;background:linear-gradient(145deg,#24242a,#101013)}.kova-profile-card-media img{width:100%;height:100%;object-fit:cover}.kova-profile-card-media::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.36))}.kova-profile-card h3{overflow:hidden;margin:8px 0 4px;font-size:13px;line-height:1.05;letter-spacing:-.025em;text-overflow:ellipsis;white-space:nowrap}.kova-profile-card p{overflow:hidden;margin:0;color:rgba(255,255,255,.45);font-size:8px;text-overflow:ellipsis;white-space:nowrap}.kova-profile-unsave{position:absolute;top:7px;right:7px;z-index:2;display:grid;place-items:center;width:31px;height:31px;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(8,8,10,.7);color:#fff;font-size:14px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
   .kova-profile-empty{display:none;min-height:260px;place-items:center;padding:36px 20px;text-align:center}.kova-profile-empty.show{display:grid}.kova-profile-empty strong{display:block;font-size:23px;letter-spacing:-.045em}.kova-profile-empty p{max-width:250px;margin:8px auto 0;color:rgba(255,255,255,.45);font-size:11px;line-height:1.45}
   .kova-profile-dialog{position:fixed;inset:0;z-index:250000;display:none;place-items:end center;padding:16px;background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}.kova-profile-dialog.open{display:grid}.kova-profile-dialog>form,.kova-profile-dialog>div{position:relative;width:min(420px,100%);padding:26px 20px calc(22px + env(safe-area-inset-bottom));border:1px solid rgba(255,255,255,.13);border-radius:26px;background:#17171a;color:#fff}.kova-profile-dialog [data-profile-close]{position:absolute;top:13px;right:13px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.09);color:#fff;font-size:21px}.kova-profile-dialog>form>small,.kova-profile-dialog>div>small{color:rgba(255,255,255,.43);font-size:8px;font-weight:850;letter-spacing:.14em}.kova-profile-dialog h2{margin:10px 0 22px;font-size:30px;letter-spacing:-.055em}.kova-profile-dialog label:not(.kova-profile-toggle){display:block;margin-top:13px;color:rgba(255,255,255,.55);font-size:9px;font-weight:760}.kova-profile-dialog input[type=text]{display:block;width:100%;height:48px;margin-top:7px;padding:0 13px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:#0e0e10;color:#fff;font:700 16px/1 inherit}.kova-profile-save{width:100%;min-height:48px;margin-top:20px;border:0;border-radius:14px;background:#fff;color:#080809;font-weight:850}.kova-profile-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:16px;background:#0f0f11}.kova-profile-toggle strong,.kova-profile-toggle small{display:block}.kova-profile-toggle small{margin-top:5px;color:rgba(255,255,255,.42);font-size:8px}.kova-profile-toggle input{width:22px;height:22px;accent-color:#fff}.kova-profile-dialog>div>p{color:rgba(255,255,255,.4);font-size:9px;line-height:1.45}
+  body.kova-stories-open{overflow:hidden!important}body.kova-stories-open>.nav{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+  .kova-stories-page{position:fixed;inset:0;z-index:4100;display:none;overflow-y:auto;padding:0 16px calc(36px + env(safe-area-inset-bottom));background:#050506;color:#fff;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}.kova-stories-page.open{display:block}.kova-stories-nav{position:sticky;z-index:3;top:0;display:grid;grid-template-columns:42px minmax(0,1fr) 42px;align-items:center;min-height:calc(62px + env(safe-area-inset-top));margin:0 -16px 18px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:rgba(5,5,6,.9);border-bottom:1px solid rgba(255,255,255,.07);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}.kova-stories-nav button{width:42px;height:42px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:#141417;color:#fff;font-size:19px}.kova-stories-nav strong{text-align:center;font-size:14px}.kova-stories-intro{padding:10px 2px 22px}.kova-stories-intro small{color:rgba(255,255,255,.44);font-size:8px;font-weight:900;letter-spacing:.15em}.kova-stories-intro h1{margin:9px 0 8px;font-size:clamp(34px,10vw,46px);line-height:.92;letter-spacing:-.06em}.kova-stories-intro p{margin:0;color:rgba(255,255,255,.5);font-size:12px}.kova-stories-list{display:grid;gap:12px}.kova-stories-list button{position:relative;display:grid;grid-template-columns:112px minmax(0,1fr);align-items:end;min-height:142px;overflow:hidden;padding:0;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:#151518;color:#fff;text-align:left}.kova-stories-list img{width:112px;height:100%;min-height:142px;object-fit:cover}.kova-stories-list span{padding:16px}.kova-stories-list small{display:block;color:rgba(255,255,255,.46);font-size:7px;font-weight:900;letter-spacing:.12em}.kova-stories-list strong{display:block;margin-top:8px;font-size:19px;line-height:1;letter-spacing:-.035em}.kova-stories-list p{display:-webkit-box;overflow:hidden;margin:8px 0 0;color:rgba(255,255,255,.53);font-size:9px;line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 }
 </style>
 <style id="kova-discover-feed-v2-styles">
@@ -19496,11 +19114,10 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
   body.kova-discover-open{height:var(--kova-visual-height);overflow:hidden!important;background:#050506!important}
   body.kova-discover-open>main,body.kova-discover-open>footer{display:none!important}
   body.kova-discover-open>.nav,body.kova-discover-open #kovaPlayer{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
-  body.kova-discover-open .mobile-dock{z-index:4200!important}
-  .kova-discover-v2{--kd-dock:calc(50px + env(safe-area-inset-bottom));position:fixed;top:var(--kova-visual-top);right:0;bottom:auto;left:0;z-index:4100;display:block;width:100%;height:var(--kova-visual-height);overflow:hidden;margin:0;padding:0;border:0;border-radius:0;background:#050506;color:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s}
+  .kova-discover-v2{--kd-dock:0px;position:fixed;top:var(--kova-visual-top);right:0;bottom:auto;left:0;z-index:4100;display:block;width:100%;height:var(--kova-visual-height);overflow:hidden;margin:0;padding:0;border:0;border-radius:0;background:#050506;color:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s}
   .kova-discover-v2.open{opacity:1;visibility:visible;pointer-events:auto}
   .kd-top{position:absolute;z-index:12;top:0;left:0;right:0;padding:max(7px,env(safe-area-inset-top)) 12px 5px;background:linear-gradient(180deg,rgba(5,5,6,.94) 68%,rgba(5,5,6,.66) 88%,transparent);pointer-events:none}
-  .kd-toolbar{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;align-items:center;gap:6px;min-height:42px;padding:2px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(28,28,31,.74);box-shadow:inset 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(24px) saturate(165%);backdrop-filter:blur(24px) saturate(165%);pointer-events:auto}
+  .kd-toolbar{display:grid;grid-template-columns:38px 38px minmax(0,1fr) 38px;align-items:center;gap:4px;min-height:42px;padding:2px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(28,28,31,.74);box-shadow:inset 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(24px) saturate(165%);backdrop-filter:blur(24px) saturate(165%);pointer-events:auto}
   .kd-icon{display:grid;place-items:center;width:38px;height:38px;padding:0;border:0;border-radius:12px;background:transparent;color:#fff}
   .kd-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .kd-context{overflow:hidden;text-align:center;font-size:13px;font-weight:760;letter-spacing:-.02em;text-overflow:ellipsis;white-space:nowrap}.kd-context span{color:rgba(255,255,255,.52);font-weight:600}
@@ -19527,9 +19144,9 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 @media(max-width:370px){.kd-slide{padding-inline:12px}.kd-poster{max-height:min(55dvh,500px)}.kd-tabs{gap:20px}.kd-title{font-size:23px}}
 @media(min-width:701px){.kova-discover-v2{display:none!important}}
 </style>
-<section aria-hidden="true" aria-label="Découvrir les événements" class="kova-discover-v2" id="kovaDiscoverFeed">
+<section aria-hidden="true" aria-label="Pour toi — découverte immersive" class="kova-discover-v2" id="kovaDiscoverFeed">
 <header class="kd-top">
-<div class="kd-toolbar"><button aria-label="Rechercher" class="kd-icon" id="kdSearch" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg></button><div class="kd-context">Ce mois-ci <span>· Abidjan</span></div><button aria-label="Filtrer" aria-expanded="false" class="kd-icon" id="kdFilterOpen" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></svg></button></div>
+<div class="kd-toolbar"><button aria-label="Revenir" class="kd-icon" id="kdBack" type="button">←</button><button aria-label="Rechercher" class="kd-icon" id="kdSearch" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg></button><div class="kd-context">Ce mois-ci <span>· Abidjan</span></div><button aria-label="Filtrer" aria-expanded="false" class="kd-icon" id="kdFilterOpen" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M7 12h10M10 17h4"/></svg></button></div>
 <div aria-label="Flux Découvrir" class="kd-tabs" role="tablist"><button aria-selected="true" class="kd-tab active" data-kd-tab="for-you" role="tab" type="button">Pour toi</button><button aria-selected="false" class="kd-tab" data-kd-tab="following" role="tab" type="button">Suivis</button><button aria-selected="false" class="kd-tab" data-kd-tab="saved" role="tab" type="button">Enregistrés</button></div>
 </header>
 <div class="kd-scroll" id="kdScroll"><div aria-live="polite" id="kdList"></div><div class="kd-empty" id="kdEmpty"><div><strong id="kdEmptyTitle">Rien ici pour l’instant.</strong><p id="kdEmptyCopy">Enregistre un événement pour le retrouver ici.</p></div></div></div>
@@ -19537,7 +19154,7 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 </section>
 <section aria-hidden="true" aria-label="Profil KOVA" class="kova-mobile-profile" id="kovaMobileProfile">
 <div class="kova-profile-scroll">
-<header class="kova-profile-head"><div class="kova-profile-avatar" id="kovaProfileAvatar">KD</div><div><small id="kovaProfileUsername">@invite-kova</small><h1 id="kovaProfileName">Invité KOVA</h1><p>Mes sorties, mes choix, mon KOVA.</p></div><button aria-label="Ouvrir les réglages" id="kovaProfileSettingsTop" type="button">•••</button></header>
+<header class="kova-profile-head"><button aria-label="Revenir" class="kova-profile-back" id="kovaProfileBack" type="button">←</button><div class="kova-profile-avatar" id="kovaProfileAvatar">KD</div><div><small id="kovaProfileUsername">@invite-kova</small><h1 id="kovaProfileName">Invité KOVA</h1><p>Mes sorties, mes choix, mon KOVA.</p></div><button aria-label="Ouvrir les réglages" id="kovaProfileSettingsTop" type="button">•••</button></header>
 <div class="kova-profile-stats"><button data-kova-profile-tab="created" type="button"><strong id="kovaProfileCreatedCount">0</strong><span>Événements</span></button><button data-kova-profile-tab="saved" type="button"><strong id="kovaProfileSavedCount">0</strong><span>Enregistrés</span></button><button data-kova-profile-tab="following" type="button"><strong id="kovaProfileFollowingCount">0</strong><span>Suivis</span></button></div>
 <div class="kova-profile-actions"><button id="kovaProfileEdit" type="button">Modifier le profil</button><button id="kovaProfileSettings" type="button">Réglages</button></div>
 <div aria-label="Contenu du profil" class="kova-profile-tabs" role="tablist"><button aria-selected="true" class="active" data-kova-profile-tab="created" role="tab" type="button">Mes événements</button><button aria-selected="false" data-kova-profile-tab="saved" role="tab" type="button">Enregistrés</button><button aria-selected="false" data-kova-profile-tab="following" role="tab" type="button">Suivis</button></div>
@@ -19546,6 +19163,41 @@ body.kova-event-theme-ready .v66-ticket-row.has-selection{border-color:rgba(var(
 <section aria-hidden="true" class="kova-profile-dialog" id="kovaProfileEditDialog"><form><button aria-label="Fermer" data-profile-close type="button">×</button><small>PROFIL KOVA</small><h2>À ton image.</h2><label>Nom<input id="kovaProfileNameInput" maxlength="48" required type="text"/></label><label>Nom d’utilisateur<input id="kovaProfileUsernameInput" maxlength="32" required type="text"/></label><button class="kova-profile-save" type="submit">Enregistrer</button></form></section>
 <section aria-hidden="true" class="kova-profile-dialog" id="kovaProfileSettingsDialog"><div><button aria-label="Fermer" data-profile-close type="button">×</button><small>RÉGLAGES</small><h2>Simple et utile.</h2><label class="kova-profile-toggle"><span><strong>Notifications</strong><small>Rappels de sorties et billets</small></span><input id="kovaProfileNotifications" type="checkbox"/></label><p>Ces réglages restent sur cet appareil pour le prototype.</p></div></section>
 </section>
+<section aria-hidden="true" aria-label="Histoires KOVA" class="kova-stories-page" id="kovaStoriesPage">
+<header class="kova-stories-nav"><button aria-label="Revenir" id="kovaStoriesBack" type="button">←</button><strong>Histoires KOVA</strong><span></span></header>
+<div class="kova-stories-intro"><small>LE JOURNAL KOVA</small><h1>La ville derrière les sorties.</h1><p>Des lieux, des mémoires et des façons de vivre Abidjan.</p></div>
+<div class="kova-stories-list" id="kovaStoriesList"></div>
+</section>
+<script id="kovaStoriesRouteRuntime">
+(()=>{
+  const init=()=>{
+    const page=document.getElementById('kovaStoriesPage');
+    const list=document.getElementById('kovaStoriesList');
+    if(!page||!list)return;
+    const sources=[...document.querySelectorAll('#kovaJournal .kova-journal-feature')];
+    const render=()=>{
+      list.replaceChildren(...sources.map(source=>{
+        const button=document.createElement('button');button.type='button';
+        const sourceImage=source.querySelector('.kova-story-image');
+        const image=document.createElement('img');image.loading='lazy';image.decoding='async';image.alt=sourceImage?.alt||'';image.src=sourceImage?.currentSrc||sourceImage?.src||'';
+        const copy=document.createElement('span');
+        const kicker=document.createElement('small');kicker.textContent=source.querySelector('.kova-journal-index')?.textContent?.trim()||'HISTOIRE KOVA';
+        const title=document.createElement('strong');title.textContent=source.querySelector('h3')?.textContent?.trim()||'Une histoire d’Abidjan';
+        const description=document.createElement('p');description.textContent=source.querySelector('p')?.textContent?.trim()||'Découvre la ville autrement.';
+        copy.append(kicker,title,description);button.append(image,copy);
+        button.setAttribute('aria-label',`Lire ${title.textContent}`);
+        button.addEventListener('click',()=>source.querySelector('.kova-story-open')?.click());
+        return button;
+      }));
+    };
+    const open=()=>{render();page.classList.add('open');page.setAttribute('aria-hidden','false');page.scrollTop=0;document.body.classList.add('kova-stories-open')};
+    const close=()=>{page.classList.remove('open');page.setAttribute('aria-hidden','true');document.body.classList.remove('kova-stories-open')};
+    document.getElementById('kovaStoriesBack')?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.back?.());
+    window.KOVA_STORIES_PAGE={open,close};
+  };
+  setTimeout(init,0);
+})();
+</script>
 <script id="kovaMobileFeedRuntime" type="application/x-kova-legacy">
 /* KOVA V94 — standalone POSH-inspired mobile event feed. */
 window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
@@ -19975,23 +19627,18 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       scroll.scrollTop = 0; render({preserve:false});
     };
     const closeFilters = () => { filters.classList.remove('open'); filters.setAttribute('aria-hidden','true'); document.getElementById('kdFilterOpen').setAttribute('aria-expanded','false'); };
-    const open = () => {
+    const open = ({fromRouter=false}={}) => {
       if (innerWidth > 700) return;
       syncViewport();
       if (!state.rendered.length && state.tab === 'for-you') render({preserve:false});
-      feed.classList.add('open'); feed.setAttribute('aria-hidden','false'); document.body.classList.add('kova-discover-open'); history.replaceState(null,'','#decouvrir');
-      const discoverItem = document.querySelector('.mobile-dock [data-kmh-discover]');
-      document.querySelectorAll('.mobile-dock .dock-item').forEach(item => {
-        const active = item === discoverItem;
-        item.classList.toggle('active',active);
-        if (active) item.setAttribute('aria-current','page'); else item.removeAttribute('aria-current');
-      });
-      document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','1');
+      feed.classList.add('open'); feed.setAttribute('aria-hidden','false'); document.body.classList.add('kova-discover-open');
+      if(!fromRouter) history.replaceState(null,'','#decouvrir');
     };
     const close = () => { closeFilters(); feed.classList.remove('open'); feed.setAttribute('aria-hidden','true'); document.body.classList.remove('kova-discover-open'); };
 
     document.querySelectorAll('[data-kd-tab]').forEach(button => button.addEventListener('click',() => setTab(button.dataset.kdTab)));
     document.getElementById('kdFilterOpen').addEventListener('click',() => { const active = !filters.classList.contains('open'); filters.classList.toggle('open',active); filters.setAttribute('aria-hidden',String(!active)); document.getElementById('kdFilterOpen').setAttribute('aria-expanded',String(active)); });
+    document.getElementById('kdBack')?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.back?.());
     document.getElementById('kdFilterClose').addEventListener('click',closeFilters);
     filters.addEventListener('click',event => { const button = event.target.closest('[data-kd-filter]'); if (!button) return; state.filter = button.dataset.kdFilter; filters.querySelectorAll('[data-kd-filter]').forEach(candidate => candidate.classList.toggle('active',candidate === button)); scroll.scrollTop = 0; render({preserve:false}); closeFilters(); });
     document.getElementById('kdSearch').addEventListener('click',() => { const trigger = document.getElementById('kovaRadarOpen'); if (trigger) trigger.click(); else document.querySelector('[data-kmh-search]')?.click(); });
@@ -20005,7 +19652,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     };
     if (!attachFavorites()) setTimeout(attachFavorites,120);
     window.KOVA_DISCOVER_FEED = {open,close,render,setTab,getState:() => ({...state,rendered:state.rendered.map(item => item.key)})};
-    if (location.hash === '#decouvrir') open();
   };
   if (document.readyState === 'loading') setTimeout(init,0); else init();
 })();
@@ -20041,10 +19687,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       document.getElementById('organizers')?.classList.add('studio-visible');
       studio.setAttribute('aria-hidden','false');
       document.getElementById('k35-step-1').checked=true;
-      const createItem=document.querySelector('.mobile-dock [data-kmh-create]');
-      document.querySelectorAll('.mobile-dock .dock-item').forEach(item=>item.classList.toggle('active',item===createItem));
-      document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','2');
-      setTimeout(()=>{document.querySelectorAll('.mobile-dock .dock-item').forEach(item=>item.classList.toggle('active',item===createItem));document.querySelector('.mobile-dock')?.style.setProperty('--dock-index','2');},0);
       window.scrollTo({top:0,behavior:'auto'});
     };
     const showEntry = () => { document.body.classList.remove('kova-create-flow','kova-create-free'); document.getElementById('organizers')?.classList.remove('studio-visible'); studio.setAttribute('aria-hidden','true'); window.scrollTo({top:0,behavior:'auto'}); };
@@ -20085,9 +19727,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       const action=event.target.closest('[data-kova-success]')?.dataset.kovaSuccess; if(!action) return;
       success.classList.remove('open'); success.setAttribute('aria-hidden','true');
       if(action==='new'){showEntry();return;}
-      if(action==='home'){document.querySelector('[data-kmh-home]')?.click();return;}
-      if(action==='view'){document.querySelector('[data-kmh-discover]')?.click();setTimeout(()=>{window.KOVA_DISCOVER_FEED?.render?.({preserve:false});document.querySelector('.kd-scroll')?.scrollTo({top:0,behavior:'auto'});},80);}
+      if(action==='home'){window.KOVA_MOBILE_ROUTER?.navigate?.('home');return;}
+      if(action==='view'){window.KOVA_MOBILE_ROUTER?.navigate?.('decouvrir');setTimeout(()=>{window.KOVA_DISCOVER_FEED?.render?.({preserve:false});document.querySelector('.kd-scroll')?.scrollTo({top:0,behavior:'auto'});},80);}
     });
+    document.getElementById('kovaCreateExit')?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.back?.());
     window.KOVA_CREATED_EVENTS={getAll:readEvents,findSource:sourceFor,refresh:refreshShared,showEntry};
     setTimeout(refreshShared,650);
     setTimeout(refreshShared,1400);
@@ -20125,7 +19768,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       document.getElementById('kovaProfileName').textContent=data.name;
       document.getElementById('kovaProfileUsername').textContent='@'+cleanUser;
       document.getElementById('kovaProfileAvatar').textContent=String(data.name||'KOVA').split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]).join('').toUpperCase()||'KV';
-      document.getElementById('kovaTicketDetailHolder').textContent=data.name;
+      const ticketHolder=document.getElementById('kovaTicketDetailHolder');if(ticketHolder)ticketHolder.textContent=data.name;
       document.getElementById('kovaProfileNotifications').checked=data.notifications!==false;
     };
     const card=(record,{saved=false}={})=>{
@@ -20167,6 +19810,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       updateIdentity();render();setTimeout(render,260);setTimeout(render,850);window.KOVA_MOBILE_VIEW?.commit?.('profile');
     };
     const close=()=>{closeDialogs();document.body.classList.remove('kova-profile-open');root.classList.remove('open');root.setAttribute('aria-hidden','true')};
+    document.getElementById('kovaProfileBack')?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.back?.());
     root.querySelectorAll('[data-kova-profile-tab]').forEach(button=>button.addEventListener('click',()=>{activeTab=button.dataset.kovaProfileTab;render()}));
     document.getElementById('kovaProfileEdit')?.addEventListener('click',()=>{const data=profile();document.getElementById('kovaProfileNameInput').value=data.name;document.getElementById('kovaProfileUsernameInput').value=data.username;openDialog('kovaProfileEditDialog')});
     [document.getElementById('kovaProfileSettings'),document.getElementById('kovaProfileSettingsTop')].forEach(button=>button?.addEventListener('click',()=>{updateIdentity();openDialog('kovaProfileSettingsDialog')}));
@@ -20182,18 +19826,86 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 })();
 </script>
 <script id="kovaMobileViewStateRuntime">
-/* One owner for the five mobile destinations and their active dock state. */
+/* Routeur mobile unique : URL restaurables, retour navigateur et accès direct. */
 (() => {
-  const init=()=>{
-    const dock=document.querySelector('.mobile-dock');if(!dock)return;
-    const map={home:'[data-kmh-home]',discover:'[data-kmh-discover]',create:'[data-kmh-create]',wallet:'[data-kova-wallet-open]',profile:'[data-kmh-profile]'};
-    const index={home:0,discover:1,create:2,wallet:3,profile:4};let committing=false;
-    const detect=()=>document.body.classList.contains('kova-profile-open')?'profile':document.body.classList.contains('kova-wallet-open')?'wallet':document.body.classList.contains('kova-discover-open')?'discover':document.body.classList.contains('kova-mobile-create-mode')?'create':'home';
-    const commit=view=>{if(committing)return;committing=true;const selected=dock.querySelector(map[view]||map.home);dock.querySelectorAll('.dock-item').forEach(item=>{const active=item===selected;item.classList.toggle('active',active);active?item.setAttribute('aria-current','page'):item.removeAttribute('aria-current')});dock.style.setProperty('--dock-index',String(index[view]??0));committing=false};
-    new MutationObserver(()=>requestAnimationFrame(()=>commit(detect()))).observe(document.body,{attributes:true,attributeFilter:['class']});
-    new MutationObserver(()=>requestAnimationFrame(()=>commit(detect()))).observe(dock,{attributes:true,subtree:true,attributeFilter:['class','aria-current']});
-    window.KOVA_MOBILE_VIEW={commit,detect};commit(detect());
-  };setTimeout(init,0);
+  'use strict';
+  const routes=new Set(['home','decouvrir','events','parties','concerts','activities','restaurants','artists','stories','publier','profile']);
+  const routeHash={home:'#kovaMobileHome',decouvrir:'#decouvrir',events:'#events',parties:'#parties',concerts:'#concerts',activities:'#activities',restaurants:'#restaurants',artists:'#artists',stories:'#stories',publier:'#publier',profile:'#profile'};
+  const hashRoute=Object.fromEntries(Object.entries(routeHash).map(([route,hash])=>[hash,route]));
+  let applying=false;
+
+  const current=()=>hashRoute[location.hash]||'home';
+  const isCategoryRoute=()=>['events','parties','concerts'].includes(current());
+  const eventCards=()=>[...document.querySelectorAll('#discover .scroller > .event-card')];
+  const categoryByEvent={5:'party',6:'party',7:'party',8:'nightlife',10:'party',11:'concert',12:'concert',13:'party',14:'concert',15:'festival',201:'party',202:'concert',203:'concert',205:'concert',206:'festival'};
+  const categoryCards=categories=>eventCards().filter(card=>categories.includes(card.dataset.kovaCategory||categoryByEvent[card.dataset.event]||'event'));
+  const routeReady=route=>({
+    decouvrir:!!window.KOVA_DISCOVER_FEED,
+    events:!!window.KOVA_EVENTS_OVERVIEW_OPEN,
+    parties:!!window.KOVA_EVENTS_OVERVIEW_OPEN,
+    concerts:!!window.KOVA_EVENTS_OVERVIEW_OPEN,
+    activities:!!window.KOVA_EXPERIENCE_OVERVIEW,
+    restaurants:!!window.KOVA_EXPERIENCE_OVERVIEW,
+    artists:!!window.KOVA_ARTIST_OVERVIEW,
+    stories:!!window.KOVA_STORIES_PAGE,
+    publier:!!window.KOVA_CREATED_EVENTS,
+    profile:!!window.KOVA_MOBILE_PROFILE
+  }[route]??true);
+
+  const closeSurfaces=()=>{
+    window.KOVA_DISCOVER_FEED?.close?.();
+    window.KOVA_MOBILE_PROFILE?.close?.();
+    window.KOVA_EVENTS_OVERVIEW_CLOSE?.({fromRouter:true});
+    window.KOVA_EXPERIENCE_OVERVIEW?.close?.({fromRouter:true,restoreFocus:false});
+    window.KOVA_ARTIST_OVERVIEW?.close?.({fromRouter:true,restore:false});
+    window.KOVA_STORIES_PAGE?.close?.();
+    document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
+    window.KOVA_MOBILE_MENU?.close?.();
+  };
+
+  const apply=(route,{attempt=0}={})=>{
+    route=routes.has(route)?route:'home';
+    if(innerWidth>700&&route!=='home') return;
+    if(!routeReady(route)&&attempt<12){setTimeout(()=>apply(route,{attempt:attempt+1}),80);return}
+    applying=true;
+    closeSurfaces();
+    if(route==='home'){
+      const y=Number(history.state?.scrollY||0);
+      requestAnimationFrame(()=>window.scrollTo({top:y,left:0,behavior:'auto'}));
+    }else if(route==='decouvrir') window.KOVA_DISCOVER_FEED?.open?.({fromRouter:true});
+    else if(route==='events') window.KOVA_EVENTS_OVERVIEW_OPEN?.({title:'Tous les événements',route,fromRouter:true});
+    else if(route==='parties') window.KOVA_EVENTS_OVERVIEW_OPEN?.({title:'Découvre les fêtes du moment',route,cards:categoryCards(['party','nightlife']),fromRouter:true});
+    else if(route==='concerts') window.KOVA_EVENTS_OVERVIEW_OPEN?.({title:'Concerts à venir',route,cards:categoryCards(['concert','festival']),fromRouter:true});
+    else if(route==='activities') window.KOVA_EXPERIENCE_OVERVIEW?.open?.('sports',{fromRouter:true});
+    else if(route==='restaurants') window.KOVA_EXPERIENCE_OVERVIEW?.open?.('restaurants',{fromRouter:true});
+    else if(route==='artists') window.KOVA_ARTIST_OVERVIEW?.open?.({fromRouter:true});
+    else if(route==='stories') window.KOVA_STORIES_PAGE?.open?.();
+    else if(route==='publier'){
+      document.body.classList.add('kova-mobile-create-mode');
+      window.KOVA_CREATED_EVENTS?.showEntry?.();
+      requestAnimationFrame(()=>document.getElementById('organizers')?.scrollIntoView({block:'start',behavior:'auto'}));
+    }else if(route==='profile') window.KOVA_MOBILE_PROFILE?.open?.();
+    applying=false;
+    window.dispatchEvent(new CustomEvent('kova:route-change',{detail:{route}}));
+  };
+
+  const navigate=(route,{replace=false}={})=>{
+    route=routes.has(route)?route:'home';
+    const previous={...(history.state||{}),kovaRoute:true,route:current(),scrollY:window.scrollY};
+    history.replaceState(previous,'',location.href);
+    const state={kovaRoute:true,route,canBack:!replace,scrollY:route==='home'?window.scrollY:0};
+    history[replace?'replaceState':'pushState'](state,'',routeHash[route]);
+    apply(route);
+  };
+  const back=()=>history.state?.canBack?history.back():navigate('home',{replace:true});
+
+  window.addEventListener('popstate',()=>apply(current()));
+  window.addEventListener('hashchange',()=>{if(!applying&&history.state?.route!==current())apply(current())});
+  const initial=current();
+  history.replaceState({...(history.state||{}),kovaRoute:true,route:initial,canBack:false,scrollY:0},'',routeHash[initial]);
+  window.KOVA_MOBILE_ROUTER={navigate,back,apply,current,is:route=>current()===route,isCategoryRoute,isExperienceRoute:()=>['activities','restaurants'].includes(current())};
+  window.KOVA_MOBILE_VIEW={commit:()=>{},detect:current};
+  setTimeout(()=>apply(initial),0);
 })();
 </script>
 <div class="sheet-backdrop" id="sheetBackdrop"></div>
@@ -20558,15 +20270,18 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <button aria-label="Fermer" id="kovaMenuClose" type="button">×</button>
 </div>
 <nav>
-<a href="#home"><small>01</small><span>Accueil</span></a>
-<a href="#discover"><small>02</small><span>Découvrir</span></a>
-<a href="#artists"><small>03</small><span>Artistes</span></a>
-<a href="#kovaExperiences"><small>04</small><span>Visiter · Manger · Bouger</span></a>
-<a href="#organizers"><small>05</small><span>Pour les créateurs</span></a>
-<a href="#kovaAppCTA"><small>06</small><span>Application</span></a>
-<a data-kova-wallet-open="true" href="#wallet"><small>07</small><span>Mes billets</span></a>
+<a data-kova-menu-action="home" href="#kovaMobileHome"><small>01</small><span>Accueil</span></a>
+<a data-kova-menu-action="for-you" href="#decouvrir"><small>02</small><span>Pour toi</span></a>
+<a data-kova-menu-action="events" href="#events"><small>03</small><span>Événements</span></a>
+<a data-kova-menu-action="parties" href="#parties"><small>04</small><span>Fêtes</span></a>
+<a data-kova-menu-action="concerts" href="#concerts"><small>05</small><span>Concerts</span></a>
+<a data-kova-menu-action="activities" href="#activities"><small>06</small><span>Activités</span></a>
+<a data-kova-menu-action="restaurants" href="#restaurants"><small>07</small><span>Manger</span></a>
+<a data-kova-menu-action="artists" href="#artists"><small>08</small><span>Artistes</span></a>
+<a data-kova-menu-action="stories" href="#stories"><small>09</small><span>Histoires KOVA</span></a>
+<a data-kova-menu-action="profile" href="#profile"><small>10</small><span>Profil</span></a>
 </nav>
-<button id="kovaMenuEarlyAccess" type="button">Accès en avant-première</button>
+<button data-kova-menu-action="publish" id="kovaMenuEarlyAccess" type="button">Publier un événement</button>
 </aside>
 <script>
 (() => {
@@ -20596,6 +20311,15 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   backdrop?.addEventListener('click',closeMenu);
   menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
   document.querySelector('#kovaMenuEarlyAccess')?.addEventListener('click',closeMenu);
+  const routeFor={home:'home','for-you':'decouvrir',events:'events',parties:'parties',concerts:'concerts',activities:'activities',restaurants:'restaurants',artists:'artists',stories:'stories',profile:'profile',publish:'publier'};
+  menu.addEventListener('click',event=>{
+    const trigger=event.target.closest('[data-kova-menu-action]');if(!trigger)return;
+    event.preventDefault();
+    const action=trigger.dataset.kovaMenuAction;
+    closeMenu();
+    window.KOVA_MOBILE_ROUTER?.navigate?.(routeFor[action]||'home');
+  });
+  document.querySelector('[data-kova-header-publish]')?.addEventListener('click',()=>window.KOVA_MOBILE_ROUTER?.navigate?.('publier'));
   document.addEventListener('keydown',event=>{
     if(event.key==='Escape' && menu.classList.contains('open')) closeMenu();
   });
@@ -20607,22 +20331,8 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 /* KOVA V84 — lightweight optical response for Liquid Glass navigation. */
 (() => {
   const nav=document.querySelector('.nav');
-  const dock=document.querySelector('.mobile-dock');
-  const surfaces=[nav,dock].filter(Boolean);
+  const surfaces=[nav].filter(Boolean);
   if(!surfaces.length) return;
-
-  let morphTimer=0;
-  const syncDock=()=>{
-    if(!dock) return;
-    const items=[...dock.querySelectorAll('.dock-item')];
-    const index=Math.max(0,items.findIndex(item=>item.classList.contains('active')));
-    dock.style.setProperty('--dock-index',String(index));
-    dock.classList.remove('is-morphing');
-    void dock.offsetWidth;
-    dock.classList.add('is-morphing');
-    clearTimeout(morphTimer);
-    morphTimer=setTimeout(()=>dock.classList.remove('is-morphing'),340);
-  };
 
   const updateLight=(surface,event)=>{
     const rect=surface.getBoundingClientRect();
@@ -20645,61 +20355,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     });
   });
 
-  if(dock){
-    new MutationObserver(records=>{
-      if(records.some(record=>record.target.classList?.contains('dock-item'))) syncDock();
-    }).observe(dock,{subtree:true,attributes:true,attributeFilter:['class']});
-    syncDock();
-  }
-
-  const scrollStops=[
-    {element:document.querySelector('#discover'),index:1},
-    {element:document.querySelector('#kovaExperiences'),index:1},
-    {element:document.querySelector('#artists'),index:1},
-    {element:document.querySelector('#organizers'),index:3}
-  ].filter(stop=>stop.element);
-
-  const activateDockIndex=index=>{
-    if(!dock) return;
-    const items=[...dock.querySelectorAll('.dock-item')];
-    if(items[index]?.classList.contains('active')) return;
-    items.forEach((item,itemIndex)=>{
-      const active=itemIndex===index;
-      item.classList.toggle('active',active);
-      if(active) item.setAttribute('aria-current','page');
-      else item.removeAttribute('aria-current');
-    });
-  };
-
   let ticking=false;
-  let lastDockScrollY=Math.max(0,window.scrollY);
   const syncScrollState=()=>{
     ticking=false;
     nav?.classList.toggle('is-scrolled',window.scrollY>18);
-    if(!dock || window.innerWidth>1000 || document.body.classList.contains('kova-wallet-open')) return;
-    if(document.body.classList.contains('kova-mobile-feed-open')){
-      dock.classList.remove('is-scroll-compact');
-      activateDockIndex(1);
-      return;
-    }
-
-    const currentY=Math.max(0,window.scrollY);
-    const scrollingDown=currentY>lastDockScrollY+3;
-    const scrollingUp=currentY<lastDockScrollY-3;
-    if(window.innerWidth<=700){
-      if(currentY<110 || scrollingUp) dock.classList.remove('is-scroll-compact');
-      else if(scrollingDown && currentY>170) dock.classList.add('is-scroll-compact');
-    }else{
-      dock.classList.remove('is-scroll-compact');
-    }
-    lastDockScrollY=currentY;
-
-    const probe=Math.min(window.innerHeight*.34,280);
-    let activeIndex=0;
-    scrollStops.forEach(stop=>{
-      if(stop.element.getBoundingClientRect().top<=probe) activeIndex=stop.index;
-    });
-    activateDockIndex(activeIndex);
   };
   window.addEventListener('scroll',()=>{
     if(ticking) return;
@@ -20707,10 +20366,9 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     requestAnimationFrame(syncScrollState);
   },{passive:true});
   window.addEventListener('resize',syncScrollState,{passive:true});
-  new MutationObserver(syncScrollState).observe(document.body,{attributes:true,attributeFilter:['class']});
   syncScrollState();
 
-  window.KOVA_LIQUID_GLASS={sync:syncDock,syncScroll:syncScrollState};
+  window.KOVA_LIQUID_GLASS={syncScroll:syncScrollState};
 })();
 </script>
 <script>
@@ -21221,6 +20879,8 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   };
   let activeExperience='guide';
   let experienceOverviewTrigger=null;
+  let experienceOverviewScroll=0;
+  let experienceOverviewHash='';
   const experienceSources=id=>[...document.querySelectorAll(experienceOverviewConfig[id].selector)];
   function updateExperienceOverview(id){
     const config=experienceOverviewConfig[id];
@@ -21261,29 +20921,35 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       const strong=document.createElement('strong');
       strong.textContent=title;
       const description=document.createElement('span');
-      description.textContent=detail;
+      description.textContent=[detail,budget].filter(Boolean).join(' · ');
       copy.append(eyebrow,strong,description);
       card.append(img,badge,copy);
       card.addEventListener('click',()=>{closeExperienceOverview({restoreFocus:false});window.setTimeout(()=>source.click(),180)});
       return card;
     }));
   }
-  function openExperienceOverview(){
+  function openExperienceOverview({fromRouter=false}={}){
     if(!experienceOverview)return;
     experienceOverviewTrigger=document.activeElement;
+    experienceOverviewScroll=window.scrollY;
+    experienceOverviewHash=location.hash||'#kovaMobileHome';
     renderExperienceOverview(activeExperience);
     experienceOverview.classList.add('open');
     experienceOverview.setAttribute('aria-hidden','false');
     document.body.classList.add('kova-experience-overview-open');
+    if(!fromRouter) history.replaceState(null,'',activeExperience==='restaurants'?'#restaurants':'#activities');
     experienceOverview.scrollTop=0;
     window.setTimeout(()=>$('#kovaExperienceOverviewClose')?.focus(),80);
   }
-  function closeExperienceOverview({restoreFocus=true}={}){
+  function closeExperienceOverview({restoreFocus=true,fromRouter=false}={}){
     if(!experienceOverview)return;
+    if(!fromRouter && restoreFocus && innerWidth<=700 && window.KOVA_MOBILE_ROUTER?.isExperienceRoute?.()) return window.KOVA_MOBILE_ROUTER.back();
     experienceOverview.classList.remove('open');
     experienceOverview.setAttribute('aria-hidden','true');
     document.body.classList.remove('kova-experience-overview-open');
+    if(!fromRouter) history.replaceState(null,'',experienceOverviewHash||'#kovaMobileHome');
     if(restoreFocus&&experienceOverviewTrigger instanceof HTMLElement)experienceOverviewTrigger.focus({preventScroll:true});
+    if(restoreFocus)requestAnimationFrame(()=>window.scrollTo({top:experienceOverviewScroll,left:0,behavior:'auto'}));
   }
   function selectExperience(id,{focus=false}={}){
     experienceTabs.forEach(tab=>{const active=tab.dataset.experienceTab===id;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;if(active&&focus)tab.focus()});
@@ -21315,6 +20981,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){foodSection.classList.add('food-ready');observer.disconnect()}},{threshold:.12});
     observer.observe(foodSection);
   }else foodSection?.classList.add('food-ready');
+  window.KOVA_EXPERIENCE_OVERVIEW={open:(id,options={})=>{selectExperience(id);openExperienceOverview(options)},close:closeExperienceOverview};
   window.KOVA_GUIDE={open:openPlace,openRestaurant,openSport,selectExperience,close:closePlace,places,restaurants,sports};
 })();
 </script>
@@ -21502,7 +21169,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   /* Tactile Liquid Glass: horizontal pressure changes the refraction without
      turning a deliberate slide into an accidental navigation click. */
   if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
-    document.querySelectorAll('.nav .brand,#kovaMenuOpen,.mobile-dock,.v64-secondary,.v66-icon-btn,.v67-icon,.kova-place-nav button,.kova-testimonial-controls button').forEach(glass=>{
+    document.querySelectorAll('.nav .brand,#kovaMenuOpen,.v64-secondary,.v66-icon-btn,.v67-icon,.kova-place-nav button,.kova-testimonial-controls button').forEach(glass=>{
       glass.classList.add('kova-glass-fluid');
       let gesture=null;
 
@@ -21651,10 +21318,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       return;
     }
 
-    const dockLink=event.target.closest('.mobile-dock .dock-item');
-    if(dockLink && mobile()){
-      qa('.mobile-dock .dock-item').forEach(link=>link.classList.toggle('active',link===dockLink));
-    }
   },true);
 
   const previewBindings=[
@@ -23528,13 +23191,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   let flyerData='';
 
   const money=v=>new Intl.NumberFormat('fr-FR').format(Number(v||0))+' FCFA';
-  // ---------- Mobile dock ----------
-  const dockItems=qa('.mobile-dock .dock-item');
-  dockItems.forEach(item=>item.addEventListener('click',()=>{
-    dockItems.forEach(x=>x.classList.remove('active'));
-    item.classList.add('active');
-  }));
-
   // ---------- Artist profiles ----------
   const artistOverlay=q('#k43ArtistOverlay');
   const eventOverlay=q('#k43EventOverlay');
@@ -24130,6 +23786,11 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
       card.dataset.eventId=String(data.id);
       card.dataset.event='created-'+String(data.id);
       card.dataset.kovaCreated='true';
+      card.dataset.kovaCategory=({
+        'Vie nocturne':'nightlife',
+        'Concert':'concert',
+        'Festival':'festival'
+      })[data.category]||'event';
       card.tabIndex=0;
       card.setAttribute('role','button');
       card.setAttribute('aria-label',`Ouvrir ${data.name||'Nouvel événement'}`);
@@ -26013,7 +25674,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     wallet.setAttribute('aria-hidden','false');
     document.body.classList.add('kova-wallet-open');
     window.KOVA_PLAYER?.hide?.();
-    qa('.mobile-dock .dock-item').forEach(item=>item.classList.toggle('active',item.hasAttribute('data-kova-wallet-open')));
     setTimeout(()=>walletClose?.focus({preventScroll:true}),80);
   }
 
@@ -26300,100 +25960,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     openWallet();
   }));
 
-  /* The historical dock listener only changed its selected colour. This
-     capture controller owns navigation, closes the wallet when needed and
-     prevents older click handlers from competing for the same tap. */
-  const mobileDock=q('.mobile-dock');
-  const setActiveDockItem=item=>{
-    qa('.mobile-dock .dock-item').forEach(candidate=>{
-      const active=candidate===item;
-      candidate.classList.toggle('active',active);
-      if(active) candidate.setAttribute('aria-current','page');
-      else candidate.removeAttribute('aria-current');
-    });
-  };
-
-  mobileDock?.addEventListener('click',event=>{
-    const item=event.target.closest('.dock-item');
-    if(!item || !mobileDock.contains(item)) return;
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-
-    setActiveDockItem(item);
-    /* Older prototype listeners still observe the same gesture. Re-commit the
-       selected destination after that event cycle so the five-item dock and
-       its optical indicator stay aligned. */
-    setTimeout(()=>setActiveDockItem(item),0);
-    window.KOVA_MOBILE_MENU?.close?.();
-
-    if(item.hasAttribute('data-kmh-create')){
-      window.KOVA_MOBILE_PROFILE?.close?.();
-      if(wallet?.classList.contains('open')) closeWallet();
-      window.KOVA_DISCOVER_FEED?.close?.();
-      document.body.classList.add('kova-mobile-create-mode');
-      window.KOVA_CREATED_EVENTS?.showEntry?.();
-      requestAnimationFrame(()=>{
-        q('#organizers')?.scrollIntoView({behavior:'smooth',block:'start'});
-        history.replaceState(null,'','#organizers');
-        window.KOVA_MOBILE_VIEW?.commit?.('create');
-      });
-      return;
-    }
-
-    if(item.hasAttribute('data-kmh-home')){
-      window.KOVA_MOBILE_PROFILE?.close?.();
-      if(wallet?.classList.contains('open')) closeWallet();
-      window.KOVA_DISCOVER_FEED?.close?.();
-      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
-      requestAnimationFrame(()=>{
-        q('#kovaMobileHome')?.scrollIntoView({behavior:'smooth',block:'start'});
-        history.replaceState(null,'','#kovaMobileHome');
-        window.KOVA_MOBILE_VIEW?.commit?.('home');
-      });
-      return;
-    }
-
-    if(item.hasAttribute('data-kmh-discover')){
-      window.KOVA_MOBILE_PROFILE?.close?.();
-      if(wallet?.classList.contains('open')) closeWallet();
-      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
-      window.KOVA_DISCOVER_FEED?.open?.();
-      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('discover'),0);
-      return;
-    }
-
-    if(item.hasAttribute('data-kova-wallet-open')){
-      window.KOVA_MOBILE_PROFILE?.close?.();
-      window.KOVA_DISCOVER_FEED?.close?.();
-      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
-      openWallet();
-      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('wallet'),0);
-      return;
-    }
-
-    if(item.hasAttribute('data-kmh-profile')){
-      if(wallet?.classList.contains('open')) closeWallet();
-      window.KOVA_DISCOVER_FEED?.close?.();
-      document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-create-free');
-      window.KOVA_MOBILE_PROFILE?.open?.();
-      setTimeout(()=>window.KOVA_MOBILE_VIEW?.commit?.('profile'),0);
-      return;
-    }
-
-    if(wallet?.classList.contains('open')) closeWallet();
-    window.KOVA_DISCOVER_FEED?.close?.();
-    const href=item.getAttribute('href');
-    const selector=!href || href==='#' ? '#home' : href;
-    const target=q(selector);
-    if(!target) return;
-
-    requestAnimationFrame(()=>{
-      target.scrollIntoView({behavior:'smooth',block:'start'});
-      history.replaceState(null,'',selector);
-    });
-  },true);
-
   qa('[data-v81-wallet-tab]').forEach(button=>button.addEventListener('click',()=>{
     activeWalletTab=button.dataset.v81WalletTab;
     renderWallet();
@@ -26401,7 +25967,8 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
   q('#kovaWalletDiscover')?.addEventListener('click',()=>{
     closeWallet();
     document.body.classList.remove('kova-mobile-create-mode','kova-create-flow','kova-profile-open');
-    window.KOVA_DISCOVER_FEED?.open?.();
+    if(innerWidth<=700) window.KOVA_MOBILE_ROUTER?.navigate?.('decouvrir');
+    else window.KOVA_DISCOVER_FEED?.open?.();
   });
   walletList?.addEventListener('click',event=>{
     const download=event.target.closest('[data-v81-download]');
@@ -27156,43 +26723,6 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   enhanceTrackList();
   window.KOVA_V71_RISING_READY=true;
-})();
-</script><script>
-(() => {
-  const nav = document.querySelector('.mobile-dock');
-  if(!nav) return;
-
-  function centerDock(){
-    if(window.innerWidth > 1000) return;
-
-    nav.style.setProperty('position','fixed','important');
-    nav.style.setProperty('left',window.innerWidth <= 700 ? '0' : '50%','important');
-    nav.style.setProperty('right',window.innerWidth <= 700 ? '0' : 'auto','important');
-    nav.style.setProperty('margin','0','important');
-    nav.style.setProperty('width',
-      window.innerWidth <= 700 ? '100%' : 'min(calc(100vw - 24px),680px)',
-      'important'
-    );
-    nav.style.setProperty('max-width',
-      window.innerWidth <= 700 ? 'none' : 'calc(100vw - 24px)',
-      'important'
-    );
-    nav.style.setProperty('transform',window.innerWidth <= 700 ? 'translateY(var(--dock-lift,0px)) translateZ(0)' : 'translateX(-50%) translateY(var(--dock-lift,0px)) translateZ(0)','important');
-    nav.style.setProperty('bottom',
-      window.innerWidth <= 700 ? '0' : 'max(10px,env(safe-area-inset-bottom))',
-      'important'
-    );
-    nav.style.setProperty('box-sizing','border-box','important');
-  }
-
-  window.addEventListener('resize',centerDock);
-  window.addEventListener('orientationchange',()=>setTimeout(centerDock,120));
-  window.visualViewport?.addEventListener('resize',centerDock);
-
-  requestAnimationFrame(centerDock);
-  setTimeout(centerDock,250);
-
-  window.KOVA_V74_BOTTOM_NAV_CENTERED = true;
 })();
 </script><script defer src="assets/kova-interface-v3.js?v=20260821-6"></script></body>
 </html>
