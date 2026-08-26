@@ -20871,6 +20871,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     $('#kovaPlaceRulesTitle').textContent=restaurant?'Avant de réserver.':sport?'Les bons réflexes.':'Les bons réflexes.';
     $('#kovaPlaceDisclaimer').textContent=restaurant?'Budget KOVA estimé par personne pour un repas confortable, hors alcool. Carte, prix et horaires peuvent changer : confirme avant de réserver.':sport?'Budget KOVA par personne calculé à partir des tarifs publics disponibles. Les prix, horaires et conditions peuvent changer : confirme toujours avant de réserver.':'Budget KOVA estimé par personne pour vivre la sortie confortablement. Tarifs, horaires et conditions peuvent changer : confirme avant de partir.';
     const gallery=$('#kovaPlaceGallery');gallery.replaceChildren();
+    const firstImage=place.images?.[0]||'';
+    const resolvedFirst=/^(?:https?:|assets\/|data:)/.test(firstImage)?firstImage:commons(firstImage);
+    page.style.setProperty('--kova-place-ambient',resolvedFirst?`url("${resolvedFirst.replace(/["\\]/g,'\\$&')}")`:'none');
+    window.KOVA_EVENT_THEME?.apply?.(resolvedFirst,place.title);
     place.images.forEach((name,index)=>{
       const figure=make('figure');
       const image=make('img');image.src=/^(?:https?:|assets\/|data:)/.test(name)?name:commons(name);image.alt=`${place.title} — vue ${index+1}`;image.loading=index?'lazy':'eager';image.decoding='async';
@@ -24715,6 +24719,140 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <a class="kova-player-ticket" href="#" id="kovaPlayerTickets">Billets</a>
 <button aria-label="Masquer le KOVA Player" class="kova-player-close" id="kovaPlayerClose" type="button">×</button>
 </aside>
+<style id="kova-universal-detail-system">
+/* KOVA universal detail system — event, artist and guide surfaces */
+.v66-host-row,.v66-story-mobile,.v66-sticky-cta,.v66-detail-scrim,.v66-ticket-sheet-head{display:none}
+@media(max-width:900px){
+.v66-story-mobile{display:block}.v66-story-desktop{display:none!important}
+.v66-event,.v67-artist{
+  --detail-accent:var(--kova-event-accent,#f04b8b);
+  --detail-accent-rgb:var(--kova-event-accent-rgb,240,75,139);
+  background:#070709!important;color:#f7f7f8!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif!important;
+}
+.v66-event-backdrop,.v67-artist-backdrop{
+  position:fixed!important;inset:-12%!important;z-index:0!important;
+  background-position:center top!important;background-size:cover!important;
+  filter:blur(78px) saturate(1.35)!important;opacity:.38!important;
+  transform:scale(1.12)!important;
+}
+.v66-event::after,.v67-artist::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(4,4,7,.24),rgba(7,7,9,.76) 38%,#070709 72%);
+}
+.v66-event-nav,.v67-nav{
+  position:absolute!important;inset:0 0 auto!important;z-index:120!important;
+  height:calc(68px + env(safe-area-inset-top))!important;
+  padding:calc(12px + env(safe-area-inset-top)) 16px 8px!important;
+  border:0!important;background:transparent!important;pointer-events:none!important;
+}
+.v66-event-nav>*,.v67-nav>*{pointer-events:auto!important}
+.v66-nav-top,.v67-nav-top{display:none!important}
+.v66-icon-btn,.v67-icon{
+  width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;
+  border:0!important;border-radius:50%!important;
+  background:rgba(8,8,11,.28)!important;color:#fff!important;font-size:20px!important;
+  -webkit-backdrop-filter:blur(16px) saturate(135%)!important;backdrop-filter:blur(16px) saturate(135%)!important;
+  box-shadow:none!important;
+}
+.v66-nav-actions,.v67-nav-actions{gap:8px!important}.v67-nav-actions #v67FollowTop{display:none!important}
+.v66-event-scroll,.v67-scroll{position:absolute!important;inset:0!important;z-index:2!important;padding:0!important;background:transparent!important}
+.v66-event-hero,.v67-hero{
+  height:auto!important;min-height:auto!important;overflow:visible!important;display:grid!important;grid-template-columns:minmax(260px,430px) minmax(0,620px)!important;
+  align-items:center!important;justify-content:center!important;gap:clamp(34px,6vw,92px)!important;
+  padding:clamp(96px,12vh,138px) clamp(24px,6vw,90px) clamp(54px,8vh,92px)!important;
+  background:transparent!important;
+}
+.v66-event-ambient,.v67-ambient{display:none!important}
+.v66-poster-wrap,.v67-portrait-shell{
+  width:100%!important;max-width:430px!important;aspect-ratio:4/5!important;margin:0!important;
+  border:1px solid rgba(255,255,255,.16)!important;border-radius:24px!important;overflow:hidden!important;
+  background:rgba(255,255,255,.055)!important;box-shadow:0 34px 90px rgba(0,0,0,.42)!important;transform:none!important;
+}
+#v66Poster,#v67Portrait{width:100%!important;height:100%!important;object-fit:contain!important;background:rgba(4,4,6,.42)!important}
+.v66-live-badge{display:none!important}.v67-badge{top:16px!important;left:16px!important;padding:7px 10px!important;border-radius:999px!important;background:rgba(7,7,10,.68)!important;color:#fff!important;font-size:9px!important;letter-spacing:.14em!important;backdrop-filter:blur(14px)!important}
+.v66-hero-copy,.v67-hero-copy{position:relative!important;z-index:2!important;width:100%!important;max-width:620px!important;margin:0!important;text-align:left!important}
+.v66-kicker,.v67-genre,.v66-section-label,.v67-label{color:rgba(255,255,255,.55)!important;font-size:10px!important;font-weight:650!important;letter-spacing:.16em!important}
+.v66-host-row{display:grid!important;grid-template-columns:36px 1fr!important;align-items:center!important;gap:10px!important;margin:0 0 23px!important;padding:0 0 20px!important;border-bottom:1px solid rgba(255,255,255,.13)!important}
+.v66-host-avatar{display:grid!important;place-items:center!important;width:36px!important;height:36px!important;border-radius:50%!important;background:rgba(255,255,255,.94)!important;color:#09090b!important;font-size:13px!important;font-weight:700!important}
+.v66-host-row strong{display:block!important;font-size:14px!important;line-height:1.25!important;font-weight:600!important}.v66-host-row span{display:block!important;margin-top:2px!important;color:rgba(255,255,255,.48)!important;font-size:11px!important}
+.v66-hero-copy h1,.v67-hero-copy h1{margin:11px 0 14px!important;font-size:clamp(34px,4.4vw,58px)!important;line-height:1.02!important;letter-spacing:-.045em!important;font-weight:560!important;text-wrap:balance!important}
+.v66-hero-copy>p,.v67-hero-copy>p{max-width:540px!important;margin:0!important;color:rgba(255,255,255,.68)!important;font-size:16px!important;line-height:1.5!important}
+.v66-hero-actions{display:none!important}.v67-hero-actions{display:flex!important;gap:10px!important;margin-top:28px!important}
+.v66-ticket-jump,.v67-listen{min-height:50px!important;padding:0 22px!important;border:0!important;border-radius:999px!important;background:var(--detail-accent)!important;color:#fff!important;font-size:14px!important;font-weight:650!important;box-shadow:0 14px 36px rgba(var(--detail-accent-rgb),.28)!important}
+.v66-round-action{width:50px!important;height:50px!important;border-radius:50%!important}
+.v66-event-content,.v67-content{
+  position:relative!important;z-index:3!important;display:block!important;width:min(100% - 48px,980px)!important;
+  margin:0 auto!important;padding:0 0 calc(118px + env(safe-area-inset-bottom))!important;background:transparent!important;
+}
+.v66-main-column,.v67-main{width:100%!important;max-width:none!important}
+.v66-story-card,.v66-program,.v66-info-section,.v66-location,.v66-organizer,
+.v67-bio-card,.v67-tracks,.v67-events{
+  margin:0!important;padding:42px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.12)!important;
+  border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+.v66-story-card h2,.v66-section-head h2,.v67-bio-card h2,.v67-section-head h2{max-width:760px!important;margin:10px 0 18px!important;font-size:clamp(24px,3vw,34px)!important;line-height:1.08!important;letter-spacing:-.035em!important;font-weight:580!important}
+.v66-story-card p,.v67-bio-card p{max-width:760px!important;color:rgba(255,255,255,.68)!important;font-size:17px!important;line-height:1.68!important}
+.v66-text-btn,.v67-link-btn{margin-top:14px!important;padding:0!important;border:0!important;background:none!important;color:#fff!important;font-size:13px!important}
+.v66-program-grid{display:grid!important;grid-template-columns:1fr!important;gap:0!important;margin-top:22px!important}
+.v66-program-item{min-height:0!important;display:grid!important;grid-template-columns:minmax(130px,.7fr) 1fr!important;align-items:center!important;padding:15px 0 15px 18px!important;border:0!important;border-top:1px solid rgba(255,255,255,.09)!important;border-radius:0!important;background:linear-gradient(90deg,rgba(var(--detail-accent-rgb),.75) 0 2px,transparent 2px)!important}
+.v66-program-item::before{display:none!important}.v66-program-item b{font-size:15px!important}.v66-program-item span{color:rgba(255,255,255,.52)!important;font-size:13px!important}
+.v66-info-grid{display:flex!important;flex-wrap:wrap!important;gap:8px 22px!important;margin-top:18px!important}
+.v66-info-card{display:flex!important;align-items:center!important;gap:8px!important;min-height:0!important;padding:8px 0!important;border:0!important;background:none!important;box-shadow:none!important}
+.v66-info-icon{display:grid!important;place-items:center!important;width:27px!important;height:27px!important;border:0!important;border-radius:50%!important;background:rgba(255,255,255,.08)!important;color:#fff!important;font-size:11px!important}
+.v66-info-card strong{font-size:13px!important;font-weight:600!important}.v66-info-card span{color:rgba(255,255,255,.5)!important;font-size:12px!important}
+.v66-location{display:grid!important;grid-template-columns:minmax(220px,.8fr) 1fr!important;gap:30px!important;align-items:center!important}
+.v66-location-visual{min-height:210px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:20px!important;background:rgba(255,255,255,.045)!important}
+.v66-location-copy h2{margin:11px 0 6px!important;font-size:clamp(28px,4vw,44px)!important;font-weight:600!important;letter-spacing:-.04em!important}.v66-location-copy p{color:rgba(255,255,255,.52)!important}
+.v66-outline-btn{min-height:42px!important;margin-top:18px!important;padding:0 16px!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:999px!important;background:transparent!important;color:#fff!important}
+.v66-organizer{display:grid!important;grid-template-columns:auto 1fr auto!important;align-items:center!important;gap:14px!important}.v66-organizer-logo{width:48px!important;height:48px!important;border-radius:50%!important;background:#fff!important;color:#111!important}.v66-organizer h3{margin:3px 0!important;font-size:17px!important}.v66-organizer p{color:rgba(255,255,255,.5)!important;font-size:13px!important}
+.v66-follow{min-height:40px!important;padding:0 16px!important;border-radius:999px!important}
+.v66-ticket-card{
+  position:fixed!important;left:50%!important;right:auto!important;bottom:0!important;z-index:260!important;
+  width:min(620px,100%)!important;max-height:min(78dvh,720px)!important;margin:0!important;padding:0 22px calc(22px + env(safe-area-inset-bottom))!important;
+  overflow-y:auto!important;border:1px solid rgba(255,255,255,.15)!important;border-bottom:0!important;border-radius:26px 26px 0 0!important;
+  background:rgba(18,18,22,.96)!important;color:#fff!important;box-shadow:0 -30px 90px rgba(0,0,0,.62)!important;
+  -webkit-backdrop-filter:blur(34px) saturate(160%)!important;backdrop-filter:blur(34px) saturate(160%)!important;
+  transform:translate(-50%,105%)!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:transform .32s ease,opacity .24s ease,visibility .32s!important;
+}
+.v66-ticket-card.open{transform:translate(-50%,0)!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+.v66-ticket-sheet-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;margin:0 -22px 12px;padding:18px 22px 12px;background:linear-gradient(#121216 72%,transparent)}
+.v66-ticket-sheet-head strong{font-size:18px;font-weight:600}.v66-ticket-sheet-close{width:36px;height:36px;border:1px solid rgba(255,255,255,.14);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:22px}
+.v66-ticket-top{padding:10px 0 18px!important;border:0!important}.v66-ticket-row{padding:17px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.1)!important;background:transparent!important}.v66-ticket-row>div>strong{font-size:15px!important}.v66-ticket-row small{color:rgba(255,255,255,.48)!important}.v66-counter button{width:36px!important;height:36px!important;border-radius:50%!important}.v66-buy{min-height:52px!important;border-radius:999px!important;background:var(--detail-accent)!important;color:#fff!important}
+.v66-detail-scrim{display:block;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.64);opacity:0;visibility:hidden;pointer-events:none;transition:.24s}.v66-detail-scrim.open{opacity:1;visibility:visible;pointer-events:auto}
+.v66-sticky-cta{
+  display:none;
+  position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:210;transform:translateX(-50%);
+  width:min(560px,calc(100% - 28px));min-height:56px;padding:0 22px;border:0;border-radius:999px;
+  background:var(--detail-accent);color:#fff;font:inherit;font-size:15px;font-weight:650;line-height:1;visibility:visible;opacity:1;
+  box-shadow:0 16px 42px rgba(0,0,0,.42),0 10px 30px rgba(var(--detail-accent-rgb),.24);transition:opacity .2s ease,visibility .2s ease;
+}
+body.v66-event-open .v66-sticky-cta{display:block}
+.v66-event:has(.v66-ticket-card.open) .v66-sticky-cta{opacity:0;visibility:hidden;pointer-events:none}
+.v67-side{display:none!important}.v67-platforms a{border:0!important;background:transparent!important;color:rgba(255,255,255,.72)!important;padding:8px 0!important}.v67-track-list{margin-top:18px!important}.v67-track{grid-template-columns:42px 1fr auto!important;min-height:72px!important;padding:12px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}.v67-track-number{width:auto!important;height:auto!important;background:none!important;color:rgba(255,255,255,.42)!important}.v67-play{width:36px!important;height:36px!important;border:0!important;border-radius:50%!important;background:rgba(255,255,255,.1)!important;color:#fff!important}.v67-event-item{padding:16px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;background:transparent!important}
+.v66-program[hidden],.v66-info-section[hidden],.v66-organizer[hidden]{display:none!important}
+.v66-story-card[hidden],.v66-location[hidden],.v66-location-visual[hidden]{display:none!important}.v66-location.no-map{grid-template-columns:1fr!important}.v66-location.no-map .v66-location-copy{max-width:620px}
+.kova-place-page{--detail-accent:var(--kova-event-accent,#f04b8b);isolation:isolate;background:#070709!important;color:#f7f7f8!important}
+.kova-place-page::before{content:"";position:fixed;inset:-12%;z-index:-2;background:var(--kova-place-ambient,none) center top/cover no-repeat;filter:blur(82px) saturate(1.3);opacity:.28;transform:scale(1.12)}
+.kova-place-page::after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,5,8,.34),#070709 60%);pointer-events:none}
+.kova-place-nav{height:calc(68px + env(safe-area-inset-top))!important;padding:calc(12px + env(safe-area-inset-top)) 16px 8px!important;border:0!important;background:transparent!important;pointer-events:none!important}.kova-place-nav>*{pointer-events:auto!important}.kova-place-nav-top{display:none!important}.kova-place-nav button{width:42px!important;height:42px!important;border-radius:50%!important;background:rgba(12,12,16,.5)!important}.kova-place-nav-actions{gap:8px!important}
+.kova-place-hero{padding-top:calc(82px + env(safe-area-inset-top))!important}.kova-place-gallery{width:min(100% - 36px,920px)!important;margin:auto!important}.kova-place-gallery figure{border-radius:24px!important;overflow:hidden!important;box-shadow:0 30px 80px rgba(0,0,0,.38)!important}
+.kova-place-intro,.kova-place-content{width:min(100% - 36px,920px)!important;margin-inline:auto!important}.kova-place-intro{padding:44px 0!important;border-bottom:1px solid rgba(255,255,255,.12)!important}.kova-place-intro h1{font-size:clamp(40px,6vw,70px)!important;font-weight:620!important;letter-spacing:-.055em!important}.kova-place-facts{display:flex!important;flex-wrap:wrap!important;gap:8px 22px!important}.kova-place-fact{min-width:0!important;padding:8px 0!important;border:0!important;background:none!important;box-shadow:none!important}
+.kova-place-content{display:block!important;padding-bottom:calc(70px + env(safe-area-inset-bottom))!important}.kova-place-block,.kova-place-practical{margin:0!important;padding:40px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}.kova-place-block h2,.kova-place-practical h3{font-weight:600!important;letter-spacing:-.04em!important}.kova-place-list article{display:grid!important;grid-template-columns:34px minmax(120px,.65fr) 1fr!important;align-items:center!important;padding:15px 0!important;border:0!important;border-top:1px solid rgba(255,255,255,.08)!important;border-radius:0!important;background:none!important}.kova-place-practical dl>div{padding:13px 0!important;border-top:1px solid rgba(255,255,255,.08)!important}
+}
+@media(max-width:700px){
+  .v66-event-hero,.v67-hero{grid-template-columns:1fr!important;gap:26px!important;padding:calc(82px + env(safe-area-inset-top)) 18px 48px!important}
+  .v66-poster-wrap,.v67-portrait-shell{width:min(84vw,354px)!important;max-width:none!important;margin:auto!important;border-radius:22px!important}
+  .v66-hero-copy,.v67-hero-copy{max-width:560px!important;margin:auto!important}.v66-hero-copy h1{font-size:clamp(29px,8.4vw,38px)!important;font-weight:560!important}.v67-hero-copy h1{font-size:clamp(34px,9.5vw,46px)!important;font-weight:580!important}.v66-hero-copy>p,.v67-hero-copy>p{font-size:14px!important}
+  .v66-event-content,.v67-content{width:calc(100% - 36px)!important}.v66-story-card,.v66-program,.v66-info-section,.v66-location,.v66-organizer,.v67-bio-card,.v67-tracks,.v67-events{padding:32px 0!important}
+  .v66-story-card h2,.v66-section-head h2{font-size:24px!important}.v67-bio-card h2,.v67-section-head h2{font-size:28px!important}.v66-story-card p,.v67-bio-card p{font-size:15px!important;line-height:1.62!important}
+  .v66-location{grid-template-columns:1fr!important;gap:20px!important}.v66-location-visual{min-height:150px!important}.v66-organizer{grid-template-columns:auto 1fr!important}.v66-organizer .v66-follow{grid-column:1/-1;width:100%!important}
+  .v66-info-grid{display:block!important}.v66-info-card{padding:10px 0!important;border-top:1px solid rgba(255,255,255,.08)!important}
+  .v67-hero-actions{display:grid!important;grid-template-columns:1fr auto!important}.v67-listen{width:100%!important}
+  .kova-place-list article{grid-template-columns:30px 1fr!important}.kova-place-list article span{grid-column:2!important}.kova-place-gallery figure{border-radius:20px!important}
+}
+@media(min-width:701px) and (max-width:900px){.v66-sticky-cta{bottom:22px}.v66-event-content,.v67-content{padding-bottom:150px!important}}
+</style>
 <div aria-hidden="true" class="v66-event" id="v66Event">
 <div class="v66-event-backdrop" id="v66Backdrop"></div>
 <header class="v66-event-nav">
@@ -24733,6 +24871,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <span class="v66-live-badge">SÉLECTION KOVA</span>
 </div>
 <div class="v66-hero-copy">
+<div class="v66-host-row">
+<div class="v66-host-avatar" id="v66HostAvatar">K</div>
+<div><strong id="v66HostName">KOVA</strong><span id="v66HostMeta">Organisateur</span></div>
+</div>
 <span class="v66-kicker" id="v66Kicker">ÉVÉNEMENT</span>
 <h1 id="v66Title">Événement KOVA</h1>
 <p id="v66Meta">Abidjan · bientôt</p>
@@ -24745,8 +24887,10 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <section class="v66-event-content">
 <div class="v66-main-column">
 <article class="v66-story-card">
-<span class="v66-section-label">LE PLAN</span>
-<h2>Le moment mérite qu’on s’y attarde.</h2>
+<span class="v66-section-label v66-story-mobile">À PROPOS</span>
+<span class="v66-section-label v66-story-desktop">LE PLAN</span>
+<h2 class="v66-story-mobile">À propos de cet événement</h2>
+<h2 class="v66-story-desktop">Le moment mérite qu’on s’y attarde.</h2>
 <p id="v66Description"></p>
 <button class="v66-text-btn" id="v66ReadMore" type="button">Tout lire</button>
 </article>
@@ -24787,7 +24931,8 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 <button class="v66-follow" type="button">Suivre</button>
 </section>
 </div>
-<aside class="v66-ticket-card" id="v66Tickets">
+<aside aria-hidden="true" class="v66-ticket-card" id="v66Tickets">
+<div class="v66-ticket-sheet-head"><strong>Choisir ses billets</strong><button aria-label="Fermer" class="v66-ticket-sheet-close" id="v66TicketSheetClose" type="button">×</button></div>
 <div class="v66-ticket-top">
 <span>BILLETS</span>
 <strong id="v66PriceFrom">À partir de 5 000 FCFA</strong>
@@ -24802,6 +24947,8 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 </aside>
 </section>
 </main>
+<div class="v66-detail-scrim" id="v66DetailScrim"></div>
+<button class="v66-sticky-cta" id="v66StickyCTA" type="button">Voir les billets</button>
 </div>
 <div aria-hidden="true" class="v66-transition" id="v66Transition">
 <div class="v66-transition-card" id="v66TransitionCard"></div>
@@ -24952,15 +25099,14 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     const parts=meta.split('·').map(x=>x.trim()).filter(Boolean);
     return {
       date:parts[0]||'Bientôt',
-      time:parts[1]||'20 h',
-      venue:parts.slice(2).join(' · ')||'Abidjan'
+      time:parts[1]||'',
+      venue:parts.slice(2).join(' · ')||''
     };
   }
 
   function descriptionFor(title){
     const key=Object.keys(descriptions).find(k=>title.toLowerCase().includes(k.toLowerCase()));
-    return key?descriptions[key]:
-      `Découvre ${title}, une expérience pensée pour réunir musique, ambiance et moments forts dans un cadre soigneusement sélectionné par KOVA.`;
+    return key?descriptions[key]:'';
   }
 
   function setPlayerVisible(visible){
@@ -25461,51 +25607,79 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     q('#v66Poster').alt=title;
     q('#v66Ambient').style.backgroundImage=image?`url("${image}")`:'';
     q('#v66Backdrop').style.backgroundImage=image?`url("${image}")`:'';
+    window.KOVA_EVENT_THEME?.apply?.(image,title);
     q('#v66Kicker').textContent=stateLabel?`${stateLabel} · ${category.toUpperCase()}`:category.toUpperCase();
     q('#v66Title').textContent=title;
     q('#v66Meta').textContent=meta;
-    q('#v66Description').textContent=created?.description||descriptionFor(title);
-    q('#v66Venue').textContent=parsed.venue;
-    q('#v66Address').textContent='Abidjan, Côte d’Ivoire';
+    const description=created?.description||descriptionFor(title);
+    q('.v66-story-card').hidden=!description;
+    q('#v66Description').textContent=description;
+    const venue=created?.venue||parsed.venue||'';
+    const address=created?.address||venue;
+    const locationSection=q('.v66-location');
+    const locationVisual=q('.v66-location-visual');
+    const latitude=Number(created?.latitude??created?.lat);
+    const longitude=Number(created?.longitude??created?.lng);
+    const hasCoordinates=Number.isFinite(latitude)&&Number.isFinite(longitude);
+    locationSection.hidden=!venue&&!address;
+    locationSection.classList.toggle('no-map',!hasCoordinates);
+    locationVisual.hidden=!hasCoordinates;
+    q('#v66Venue').textContent=venue||address;
+    q('#v66Address').textContent=address;
 
-    const program=[
-      [title,'Tête d’affiche'],
-      ['DJ Set','Montée en énergie'],
-      ['Guest surprise','Moment exclusif'],
-      ['KOVA Select','Closing session']
-    ];
+    const program=Array.isArray(created?.program)?created.program.filter(Boolean).map(item=>Array.isArray(item)?item:[String(item),'']):[];
+    q('.v66-program').hidden=!program.length;
+    q('.v66-program-count').textContent=program.length?`${String(program.length).padStart(2,'0')} temps fort${program.length>1?'s':''}`:'';
     q('#v66Program').innerHTML=program.map(item=>`
       <article class="v66-program-item">
         <b>${item[0]}</b>
         <span>${item[1]}</span>
       </article>`).join('');
 
-    q('#v66InfoGrid').innerHTML=[
-      ['◷','Horaires',`${parsed.time} · ouverture 1 h avant`],
-      ['18+','Âge requis','Pièce d’identité obligatoire'],
-      ['✦','Ambiance','Tenue soignée recommandée'],
-      ['♿','Accès','Assistance disponible sur place']
-    ].map(item=>`
+    const practical=[];
+    if(parsed.time && parsed.time!=='bientôt') practical.push(['◷','Horaire',parsed.time]);
+    if(created?.age) practical.push([`${created.age}+`,'Âge requis',created.ageNote||'']);
+    if(created?.dressCode) practical.push(['✦','Ambiance',created.dressCode]);
+    if(created?.accessibility) practical.push(['♿','Accès',created.accessibility]);
+    q('.v66-info-section').hidden=!practical.length;
+    q('#v66InfoGrid').innerHTML=practical.map(item=>`
       <article class="v66-info-card">
         <div class="v66-info-icon">${item[0]}</div>
         <div><strong>${item[1]}</strong><span>${item[2]}</span></div>
       </article>`).join('');
 
+    const organizer=created?.organizer||card.dataset.organizer||'';
+    const displayedOrganizer=organizer||'KOVA';
+    q('#v66HostName').textContent=displayedOrganizer;
+    q('#v66HostMeta').textContent=category||'Organisateur';
+    q('#v66HostAvatar').textContent=displayedOrganizer.trim().charAt(0).toUpperCase()||'K';
+    q('.v66-organizer').hidden=!organizer;
+    if(organizer){
+      q('.v66-organizer h3').textContent=organizer;
+      q('.v66-organizer p').textContent=created?.organizerDescription||'Organisateur sur KOVA';
+    }
+
     const createdTickets=Array.isArray(created?.tickets) && created.tickets.length
-      ? created.tickets.map(ticket=>[
-          String(ticket.name||'Billet'),
-          'Billet publié par l’organisateur',
-          Math.max(0,Number(ticket.price)||0)
-        ])
+      ? created.tickets.map(ticket=>{
+          const price=Math.max(0,Number(ticket.price)||0);
+          let name=String(ticket.name||'Billet').trim()||'Billet';
+          if(price>0 && /gratuit/i.test(name)) name=name.replace(/gratuit(?:e)?/ig,'').trim()||'Accès';
+          return [name,'Billet publié par l’organisateur',price];
+        })
       : null;
     const verifiedKey=Object.keys(verifiedTicketCatalog).find(key=>title.toLowerCase().includes(key.toLowerCase()));
     const verifiedTickets=verifiedKey?verifiedTicketCatalog[verifiedKey]:null;
-    const ticketPending=!createdTickets && !verifiedTickets && state!=='free';
-    const eventTickets=state==='free'?[['Accès gratuit','Dans la limite des places disponibles',0]]:(createdTickets||verifiedTickets||[['Tarif à confirmer','Vérifier auprès de l’organisateur',0]]);
+    const cardBudget=Number(card.dataset.kovaBudget);
+    const budgetTickets=Number.isFinite(cardBudget)&&cardBudget>0?[['Accès','Tarif annoncé pour cet événement',cardBudget]]:null;
+    const ticketPending=!createdTickets && !verifiedTickets && !budgetTickets && state!=='free';
+    const eventTickets=state==='free'?[['Accès gratuit','Dans la limite des places disponibles',0]]:(createdTickets||verifiedTickets||budgetTickets||[['Tarif à confirmer','Vérifier auprès de l’organisateur',0]]);
     quantities=eventTickets.map(()=>0);
     ticketPrices=eventTickets.map(item=>item[2]);
     ticketNames=eventTickets.map(item=>item[0]);
-    q('#v66PriceFrom').textContent=soldOut?'Événement complet':state==='free'?'Accès gratuit':ticketPending?'Tarif à confirmer':`À partir de ${new Intl.NumberFormat('fr-FR').format(Math.min(...ticketPrices))} FCFA`;
+    const positivePrices=ticketPrices.filter(price=>price>0);
+    const allFree=!ticketPending && ticketPrices.length>0 && positivePrices.length===0;
+    const startingPrice=positivePrices.length?Math.min(...positivePrices):0;
+    q('#v66PriceFrom').textContent=soldOut?'Événement complet':state==='free'||allFree?'Accès gratuit':ticketPending?'Tarif à confirmer':`À partir de ${new Intl.NumberFormat('fr-FR').format(startingPrice)} FCFA`;
     q('#v66TicketList').innerHTML=eventTickets.map((item,index)=>`
       <div class="v66-ticket-row">
         <div>
@@ -25522,8 +25696,11 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
         </div>
       </div>`).join('');
 
+    const ctaLabel=soldOut?'Complet':state==='free'||allFree?'Réserver · Gratuit':ticketPending?'Voir les disponibilités':`Billets dès ${new Intl.NumberFormat('fr-FR').format(startingPrice)} F`;
     q('#v66TicketJump').disabled=soldOut;
-    q('#v66TicketJump').textContent=soldOut?'Complet':'Voir les billets';
+    q('#v66TicketJump').textContent=ctaLabel;
+    q('#v66StickyCTA').disabled=soldOut;
+    q('#v66StickyCTA').textContent=ctaLabel;
     const buyButton=q('.v66-buy');
     if(buyButton){buyButton.disabled=soldOut;buyButton.textContent=soldOut?'Complet':'Choisir mes billets'}
     updateTotal();
@@ -25578,13 +25755,14 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   function openCheckout(){
     if(!ticketCount()){
-      q('#v66TicketList')?.scrollIntoView({behavior:'smooth',block:'center'});
+      openTicketSheet();
       q('[data-v66-plus]')?.focus({preventScroll:true});
       const button=q('.v66-buy');
       button.textContent='Choisis au moins un billet';
       setTimeout(()=>button.textContent='Choisir mes billets',1400);
       return;
     }
+    closeTicketSheet();
     renderCheckoutSummary();
     q('#v80CheckoutError').textContent='';
     qa('#kovaCheckout input').forEach(input=>input.classList.remove('v80-invalid'));
@@ -25852,7 +26030,17 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     },reduced?0:470);
   }
 
+  /* Public, single-owner entry point used by every KOVA surface that needs
+     to open an event without reviving one of the historical detail modals. */
+  window.KOVA_UNIVERSAL_DETAIL=window.KOVA_UNIVERSAL_DETAIL||{};
+  window.KOVA_UNIVERSAL_DETAIL.openEvent=(card,originNode=card)=>{
+    if(!card) return false;
+    animateOpen(canonicalEventCard(card),originNode);
+    return true;
+  };
+
   function close(){
+    closeTicketSheet();
     closeCheckout();
     success?.classList.remove('open');
     success?.setAttribute('aria-hidden','true');
@@ -25862,12 +26050,22 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     q('.v66-story-card').classList.remove('expanded');
     q('#v66ReadMore').textContent='Tout lire';
     window.KOVA_PLAYER.show();
-    window.KOVA_MOBILE_ROUTER?.returnFromDetail?.();
+    const returnToArtist=window.KOVA_DETAIL_RETURN_TO_ARTIST;
+    if(returnToArtist){
+      delete window.KOVA_DETAIL_RETURN_TO_ARTIST;
+      requestAnimationFrame(returnToArtist);
+    }else{
+      window.KOVA_MOBILE_ROUTER?.returnFromDetail?.();
+    }
+    if(/^#offline-(?:mini-)?event-/.test(location.hash)){
+      history.replaceState(history.state,'',location.pathname+location.search);
+    }
   }
 
   // Window capture runs before conflicting document handlers.
+  const eventEntrySelector='#discover .event-card,.kova-events-overview-grid .event-card,#phone .mini-card[data-event],#posterStage .poster[data-event]';
   window.addEventListener('click',event=>{
-    const source=event.target.closest?.('#discover .event-card,.kova-events-overview-grid .event-card,#phone .mini-card[data-event]');
+    const source=event.target.closest?.(eventEntrySelector);
     const favoriteButton=event.target.closest?.('[data-kova-favorite]');
     if(source && favoriteButton){
       event.preventDefault();
@@ -25889,7 +26087,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
 
   window.addEventListener('keydown',event=>{
     if(!['Enter',' '].includes(event.key)) return;
-    const source=event.target.closest?.('#discover .event-card,.kova-events-overview-grid .event-card,#phone .mini-card[data-event]');
+    const source=event.target.closest?.(eventEntrySelector);
     if(!source) return;
     event.preventDefault();
     event.stopPropagation();
@@ -25899,6 +26097,18 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     if(source.dataset.kovaOverviewClone==='true') setTimeout(()=>window.KOVA_EVENTS_OVERVIEW_CLOSE?.({fromRouter:true}),0);
   },true);
 
+  /* Preserve historical deep links while ensuring they now resolve to the
+     universal detail system instead of exposing the archived offline page. */
+  function openLegacyEventHash(){
+    const match=location.hash.match(/^#offline-(?:mini-)?event-(.+)$/);
+    if(!match || overlay.classList.contains('open')) return;
+    const key=decodeURIComponent(match[1]);
+    const source=qa('#discover .event-card[data-event],#phone .mini-card[data-event]').find(card=>String(card.dataset.event)===key);
+    if(source) requestAnimationFrame(()=>window.KOVA_UNIVERSAL_DETAIL.openEvent(source,source));
+  }
+  window.addEventListener('hashchange',openLegacyEventHash);
+  openLegacyEventHash();
+
   q('#v66Close').addEventListener('click',close);
   q('#v66NavTop').addEventListener('click',()=>q('.v66-event-scroll').scrollTo({top:0,behavior:'smooth'}));
   document.addEventListener('keydown',event=>{
@@ -25906,12 +26116,28 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     if(success?.classList.contains('open')) closeSuccess();
     else if(checkout?.classList.contains('open')) closeCheckout();
     else if(wallet?.classList.contains('open')) closeWallet();
+    else if(q('#v66Tickets')?.classList.contains('open')) closeTicketSheet();
     else if(overlay.classList.contains('open')) close();
   });
 
-  q('#v66TicketJump').addEventListener('click',()=>{
-    q('#v66Tickets').scrollIntoView({behavior:'smooth',block:'center'});
-  });
+  function openTicketSheet(){
+    if(currentSoldOut) return;
+    q('#v66Tickets')?.classList.add('open');
+    q('#v66Tickets')?.setAttribute('aria-hidden','false');
+    q('#v66DetailScrim')?.classList.add('open');
+    setTimeout(()=>q('#v66TicketSheetClose')?.focus({preventScroll:true}),60);
+  }
+
+  function closeTicketSheet(){
+    q('#v66Tickets')?.classList.remove('open');
+    q('#v66Tickets')?.setAttribute('aria-hidden','true');
+    q('#v66DetailScrim')?.classList.remove('open');
+  }
+
+  q('#v66TicketJump').addEventListener('click',openTicketSheet);
+  q('#v66StickyCTA').addEventListener('click',openTicketSheet);
+  q('#v66TicketSheetClose').addEventListener('click',closeTicketSheet);
+  q('#v66DetailScrim').addEventListener('click',closeTicketSheet);
 
   playerMain?.addEventListener('click',()=>{
     if(playerSwipeConsumed){
@@ -26283,6 +26509,7 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     q('#v67Portrait').alt=name;
     q('#v67Ambient').style.backgroundImage=image?`url("${image}")`:'';
     q('#v67Backdrop').style.backgroundImage=image?`url("${image}")`:'';
+    window.KOVA_EVENT_THEME?.apply?.(image,name);
     q('#v67Badge').textContent=isRising?'PÉPITE À SUIVRE':'ARTISTE DU MOMENT';
     q('#v67Genre').textContent=(data.genre||genre).toUpperCase();
     q('#v67Name').textContent=name;
@@ -26516,6 +26743,23 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     track.classList.toggle('playing');
     const button=track.querySelector('.v67-play');
     if(button) button.textContent=track.classList.contains('playing')?'Ⅱ':'▶';
+  });
+
+  q('#v67EventList').addEventListener('click',event=>{
+    const item=event.target.closest('.v67-event-item');
+    if(!item) return;
+    const wanted=item.querySelector('strong')?.textContent?.trim().toLowerCase();
+    const eventCard=qa('#discover .event-card,.kova-events-overview-grid .event-card').find(card=>{
+      const title=card.querySelector('h3,h4,strong')?.textContent?.trim().toLowerCase()||'';
+      return wanted && (title.includes(wanted)||wanted.includes(title));
+    });
+    if(!eventCard) return;
+    const artistCard=currentCard;
+    window.KOVA_DETAIL_RETURN_TO_ARTIST=()=>animateOpen(artistCard,artistCard);
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    unlockPageAfterArtist();
+    requestAnimationFrame(()=>window.KOVA_UNIVERSAL_DETAIL?.openEvent?.(eventCard,eventCard));
   });
 
   function toggleFollow(){
