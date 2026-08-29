@@ -17715,27 +17715,34 @@ body,button,input,select,textarea{font-family:"Helvetica Neue","SF Pro Text","SF
   .kmh-lifestyle-editorial img{object-position:center 42%}
   .kmh-lifestyle-editorial:after{background:linear-gradient(90deg,rgba(4,4,5,.58),rgba(4,4,5,.05) 70%)}
   .kmh-lifestyle-editorial .kmh-lifestyle-copy{display:block}.kmh-lifestyle-editorial .kmh-lifestyle-copy strong{max-width:16ch;font-size:22px}
-  .kmh-section{padding:32px 0 1px}
-  .kmh-section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:14px}
-  .kmh-section-head h2{margin:0;color:#f8f8fa;font-size:clamp(19px,5.3vw,22px);line-height:1.1;letter-spacing:-.028em;font-weight:650;text-wrap:balance}
-  .kmh-section-head p{margin:6px 0 0;color:#7f7f87;font-size:11px;line-height:1.3;letter-spacing:-.01em}
-  .kmh-section-head button{flex:0 0 auto;border:0;background:none;color:#a9a9b0;font-size:12px;padding:5px 0}
+  .kmh-section{padding:28px 0 1px}
+  .kmh-section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:11px}
+  .kmh-section-head h2{margin:0;color:#f8f8fa;font-size:clamp(18px,5vw,21px);line-height:1.08;letter-spacing:-.028em;font-weight:650;text-wrap:balance}
+  .kmh-section-head p{margin:4px 0 0;color:#7f7f87;font-size:10.5px;line-height:1.28;letter-spacing:-.01em}
+  .kmh-section-head button{flex:0 0 auto;border:0;background:none;color:#96969e;font-size:11px;padding:4px 0}
   .kmh-rail{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scroll-padding-inline:18px;padding:0 18px 8px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:none}
   .kmh-card{position:relative;flex:0 0 var(--kmh-card-compact);width:var(--kmh-card-compact);padding:0;border:0;background:none;color:#fff;text-align:left;scroll-snap-align:start;cursor:pointer}
   .kmh-card-media{display:block;width:100%;aspect-ratio:4/5;border:1px solid rgba(255,255,255,.055);border-radius:var(--kmh-radius-compact);background:#17171a center/cover no-repeat;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.14)}
   .kmh-card h3{display:-webkit-box;overflow:hidden;margin:9px 0 0;color:#f7f7f8;font-size:14px;line-height:1.18;font-weight:600;letter-spacing:-.008em;-webkit-box-orient:vertical;-webkit-line-clamp:2}
   .kmh-card small,.kmh-card em{display:block;overflow:hidden;margin-top:4px;color:#85858d;font-size:10.5px;font-weight:450;line-height:1.3;font-style:normal;text-overflow:ellipsis;white-space:nowrap}
   .kmh-card em{color:#b8b8be}
-  .kmh-feature-card{flex-basis:var(--kmh-card-medium);width:var(--kmh-card-medium)}
-  .kmh-feature-card .kmh-card-media{border-radius:var(--kmh-radius-medium)}
-  .kmh-feature-card h3{font-size:15px}
+  .kmh-feature-card{flex-basis:var(--kmh-card-large);width:var(--kmh-card-large)}
+  .kmh-feature-card .kmh-card-media{position:relative;aspect-ratio:4/5;border-radius:var(--kmh-radius-large);isolation:isolate;box-shadow:0 18px 46px rgba(0,0,0,.3);transition:transform .24s cubic-bezier(.16,1,.3,1),border-color .24s ease}
+  .kmh-feature-card .kmh-card-media:after{content:"";position:absolute;inset:34% 0 0;z-index:0;background:linear-gradient(180deg,transparent 0,rgba(4,4,5,.18) 30%,rgba(4,4,5,.9) 100%);pointer-events:none}
+  .kmh-feature-card:active .kmh-card-media{transform:scale(.987);border-color:rgba(255,255,255,.13)}
+  .kmh-feature-copy{position:absolute;right:17px;bottom:17px;left:17px;z-index:1;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+  .kmh-feature-copy small{margin:0 0 6px;color:rgba(255,255,255,.7);font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .kmh-feature-copy h3{display:-webkit-box;margin:0;color:#fff;font-size:22px;line-height:1.02;font-weight:650;letter-spacing:-.03em;white-space:normal;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+  .kmh-feature-copy em{margin-top:7px;color:rgba(255,255,255,.76);font-size:11px;line-height:1.25;white-space:nowrap}
   .kmh-wide-card{flex-basis:calc(var(--kmh-card-medium) * 1.15);width:calc(var(--kmh-card-medium) * 1.15)}
   .kmh-wide-card .kmh-card-media{aspect-ratio:1.34/1;border-radius:var(--kmh-radius-medium)}
   .kmh-artist-card{flex-basis:var(--kmh-card-medium);width:var(--kmh-card-medium)}
   .kmh-artist-card .kmh-card-media{aspect-ratio:1/1.18;border-radius:var(--kmh-radius-medium)}
   .kmh-artist-card h3{font-size:15px}
-  #kmhWeekend{padding-top:35px}
-  #kmhWeekend .kmh-section-head h2,#kmhSelection .kmh-section-head h2,#kmhStories .kmh-section-head h2{font-size:clamp(21px,5.7vw,24px)}
+  #kmhWeekend{padding-top:31px}
+  #kmhWeekend .kmh-section-head{margin-bottom:13px}
+  #kmhWeekend .kmh-section-head h2,#kmhSelection .kmh-section-head h2,#kmhStories .kmh-section-head h2{font-size:clamp(20px,5.4vw,23px)}
+  #kmhWeekend .kmh-rail{gap:14px;padding-bottom:4px;scroll-snap-type:x proximity}
   #kmhParties,#kmhFood{padding-top:27px}
   #kmhSelection{padding-top:39px}
   .kmh-select-card{flex-basis:var(--kmh-card-large);width:var(--kmh-card-large)}
@@ -17910,10 +17917,14 @@ body,button,input,select,textarea{font-family:"Helvetica Neue","SF Pro Text","SF
       const image=q('img',source);
       const card=document.createElement('button');
       card.type='button';card.className=`kmh-card ${variant}`.trim();card.setAttribute('aria-label',`Ouvrir ${title}`);
-      card.innerHTML='<span class="kmh-card-media"></span><h3></h3><small></small>';
+      const featured=variant.split(/\s+/).includes('kmh-feature-card');
+      card.innerHTML=featured
+        ? '<span class="kmh-card-media"><span class="kmh-feature-copy"><small>À L’AFFICHE</small><h3></h3><em></em></span></span>'
+        : '<span class="kmh-card-media"></span><h3></h3><small></small>';
       q('.kmh-card-media',card).style.backgroundImage=art?imageValue(art,'--event-img'):(image?`url("${image.currentSrc||image.src}")`:'');
       q('.kmh-card-media',card).style.backgroundPosition=imageValue(art,'--event-pos')||'50% 50%';
-      q('h3',card).textContent=title;q('small',card).textContent=meta;
+      q('h3',card).textContent=title;
+      (featured?q('em',card):q('small',card)).textContent=meta;
       card.addEventListener('click',()=>activate(source,card));return card;
     };
     const placeCard=(source,variant='kmh-wide-card')=>{
@@ -19791,9 +19802,9 @@ window.KOVA_MOBILE_FEED_RUNTIME = 'standalone-v94';
     const eventMeta = source => source?.querySelector('.event-copy p,.event-meta p')?.textContent?.trim() || 'Abidjan';
     const homeCard = source => {
       const button=document.createElement('button'); button.type='button'; button.className='kmh-card kmh-feature-card kmh-created-sync'; button.dataset.createdId=source.dataset.eventId||'';
-      button.innerHTML='<span class="kmh-card-media"></span><h3></h3><small></small>';
+      button.innerHTML='<span class="kmh-card-media"><span class="kmh-feature-copy"><small>À L’AFFICHE</small><h3></h3><em></em></span></span>';
       button.querySelector('.kmh-card-media').style.backgroundImage=eventImage(source)?`url("${eventImage(source)}")`:'';
-      button.querySelector('h3').textContent=eventTitle(source); button.querySelector('small').textContent=eventMeta(source);
+      button.querySelector('h3').textContent=eventTitle(source); button.querySelector('em').textContent=eventMeta(source);
       button.setAttribute('aria-label',`Ouvrir ${eventTitle(source)}`); button.addEventListener('click',()=>source.click()); return button;
     };
     const syncHome = () => {
